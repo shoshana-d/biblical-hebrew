@@ -20,71 +20,17 @@ document.addEventListener('DOMContentLoaded', function() {
    topMenu.classList.add("navbar");
    topMenu.classList.add("w3-card-4");
    
-   var a = document.createElement('a');
-   var reftext = document.createTextNode("About");
-   a.appendChild(reftext); 
-   a.href = "lessons-index.html"; 
-   topMenu.appendChild(a);
-   
-   var dropdown = document.createElement('div');
-   dropdown.classList.add("navbar-dropdown");
-   var dropdownbtn = document.createElement('button');
-   dropdownbtn.classList.add("navbar-dropbtn");
-   var btntext = document.createTextNode("alefbet");
-   dropdownbtn.appendChild(btntext); 
-   dropdownbtn.onclick = function() {showHideNavbarDropdown('navbarDropdown1')};
-   dropdown.appendChild(dropdownbtn);
-   
-   var dropdowncontent = document.createElement('div');
-   dropdowncontent.classList.add("navbar-dropdown-content");
-   dropdowncontent.classList.add("hidden");
-   dropdowncontent.id = 'navbarDropdown1';
-   var dropdownRefs = ["lessons-alefbet.html","lessons-alefbet-exercises.html","lessons-alefbet-plus.html"];
-   var dropdownRefsTexts = ["Learn alefbet","Practise alefbet","alefbet extra"];
-   for (i=0; i < dropdownRefs.length; i++){
+   var pageRefs = ["index.html","alefbet.html","lessons.html","lessons-extra-vocabulary.html","reference-tables.html","lessons-resources.html"];
+   var pageRefsTexts = ["About","Alefbet","Lessons","Extra vocabulary","Reference tables","Resources"];
+   for (i=0; i < pageRefs.length; i++){
       var a = document.createElement('a');
-      var reftext = document.createTextNode(dropdownRefsTexts[i]);
+      var reftext = document.createTextNode(pageRefsTexts[i]);
       a.appendChild(reftext); 
-      a.href = dropdownRefs[i]; 
-      dropdowncontent.appendChild(a);
-   }
-   dropdown.appendChild(dropdowncontent); 
-   topMenu.appendChild(dropdown);
-   
-   var otherRefs = ["lessons.html","lessons-extra-vocabulary.html","reference-tables.html","lessons-resources.html"];
-   var otherRefsTexts = ["Lessons","Extra vocabulary","Reference tables","Resources"];
-   for (i=0; i < otherRefs.length; i++){
-      var a = document.createElement('a');
-      var reftext = document.createTextNode(otherRefsTexts[i]);
-      a.appendChild(reftext); 
-      a.href = otherRefs[i]; 
-	  if (i==0){a.classList.add("this-page")};
+      a.href = pageRefs[i]; 
       topMenu.appendChild(a);
    }	   
    document.body.prepend(topMenu);
- 
- 
- /* old menu 
-   var topMenu = document.createElement("nav");
-   topMenu.classList.add("w3-bar");
-   topMenu.classList.add("w3-card-4");
-   var topMenuRefs = ["index.html","alefbet.html","alefbet-exercises.html","alefbetplus.html","lessons.html","reference-tables.html","resources.html"]
-   var topMenuTexts = ["About","Alefbet","Alefbet exercises","Alefbet\uFF0B","Lessons","Reference tables","Resources"]
-   for (i=0; i < topMenuRefs.length; i++){
-	   var a = document.createElement('a');
-	   var reflink = document.createTextNode(topMenuTexts[i]);
-	   a.appendChild(reflink); 
-	   a.href = topMenuRefs[i]; 
-	   if (i==1||i==2||i==3){
-	      a.classList.add("w3-bar-item-alefbet");
-	   } else {	   
-	      a.classList.add("w3-bar-item");
-	   }	  
-	   a.classList.add("w3-button");
-	   topMenu.appendChild(a);
-   }   
-   document.body.prepend(topMenu);
- */  
+   
 
  // header
    var header = document.createElement("header");
@@ -93,6 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
    headerText.innerHTML = lessonTitle;
    header.appendChild(headerText);
    document.body.prepend(header);
+  
+ // breadcrumbs 
+   var breadcrumb = document.createElement("p");
+   breadcrumb.innerHTML = "Lessons > " + lessonTitle;
+   firstDiv.appendChild(breadcrumb);
 
  // main
    var main = document.getElementsByTagName("main")[0];
