@@ -62,6 +62,8 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
   background-color: #ea7b98; /* lighter version of metro-dark-red #b91d47 */
 }
 
+/* -----these currently not used, 
+       used in previous version for alefbet pages------------ */
 .navbar-dropdown {
   float: left;
   overflow: hidden;
@@ -109,7 +111,7 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 .navbar-dropdown-content a:hover {
   background-color: LightGray;
 }
-
+/*---------------------------------------*/
 
   /* used in alefbet and top menu */
 .w3-card-4{box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
@@ -228,6 +230,22 @@ table{
 	display:table;
 }
 
+/*-- indented sections --*/
+/*----------------------------------------------*/
+.indent-section,
+.lesson-section{
+	margin-left:20px;
+	margin-right:20px;
+}
+.lesson-section{
+	padding:5px;
+	background-color:Ivory;
+	background-color:WhiteSmoke;/*#f5f5f5*/
+	background-color:#f5f5f5;
+}
+.indent-section{
+	background-color:GhostWhite;
+}
 
 /*-- hebrew fonts  --*/
 /*----------------------------------------------*/
@@ -795,15 +813,6 @@ table{
 .lessons-help-lists{
    font-size:15px;
 }   
-
-.lesson-section{
-	margin-left:20px;
-	margin-right:20px;
-	padding:5px;
-	background-color:Ivory;
-	background-color:WhiteSmoke;/*#f5f5f5*/
-	background-color:#f5f5f5;
-}
 
 .lesson-exercise-header{
 	margin-top:20px;
