@@ -1,0 +1,1253 @@
+<!-- this is a comment -->
+ <!DOCTYPE html> 
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Biblical Hebrew Basics</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="styles/biblical_hebrew_main.css">
+  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
+  
+  <style>
+  
+  /*
+ 	background-image:url("images/pomegranate-clipart-small.jpg");
+            background-size: cover;
+            background-position: left;
+            background-repeat: repeat;
+	background-image:url("images/lavender-drawing.jpg");
+             background-position: center;
+            background-repeat: repeat;
+ 
+ 	background-image:url("images/header-esther-scroll.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+  
+  
+  
+  */
+  
+  /* colours */
+  
+   a.lessons-toc:link, a.lessons-toc:visited{
+	text-decoration:none;
+	color:Gray;
+	color:black;
+   }  
+   
+    
+   .lessons-toc-bottom-border{
+   	  border-bottom: 2px dotted gray;  /* width style color */
+   }
+   .lessons-toc-top-border{
+   	  border-top: 2px dotted gray;  /* width style color */
+   }
+   .lessons-toc-table{
+	  width:100%;
+	  margin-right:10px;
+	  /*
+	  background-color:WhiteSmoke;
+	  background-color:GhostWhite;
+	  */
+  }	
+  .lessons-toc-table tr {
+	  border-bottom: 2px dotted gray;  /* width style color */
+   }
+   .lessons-toc-table  td:first-child{
+	  width:5%;
+	  vertical-align: baseline;
+	  text-align: right;
+	  text-align: left;
+	  padding-right:15px;
+	  padding-right:0px;
+	  padding-left:10px;
+   }
+   /*
+    .lessons-toc-table  td:nth-child(2){
+	  width:20%;
+	  vertical-align: baseline;
+	  text-align: center;
+   }
+   */
+     .lessons-toc-table  td:nth-child(2){
+	  vertical-align: baseline;
+	  text-align: left;
+  }
+
+   .lessons-toc-flex-container-vocab-list{
+ 	  border:dotted;
+ 	  border:solid;
+	  border-color:gray;
+       background-color:WhiteSmoke; 
+       background-color:white; 
+  }
+   .lessons-toc-flex-container-nouns-list{
+ 	  border:dotted;
+ 	  border:solid;
+	  border-color:gray;
+      background-color:WhiteSmoke; 
+       background-color:white; 
+    }
+   .lessons-toc-flex-container-vocab-list,
+   .lessons-toc-flex-container-nouns-list{
+	  border-width: 2px;
+	  border-width: thin;
+	  margin-top:5px;
+   }
+    .lessons-toc-vocab-color{
+      background-color:LemonChiffon;
+   }
+   .lessons-toc-flex-container-vocab-list > div,
+   .lessons-toc-flex-container-nouns-list > div{
+     margin-top: 5px;
+     margin-right: 15px; 
+     margin-bottom: 5px;
+     margin-left: 15px; 
+     text-align: center;
+     /*line-height:35px;*/
+     /* margin-top:50px; */
+   }
+
+.lessons-toc-noun-divider{
+     color:Gray;
+	 background-color: white;
+	 font-size:20px ;
+}
+.lessons-toc-noun-divider::after{
+   content: "\2506";	
+}
+
+   .lessons-toc-flex-container-vocab-list > div > p ,
+   .lessons-toc-flex-container-nouns-list > div > p {
+	  margin:0;
+   } 
+   .lessons-before-we-start-div{
+      background-color:GhostWhite;
+	  margin-left:10px;
+	  margin-right:10px;   
+    }
+	
+.lessons-toc-link-button{
+  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;   
+  border:none;
+  background-color: white;
+  
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+	/* these are h3 */
+  /*display: block;*/
+  /*font-size: 1.17em;*/
+  font-size: 18px;
+  font-size: 16px;
+  /*
+  margin-top: 1em;
+  margin-bottom: 1em;
+  */
+  margin-left: 2px;
+  margin-right:5px;
+  padding-left:5px;
+  padding-right:5px;
+  border-radius:5px;
+   /*font-weight: bold;*/
+  white-space: nowrap;
+  
+  box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
+}
+.lessons-toc-link-button::before{
+  content: "\25BA"; /* right facing triangle */
+}
+
+.lessons-toc-link-button:hover{
+   cursor: pointer;
+}
+
+ 
+	/* noun-color, verb-color and preposition-color defined in main.css - maybe move to here? */
+    .lessons-noun-preposition-color{
+        background: linear-gradient(
+                    to bottom,
+                    Gold,
+                    Gold 50%,
+                    LightBlue 50%,
+                    LightBlue);
+        background-size: 100% 15px;
+	}
+    .lessons-verb-preposition-color{
+        background: linear-gradient(
+                    to bottom,
+                    Gold,
+                    Gold 50%,
+                    LightGreen 50%,
+                    LightGreen);
+        background-size: 100% 15px;
+	}
+	.lessons-first-things-color{
+	   /*
+	   background-color:LightPink;
+	    background-color:White;
+		*/
+	}	
+ 
+
+
+ </style>
+ 
+</head>
+
+<body>
+
+<header> 
+  <h1>Lessons</h1>
+</header>  
+
+<p class="hidden" id="htmlfilename">lessons.html</p>
+
+<!-- top menu added in JS -->
+
+<!-- main body of text -->
+<main class="main-color">
+<!-- testing section  --> 
+<!--  
+<p>Temporary testing section</p>
+ <p>TEST</p>
+ <p id="mytest">test</p>
+--> 
+<!--  END testing section --> 
+
+<h2  class="w3-container w3-card-4"  ><span> </span> Before we start</h2>
+
+ <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> What grammar do I need to know?</h3>
+ <div class="hidden lessons-before-we-start-div">
+   <p>
+ Grammatical terms kept to a minimum. Noun, verb, preposition, adjective
+ </p>
+ 
+ </div>
+
+
+ <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> About translations and resources for self-study</h3>
+ <div class="hidden lessons-before-we-start-div">
+ discusses different translations - not all translations are equal,
+to help you decide which translation(s) will be most helpful for you
+   <p>
+ If buying or borrowing texts with both Hebrew and English need to have side-by-side, not interspersed, show example
+ </p>
+
+   <div >
+   <img src="images/hebrew-and-english-example.jpg" style="width: 50%;  height: 50%;  ">
+  </div>
+
+ 
+ <p>KJV When the King James Bible was translated and first published in 1611, no Jews lived in England – at least officially.
+ So, we know that no Jews served as Tanach translators. Jews were readmitted to England in 1655.
+ In 1917, the Jewish Publication Society brought out a Bible English- language translation that became 
+ the most popular in the English-speaking world. 
+ The JPS literary form consciously was based on the KJV.
+ “Translators didn’t live in some vacuum. There are always contexts and issues of identity to deal with. 
+ Somebody who studies these translations must know the culture in which the translations worked. 
+ You must always ask: What are the translators bringing in from the culture around them?”
+
+A decisive break with the KJV didn’t come until the JPS Tanach, completed in 1962. 
+The JPS Tanach is radically different. 
+Rather than following a literal (or formal) approach to the text, like KJV and the 1917 translation,
+ the new JPS Tanach was a functional equivalent.
+ A formal translation is one in which the English follows the form of the Hebrew. 
+ The form is intrinsic to its meaning. 
+ A functional equivalent consciously shapes the text so that it sounds like a piece of modern literature. 
+ So, there’s a lot of subordination rather than coordination.
+ Metaphors, for example, are put into terms that we would understand.
+ A translator might ask: What did this expression mean in biblical times? 
+ How would we express this today?
+ Consequently the text winds up sounding more modern because it is brought close to the reader. 
+ It’s not literally what the Hebrew says.
+
+Greenspoon says it’s hard to imagine somebody who is not a fan of the KJV in some ways.
+
+“One should ask: What is the purpose of the translation? 
+Is it something designed to read out loud in a service? 
+Or silently in a private reading? 
+You also want to know how your translation handles the traditional Jewish interpretation of the passage. 
+
+ 
+ </p>
+ <p>small Tanakh vocab, same word often translated many different ways </p>
+ <h3>Examples of different translations</h3>
+ <p>
+ Proverbs 3:18 KJV has italics she <em>is</em> a tree of life to them that lay hold upon her
+ JPSshe is a tree of life to those who grasp her
+ </p>
+ <p>Names of translations used as examples in the lessons
+ JPS Jewish Publication Society
+ KJV King James Version
+ FOX Everett Fox
+ PLAUT
+ ALTER Robert Alter  
+ </p> 
+ <table>
+ <tr>
+   <td> KJV</td>
+   <td>King James Version</td>
+  </tr>
+  <tr>
+    <td> JPS 1917</td>
+    <td> THE HOLY SCRIPTURES, Tanakh 1917 edition,The Jewish Publication Society</td>	
+  </tr>
+   <tr>
+    <td> JPS 2023</td>
+    <td> THE JPS TANAKH: Gender-Sensitive Edition, The Jewish Publication Society, 2023</td>	
+  </tr>
+   <tr>
+    <td> Plaut 2015</td>
+    <td> The Torah: A Modern Commentary, revised edition 2015, eds Gunther Plaut, David Stein. Reform Judaism Publishing.</td>	
+  </tr>
+   <tr>
+    <td> Fox</td>
+    <td> The Five Books of Moses. 1997 Everett Fox. Random House</td>	
+  </tr>
+   <tr>
+    <td>Alter </td>
+    <td> The Five Books of Moses: A translation with commentary. 2004. Robert Alter. W W Norton & Co</td>	
+  </tr>
+
+ </table>
+  
+  <p>Genesis 37:25</p>
+  <p>KJV, JPS 1917: "And they sat down to eat bread: and they lifted uo their eyes and looked and behold, a caravan of Ishmeelites came from Gilead..."
+  <p>JPS 2017: "Then they sat down to a meal. Looking up, they saw a caravan of Ishmaelites coming from Gilead..."  </p>
+  <p>Alter: "And they sat down to eat bread, and they raised their eyes and saw, and look, a caravan of Ishmaelites was coming from Gilead..."</p>
+  <p>Plaut: "They had sat down to eat, when they looked up and saw a caravan of Ishmaelites traveling from Gilead..."</p>
+  <p>Fox: "And they sat down to eat bread. They lifted up their eyes and saw: there was a caravan of Yishmalites coming from Gil'ad..."</p>
+
+   <div class="flex-container-rtl flex-container-examples" >
+     <div>
+	    <span class="hebrew30 ">וַיֵּשְׁבוּ֮  </span>
+		  <p >And they sat down </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 "> לֶֽאֱכׇל־לֶ֒חֶם֒ </span>
+		  <p>to eat bread </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 ">  וַיִּשְׂא֤וּ  </span>
+		  <p>and they raised  </p>
+     </div>	
+      <div>
+	    <span class="hebrew30 ">  עֵֽינֵיהֶם֙ </span>
+		  <p> their eyes </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 "> וַיִּרְא֔וּ </span>
+		  <p> and they saw </p>
+     </div>	
+      <div>
+	    <span class="hebrew30 "> וְהִנֵּה֙ </span>
+		  <p> and behold </p>
+     </div>	
+      <div>
+	    <span class="hebrew30 "> אֹרְחַ֣ת </span>
+		  <p>a caravan of  </p>
+     </div>	
+      <div>
+	    <span class="hebrew30 "> יִשְׁמְעֵאלִ֔ים </span>
+		  <p> Ishmaelites </p>
+     </div>	
+      <div>
+	    <span class="hebrew30 "> בָּאָ֖ה </span>
+		  <p> (it) came </p>
+     </div>	
+      <div>
+	    <span class="hebrew30 ">מִגִּלְעָ֑ד</span>
+		  <p> from Gilead </p>
+     </div>	
+   </div>
+  <p>Exodus 20:2</p>
+  <p>KJV: I <i>am</i> the Lord thy God. which have brought thee out of the land of Egypt, out of the house of bondage"</p>
+  <p>JPS 1917: "I am the LORD thy God, who brought thee out of the land of Egypt, out of the house of bondage."</p>
+  <p>JPS 2017: "I the ETERNAL am your God who brought you out of the land of Egypt, the house of bondage:"  </p>
+  <p>Alter: "I am the LORD your God Who brought you out of the land of Egypt, out of the house of slaves."</p>
+  <p>Plaut: "I the Eternal am your God, who brought you out of the land of Egypt, the house of bondage.</p>
+  <p>Fox: "I am YHWH your God,  who brought you out  from the land of Egypt, from a house of serfs."</p>
+
+   <div class="flex-container-rtl flex-container-examples" >
+     <div>
+	    <span class="hebrew30 "> אָֽנֹכִ֖י </span>
+		  <p > I </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 ">יְהֹוָ֣ה  </span>
+		  <p > God </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 ">  אֱלֹהֶ֑יךָ </span>
+		  <p > your God </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 "> אֲשֶׁ֧ר</span>
+		  <p > who </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 "> הוֹצֵאתִ֛יךָ</span>
+		  <p > brought you </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 "> מֵאֶ֥רֶץ </span>
+		  <p > from the land of</p>
+     </div>	
+     <div>
+	    <span class="hebrew30 ">מִצְרַ֖יִם </span>
+		  <p >  Egypt  </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 "> מִבֵּ֥ית </span>
+		  <p > from house of </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 ">עֲבָדִ͏ֽים׃</span>
+		  <p > slaves </p>
+     </div>	
+   </div>
+
+ 
+ </div>
+
+
+ <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> Limited vocabulary in Tanakh compared to English</h3>
+ <div class="hidden lessons-before-we-start-div" >
+Because the Tanakh has a much smaller vocbulary than English, a Biblical Hebrew word often has several different English translations
+
+ <p>Good - less vocab to learn, AND learning the most frequent means yourecognize a large percentage of text</p>
+ <p>Bad, the most frequent words often have multiple translations, so need to be a detective</p>
+  <p>same hebrew word often translated differently according to context. Often this is because of the small vocab in the Tanakh </p>
+
+	<table class="tanakh-example-table" >
+	  <tr>
+	  <td >Exodus 4:4</td>
+	  <td>And God <span class="dotted-border">said</span> to Moses</td>
+	  <td><span class="dotted-border">וַיֹּ֤אמֶר </span>&thinsp;<span>יְהוָה֙ אֶל־מֹשֶׁ֔ה</span>  </td>
+      <td> <span class="soundclick start-audio"> </span><span class="hidden">tanakh/ex-04-04aa</span></td>
+      </tr></table>
+	  <p></p>
+	<table class="tanakh-example-table" >
+	  <tr>
+	  <td >Genesis 3:11</td>
+	  <td> Then he <span class="dotted-border">asked</span> “Who told you that you were naked?”</td>
+	  <td><span class="dotted-border">וַיֹּ֕אמֶר </span>&thinsp;<span>מִ֚י הִגִּ֣יד לְךָ֔ כִּ֥י עֵירֹ֖ם אָ֑תָּה </span>  </td>
+      <td> <span class="soundclick start-audio"> </span><span class="hidden">tanakh/gen-03-11a-db</span></td>
+      </tr></table>
+	  <p></p>
+	<table class="tanakh-example-table" >
+	  <tr>
+	  <td >Exodus 6:30</td>
+	  <td> Moses <span class="dotted-border">appealed</span> to God saying</td>
+	  <td><span class="dotted-border">וַיֹּ֥אמֶר</span>&thinsp;<span>מֹשֶׁ֖ה לִפְנֵ֣י יְהוָ֑ה </span>  </td>
+	  <td> <span class="soundclick start-audio"> </span><span class="hidden">tanakh/ex-06-30a</span></td>
+      </tr></table>
+	  <p></p>
+    <table class="tanakh-example-table" >
+	  <tr>
+	  <td >Exodus 7:1</td>
+	  <td> God <span class="dotted-border">replied</span> to Moses</td>
+	  <td><span class="dotted-border">וַיֹּ֤אמֶר </span>&thinsp;<span>יְהוָה֙ אֶל־מֹשֶׁ֔ה </span>  </td>
+	  <td> <span class="soundclick start-audio"> </span><span class="hidden">tanakh/ex-07-01aa-db</span></td>
+      </tr></table>
+	  <p></p>    
+	  <table class="tanakh-example-table" >
+	  <tr>
+	  <td >Exodus 3:7</td>
+	  <td> And God <span class="dotted-border">continued</span>"I have marked well the plight of my people in Egypt" </td>
+	  <td><span class="dotted-border">וַיֹּ֥אמֶר</span>&thinsp;<span>יְהוָ֔ה רָאֹ֥ה רָאִ֛יתִי אֶת־עֳנִ֥י עַמִּ֖י אֲשֶׁ֣ר בְּמִצְרָ֑יִם </span>  </td>
+	  <td> <span class="soundclick start-audio"> </span><span class="hidden">tanakh/ex-03-07a</span></td>
+      </tr></table>
+     <p>Because the Tanakh uses a very small number of words</p>
+     <p>Good news is that the most frequent account for a large proportion of the text, so that by learning to recognize
+the most frequent will be able torecognize one or more words in mearly every verse</p>
+
+
+
+</div>
+
+ <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> Getting the most out of the lessons</h3>
+ <div class="hidden lessons-before-we-start-div" >
+
+ <p>Should do all the exercises. Exercises give the translation and ask you to find specific words from the
+translation in the Hebrew. To get the most out of the material you should listen to all the Hebrew until you
+can read each passage aloud at approximately the same speed as the recording, and you can distinguish the 
+Hebrew word(s) in the recording.
+Some sections have "more detail". These are not essential, suggest at first leave them out, come back to them later.
+ </p>
+ <p>some extra bits "from the liturgy"</p>
+ </div>
+ 
+ 
+ <h2  class="w3-container w3-card  w3-cursive heading-color">Lessons</h2>
+ <table class="lessons-toc-table ">
+ 
+ 
+ <tr >
+ <td colspan="2"  class="lessons-toc-top-border" style="text-align:left;padding-top:0"> 
+
+<h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>To start with ...
+</h3>
+
+ <div class="hidden" style="text-align:left" >
+ not used at the moment
+</div>
+ </td>     
+</tr>
+
+<tr>
+ <td colspan="2"  class="lessons-toc-top-border" style="text-align:left;padding-top:0"> 
+
+ <p>In these lessons, our starting point will be the English translation of the Tanakh. 
+  We will decipher the Biblical text by working out which
+ Hebrew words correspond to the English words in the translation.
+ </p>
+<p>In the first lesson we start by learning to recognize names - of God, people and places.</p>
+ </td>     
+</tr>
+
+<tr class="noun-color">
+  <td><a href="lesson01-names.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 1</span></a></td>
+  <td >Words for God, names of people and places
+            <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+              <span class="hebrew30 lessons-toc-vocab-color">יְהוָה</span>
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30 lessons-toc-vocab-color soundclick">אֱלֹהִים</span><span class="hidden">words/w018_elohim</span>  
+           </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30 lessons-toc-vocab-color  soundclick"> אֲדוֹנָי</span><span class="hidden">words/w062_adonai</span> 
+            </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30 lessons-toc-vocab-color soundclick">אֵל</span><span class="hidden">words/w188_el </span>
+           </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30 lessons-toc-vocab-color soundclick">יָהּ</span><span class="hidden">alefbet/yah </span>  
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+  </td>
+</tr>
+
+
+
+<tr>
+ <td colspan="2"  class="lessons-toc-top-border" style="text-align:left;padding-top:0"> 
+<p>Since we will be working from English translations, we need to understand the ways on which
+Tanakh Hebrew is different from English:
+ </p>
+<ul>
+<li>Biblical Hebrew verbs are always a single word. 
+This word often corresponds to 2 or more words in the English translation.
+<li>A single Hebrew word often corresponds to two or more English words. 
+This is because some English words are not separate words in Biblical Hebrew. In Biblical Hebrew, 
+  these "words" are added as <b>prefixes</b> (at the beginning of a Hebrew word)  or <b>suffixes</b> (at the end of a word) 
+<li>The order of words in sentences is often different, 
+in particular, the verb often comes before the subject (Spoke God to Moses.)
+</ul>
+
+<p >The next 2 lessons give an overview of these  differences (they are discussed in more detail in following lessons) </p>
+ </td>     
+</tr>
+
+
+<tr class="verb-color">
+  <td><a href="lesson02-intro.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 2</span></a>
+  </td>
+   <td >
+    <span class="hebrew30 soundclick">וַיֹּ֤אמֶר יְהוָה֙ אֶל־מֹשֶׁ֔ה</span><span class="hidden">tanakh/ex-04-04aa</span> 
+  (And) God said to Moses <br>
+  Overview 1 How Tanakh Hebrew is different from English: verbs
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color  soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick"> אֶל- </span><span class="hidden">words/w008_el</span> 
+           </div>
+        </div>
+  </td>
+</tr>
+
+<tr class="verb-color">
+  <td><a href="aa" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 3</span></a>
+  </td>
+   <td >
+   How Tanakh verbs work, the root amr
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color  soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>  
+           </div>
+        </div>
+  </td>
+</tr>
+
+
+
+<tr>
+  <td><a href="lesson-overview-verbs.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 4</span></a></td>
+   <td >Verbs overview vayomer, vatomer, amar, vayomru, l'emor
+  <span class="hebrew30 soundclick"> וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>
+"he said"
+          <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span> 
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick"> אֶל- </span><span class="hidden">words/w008_el</span> 
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+  </td>
+</tr>
+
+<tr class="verb-color">
+  <td><a href="aa" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 4</span></a>
+  </td>
+   <td >
+   How Tanakh verbs work, the root dbr
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+         </div>
+  </td>
+</tr>
+
+
+<tr class="verb-color">
+  <td><a href="aa" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 5</span></a>
+  </td>
+   <td >
+   How Tanakh verbs work, the root hyh
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+         </div>
+  </td>
+</tr>
+
+
+<tr class="verb-color">
+  <td><a href="lesson03-verbs-vay.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 6</span></a></td>
+   <td >vayhi or "and there was light" Verbs recognizing vay' and vayu
+ 
+  <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  
+           </div>
+            <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick">וַיְהִי</span><span class="hidden">words/w015_vayhi</span> 
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick">וַיְדַבֵּר</span><span class="hidden">words/w037_vaydaber</span> 
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick">לֵאמֹר</span><span class="hidden">words/w011_lemor</span> 
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+ </td>
+ </tr>
+<tr>
+  <td><a href="lesson02-intro.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 7</span></a>
+  </td>
+   <td >
+   And I will establish my covenant with you <br>
+  Overview 2 How Tanakh Hebrew is different from English: prefixes and suffixes, et
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color v-prefix"></span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color  soundclick">אֶת־</span><span class="hidden">words/w005_et</span>    
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color  soundclick">וְאֶת־</span>  
+           </div>
+        </div>
+  </td>
+</tr>
+
+
+<tr >
+  <td><a href="lesson03-prefixes-overview.html" class="lessons-toc"> <span class="lessons-toc-link-button">old Lesson 8</span></a></td>
+  <td > <span class="hebrew30  lessons-vocab-word-color">וּ</span><span class="hebrew30 soundclick">מֹשֶׁה</span>
+  "and Moses" Prefixes overview: and, the, to, in, from, like/as
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color v-prefix"></span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color ha-prefix"></span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color l-prefix"></span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color b-prefix"></span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color mi-prefix"></span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color k-prefix"></span>  
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+   </td>
+</tr>
+
+
+<tr class="noun-color">
+  <td><a href="lesson-nouns1.html" class="lessons-toc"> <span class="lessons-toc-link-button">old Lesson 5</span></a></td>
+  <td >Singular, plural, "of" , "the", "a"/"an","and", "his" suffixes 
+   
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span><img src="images/suffixes/plural-ending-im-pink.jpg" class="vowel-image-plural-ending"></span>	  
+            </div>
+           <div class="flex-container-ltr">
+             <span><img src="images/suffixes/plural-ending-ot-pink.jpg" class="vowel-image-plural-ending-narrow"></span>	  
+            </div>
+           <div class="flex-container-ltr">
+             <span><img src="images/suffixes/plural-ending-ei-pink.jpg" class="vowel-image-plural-ending-narrow"></span>	  
+            </div>
+           <div class="flex-container-ltr">
+             <span class="ha-prefix lessons-toc-vocab-color hebrew-in-text"></span>	  
+            </div>
+           <div class="flex-container-ltr">
+             <span class="u-prefix lessons-toc-vocab-color hebrew-in-text"></span>&ensp; or &ensp;
+             <span class="v-prefix lessons-toc-vocab-color hebrew-in-text"></span>		  
+            </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew25 lessons-toc-vocab-color ">-וֹ</span> &ensp; or &ensp;
+             <span class="hebrew25 lessons-toc-vocab-color ">-יו</span>            
+		   </div>
+         </div> <!-- lessons-toc-flex-container-vocab-list-->
+ 
+ <br>
+  
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+		   son
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick">בֵּן</span><span class="hidden">words/w013_ben</span>&ensp;  		  
+              <span class="hebrew25  soundclick">בֶּן</span><span class="hidden">words/w013_ben</span>&ensp; 
+          <span class="lessons-toc-noun-divider"></span>		 
+            <span class="hebrew25  soundclick">	בָּנִים</span><span class="hidden">words/w013_banim</span>&ensp; 
+             <span class="hebrew25   soundclick">בְּנֵי</span><span class="hidden">words/w013_bnei</span>&emsp;  		  
+           </div>
+            <div class="flex-container-ltr">
+              <span class="hebrew25 soundclick">בְּנוֹ</span><span class="hidden">words/w013_bno</span>&ensp; 		  
+              <span class="hebrew25 soundclick">בָּנָיו</span><span class="hidden">words/w013_banav</span>		  
+           </div>
+         </div> <!-- lessons-toc-flex-container-vocab-list-->
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+		   daughter
+           <div class="flex-container-ltr">
+              <span class="hebrew30 lessons-toc-vocab-color soundclick">בַּת</span><span class="hidden">words/w082_bat</span>&ensp;  		  
+         <span class="lessons-toc-noun-divider"></span>		 
+             <span class="hebrew25  soundclick">בָּנוֺת</span><span class="hidden">words/w082_banot</span>&ensp; 
+             <span class="hebrew25   soundclick">בְּנוֺת</span><span class="hidden">words/w082_bnot</span>&emsp;  		  
+          </div>
+            <div class="flex-container-ltr">
+              <span class="hebrew25 soundclick">בִּתּוֺ</span><span class="hidden">words/w082_bito</span>&ensp; 		  
+              <span class="hebrew25 soundclick">בְּנֹתָיו</span><span class="hidden">words/w082_bnotav</span>		  
+           </div>
+         </div> <!-- lessons-toc-flex-container-vocab-list-->
+
+
+  </td>
+</tr>
+
+<tr>
+  <td><a href="lesson04-to.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 9</span></a></td>
+  <td ><span class="hebrew30  soundclick">מִצְרַיְמָה</span><span class="hidden"></span>&emsp;
+       <span class="hebrew30  soundclick">לְמִצְרַיִם</span><span class="hidden"></span>&emsp;
+	   <span class="hebrew30  soundclick">אֶל־מִצְרָיִם</span><span class="hidden"></span>
+  "to Egypt" 3 ways to say "to" , the preposition al
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick"> אֶל- </span><span class="hidden">words/w008_el</span> 
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color l-prefix"></span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color ">ה</span>
+             <span><img src="images/vowels/a_or_o.jpg" 
+			            style="  width:20px; height:28px; margin-top:-4px; vertical-align:text-top; object-fit:cover;"></span>
+             <span class="hebrew30 lessons-toc-vocab-color">-</span>			 
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+  </td>
+</tr>
+
+
+
+<tr >
+  <td><a href="lesson05-kol.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 10</span></a></td>
+  <td > <span class="hebrew30 soundclick">כָּל־הָעָם</span> "all the people"
+   kol: all, every
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick"> כָּל-</span><span class="hidden">words/w010_kol</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick">כֹּל</span><span class="hidden">words/w010_kol</span>  
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+   </td>
+</tr>
+
+<tr class="noun-color">
+  <td><a href="lesson10-nouns-ben.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 11</span></a></td>
+  <td >Nouns ben, elohim
+   
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+		   &ensp;son
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick">בֵּן</span><span class="hidden">words/w013_ben</span>&ensp;  		  
+              <span class="hebrew25  soundclick">בֶּן</span><span class="hidden">words/w013_ben</span>&ensp; 
+          <span class="lessons-toc-noun-divider" ></span>		 
+            <span class="hebrew25  soundclick">	בָּנִים</span><span class="hidden">words/w013_banim</span>&ensp; 
+             <span class="hebrew25   soundclick">בְּנֵי</span><span class="hidden">words/w013_bnei</span>&emsp;  		  
+           </div>
+            <div class="flex-container-ltr">
+              <span class="hebrew25 soundclick">בְּנוֹ</span><span class="hidden">words/w013_bno</span>&ensp; 		  
+              <span class="hebrew25 soundclick">בָּנָיו</span><span class="hidden">words/w013_banav</span>		  
+           </div>
+         </div> <!-- lessons-toc-flex-container-vocab-list-->
+
+  </td>
+</tr>
+
+
+<tr  class="noun-color">
+  <td><a href="lesson11-nouns-eretz.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 12</span></a></td>
+  <td >Nouns eretz
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+		   land 
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 lessons-toc-vocab-color soundclick">אֶרֶץ</span><span class="hidden">words/w021_eretz </span>&ensp;   
+		     <span class="hebrew25 soundclick">	הָאָרֶץ</span><span class="hidden">words/w021_haaretz </span>&ensp;   
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew25 soundclick">	אֲרָצוֹת</span><span class="hidden">words/w021_arazot </span>&ensp;   
+		     <span class="hebrew25 soundclick">	אַרְצוֺת </span><span class="hidden">words/w021_arzot </span>&emsp;   
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew25  soundclick">אַרְצוֺ </span><span class="hidden">words/w021_arzo</span>
+            </div>
+        </div> <!-- lessons-toc-flex-container-vocab-list-->
+
+  </td>
+</tr>
+
+<tr>
+  <td><a href="lesson-possessive-suffixes1.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 13</span></a></td>
+  <td ><span class="hebrew30  soundclick">בְּנ</span><span class="hidden">words/w013_bno</span><span class="hebrew30  lessons-vocab-word-color">וֹ</span>
+       "his son"  my, your, his, her, our, their: possesive suffixes added to the end of nouns
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color ">-וֹ</span> 
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color ">-יו</span>
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+  </td>
+</tr>
+
+<tr class="noun-color">
+  <td>
+   <p> </p>
+   <a href="lesson-possessive-suffixes2.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 7</span></a>
+   <p> </p>  
+  </td>
+  <td >my, your, his, her, our, their: possesive suffixes added at end of noun
+ </td>
+</tr>
+
+
+<tr>
+  <td><a href="lesson07-object-suffixes.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 14</span></a></td>
+  <td ><span class="hebrew30  soundclick">ל</span><span class="hidden">words/w003_lo</span><span class="hebrew30  lessons-vocab-word-color">וֹ</span>
+       "to him"  Suffixes overview: me, you, him, her, us, them
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color ">-וֹ</span> 
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color ">-יו</span>
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+  </td>
+</tr>
+
+
+<tr>
+  <td><a href="lesson-xx.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 15</span></a></td>
+  <td ><span style="color:red">	&#x2718;</span> negation "do not steal" lo(#12) eyn (#60) al (#71) other less frequent ones?
+  </td>
+</tr>
+
+<tr>
+  <td><a href="lesson-xx.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 16</span></a></td>
+  <td >who, that, which: asher (#9)  already checked, see doc, she-, ha-
+  </td>
+</tr>
+
+<tr>
+  <td><a href="lesson-xx.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 17</span></a></td>
+  <td >ki (#14) don't confuse with k', im (#42)
+  </td>
+</tr>
+
+
+
+<tr>
+  <td><a href="lesson-xx.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 16</span></a></td>
+  <td >RECAPITULATION including Recognizing nouns: the noun object marker (<span class="lessons-toc-vocab-color hebrew-in-text">אֵת</span>) and v'et, 
+   kol, ha- 
+  </td>
+</tr>
+ 
+
+<tr class="noun-color"><td colspan="2"  class="lessons-toc-top-border" style="text-align:left;padding-top:0">  
+ <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> The most frequently occurring nouns </h3>
+  <div class="hidden" style="text-align:left" >
+ <p>More or less in order of frequency, so you should learn them in this order</p>
+<p>Each noun heading has singular, singular "of" form if it's different, then plural and plural "of" form if it's different, 
+also most frequently occurring possessive suffix form</p>
+
+		
+ 	  <div class="flex-container-ltr lessons-toc-flex-container-nouns-list ">
+        <a href="lesson-melech.html" class="lessons-toc"> <span class="lessons-toc-link-button"></a></span>
+		 king, ruler
+        <div class="flex-container-ltr">
+		     <span class="hebrew30 lessons-toc-vocab-color soundclick"> מֶלֶךְ </span><span class="hidden">words/w020_melech </span>&ensp;   
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew25 soundclick">	מְלָכִים</span><span class="hidden">words/w020_mlachim </span>&ensp;   
+		     <span class="hebrew25 soundclick"> מַלְכֵי</span><span class="hidden">words/w020_malchei </span>&emsp;   
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew25  soundclick">מַלְכּוֺ</span><span class="hidden">words/w020_malcho</span>
+            </div>
+		   </div> 
+		&emsp;   
+		
+		   <div class="flex-container-ltr lessons-toc-flex-container-nouns-list ">
+         <a href="lesson-yom.html" class="lessons-toc"> <span class="lessons-toc-link-button"></a></span>
+		 day
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 lessons-toc-vocab-color soundclick">יוֹם</span><span class="hidden">words/w022_yom</span>&ensp;   
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew25 soundclick">יָמִים</span><span class="hidden">words/w022_yamim </span>&ensp;   
+		     <span class="hebrew25 soundclick">יְמֵי</span><span class="hidden">words/w022_ymei</span>&emsp;   
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew25  soundclick">יוֺמוֺ </span><span class="hidden">words/w022_yomo</span>&ensp; 
+             <span class="hebrew25  soundclick"> יָמָיו</span><span class="hidden">words/w022_yamav</span>
+            </div>
+		   </div>
+ 		&emsp;
+		
+        <div class="flex-container-ltr lessons-toc-flex-container-nouns-list " style="align-items:center">		      
+             <a href="lesson-ish.html" class="lessons-toc" > <span class="lessons-toc-link-button"></a></span>
+        <table >		
+		  <tr style="border-bottom:none">
+			 <td style="text-align:left">
+			  man, husband 
+              <div class="flex-container-ltr">
+		        <span class="hebrew30 lessons-toc-vocab-color soundclick">אִישׁ</span><span class="hidden">words/w023_ish</span>&ensp; 
+        <span class="lessons-toc-noun-divider"></span>		 
+		        <span class="hebrew25  soundclick">אֲנָשִׁים</span><span class="hidden">words/w023_anashim </span>&ensp;   
+		        <span class="hebrew25  soundclick">אַנְשֵׁי</span><span class="hidden">words/w023_anshei</span>&emsp;   
+		      </div>
+              <div class="flex-container-ltr">
+                <span class="hebrew25  soundclick">אֲנָשָׁיו </span><span class="hidden">words/w023_anashav</span>
+              </div>
+		     </td>
+		  </tr>
+         <tr style="border-bottom:none">
+ 			<td  style="text-align:left">
+		    woman, wife
+            <div class="flex-container-ltr">
+              <span class="hebrew30 lessons-toc-vocab-color soundclick">אִשָּׁה</span><span class="hidden">words/w061_isha</span>&ensp; 			 
+		      <span class="hebrew25  soundclick">אֵשֶׁת</span><span class="hidden">words/w061_eshet </span>&ensp;   
+        <span class="lessons-toc-noun-divider"></span>		 
+		      <span class="hebrew25  soundclick">נָשִׁים</span><span class="hidden">words/w061_nashim </span>&ensp;   
+		      <span class="hebrew25  soundclick">נְשֵׁי</span><span class="hidden">words/w061_nshei</span>&emsp;   
+		    </div>
+            <div class="flex-container-ltr">
+              <span class="hebrew25  soundclick">אִשְׁתּוֺ </span><span class="hidden">words/w061_ishto</span>&ensp;   
+              <span class="hebrew25  soundclick">נָשָׁיו</span><span class="hidden">words/w061_nashav</span>&ensp;
+            </div>
+		   </td>
+		  </tr>
+		 </table> 
+        </div>		 
+ 		&emsp;  
+		
+		   <div class="flex-container-ltr lessons-toc-flex-container-nouns-list ">
+         <a href="lesson-panim.html" class="lessons-toc"> <span class="lessons-toc-link-button"></a></span>
+		 face 
+           <div class="flex-container-ltr">
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew30 lessons-toc-vocab-color soundclick">פָּנִים</span><span class="hidden">words/w024_panim </span>&ensp;   
+		     <span class="hebrew25  soundclick">פְּנֵי</span><span class="hidden">words/w024_pnei</span>&ensp;   
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew25  soundclick">פָּנָיו </span><span class="hidden">words/w024_panav</span>&emsp;
+            </div>
+			in front of
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 lessons-toc-vocab-color soundclick">לִפְנֵי</span><span class="hidden">words/w024_lifnei </span>&emsp;   
+		     <span class="hebrew25  soundclick">לְפָנָיו</span><span class="hidden">words/w024_lfanav</span> 
+		  </div>
+		   </div>
+ 		&emsp;  
+		
+		   <div class="flex-container-ltr lessons-toc-flex-container-nouns-list ">
+         <a href="lesson-bayit.html" class="lessons-toc"> <span class="lessons-toc-link-button"></a></span>
+		 house
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 lessons-toc-vocab-color soundclick">בָּיִת</span><span class="hidden">words/w025_bayit</span>&ensp;   
+ 		     <span class="hebrew25 soundclick">בֵּית</span><span class="hidden">words/w025_beit </span>&ensp;   
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew25 soundclick">בָּתִּם</span><span class="hidden">words/w025_batim</span>&ensp;   
+		     <span class="hebrew25 soundclick">בָּתֵּי</span><span class="hidden">words/w025_batei</span>&emsp;   
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew25  soundclick">בֵּיתוֺ </span><span class="hidden">words/w025_beito</span>
+            </div>
+		   </div>
+  		&emsp; 
+		
+		   <div class="flex-container-ltr lessons-toc-flex-container-nouns-list ">
+         <a href="lesson-am.html" class="lessons-toc"> <span class="lessons-toc-link-button"></a></span>
+		people
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 lessons-toc-vocab-color soundclick">עַם</span><span class="hidden">words/w027_am</span>&ensp;   
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew25 soundclick">עַמִּים</span><span class="hidden">words/w027_amim </span>&ensp;   
+		     <span class="hebrew25 soundclick">עַמֵּי</span><span class="hidden">words/w027_amei</span>&emsp;   
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew25  soundclick">עַמּוֺ</span><span class="hidden">words/w027_amo</span>&ensp;
+              <span class="hebrew25  soundclick">עַמָּיו</span><span class="hidden">words/w027_amav</span>
+            </div>
+		   </div>
+  		&emsp; 
+		
+		   <div class="flex-container-ltr lessons-toc-flex-container-nouns-list ">
+         <a href="lesson-yad.html" class="lessons-toc"> <span class="lessons-toc-link-button"></a></span>
+		hand
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 lessons-toc-vocab-color soundclick">יָד</span><span class="hidden">words/w028_yad</span>&ensp;   
+		     <span class="hebrew25 soundclick">יַד</span><span class="hidden">words/w028_yad</span>&ensp;   
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew25 soundclick">יָדוֹת</span><span class="hidden">words/w028_yadot </span>&ensp;   
+		     <span class="hebrew25 soundclick">יָדַיִם</span><span class="hidden">words/w028_yadayim</span>&ensp;   
+		     <span class="hebrew25 soundclick">יְדֵי</span><span class="hidden">words/w028_ydei</span>&emsp;   
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew25  soundclick">יָדוֺ</span><span class="hidden">words/w028_yado</span>&ensp;
+              <span class="hebrew25  soundclick">יְדֹתָיו</span><span class="hidden">words/w028_yadav</span>
+            </div>
+		   </div>
+  		&emsp; 
+		
+		   <div class="flex-container-ltr lessons-toc-flex-container-nouns-list ">
+         <a href="lesson-davar.html" class="lessons-toc"> <span class="lessons-toc-link-button"></a></span>
+		word, matter, thing
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 lessons-toc-vocab-color soundclick">דָּבָר</span><span class="hidden">words/w030_davar</span>&ensp;   
+		     <span class="hebrew25 soundclick">דְּבַר</span><span class="hidden">words/w030_dvar </span>&ensp; 
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew25 soundclick">דְּבָרִים</span><span class="hidden">words/w030_dvarim </span>&ensp;   
+		     <span class="hebrew25 soundclick">דִּבְרֵי</span><span class="hidden">words/w030_divrei</span>&emsp;   
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew25  soundclick">דְּבָרוֺ </span><span class="hidden">words/w030_dvaro</span>&ensp;
+              <span class="hebrew25  soundclick">דְּבָרָיו</span><span class="hidden">words/w030_dvardav</span>
+            </div>
+		   </div>
+  		&emsp; 
+		
+		   <div class="flex-container-ltr lessons-toc-flex-container-nouns-list ">
+         <a href="lesson-av.html" class="lessons-toc"> <span class="lessons-toc-link-button"></a></span>
+		father, ancestor
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 lessons-toc-vocab-color soundclick">אָב</span><span class="hidden">words/w034_av</span>&ensp;   
+		     <span class="hebrew25 soundclick">אֲבִי</span><span class="hidden">words/w034_avi </span>&ensp; 
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew25 soundclick">אָבוֺת</span><span class="hidden">words/w034_avot </span>&ensp;   
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew25  soundclick">אָבִיו</span><span class="hidden">words/w034_aviv</span>&ensp;
+              <span class="hebrew25  soundclick">אֲבֹתָיו</span><span class="hidden">words/w034_avotav</span>
+            </div>
+		   </div>
+  </td>
+</tr>
+
+
+ </div>
+
+</td>
+</tr>
+
+<tr class="noun-color">
+  <td><a href="old-lesson-frequent-nouns.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 6</span></a></td>
+  <td >old lesson lists of frequent nouns
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color l-prefix"></span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color b-prefix"></span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color mi-prefix"></span>  
+           </div>
+		   
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick">מִן</span><span class="hidden">words/w006_min</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color k-prefix"></span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30 lessons-toc-vocab-color soundclick"> כָּל-</span><span class="hidden">words/w010_kol</span>  
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+
+  </td>
+</tr>
+
+
+
+<tr >
+  <td ><a href="lesson-011.html">Lesson 11</td>
+  <td ><p class="preposition-color"> Prepositions </p> me, you, him, her, us, them after to, in as, without: object suffixes added to prepositions l',b',k',min
+ 	 
+ </td>
+</tr>
+
+<tr >
+  <td ><a href="lesson-013.html">Lesson 13</td>
+  <td ><p class="preposition-color"> Prepositions </p>separable prepositions 
+      <p>min #6, al (#7) + suffixes</p>
+	
+ </td>
+</tr>
+
+</tr>
+
+<tr>
+  <td >Lesson 16</td>
+  <td ><p class="verb-color"> Verbs </p>Verb #11  amar (lots of possible translations)
+   
+    <p>lemor</p>
+
+   </td>
+</tr>
+
+<tr ><td colspan="2" class="lessons-toc-bottom-border">  </td></tr>
+
+<tr >
+  <td >Lesson 17</td>
+  <td <span class="verb-color" >Verbs </span> / <span class="preposition-color">Prepositions</span>>Verbs object suffixes added et, oto etc me, you, him, her, us, them after a verb
+	 
+ </td>
+</tr>
+
+<tr ><td colspan="2" class="lessons-toc-bottom-border">  </td></tr>
+
+
+<tr>
+  <td >Lesson 23</td>
+  <td ><span class="preposition-color" >Prepositions</span>ad (#33) im (#44) et (#50) cf et (#159)</td>
+</tr>
+<tr>
+  <td >Lesson 24</td>
+  <td ><span class="verb-color" >Verbs</span>#19 bo</td>
+</tr>
+<tr>
+  <td >Lesson 25</td>
+  <td ><span class="verb-color" >Verbs</span>verb #26 natan</td>
+</tr>
+<tr>
+  <td >Lesson 26</td>
+  <td >#31 hu,  He, that (far) plus repeat him, his, </td>
+</tr>
+<tr>
+  <td >Lesson 27</td>
+  <td >zeh (#35) this (masc) and zot (#79) this (fem) near ha not translated as the</td>
+</tr>
+<tr>
+  <td >Lesson 28</td>
+  <td >hinei #43 hineini</td>
+</tr>
+<tr>
+  <td >Lesson 29</td>
+  <td ><span style="color:red"><i> 123</i></span> Numbers adjectives 1 some numbers echad #45 sh'nayim (#64) shalosh (#78) me'ah (#84) </td>
+</tr>
+<tr>
+  <td >Lesson 30</td>
+  <td ><span style="color:red">&#x2753; </span>Questionsquestions interrogative ha (#74), mah (#86), lama (#242), mi (#116)</td>
+</tr>
+<tr>
+  <td >Lesson 31</td> 
+  <td class="verb-color">VerbsVerbs 3 verbs come in different "flavours" (correct grammatical term xx), the most common is the qal 
+  most verbs are mostly in the qal but sometimes in one or 2 other "flavours"
+  but diber mostly occurs in the flavour called "piel"  
+  and hardly ever in qal
+  <p>extra prefixes, may have yod in root</p></td>
+</tr>
+<tr>
+  <td >Lesson 32</td>
+  <td >nouns from verb roots, "m" often added (like participle)</td>
+</tr>
+<tr>
+  <td >Lesson 33</td>
+  <td >Using cantillation marks to help puzzle out words</td>
+</tr>
+<tr>
+  <td ></td>
+  <td >Recap- we've covered a LOT  10 nouns, 5 verbs, xx prepositions, and, the, object prepositions on prepositions, possessive prepositions on nouns
+  verses where should know every word, verses where can figure out every word, exercise using all exercise examples to date</td>
+</tr>
+
+</table>
+
+ <p></p>
+ <p></p>
+
+
+</main> 
+
+
+<footer>
+ <p>&#169; 2023 Susan Donath  </p>
+</footer>
+
+
+
+<!-- scripts -->
+
+<!--<script>var globalThisAudioSubfolder ="alephbet";</script> -->
+<script src="scripts/biblical_hebrew_cr_top_menu.js"></script>
+
+<script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
+<script src="scripts/biblical_hebrew_flexbox_list.js"></script>
+
+</body>
+</html>
