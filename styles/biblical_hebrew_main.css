@@ -369,9 +369,12 @@ table{
    */
 .verb-color{
    background-color:LightGreen;
+   background-color:HoneyDew;
 }	
 .noun-color{
    background-color:LightBlue;
+   background-color:LightCyan;
+   background-color:AliceBlue;
 }
 .preposition-color{
    background-color:Gold;
@@ -1738,6 +1741,7 @@ background-color:white;
  /* this one doesn't have an event listener, used in cantillation exercise created in js*/
 .clickable{
    cursor:pointer;
+   text-decoration: underline;
 }
 
 /* ---- audio bar --------*/
