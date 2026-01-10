@@ -183,6 +183,7 @@ function playConsonants3(thisArrow,audioItems,  itemNumber){
 // July 2025
 // When the user clicks on the navbar button in menu at top of page, 
 // toggle between hiding and showing the dropdown content 
+// Jan 2026 no longer needed, main alefbet page now has links to the 3 alefbet pages
 function showHideNavbarDropdown(dropdownID) {
   document.getElementById(dropdownID).classList.toggle("hidden");
 }
@@ -336,6 +337,7 @@ function menuContentClose(element){
 	
 }	
 
+   //----------------------------------------------------------------------------------------------
  
    // when called from Javascript
    // used in biblical_hebrew_lessons_start_template.js to add sound listener to consonants and vowels
@@ -346,6 +348,10 @@ function JSshowHideJsToggle(ev){
     var elementId = buttonId.slice(prefix.length);
 	showHideJsToggle(elementId, buttonId);
 }
+
+   //----------------------------------------------------------------------------------------------
+   //-------only used with onclick (ie in HTML code, not javascript)-------------------------------
+   //----------------------------------------------------------------------------------------------
 	
 function showHideJsToggle(elementId, buttonId){
 	// only used with onclick
@@ -367,6 +373,7 @@ function showHideJsToggle(elementId, buttonId){
 	
 }	
 
+   //----------------------------------------------------------------------------------------------
 	
 function showHideJsToggleParentParent(element){
 	// only used with onclick
@@ -387,6 +394,16 @@ function showHideJsToggleParentParent(element){
     element.classList.toggle("button-minus");  
 	
 }	
+
+   //----------------------------------------------------------------------------------------------
+ function showHideNextSiblingNoPlusMinus(element){
+	// only used with onclick
+	// hides/shows next sibling element
+    var nextSib =  element.nextElementSibling;
+    nextSib.classList.toggle("hidden"); 
+ }	 
+
+   //----------------------------------------------------------------------------------------------
 
 
 //-------------------------------------------------------------------------
