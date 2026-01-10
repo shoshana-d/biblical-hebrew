@@ -1741,8 +1741,14 @@ background-color:white;
  /* this one doesn't have an event listener, used in cantillation exercise created in js*/
 .clickable{
    cursor:pointer;
+}
+
+  /* general clickable, use for onclick in HTML */
+.clickable-with-underline{
+   cursor:pointer;
    text-decoration: underline;
 }
+  
 
 /* ---- audio bar --------*/
 /*--------------------------*/
