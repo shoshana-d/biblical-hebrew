@@ -1131,14 +1131,18 @@ table{
     border-bottom:solid; 
     border-left:solid; 
     border-width:5px;
+    border-width:2px;
     border-color:red;
+    border-color:green;
 }
 .verb-reference-table td.verb-reference-table-frequent-col2{
     border-top:solid; 
     border-bottom:solid; 
     border-right:solid; 
     border-width:5px;
+    border-width:2px;
     border-color:red;
+    border-color:green;
 }	
 	
 .verb-reference-table-root{
@@ -1161,6 +1165,7 @@ table{
    background-color:WhiteSmoke;
    background-color:red; */
    font-weight:bold;
+   font-weight:normal;
    color:LimeGreen;
    color:brown;
    color:Red;
