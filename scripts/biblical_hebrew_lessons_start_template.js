@@ -42,7 +42,21 @@ document.addEventListener('DOMContentLoaded', function() {
   
  // breadcrumbs 
    var breadcrumb = document.createElement("p");
-   breadcrumb.innerHTML = "Lessons > " + lessonTitle;
+   
+   var a = document.createElement('a');
+   var reftext = document.createTextNode("Lessons");
+   a.appendChild(reftext); 
+   a.href = "lessons.html"; 
+   breadcrumb.appendChild(a);
+   
+   var span1 = document.createElement("span");
+   span1.innerHTML = " > ";
+   breadcrumb.appendChild(span1);
+
+   var span2 = document.createElement("span");
+   span2.innerHTML = lessonTitle;
+   breadcrumb.appendChild(span2);
+   
    firstDiv.appendChild(breadcrumb);
 
  // main
