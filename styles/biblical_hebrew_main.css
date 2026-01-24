@@ -1441,6 +1441,10 @@ background-color:white;
 	margin-top:5px;
     background-color:white; 
 }
+.flex-container-examples-no-border{
+	margin-top:5px;
+    background-color:white; 
+}
 
 .flex-container-examples > div,
 .flex-container-examples-no-border > div
@@ -1452,6 +1456,7 @@ background-color:white;
   text-align: center;
   /*line-height:35px;*/
   /* margin-top:50px; */
+  
 }
 .flex-container-examples > div > p,
 .flex-container-examples-no-border > div > p
