@@ -1229,7 +1229,7 @@ table{
 	content:url("../images/reference_tables/consonant_tsere_large_white_background.jpg");
 }
 
-  /* not sure that these are used anywhere*/
+  /* used in lessons ??*/
  
   .tanakh-example-table{
   /* margin-left:25px;
@@ -1274,8 +1274,6 @@ background-color:white;
 	text-align:left;
 	width:5%;
 }
-  /* end not sure that these are used anywhere*/
-
 
 
 /*-------- clickable flexbox lists - right to left---------*/
@@ -1291,6 +1289,7 @@ background-color:white;
    */
 .flex-container-rtl{
   display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
 }
@@ -1436,8 +1435,7 @@ background-color:white;
   */
 }
 
-.flex-container-examples,
-.flex-container-examples-div-div{
+.flex-container-examples{
 	border:dotted;
 	border-width: 2px;
 	margin-top:5px;
@@ -1456,18 +1454,17 @@ background-color:white;
   /* margin-top:50px; */
 }
 .flex-container-examples > div > p,
-.flex-container-examples-no-border > div > p,
-.flex-container-examples-div-div > div > div > p
+.flex-container-examples-no-border > div > p
  {
 	margin:0;
 }
 
-/* used in Lesson 3 , between groups */
+/* cant see where this is used 
 .flex-container-examples-div-div > div 
 {
   margin-right: 25px; 
 }
-/* used in Lesson 3 , within groups */
+
 .flex-container-examples-div-div > div > div
 {
   margin-top: 5px;
@@ -1477,6 +1474,18 @@ background-color:white;
   text-align: center;
 }
 
+
+.flex-container-examples-div-div{
+	border:dotted;
+	border-width: 2px;
+	margin-top:5px;
+    background-color:white; 
+}
+.flex-container-examples-div-div > div > div > p
+ {
+	margin:0;
+}
+*/
 
    /*-------- alefbet pages---------*/
    /*--------------------------------*/                                    
