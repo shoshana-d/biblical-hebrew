@@ -399,6 +399,18 @@ table{
 	/*margin-top:8px;*/
 }
 
+     /*--- only in lessons pages -----------*/
+.emphasised-word{
+	border: solid;
+	border-width: 2px;
+	border-color: green;
+	margin-top:5px;
+	padding:0px 5px 2px 5px; /* top right bottom left*/
+    background-color:white; 
+	
+	white-space:nowrap;
+}	
+
     /*--- only in alefbet pages -----------*/
     /*-------------------------------------*/ 
 
@@ -449,19 +461,39 @@ table{
    font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif; 
    line-height:30px;
    font-size:30px;
-  content: "\23F5"; /* standard audio start symbol, points to the right */
-  content:url("../images/play_circle_FILL0_wght400_GRAD0_opsz24.png"); /* standard audio start symbol, points to the right */
-  content:url("../images/arrow_circle_left_FILL0_wght400_GRAD0_opsz24.png"); /*  points to the left */
+   /* standard audio start symbol, points to the right */
+  /* content:url("../images/play_circle_FILL0_wght400_GRAD0_opsz24.png"); */
+  /*  points to the left */
+  /* content:url("../images/arrow_circle_left_FILL0_wght400_GRAD0_opsz24.png"); */
+  /*
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color:white;
+ */
 }
+.start-audio::after{
+  content: "\23F5"; /* standard audio start symbol, points to the right */
+  content: " \23F4 "; /* standard audio reverse symbol, points to the left */
+}	
 
 .stop-audio{
   font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif; 
   line-height:30px;
   font-size:20px;
-  content: "\23F9"; /* standard audio stop symbol */
-  content:url("../images/stop_circle_FILL0_wght400_GRAD0_opsz24.png");
+  /* content:url("../images/stop_circle_FILL0_wght400_GRAD0_opsz24.png");*/
 }	
+.stop-audio::after{
+  content: " \23F9 "; /* standard audio stop symbol */
+}
 
+.pause-audio{
+  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif; 
+  line-height:30px;
+  font-size:30px;
+}	
+.pause-audio::after{
+  content: " \23F8 "; /* standard audio stop symbol */
+}
 	
 
 /*------ ear emoji (used in alefbet-exercises to flag some exercises)---*/
@@ -843,7 +875,7 @@ table{
    background-color:HoneyDew; 	
 }	
 
-.text-border-lesson-exercise-question{
+.lesson-exercise-question-text-border{
 	/* used in lessons exercise in the translation */
 	border-style:solid;
 	border-color:red;
@@ -852,7 +884,7 @@ table{
 	
 	white-space:nowrap;
 }
-.text-border-lesson-exercise-answer{
+.lesson-exercise-answer-text-border{
 	/* used in lessons exercise when correct answer is selected */
 	border-style:solid;
 	border-color:red;
@@ -942,8 +974,8 @@ table{
       content:"\05DB\05BC\05B0";
 }
 
-       /* tables used in lessons */
-       /* ---------------------- */
+       /* tables used in lessons (eg Lesson 1 names of God) */
+       /* ------------------------------------------------- */
      
 	 /* vocab word in column 1, translation/explanation in column 2 */
 .lesson-vocab-table{
@@ -960,8 +992,10 @@ table{
 		width:20%;
 }	
 
-   /* used in biblibal-hebrew-exercise-table  */
+   /* used in biblical-hebrew-exercise-table  */
    /*-----------------------------------------*/
+   
+   /* created by biblical-hebrew-exercise-table.js */
    
 .exercise-table{
 	width:100%;
@@ -980,6 +1014,9 @@ table{
 }
 .exercise-table td:nth-child(2){
    text-align: right;
+}
+.exercise-table td:nth-child(3){
+   text-align: center;
 }
 
   /* reference tables  */
@@ -1229,7 +1266,7 @@ table{
 	content:url("../images/reference_tables/consonant_tsere_large_white_background.jpg");
 }
 
-  /* used in lessons ??*/
+  /* used in lessons */
  
   .tanakh-example-table{
   /* margin-left:25px;
@@ -1251,7 +1288,7 @@ background-color:white;
 }
   .tanakh-example-table td:first-child{
 	/* biblical reference */
-	text-align:right;
+	text-align:left;
 	font-style:italic;
 	width:15%;
 }	
@@ -1271,22 +1308,45 @@ background-color:white;
 }	
   .tanakh-example-table td:nth-child(4){
     /* audio arrow */
-	text-align:left;
+	text-align:center;
 	width:5%;
 }
 
+/*-------- flexbox lists -both right to left and left to right---------*/
+/*---------------------------------------------------------------------*/                                    
+
+.flex-container-examples{
+	border:dotted;
+	border-width: 2px;
+	margin-top:5px;
+    background-color:white; 
+}
+.flex-container-examples-no-border{
+	margin-top:5px;
+    background-color:white; 
+}
+
+.flex-container-examples > div,
+.flex-container-examples-no-border > div
+{
+  margin-top: 5px;
+  margin-bottom: 5px;
+ /* margin-right: 15px;  */
+  margin-left: 15px; 
+  text-align: center;
+  /*line-height:35px;*/
+  /* margin-top:50px; */
+  
+}
+.flex-container-examples > div > p,
+.flex-container-examples-no-border > div > p
+ {
+	margin:0;
+}
 
 /*-------- clickable flexbox lists - right to left---------*/
 /*---------------------------------------------------------*/                                    
 
-/* flex-container-heb is default in javascript flexbox list used in alefbet pages */
-/* flex-container-heb used in alefbet */
-/* flex-container-heb-cv used in alefbet for consonants and vowels lists, more vertical space between divs when wrapping */
-/* flex-container-heb-with-tooltips used in alefbet-exercises 
-   for people/places in Torah (more horizontal space between words)
-   flex-container-heb-with-tooltips2 used in alefbet-exercises for consonant names (less horizontal space)
-   flex-container-heb-lessons used in reference lists of consonants and vowels at the start of each lesson
-   */
 .flex-container-rtl{
   display: flex;
   display: inline-flex;
@@ -1313,6 +1373,14 @@ background-color:white;
 
    /*-------- alefbet pages---------*/
    /*--------------------------------*/                                    
+/* flex-container-heb is default in javascript flexbox lists (biblical_hebrew_alefbet_flexbox_list.js)
+   used in alefbet pages */
+/* flex-container-heb used in alefbet */
+/* flex-container-heb-cv used in alefbet for consonants and vowels lists, more vertical space between divs when wrapping */
+/* flex-container-heb-with-tooltips used in alefbet-exercises 
+   for people/places in Torah (more horizontal space between words)
+   flex-container-heb-with-tooltips2 used in alefbet-exercises for consonant names (less horizontal space)
+   */
 
 .flex-container-heb > div
 {
@@ -1433,35 +1501,6 @@ background-color:white;
   display:table;
   clear:both
   */
-}
-
-.flex-container-examples{
-	border:dotted;
-	border-width: 2px;
-	margin-top:5px;
-    background-color:white; 
-}
-.flex-container-examples-no-border{
-	margin-top:5px;
-    background-color:white; 
-}
-
-.flex-container-examples > div,
-.flex-container-examples-no-border > div
-{
-  margin-top: 5px;
-  margin-bottom: 5px;
- /* margin-right: 15px;  */
-  margin-left: 15px; 
-  text-align: center;
-  /*line-height:35px;*/
-  /* margin-top:50px; */
-  
-}
-.flex-container-examples > div > p,
-.flex-container-examples-no-border > div > p
- {
-	margin:0;
 }
 
 /* cant see where this is used 
