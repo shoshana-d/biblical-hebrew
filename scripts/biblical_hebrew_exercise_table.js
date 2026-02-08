@@ -21,7 +21,7 @@ function exerciseTableAnswerEventListener(ev, tableid){
 	if (thisElement.nextSibling != null){ 
        thisElement.nextSibling.classList.remove("hidden");
     }
-	thisElement.classList.add("text-border-lesson-exercise-answer");
+	thisElement.classList.add("lesson-exercise-answer-text-border");
 
     thisElement.classList.remove("notchecked");
 	
@@ -106,27 +106,42 @@ function createExerciseTable(thisDiv){
 	   var thisAnswer = answers[shuffleOrder[r]];
 		 
 	   var col1 = document.createElement("td");
+	   
+	  // var para = document.createElement('p');
+      // para.classList.add("biblical-reference");
+	  // para.innerHTML = thisReference.innerHTML;
+	  // col1.appendChild(para);
+	   var para = document.createElement('span');
+       para.classList.add("biblical-reference");
+	   para.innerHTML = thisReference.innerHTML;
+	   col1.appendChild(para);
+	   
  	   var sections = thisTranslation.innerHTML.split(globalDivider1);
 	   var para = document.createElement('p');
 	   for (i = 0; i < sections.length; i++) {
           var text0 = document.createTextNode(sections[i]);
 	      var span0 = document.createElement("span");
 		    // put a border round every second block
-		  if (i % 2 == 1) {span0.classList.add("text-border-lesson-exercise-question");}
+		  if (i % 2 == 1) {span0.classList.add("lesson-exercise-question-text-border");}
 	      span0.appendChild(text0);
 	      para.appendChild(span0);
        }
-	   col1.appendChild(para);
-	   
-	   var para = document.createElement('p');
-       para.classList.add("biblical-reference");
-	   para.innerHTML = thisReference.innerHTML;
 	   col1.appendChild(para);
 		  
 	   thisRow.appendChild(col1);
 	   
 	   var col2 = document.createElement("td");
        //col2.classList.add("w3-right-align");
+  
+	    var thisAudio = document.createElement('audio');
+        thisAudio.controls = 'controls';
+     //  thisAudio.src = setMp3Name(questionAudio[0].innerHTML, false);
+        thisAudio.src = setMp3Name(addAudioDirToSoundName(thisAnswerAudio.innerHTML.trim(),audioDir));
+        thisAudio.type = 'audio/mpeg';
+	    col2.appendChild(thisAudio);
+	   
+	    var br = document.createElement("br");
+	    col2.appendChild(br);
 	   
 	   var answerDiv = document.createElement("div");
 	   answerDiv.classList.add("flex-container-rtl");
@@ -193,16 +208,6 @@ function createExerciseTable(thisDiv){
         }      
 
 	    col2.appendChild(answerDiv);
-	   
-	    var br = document.createElement("br");
-	    col2.appendChild(br);
-  
-	    var thisAudio = document.createElement('audio');
-        thisAudio.controls = 'controls';
-     //  thisAudio.src = setMp3Name(questionAudio[0].innerHTML, false);
-        thisAudio.src = setMp3Name(addAudioDirToSoundName(thisAnswerAudio.innerHTML.trim(),audioDir));
-        thisAudio.type = 'audio/mpeg';
-	    col2.appendChild(thisAudio);
 
 	    var br = document.createElement("br");
 	    col2.appendChild(br);

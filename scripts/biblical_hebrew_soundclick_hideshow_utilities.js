@@ -32,23 +32,133 @@ document.addEventListener('DOMContentLoaded', function() {
   // add event listeners to the lists or individual items which have been created in HTML 
   // (event listeners for lists created in JS are added when the list is created)
  
+  // user clicks to play a single sound or word
    var soundclickClass = document.getElementsByClassName("soundclick");
-   for (j = 0; j < soundclickClass.length; j++) {addsoundclickEventListener(soundclickClass[j]);}
+   //for (j = 0; j < soundclickClass.length; j++) {addsoundclickEventListener(soundclickClass[j]);}
+   for (j = 0; j < soundclickClass.length; j++) {soundclickClass[j].addEventListener("click",soundclickEventListener);}
  
+  // user clicks to play an extended audio (several words), user may want to pause audio
+  // element should be a span with class="extendedaudioclick"
+  // next element should be hidden span with name and pathname of audio .mp file
+   var extendedaudioclickClass = document.getElementsByClassName("extendedaudioclick");
+   for (j = 0; j < extendedaudioclickClass.length; j++) {
+	   crExtendedAudio(extendedaudioclickClass[j]);
+   }
 })
 //---------------------------------------------------------------------
 
+//------- code extended audio --------------------------------------------
+//-------------------------------------------------------------------------
+function crExtendedAudio(element){
+	// used when element created in HTML with class="extendedaudioclick"
+	
+	// "element" is the span with class="extendedaudioclick"
+	// "element" should not have any other classes, class start-audio is added in this function
+	element.classList.add("start-audio");
+	element.classList.add("clickable");
+	element.addEventListener('click', startPauseClickEventListener )
+
+	// create an audio element based on data in hidden span following "element"
+    //  (name and pathname of audio .mp file)
+	const audioElement = document.createElement('audio'); 
+	audioElement.src = setMp3Name(element.nextElementSibling.innerHTML);
+	// add event listener to hide stop-audio button when playing finished 
+	// and change pause-audio symbol to start-audio symbol
+    audioElement.addEventListener('ended', endedEventListener)
+	// insert in document after "element" (ie before hidden element - this is no longer needed)
+	element.insertAdjacentElement('afterend', audioElement);
+	
+	// create initially hidden span element immediately "element" containing stop-audio Symbol
+	element.insertAdjacentElement('afterend', crStopClickSpan());
+	
+	// so, order of elements is:
+	// span with start/pause -> span with stop -> audio element -> redundant span with audio file path
+	
+}
+
+function addExtendedAudioElements(container, audioFileName){
+    // used when element created in JS
+	
+	// audioFileName should include directory
+
+    var span1 = document.createElement("span");   
+	span1.classList.add("start-audio");
+	span1.classList.add("clickable");
+	span1.addEventListener('click', startPauseClickEventListener )
+    container.appendChild(span1);
+		
+    var span2 = crStopClickSpan();
+	container.appendChild(span2);
+
+    var audioElement = document.createElement("audio"); 
+    audioElement.src = 	setMp3Name(audioFileName);
+    audioElement.addEventListener('ended', endedEventListener)
+    container.appendChild(audioElement);
+}	
+
+function startPauseClickEventListener(){
+   if (this.classList.contains("start-audio")){
+           // start-audio symbol visible
+	 this.nextElementSibling.classList.remove("hidden");
+     this.nextElementSibling.nextElementSibling.play(); 
+   } else {
+           // pause-audio symbol visible
+     this.nextElementSibling.nextElementSibling.pause(); 
+   }			
+   this.classList.toggle("start-audio");
+   this.classList.toggle("pause-audio");
+}	
+
+function crStopClickSpan(){
+	var stopAudioSpan = document.createElement('span');
+	stopAudioSpan.classList.add("stop-audio");
+	stopAudioSpan.classList.add("clickable");
+	stopAudioSpan.classList.add("hidden");
+	stopAudioSpan.addEventListener('click', function(){
+       this.nextElementSibling.pause(); // Pauses the audio playback
+       this.nextElementSibling.currentTime = 0;  // Resets the current time to the start (0 seconds)
+
+       this.classList.toggle("hidden");
+       this.previousElementSibling.classList.remove("start-audio");
+       this.previousElementSibling.classList.remove("pause-audio");
+       this.previousElementSibling.classList.add("start-audio");
+	});
+	
+	return stopAudioSpan;
+}
+
+function endedEventListener(){
+ 	//   event listener to hide stop-audio button when playing finished 
+	//    and change pause-audio symbol to start-audio symbol
+    this.previousElementSibling.classList.toggle("hidden");
+    this.previousElementSibling.previousElementSibling.classList.toggle("pause-audio");
+    this.previousElementSibling.previousElementSibling.classList.toggle("start-audio");
+}	
+//-------------------------------------------------------------------------
 
 //------- code for sound (audio)--------------------------------------------
 //-------------------------------------------------------------------------
-function addsoundclickEventListener(element){  
+function soundclickEventListener(){
+	 // usage: element.addEventListener("click",soundclickEventListener);
+	 // soundclick item(s) in <span>, audio reference in following <p> (or <span>) ie next sibling
+	 // pathname must be included in the sound reference
+    var thisLetter =  this.nextElementSibling.innerHTML;
+    var thisSound = setMp3Name(thisLetter);
+    playSound(thisSound);
+}	
+
+   // this function was used in biblical_hebrew_alefbet_flexbox_list.js
+   // it originally included what is now the function soundclickEventListener()
+   // probably no longer required
+ function addsoundclickEventListener(element){  
 	 // soundclick letter(s) in <span>, letter in following <p> (or <span>) ie next sibling
 	 // pathname must be included in the sound reference
-   element.addEventListener("click", function() {
-       var thisLetter =  this.nextElementSibling.innerHTML;
-	   var thisSound = setMp3Name(thisLetter);
-	   playSound(thisSound);
-   });
+   element.addEventListener("click",soundclickEventListener);	 
+ //  element.addEventListener("click", function() {
+ //      var thisLetter =  this.nextElementSibling.innerHTML;
+//	   var thisSound = setMp3Name(thisLetter);
+//	   playSound(thisSound);
+ //  });
 }
 
     //-------- code for playing sounds --------- 

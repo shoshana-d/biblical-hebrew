@@ -430,7 +430,8 @@ function createJavascriptList(thisSpecElement){
     var flexdivElements =  flexdiv.getElementsByTagName("*");
     for (i=0; i < flexdivElements.length; i++){
       if (flexdivElements[i].classList.contains("soundclick")) {
-		 addsoundclickEventListener(flexdivElements[i]);
+         flexdivElements[i].addEventListener("click",soundclickEventListener);	 		  
+		 //addsoundclickEventListener(flexdivElements[i]);
       } else if (flexdivElements[i].classList.contains("selectletterclick")) {
          addSelectLetterEventListener(flexdivElements[i]);  
 	  } else if (flexdivElements[i].classList.contains("arrowclick")) {
