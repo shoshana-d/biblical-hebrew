@@ -456,44 +456,31 @@ table{
 
 /*--------- play/stop audio --------------*/
 /*----------------------------------------*/
-         /* previously called arrow, still referred to as arrow in flexboxlist js code */
+   /* previously called arrow, still referred to as arrow in flexboxlist js code */
+   /* simple unicode not used because start symbol doesnt show properly on tablet*/
 .start-audio {
-   font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif; 
-   line-height:30px;
-   font-size:30px;
-   /* standard audio start symbol, points to the right */
-  /* content:url("../images/play_circle_FILL0_wght400_GRAD0_opsz24.png"); */
-  /*  points to the left */
-  /* content:url("../images/arrow_circle_left_FILL0_wght400_GRAD0_opsz24.png"); */
-  /*
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color:white;
- */
+  /* content: "\23F5"; standard audio start symbol, points to the right */
+ /* content: " \23F4 ";  standard audio reverse symbol, points to the left */
+  margin-left:8px;
+  margin-right:8px;
+  content:url("../images/bootstrap-play-circle-reversed.png");
 }
-.start-audio::after{
-  content: "\23F5"; /* standard audio start symbol, points to the right */
-  content: " \23F4 "; /* standard audio reverse symbol, points to the left */
-}	
 
 .stop-audio{
-  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif; 
-  line-height:30px;
-  font-size:20px;
-  /* content:url("../images/stop_circle_FILL0_wght400_GRAD0_opsz24.png");*/
+ /* content: " \23F9 ";  standard audio stop symbol */
+  margin-left:8px;
+  margin-right:8px;
+  content:url("../images/bootstrap-stop-circle.png");
 }	
-.stop-audio::after{
-  content: " \23F9 "; /* standard audio stop symbol */
-}
 
 .pause-audio{
-  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif; 
-  line-height:30px;
-  font-size:30px;
+ /* content: " \23F8 ";  standard audio stop symbol */
+  margin-left:8px;
+  margin-right:8px;
+  content:url("../images/bootstrap-pause-circle.png");
 }	
-.pause-audio::after{
-  content: " \23F8 "; /* standard audio stop symbol */
-}
+
+
 	
 
 /*------ ear emoji (used in alefbet-exercises to flag some exercises)---*/
