@@ -70,14 +70,14 @@
      <div>
 	    <span class="extendedaudioclick" > </span><span class="hidden">tanakh/ex-04-04aa</span>
      </div>	
-     <div>
-	    <span class="hebrew30  soundclick vocab-word-color">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span> 
+     <div class="soundclick">
+	    <span class="hebrew30   vocab-word-color">וַיֹּאמֶר</span>
 		  <p>(and)  said </p>
-     </div>	
-     <div>
-	    <span class="hebrew30 soundclick vocab-word-color"> יְהוָה</span><span class="hidden">words/w062_adonai</span>
+     </div>	<span class="hidden">words/w011_vayomer</span> 
+     <div class="soundclick">
+	    <span class="hebrew30 vocab-word-color"> יְהוָה</span>
 		  <p>God </p>
-     </div>	
+     </div><span class="hidden">words/w062_adonai</span>	
      <div>
 	    <span class="hebrew30 soundclick vocab-word-color"> אֶל </span><span class="hidden">words/w008_el</span>
 		  <p>to </p>
@@ -456,7 +456,49 @@
 </div>		
 	
 
+</div>
+</div>
 
+<h3 class="lesson-heading">verb reference tables</h3>
+
+
+<p>
+ Needs "scripts/biblical_hebrew_reference_tables_utilities.js" and "scripts/biblical_hebrew_reference_tables_verbs.js"
+</p>
+<p>Testing single row of generic verb table with header row</p>
+ <div class="onload-generic-verb-reference-single-row">
+    <div class="hidden"> <p> header | theyf </p></div>
+ </div>
+<p>Testing single row of generic verb table no header row</p>
+ <div class="onload-generic-verb-reference-single-row">
+    <div class="hidden"> <p> no header | theyf </p></div>
+ </div>
+<p>Testing single row of verb table with header row</p>
+ <div class="onload-verb-reference-single-row">
+    <div class="hidden"> 
+	   <p> header </p>
+	   <p> he said, he says, he will say</p>
+	   <p> alef:mem:resh </p>
+	   <p> </p>
+	   <p>frequent :  : root1 alef+kamatz : root2 mem+patach : root3 resh : |  : vav+schwah : root1 alef+kamatz : root2 mem+patach : root3 resh :   |   : yod+cholam  : root1 alef : root2 mem+patach : root3 resh :  *  : yod+tsere : root1 alef+kamatz : root2 mem+tsere : root3 resh :   |  frequent : vav+patach+yod+dagesh+cholam  : root1 alef : root2 mem+segol : root3 resh :  *  : vav+patach+yod+dagesh+cholam  : root1 alef : root2 mem+patach : root3 resh :  
+       </p>
+	</div>
+ </div>
+<p>Testing single row of verb table no header row</p>
+ <div class="onload-verb-reference-single-row">
+     <div class="hidden"> 
+	   <p> no header </p>
+	   <p> he said, he says, he will say</p>
+	   <p> alef:mem:resh </p>
+	   <p> </p>
+	   <p>frequent :  : root1 alef+kamatz : root2 mem+patach : root3 resh : |  : vav+schwah : root1 alef+kamatz : root2 mem+patach : root3 resh :   |   : yod+cholam  : root1 alef : root2 mem+patach : root3 resh :  *  : yod+tsere : root1 alef+kamatz : root2 mem+tsere : root3 resh :   |  frequent : vav+patach+yod+dagesh+cholam  : root1 alef : root2 mem+segol : root3 resh :  *  : vav+patach+yod+dagesh+cholam  : root1 alef : root2 mem+patach : root3 resh :  
+       </p>
+	</div> 
+ </div>
+
+
+
+<hr>
 
 <h3 class="lesson-heading">alefbet javascript examples</h3>
 
@@ -524,6 +566,34 @@
 
 
 <!-- scripts -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+"use strict";
+var i;
+ // checking that display of single row of generic verb table works
+   var onloadVerbRow = document.getElementsByClassName("onload-generic-verb-reference-single-row");
+   for (i = 0; i < onloadVerbRow.length; i++) {
+	  var thisDiv = onloadVerbRow[i];
+      crGenericVerbReferenceSingleRow(thisDiv);
+    }
+ 
+	
+ // checking that display of single row of verb table works
+   var onloadVerbRow = document.getElementsByClassName("onload-verb-reference-single-row");
+   for (i = 0; i < onloadVerbRow.length; i++) {
+	  var thisDiv = onloadVerbRow[i];
+      crVerbReferenceSingleRow(thisDiv);
+    }
+
+var testHebrewWord = "אֱלֹהִים";
+var thisarray = convertHebrewWordToArray(testHebrewWord);
+var selection = "4";
+var selectionarray = crSelectedArray(selection, thisarray.length);
+test("word:" + testHebrewWord + " ,selection=" + selection + " ,selectionarray=" + selectionarray);
+	
+})	
+</script>
 <script src="scripts/biblical_hebrew_lessons_start_template.js"></script>
 
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
@@ -535,6 +605,9 @@
 <script src="scripts/biblical_hebrew_alefbet_flexbox_list.js"></script>
 
 <script src="scripts/biblical_hebrew_lessons_examples.js"></script>
+
+<script src="scripts/biblical_hebrew_reference_tables_utilities.js"></script>
+<script src="scripts/biblical_hebrew_reference_tables_verbs.js"></script>
 </body>
 </html>
 
