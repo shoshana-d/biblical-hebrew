@@ -535,8 +535,81 @@ function setJpgName(thisName, imageDir){
     return thisJpg;
 }
 
-// used in flexbox list and drag drop
-//-----------------------------------
+
+
+function isConsonant(thisChar){
+	var i;
+    const consonants = [ "\u05D0","\u05D1","\u05D2","\u05D3","\u05D4","\u05D5",
+                       "\u05D6","\u05D7","\u05D8","\u05D9","\u05DA","\u05DB" ,
+					   "\u05DC" ,"\u05DD" ,"\u05DE" ,"\u05DF" ,
+					   "\u05E0" ,"\u05E1" ,"\u05E2" ,"\u05E3" ,"\u05E4" ,
+					   "\u05E5" ,"\u05E6" ,"\u05E7" ,"\u05E8" ,"\u05E9" ,
+					   "\u05EA" 					   
+					   ];
+	var found = false;				      
+    for (i = 0; i < consonants.length; i++) {
+		if (thisChar == consonants[i]) {
+			found = true;
+			break;
+        }
+    }		
+	return found;
+}
+
+ // --- these functions used in javascript creating lists for use in lessons --
+
+function convertHebrewWordToArray(thisHebrewWord){
+	// each array item starts with a consonant, may also have one or more non-consonants (vowel, dot)
+	var hebrewArray = [];
+	var i;
+	var arrayIndex = -1;
+	
+	for (i=0; i < thisHebrewWord.length; i++){
+	   var thisChar = thisHebrewWord.charAt(i);
+	   if (isConsonant(thisChar)){
+          arrayIndex++;
+		  hebrewArray[arrayIndex] = thisChar;
+       } else {
+          hebrewArray[arrayIndex] = hebrewArray[arrayIndex] + thisChar;
+       }		   
+	}	
+	return hebrewArray;
+}
+
+
+function reverseArray(array){
+   var i;
+   var rArray = array.slice();
+   for (i=0; i < array.length; i++){
+      rArray[i] = array[array.length - i - 1];
+   }
+  return rArray;
+}
+
+function crSelectedArray(selectionString, arrayLength){
+  // creates an array of arrayLength
+  // array value at positions indicated by selectionString are true, all others false
+  // selectionString  items separated by one or more spaces
+  // selectionString indexing starts from 1
+  var i;
+  var j;
+  var selectionArray =  splitIntoArrayAtSpaces(selectionString); 
+  var selectedArray = [];
+  for (i=0; i < arrayLength; i++){
+	 selectedArray[i] = false;
+	 for (j=0; j < selectionArray.length; j++){
+		 if (selectionArray[j]-1 == i) {selectedArray[i] = true;}
+	 }	 
+  }
+  return selectedArray;
+}
+
+	
+
+ //---------------------------------------------------------	
+
+// used in flexbox list (alefbet), alefbet exercises,  and drag drop 
+//---------------------------------------------
 function getRandomInteger(min, max) {
 	//returns a random number between min and max (both included):
   return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -577,15 +650,6 @@ function createIntegerArray(first, last){
     return array;
 }
 
-// not sure if this is used anywhere
-function reverseArray(array){
-   var i;
-   var rArray = array.slice();
-   for (i=0; i < array.length; i++){
-      rArray[i] = array[array.length - i - 1];
-   }
-  return rArray;
-}
 
 
 function shuffleArray(array) {
@@ -622,6 +686,7 @@ function removeFirstItem(thisString){
 function getFromHTML( HTMLId, separateParas, trim=false){
 	// return an array of items from an HTML id
 	// items are NOT trimmed by default (need to leave &thinsp; in some Hebrew - but this may not be necessary any more now that vowels are images)
+	//  used in alefbet flexbox, alefbet exercises, drag drop
 	
 	//var i;
 	var j;
@@ -661,26 +726,7 @@ function getFromHTML( HTMLId, separateParas, trim=false){
 	
    return items;
 }
-
-
-function isConsonant(thisChar){
-	var i;
-    const consonants = [ "\u05D0","\u05D1","\u05D2","\u05D3","\u05D4","\u05D5",
-                       "\u05D6","\u05D7","\u05D8","\u05D9","\u05DA","\u05DB" ,
-					   "\u05DC" ,"\u05DD" ,"\u05DE" ,"\u05DF" ,
-					   "\u05E0" ,"\u05E1" ,"\u05E2" ,"\u05E3" ,"\u05E4" ,
-					   "\u05E5" ,"\u05E6" ,"\u05E7" ,"\u05E8" ,"\u05E9" ,
-					   "\u05EA" 					   
-					   ];
-	var found = false;				      
-    for (i = 0; i < consonants.length; i++) {
-		if (thisChar == consonants[i]) {
-			found = true;
-			break;
-        }
-    }		
-	return found;
-}	
+	
 
 function splitIntoArrayAtSpaces(thisString){
 	var theseSyllables = thisString.trim().split(/\s+/); // split when one or more spaces, Hebrew word split into syllables
@@ -689,6 +735,7 @@ function splitIntoArrayAtSpaces(thisString){
 	
 function wordFromSyllables(syllablesString){
 		 // used for syllables separated by one or more spaces 
+		 // only in alefbet js
 	var j;
 	//var theseSyllables = syllablesString.trim().split(/\s+/); // split when one or more spaces
 	var theseSyllables = splitIntoArrayAtSpaces(syllablesString);
@@ -700,7 +747,19 @@ function wordFromSyllables(syllablesString){
 	return thisHebrewWord;
 }
 
-	
+
+function removeExtraSpaces(syllablesString){
+	var j;
+	var theseSyllables = syllablesString.trim().split(/\s+/); // split when one or more spaces
+	var thisHebrewWordInSyllables = theseSyllables[0];
+	for (j = 1; j < theseSyllables.length ; j++) {
+		thisHebrewWordInSyllables = thisHebrewWordInSyllables + " ";
+		thisHebrewWordInSyllables = thisHebrewWordInSyllables + theseSyllables[j];
+	}
+	return thisHebrewWordInSyllables;
+}	
+
+  // used in alefbet flexbox list, exercises
 function getStressedSyllableNumber(syllables, stressedSyllable = "last"){
 			// compute syllable number of stressed syllable
 	//var theseSyllables = syllables.trim().split(/\s+/); // split when one or more spaces, Hebrew word split into syllables
@@ -715,15 +774,3 @@ function getStressedSyllableNumber(syllables, stressedSyllable = "last"){
 	return stressedSyllableNumber;
 
 }	
-
-function removeExtraSpaces(syllablesString){
-	var j;
-	var theseSyllables = syllablesString.trim().split(/\s+/); // split when one or more spaces
-	var thisHebrewWordInSyllables = theseSyllables[0];
-	for (j = 1; j < theseSyllables.length ; j++) {
-		thisHebrewWordInSyllables = thisHebrewWordInSyllables + " ";
-		thisHebrewWordInSyllables = thisHebrewWordInSyllables + theseSyllables[j];
-	}
-	return thisHebrewWordInSyllables;
-}	
-

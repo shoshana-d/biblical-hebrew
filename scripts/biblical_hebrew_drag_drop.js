@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
    var parameters = thisSpecElement.innerHTML.split(globalDivider1);
    
    for (j = 0; j < parameters.length; j++) {
-	 var thisParameterSpec = parameters[j];
+	 var thisParameterSpec = parameters[j]tory
 	 var thisP = parameters[j].split(globalDivider2);
 	 var thisP0 = thisP[0].toLowerCase().trim();
 

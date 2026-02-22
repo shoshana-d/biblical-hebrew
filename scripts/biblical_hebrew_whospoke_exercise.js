@@ -1,8 +1,5 @@
 "use strict";
 
-var globalWhoSpokenItems = 7;
-var globalOverallWhoSpokeExerciseId = null;
-
 document.addEventListener('DOMContentLoaded', function() {
    var i;
 
@@ -20,27 +17,32 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 function reCreateWhoSpokeExercise(thisId){
+	// thisId is the id of the who spoke exercise overall container div
+	
   // first, delete existing test
-  var overallExercise = document.getElementById(thisId);
-  overallExercise.remove();
+  var overallExerciseDiv = document.getElementById(thisId);
+  if (overallExerciseDiv != null) { overallExerciseDiv.remove();}
    
   // now recreate the test
-  var thisDiv = document.getElementsByClassName("onload-whospoke-exercise")[0];
-  createWhoSpokeExercise(thisDiv);
+  
+   var instructionsDivId = "cr-" + thisId;
+   var instructionsDiv =  document.getElementById(instructionsDivId);
+   createWhoSpokeExercise(instructionsDiv);
+
 }
 
 
 function createWhoSpokeExercise(thisDiv){
-  //thisDiv = document.getElementsByClassName("onload-whospoke-exercise")
    var i;
+   
    	// overall container
 	//-----------------
-   var overallExercise = document.createElement("div");
-   overallExercise.classList.add("exercise-container");
-   //overallExercise.classList.add("vocab-color");
+   var overallExerciseDiv = document.createElement("div");
+   overallExerciseDiv.setAttribute("id", thisDiv.id.replace("cr-",""));
+   overallExerciseDiv.classList.add("exercise-container");
+   //overallExerciseDiv.classList.add("vocab-color");
+   
    var dataDiv = thisDiv.nextElementSibling;
-   globalOverallWhoSpokeExerciseId = dataDiv.firstElementChild.innerHTML;
-   overallExercise.id = globalOverallWhoSpokeExerciseId;
    
    	// flexbox with draggable (but not droppable) answers
 	//--------------------------------------------------
@@ -52,7 +54,6 @@ function createWhoSpokeExercise(thisDiv){
    for (i=0; i < answers.length; i++){
 	  var celldiv = document.createElement("div");
       var span1 = document.createElement("span");
- 	  //span1.setAttribute("id", answersFlexId + i);
       span1.classList.add("flex-drag-drop-content");
       span1.classList.add("flex-drag-drop-english");
       span1.classList.add("clickable"); /* changes pointer when hovering */
@@ -60,20 +61,21 @@ function createWhoSpokeExercise(thisDiv){
       var text1= document.createTextNode(answers[i]);
 	  span1.appendChild(text1);
       span1.addEventListener("dragstart",function(){handleDragStartWhoSpoke(event);});
-      span1.addEventListener("click", function(){selectAnswerWhoSpoke(event);});
+     // span1.addEventListener("click", function(){selectAnswerWhoSpoke(event);});
+      span1.addEventListener("click", function(){checkAnswerWhoSpoke(event);});
 	  celldiv.appendChild(span1);
       answersFlexdiv.appendChild(celldiv);
 	}
-    overallExercise.appendChild(answersFlexdiv);
+    overallExerciseDiv.appendChild(answersFlexdiv);
 
     // flexboxes with hebrew question text and query boxes for answers
 	//------------------------------------------------------------
    var questionsDivs = createQuestionsDivs(dataDiv);
-   overallExercise.appendChild(questionsDivs);
+   overallExerciseDiv.appendChild(questionsDivs);
 
    // add overall container to document	
-   //answersPara.parentNode.insertBefore(overallExercise, answersPara);
-   thisDiv.append(overallExercise);
+   //answersPara.parentNode.insertBefore(overallExerciseDiv, answersPara);
+   thisDiv.append(overallExerciseDiv);
 }
 
 function createQuestionsDivs(dataDiv){
@@ -95,7 +97,10 @@ function createQuestionsDivs(dataDiv){
 	
 	var selectedItems = shuffleArray(createIntegerArray(0, hebrew.length-1));
 	
-    for (r = 0; r < globalWhoSpokenItems; r++) {
+	var nQuestions = dataDiv.getElementsByClassName("whospoke-exercise-nselection")[0].innerHTML;
+	
+    //for (r = 0; r < globalWhoSpokenItems; r++) {
+    for (r = 0; r < nQuestions; r++) {
  
 	   var thisHebrew = hebrew[selectedItems[r]].innerHTML;
 	   var thisReference = reference[selectedItems[r]].innerHTML;
@@ -156,7 +161,8 @@ function createQuestionsDivs(dataDiv){
 	   span0.addEventListener("dragleave",function(){handleDragLeaveWhoSpoke(event);});
 	   span0.addEventListener("dragover",function(){handleDragOverWhoSpoke(event);});
 	   
-	   span0.addEventListener("click", function(){checkAnswerWhoSpoke(event);});
+     //  span0.addEventListener("click", function(){checkAnswerWhoSpoke(event);});
+       span0.addEventListener("click", function(){selectQuestionWhoSpoke(event);});
 
 	   thisRowDiv2.appendChild(span0);
 	   
@@ -181,7 +187,8 @@ function createQuestionsDivs(dataDiv){
 	   span3.addEventListener("dragleave",function(){handleDragLeaveWhoSpoke(event);});
 	   span3.addEventListener("dragover",function(){handleDragOverWhoSpoke(event);});
 	   
-	   span3.addEventListener("click", function(){checkAnswerWhoSpoke(event);});
+	   //span3.addEventListener("click", function(){checkAnswerWhoSpoke(event);});
+	   span3.addEventListener("click", function(){selectQuestionWhoSpoke(event);});
 	   
 	   thisRowDiv2.appendChild(span3);
 	   
@@ -200,25 +207,42 @@ function createQuestionsDivs(dataDiv){
 	return questionsDivs;
 }
 
+//------ used by both point and click and drag-drop ---
+//-----------------------------------------------------
 
-// this is not used any more
-function shuffleRows(thisId) {
-    var i;
-    var j;
-    var questions = document.getElementById(thisId);
-    var questionsRows = questions.getElementsByClassName("whospoke-flex-container-drag-drop");
+function CheckFinishedWhoSpoke(thisSpec){
+   // thisSpec is one of the query boxes in the questions flexbox
+   // if none of the answer boxes have the class "hidden" then all the questions have been answered 
+//test("hello from CheckFinishedWhoSpoke, thisSpec.innerHTML=" + thisSpec.nextElementSibling.innerHTML);   
+   var i;
+   var finished = true;	
+   const questionsFlexdiv = thisSpec.parentNode.parentNode.parentNode;
+   const questionsDivs = questionsFlexdiv.children;
+	     // only check the rows which are visible
+   //for (i=0; i < globalWhoSpokenItems; i++) { 
+   for (i=0; i < questionsDivs.length; i++) { 
+	  var thisRowDivs = questionsDivs[i].children;
+	    // thisRowDive[0] is the biblical reference
+	    // thisRowDive[1] is the hebrew and audio
+	  var thisRowQueriesDiv = thisRowDivs[2].children;
+          // check whether answer 1 completed
+      if ((thisRowQueriesDiv [1].classList.contains("hidden"))){
+		 finished = false;
+		 break;
+	  }	 
+          // check whether answer 2 completed
+      if ((thisRowQueriesDiv [4].classList.contains("hidden"))){
+		 finished = false;
+		 break;
+	  }	
+   }
+   return finished;
 
- /* Randomize array in-place using Durstenfeld shuffle algorithm */
-    for ( i = questionsRows.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        questionsRows[i].parentNode.insertBefore(questionsRows[j],questionsRows[i]) ;
-        questionsRows[j].parentNode.insertBefore(questionsRows[i],questionsRows[j]); 
-    }
 }
 
 //------ point and click functions ------------------
 //------------------------------------------------
-function selectAnswerWhoSpoke(ev) {
+function oldselectAnswerWhoSpoke(ev) {
 	var i;
 
     // already selected? don't do anything
@@ -236,8 +260,25 @@ function selectAnswerWhoSpoke(ev) {
 	}   
 }	
 
+function selectQuestionWhoSpoke(ev) {
+	var i;
 
-function checkAnswerWhoSpoke(ev) {
+    // already selected? don't do anything
+	if (ev.target.classList.contains("flex-drag-drop-selected")){
+	   
+    } else {
+	   // first, unselect any question boxes that are selected
+       var selected = ev.target.parentElement.parentElement.parentElement.getElementsByClassName("flex-drag-drop-selected");
+	   for (i=0; i < selected.length; i++) {
+		   selected[i].classList.remove("flex-drag-drop-selected");
+	   }
+
+       // now flag this question box as selected
+	   ev.target.classList.add("flex-drag-drop-selected"); 
+	}   
+}	
+
+function oldcheckAnswerWhoSpoke(ev) {
 	// when user clicks on "?" box
 	var selectedAnswer =  document.getElementById(globalOverallWhoSpokeExerciseId).getElementsByClassName("flex-drag-drop-selected");
     if (selectedAnswer.length == 1){
@@ -252,7 +293,7 @@ function checkAnswerWhoSpoke(ev) {
 		  selectedAnswer[0].classList.remove("flex-drag-drop-selected");
 		  
 	       //document.getElementById(answerId).classList.add("hidden"); 
-	      var finished = DragDropFinishedWhoSpoke(ev.target);
+	      var finished = CheckFinishedWhoSpoke(ev.target);
        }
 	
        if (finished) {
@@ -262,13 +303,44 @@ function checkAnswerWhoSpoke(ev) {
 
 }
 
+function checkAnswerWhoSpoke(ev) {
+	// when user clicks on an answer in the top row
+	// is there a selected question box?
+	//var selectedQuestion =  document.getElementById(globalOverallWhoSpokeExerciseId).getElementsByClassName("flex-drag-drop-selected");
+	var selectedQuestion =  ev.target.parentElement.parentElement.parentElement.getElementsByClassName("flex-drag-drop-selected");
+    if (selectedQuestion.length == 1){
+		// yes
+   
+       var proposedAnswer = ev.target.innerHTML;  
+       var actualAnswer = selectedQuestion[0].nextElementSibling.innerHTML;
+//test("hello from checkAnswerWhoSpoke, proposed answer=" + proposedAnswer + ", actual answer=" + actualAnswer);	
+	   
+       if (proposedAnswer == actualAnswer){
+          selectedQuestion[0].classList.add("hidden"); //make the query box invisible
+          selectedQuestion[0].nextElementSibling.classList.remove("hidden"); // make answer box visible
+		  
+		  
+	      var finished = CheckFinishedWhoSpoke(selectedQuestion[0]);
+		  
+	       // set answer unselected (have to do this after call to CheckFinishedWhoSpoke)
+		  selectedQuestion[0].classList.remove("flex-drag-drop-selected");
+		  
+          if (finished) {
+	         rewardModal("Well done!"); 
+          }	
+		  
+       }
+	
+	}   
+
+}
 
 //------ drag and drop functions ------------------
 //------------------------------------------------
 
 function handleDragStartWhoSpoke(ev) {
 	//test("hi");
-// changeed this so stores ev.target.innerHTML, then each answer doesn't have to have an id
+// changed this so stores ev.target.innerHTML, then each answer doesn't have to have an id
 	//test(ev.target.id);
    //ev.dataTransfer.setData("text", ev.target.id);
    ev.dataTransfer.setData("text", ev.target.innerHTML);
@@ -288,53 +360,22 @@ function handleDragOverWhoSpoke(ev) {
 
 function handleDropWhoSpoke(ev) {
    ev.preventDefault();
-   var finished = false;
-   //var answerId = ev.dataTransfer.getData("text");
-   //test(answerId);  
-   // var proposedAnswer = document.getElementById(answerId).innerHTML;
    var proposedAnswer = ev.dataTransfer.getData("text");
    var actualAnswer = ev.target.nextElementSibling.innerHTML;
- //test(proposedAnswer + " " + actualAnswer);
+//test("hello from handleDropWhoSpoke, proposedAnswer=" + proposedAnswer + ", actual answer= " + actualAnswer);
    if (proposedAnswer == actualAnswer){
       ev.target.classList.add("hidden"); //make the query box invisible
       ev.target.nextElementSibling.classList.remove("hidden"); // make answer box visible
-	  //document.getElementById(answerId).classList.add("hidden"); 
-	            // dont remove the answer from the possible answers
-	  finished = DragDropFinishedWhoSpoke(ev.target);
+
+	  var finished = CheckFinishedWhoSpoke(ev.target);
+	  
+      if (finished) {
+	     rewardModal("Well done!"); 
+      }	  
+	  
     }else{
 		//don't know why this is needed
        ev.target.classList.remove("flex-drag-drop-droppable");
     }
 	
-   if (finished) {
-	   rewardModal("Well done!"); 
-    }	  
-}
-
-function DragDropFinishedWhoSpoke(thisSpec){
-   // thisSpec is one of the query boxes in the questions flexbox
-   // if none of the answer boxes have the class "hidden" then all the questions have been answered   
-    var i;
-   var finished = true;	
-   const questionsFlexdiv = thisSpec.parentNode.parentNode.parentNode;
-   const questionsDivs = questionsFlexdiv.children;
-	     // only check the rows which are visible
-   for (i=0; i < globalWhoSpokenItems; i++) { 
-	  var thisRowDivs = questionsDivs[i].children;
-	    // thisRowDive[0] is the biblical reference
-	    // thisRowDive[1] is the hebrew and audio
-	  var thisRowQueriesDiv = thisRowDivs[2].children;
-          // check whether answer 1 completed
-      if ((thisRowQueriesDiv [1].classList.contains("hidden"))){
-		 finished = false;
-		 break;
-	  }	 
-          // check whether answer 2 completed
-      if ((thisRowQueriesDiv [4].classList.contains("hidden"))){
-		 finished = false;
-		 break;
-	  }	
-   }
-   return finished;
-
 }
