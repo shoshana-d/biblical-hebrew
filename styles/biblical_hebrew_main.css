@@ -890,7 +890,9 @@ table{
    background-color:#ffffcc;  /* w3-yellow */
 }
 
-
+.maqqef::after{
+     content:"\2010";
+}	
 .ha-prefix::after{
       content:"\05D4\05B7\2010";
 }	
