@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
    var javascriptListClass = document.getElementsByClassName("javascript-example-rtl");
    for (i = 0; i < javascriptListClass.length; i++) {
  	  var thisDiv = javascriptListClass[i];
-      createJavascriptExampleRTLFlexbox(thisDiv); 
+	  var border = false;
+	  if (thisDiv.classList.contains("javascript-border")){ border=true;}
+      createJavascriptExampleRTLFlexbox(thisDiv, border); 
    }
    
 //test("hello from lessons_examples.js addEventListener");
@@ -41,7 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
    var javascriptListClass = document.getElementsByClassName("javascript-example-ltr");
    for (i = 0; i < javascriptListClass.length; i++) {
  	  var thisDiv = javascriptListClass[i];
-      createJavascriptExampleLTRFlexbox(thisDiv); 
+	  var border = false;
+	  if (thisDiv.classList.contains("javascript-border")){ border=true;}
+      createJavascriptExampleLTRFlexbox(thisDiv, border); 
    }
 
 
@@ -105,7 +109,7 @@ function createJavascriptInlineQuote(thisDiv){
 	// optional audio for whole quote
 	// optional audio for individual words
 
-function createJavascriptExampleRTLFlexbox(thisDiv){
+function createJavascriptExampleRTLFlexbox(thisDiv, border=true){
    var i;
    var j;
 	
@@ -169,6 +173,7 @@ function createJavascriptExampleRTLFlexbox(thisDiv){
  
    flexDiv.classList.add("flex-container-rtl");
    flexDiv.classList.add("flex-container-examples");
+   if (border) {flexDiv.classList.add("dotted-border");}
 
    if (audioPara.length > 0){
       var audioText = audioPara[0].innerHTML;
@@ -237,7 +242,7 @@ function createJavascriptExampleRTLFlexbox(thisDiv){
 	// optional specification of which consonant(s) in each word should be highlighted (numbering starting at 1)
 	//                         - first item is the class to be applied to highlight each consonant
 
-function createJavascriptExampleLTRFlexbox(thisDiv){
+function createJavascriptExampleLTRFlexbox(thisDiv, border=true){
    var i;
    var j;
    var dataDiv = thisDiv.nextElementSibling;
@@ -290,7 +295,8 @@ function createJavascriptExampleLTRFlexbox(thisDiv){
    var flexDiv = document.createElement("div");
  
    flexDiv.classList.add("flex-container-ltr");
-   flexDiv.classList.add("flex-container-examples-no-border");
+   flexDiv.classList.add("flex-container-examples");
+   if (border) {flexDiv.classList.add("dotted-border");}
    
    for (i=0; i < hebrewParas.length; i++){
 //test("hello from createJavascriptExampleFlexbox,i=" + i); 
