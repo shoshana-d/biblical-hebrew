@@ -480,8 +480,19 @@ table{
   content:url("../images/bootstrap-pause-circle.png");
 }	
 
+/*-- used to flag sections where extra material from prayerbook or jewish life ---*/
+/*---------------------------------------------------------------------*/
 
-	
+.star-of-david{
+   font-family:'Times New Roman','Times Roman','Times',serif;
+   font-size:30px;
+   padding: 5px 5px 3px;
+   color:blue;
+   background-color:white;
+}
+.star-of-david::before{
+   content:"\2721";
+}	
 
 /*------ ear emoji (used in alefbet-exercises to flag some exercises)---*/
 /*---------------------------------------------------------------------*/
@@ -830,7 +841,25 @@ table{
    content:"\25C9";
    content:"\261E";
    content:"\2605";
+}
+
+.lesson-heading-jewish{
+	border-bottom:solid;
+	border-bottom:none;
+	border-width: 2px;
+	margin-top:20px;
+	margin-bottom:20px;
+	background-color:AliceBlue;
+	color:blue;
 }	
+
+.lesson-heading-jewish::before{
+   font-size:25px;	
+   color:Blue;   
+   background-color:white;
+   content:"\2721";
+}	
+	
      /* headers of clickable lists of consonants, vowels, cantillation marks */
 .lessons-help-lists{
    font-size:15px;
@@ -1306,19 +1335,11 @@ background-color:white;
 /*---------------------------------------------------------------------*/                                    
 
 .flex-container-examples{
-	border:dotted;
-	border-width: 2px;
-	margin-top:5px;
-    background-color:white; 
-}
-.flex-container-examples-no-border{
 	margin-top:5px;
     background-color:white; 
 }
 
-.flex-container-examples > div,
-.flex-container-examples-no-border > div
-{
+.flex-container-examples > div{
   margin-top: 5px;
   margin-bottom: 5px;
  /* margin-right: 15px;  */
@@ -1326,11 +1347,10 @@ background-color:white;
   text-align: center;
   /*line-height:35px;*/
   /* margin-top:50px; */
+  margin-right:15px;
   
 }
-.flex-container-examples > div > p,
-.flex-container-examples-no-border > div > p
- {
+.flex-container-examples > div > p {
 	margin:0;
 }
 
