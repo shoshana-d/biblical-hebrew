@@ -108,10 +108,13 @@ function createJavascriptInlineQuote(thisDiv){
     // use this when want to display hebrew with (optional) translations under hebrew words
 	// optional audio for whole quote
 	// optional audio for individual words
+	// in Hebrew input, include single bet with space on either side if want a space left (for example, for [is] translation)
 
 function createJavascriptExampleRTLFlexbox(thisDiv, border=true){
    var i;
    var j;
+   const bet = "\u05D1";
+   const mspace = "\u2003"; 
 	
    var dataDiv = thisDiv.nextElementSibling;
 
@@ -141,7 +144,7 @@ function createJavascriptExampleRTLFlexbox(thisDiv, border=true){
       //flexDiv.appendChild(cellDiv);  
    }	   
    
-   var hebrewWords = hebrewPara.innerHTML.split(/\s+/); //split by one or more spaces
+   var hebrewWords = hebrewPara.innerHTML.trim().split(/\s+/); //split by one or more spaces
 
    var anyTranslations = false;
    if (translationPara.length > 0){
@@ -158,7 +161,7 @@ function createJavascriptExampleRTLFlexbox(thisDiv, border=true){
    var anyEmphasis = false;
    if (emphasisPara.length > 0){
 	   anyEmphasis = true;
-	   var emphasisSpecs = emphasisPara[0].innerHTML.split(/\s+/);
+	   var emphasisSpecs = emphasisPara[0].innerHTML.trim().split(/\s+/);
 	   var wordEmphasised = [];
        for (i=0; i < hebrewWords.length; i++){
 		  wordEmphasised[i] = false;
@@ -209,7 +212,12 @@ function createJavascriptExampleRTLFlexbox(thisDiv, border=true){
 		  thisSpan.classList.add("soundclick");
           thisSpan.addEventListener("click", soundclickEventListener);
 	  }
-      thisSpan.appendChild(document.createTextNode(hebrewWords[i]));
+	  
+	  if (hebrewWords[i] == bet ) {
+         thisSpan.appendChild(document.createTextNode(mspace));
+      } else {	
+         thisSpan.appendChild(document.createTextNode(hebrewWords[i]));
+	  }	 
       cellDiv.appendChild(thisSpan);
 	  
 	  if (anyIndividualAudio){
