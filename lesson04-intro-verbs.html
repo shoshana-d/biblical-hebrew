@@ -1,0 +1,755 @@
+<!-- this is a comment -->
+ <!DOCTYPE html> 
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Biblical Hebrew Basics</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="styles/biblical_hebrew_main.css">
+  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
+  
+  <style>
+  </style>
+  <style>
+/* lesson spoke to whom exercise specific             */
+/*---------------------------------------*/
+   .whospoke-scrollable{
+       height: 400px;
+       overflow: auto;
+    }
+
+    .whospoke-flex-container-drag-drop {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px;
+    }
+
+    .whospoke-flex-container-drag-drop:after,
+    .whospoke-flex-container-drag-drop:before{
+        /* w3.css container property, don't know if needed */
+       content:"";
+       display:table;
+       clear:both;
+    }
+
+    .whospoke-flex-container-drag-drop > div {
+        margin-right: 10px; 
+        margin-bottom: 5px;
+        text-align: center;
+        line-height:35px;
+     }
+
+   .whospoke-flex-drag-drop-query,
+   .whospoke-flex-drag-drop-query-intext{
+        font-size:20px;
+        font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;
+	    border-style:dotted;
+	    display: inline-block;
+     }
+   .whospoke-flex-drag-drop-query{
+        width:70px;
+      }
+    .whospoke-flex-drag-drop-query::after,
+	.whospoke-flex-drag-drop-query-intext::after{
+        content:"?"; 
+     }
+	 
+	 .whospoke-flex-drag-drop-query-intext{
+	     text-align: center;
+		 width:40px;
+     }
+</style>
+     
+
+</head>
+
+<body>
+
+<!-- main body of text -->
+<main>
+<div id="firstdiv">
+  <!-- set lesson title for heading -->
+<p class="hidden">Lesson 4</p>
+
+
+<!-- testing section  --> 
+<!--    -->
+<p>Temporary testing section</p>
+ <p>TEST</p>
+ <p id="mytest">test</p>
+
+<!--  END testing section --> 
+
+</div>
+
+
+<h2  class="lesson-title ">How Tanakh verbs work</h2>
+
+  <p>To start with, because we are working backwards from the English translation, 
+  we need to know some things about verbs, and particularly, how verbs in Hebrew are different from 
+  verbs in English</p>
+  <p>As a reminder about what verbs are, here are some verses from the English translation of Genesis chapter
+  3, verses 1 to 5 with the verbs highlighted: 
+  </p>
+  <p class="indent-section">Now the serpent <b>was</b> most cunning of all the beasts of the field that the Lord God <b>had made</b>. 
+  And he <b>said</b> to the woman, "Though God  <b>said</b> you <b>shall</b> not <b>eat</b> from any tree of the garden-" 
+  And the woman <b>said</b> to the serpent, "From the fruit of the garden's trees we <b> may eat </b> 
+  but from the fruit of the tree in the midst of the garden God <b>has said</b>,
+  'You <b>shall</b> not <b>eat</b> from it and you <b>shall</b>  not <b>touch</b> it, lest you <b>die</b>.'" 
+  And the serpent <b>said</b> to the woman, "You <b>shall</b> not  <b>be doomed to die</b>.
+  For God <b>knows</b> that on the day you <b>eat</b> of it your eyes <b>will be opened</b>
+  and you <b>will become</b> as gods  <b>knowing</b> good and evil."
+  <br>(Translation  by Robert Alter, "The Five Books of Moses", 2004) 
+  
+  </p>
+  
+  
+  <p>These are the main differences we will learn in this lesson:</p>
+  <ul>
+    <li>Word order</li>
+	<ul>
+ 	<li>In <b>English</b> the verb comes second: Rebecca <b>saw</b> the cat.</li>
+	<li>In <b>Hebrew</b> the verb often comes first: <b>Saw</b> Rebecca the cat.</li>
+	</ul>
+  <li>Hebrew verb packs a punch, contains much more information than English verb.</li>
+    <ul>
+	<li><b>Hebrew</b> verb is  <b>one word</b></li> 
+	<li><b>English</b> translation is often <b>2, 3, or even 4 words</b></li>
+	Some examples from the text above:
+   <div class="flex-container-ltr dotted-border" >
+     <div>  <span> had made</span> <span class="hebrew-in-text">עָשָׂ֖ה</span>&emsp;&emsp; </div>	
+     <div>  <span> he said</span> <span  class="hebrew-in-text">וַיֹּ֙אמֶר֙</span>&emsp;&emsp; </div>	
+     <div>  <span> we may eat</span> <span  class="hebrew-in-text">נֹאכֵֽל</span>&emsp;&emsp; </div>	
+     <div>  <span> has said</span> <span  class="hebrew-in-text">אָמַ֣ר</span>&emsp;&emsp; </div>	
+     <div>  <span> will be opened</span> <span  class="hebrew-in-text">וְנִפְקְח֖וּ</span>&emsp;&emsp; </div>	
+     <div>  <span> you will become</span> <span  class="hebrew-in-text">וִהְיִיתֶם֙</span> </div>	
+   </div>	 
+	</ul>
+	
+  
+  </ul>
+  
+  
+  
+ <hr>
+ <h3 class="lesson-heading">Word order: The serpent said to the woman 
+          <span class="hebrew30">וַיֹּ֥אמֶר הַנָּחָ֖שׁ אֶל־הָֽאִשָּׁ֑ה  </span> </h3>
+
+   <div class="lesson-section" > 
+
+<div class="flex-container-ltr" >
+ <div >the serpent <span class="emphasised-word">said</span> to the woman <br> <span class="biblical-reference">Genesis 3:4</span>
+ </div>
+  <div class="javascript-example-false-rtl javascript-border"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">וַיֹּ֥אמֶר הַנָּחָ֖שׁ אֶל־ הָֽאִשָּׁ֑ה</p>	
+     <p class="js-translation">said| the serpent| to |the woman</p>	
+     <p class="js-audio">tanakh/gen-03-04a-db</p>	
+     <p class="js-audio-individual"> words/w011_vayomer| words/xxx | words/w008_el | words/w061_haisha </p>	
+	 <p class="js-emphasis">1</p>
+  </div>
+</div>
+
+
+
+   <p>So word-for-word the translation would be "Said the serpent to the woman".</p>
+
+   <ul>
+  <li>In <strong>English</strong> the word order is usually <strong>subject-verb</strong>-object, so that the verb comes <strong>after</strong> the subject:
+ 	  <br>
+	  <div class="flex-container-ltr  flex-container-examples" >
+        <div> The girl <br> (subject)</div>	
+        <div>  <b>saw</b> <br> (verb) </div>	
+        <div>  the cat <br> (object)</div>
+      </div>		
+
+  <li>In  <strong>Tanakh Hebrew</strong> the word order is often <strong>verb-subject</strong>-object, that is, the verb often comes <strong>before</strong> the subject 
+ 	  <br>
+	  <div class="flex-container-ltr  flex-container-examples" >
+        <div> <b>Saw</b> <br> (verb)</div>	
+        <div> the girl <br> (subject)</div>	
+        <div> the cat <br> (object) </div>
+      </div>		
+      <br>(although this sentence doesn't occur in the Tanakh because sadly there is no mention of cats in the Tanakh)
+
+  </ul>
+  
+  <p>can often use this to figure out which word is the verb</p>
+  <p>vayomer, vatomer always come before the subject</p>
+  
+  
+<div class="flex-container-ltr" >
+ <div >...that the Lord God <span class="emphasised-word">had made</span>... 
+ </div>
+  <div class="javascript-example-false-rtl javascript-border"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">אֲשֶׁ֥ר עָשָׂ֖ה יְהֹוָ֣ה אֱלֹהִ֑ים </p>	
+     <p class="js-translation">that | had made |the Lord|God</p>	
+     <p class="js-audio">tanakh/gen-03-01xxx-db</p>	
+	 <p class="js-emphasis">2</p>
+  </div>
+</div>
+
+  
+<div class="flex-container-ltr" >
+ <div >...though God <span class="emphasised-word">said</span>... 
+ </div>
+  <div class="javascript-example-false-rtl javascript-border"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">כִּֽי אָמַ֣ר אֱלֹהִ֔ים </p>	
+     <p class="js-translation">though | said |God</p>	
+     <p class="js-audio">tanakh/gen-03-01xxx-db</p>	
+	 <p class="js-emphasis">2</p>
+  </div>
+</div>
+
+
+</div>
+
+
+<hr>
+
+<h3 class="lesson-heading">The preposition <span class="hebrew30 soundclick vocab-word-color"> -אֶל </span>
+<span class="hidden">words/w008_el</span> "to" </h3>
+<div class="lesson-section">
+
+•	El preposition, usually attached to next word – this is very helpful
+•	Hyphens in Tanakh Hebrew different from in English 
+  <p>
+<span class="hebrew30 soundclick vocab-word-color"> -אֶל </span><span class="hidden">words/w008_el</span>
+ is a very frequently occurring preposition meaning "to".
+It is usually joined to the next word with a hyphen. When it is not joined to the next word it is written 
+<span class="hebrew-in-text soundclick vocab-word-color">אֵל	</span><span class="hidden">words/w008_el</span>
+           </p>
+<p>yes, <span class="hebrew-in-text soundclick vocab-word-color">אֵל	</span><span class="hidden">words/w008_el</span>
+is also one of the (less frequent) words for God </p>
+
+<p>Being a detective</p>
+<p> Can use words you know to figure out words you have't learnt yet.
+
+<p>For example, the noun or person or place after <span class="hebrew-in-text soundclick"> אֶל </span><span class="hidden">words/w008_el</span>
+</p>
+
+
+		   
+</div>
+
+
+
+  <div class="hidden">
+  <table class="lesson-english-hebrew-table">
+  <tr><th>English translation</th><th>Hebrew verb</th>
+  </tr>
+   <tr><td>was</td><td>הָיָ֣ה</td> </tr>
+   <tr><td>had made</td><td>עָשָׂ֖ה</td> </tr>
+   <tr><td>he said</td><td>וַיֹּ֙אמֶר֙</td> </tr>
+  <tr><td>you shall eat</td><td>תֹֽאכְל֔וּ</td> </tr>
+  <tr><td>you shall not eat</td><td>לֹ֣א תֹֽאכְל֔וּּ</td> </tr>
+  <tr><td>said</td><td>וַתֹּ֥אמֶר</td> </tr>
+  <tr><td>we may eat</td><td>נֹאכֵֽל</td> </tr>
+  <tr><td>has said</td><td>אָמַ֣ר</td> </tr>
+  <tr><td>you shall touch</td><td>תִגְּע֖וּ</td> </tr>
+  <tr><td>and you shall not touch</td><td>וְלֹ֥א תִגְּע֖וּ </td> </tr>
+  <tr><td>you die</td><td>תְּמֻתֽוּן</td> </tr>
+  <tr><td>you shall be doomed to die</td><td>מ֖וֹת תְּמֻתֽוּן</td> </tr>
+  <tr><td>you shall not be doomed to die</td><td>לֹֽא־מ֖וֹת תְּמֻתֽוּן</td> </tr>
+  <tr><td>knows</td><td>יֹדֵ֣עַ</td> </tr>
+  <tr><td>you eat</td><td>אֲכׇלְכֶ֣ם </td> </tr>
+  <tr><td>will be opened</td><td>וְנִפְקְח֖וּ </td> </tr>
+  <tr><td>you will become</td><td>וִהְיִיתֶם֙ </td> </tr>
+  <tr><td>knowing</td><td>יֹדְעֵ֖י </td> </tr>
+  </table>
+  </div>
+  
+  
+  
+   <p>We will use the verb "say" in examples. There's lots of talking in the Tanakh: God talks to people,
+    people talk to God, the prophets talk to the Israelites, people talk to each other, and even 
+     some animals talk (the serpent to Eve, the ass to Balaam (Numbers 22, 28 and 30),
+	 so it's no surprise that the most frequently occurring verb in the Tanakh is 
+  "say" from the root <span class="hebrew30">אמר</span>. 
+    </p>
+ <p>Let's think about how this verb works in <b>English</b>. There <b>only a few forms</b> of the actual verb:
+
+     <ul>
+	<li>say (to say, I say, you say, we say, they say, I will say, I used to say, did you say?)</li>
+	<li>says (he says, she says, the boy says, Rachel says)</li>
+	<li>said (I said, you said, he said, she said, we said, they said, the boy said, Rachel said)</li>
+	<li>saying (she was saying, they were saying)</li>
+	</ul>
+	but there may be one or more extra words which are also part of the verb (will, shall, had, have, will be, may, lest)
+  </p>
+  
+ <h3 class="lesson-heading">In <b>Tanakh Hebrew</b>, verbs have <b>lots of different forms</b>. </h3>
+  <p>
+ Every Hebrew verb is based on a 3 letter  "root", for example the root <span class="hebrew30">אמר</span>. 
+ Vowels are added to the root letters and letter(s) at the beginning (prefixes) and/or at the 
+ end (suffixes) to create the different forms of the verb. 
+ </p>
+  <ul>
+  <li>just the root letters, with vowels added</li>
+     <div class="javascript-example-ltr javascript-border"> </div>   
+     <div class="hidden">
+       <div class="js-hebrew"> <p> אָמַר   </p><p> אֱמֹר   </p><p> אֹמֵר   </p><p> אֹמַר   </p> <p> אָמָר   </p> 
+	   <p> אָמֹר   </p></div>	
+       <p class="js-first-infrequent"> 6</p>	   
+     </div>
+	 
+  
+  <li>1 or 2 letters at the beginning of the root letters (a prefix) </li>
+      <div class="javascript-example-ltr javascript-border"> </div>   
+     <div class="hidden">
+       <div class="js-hebrew">    <p> וַיֹּאמֶר   </p><p> וַתֹּאמֶר   </p><p> לֵאמֹר   </p>
+	   <p> וַיֹּאמַר   </p><p> וָאֹמַר   </p><p> יֹאמַר   </p><p> וְאָמַר   </p>
+	   <p> תֹּאמַר   </p><p> יֵאָמֵר   </p><p> וַנֹּאמֶר   </p><p> וַתֹּאמַר   </p>
+	   <p> יֵאָמַר   </p><p> נֹּאמַר   </p><p> וַיֵּאָמַר   </p><p> תֹאמֵר   </p>
+	   <p> נֹאמַר   </p><p> וְאֹמֵר   </p><p> יֹּאמַר   </p>
+	   </div>
+       <p class="js-emphasis"> 1 2</p>	   
+       <p class="js-first-infrequent"> 12</p>	   
+     </div>
+ 
+  <li>letter(s) at the end of the root letters (a suffix)</li>
+      <div class="javascript-example-ltr javascript-border"> </div>   
+     <div class="hidden">
+       <div class="js-hebrew">       <p> אָמַרְתִּי   </p><p> אָמְרוּ   </p><p> אָמְרָה   </p><p> אָמַרְתָּ   </p>
+	   <p> אֹמְרִים   </p><p> אִמְרוּ   </p><p> אֲמַרְתֶּם   </p><p> אֹמֶרֶת   </p><p> אָמַרְתְּ   </p><p> אָמַרְנוּ   </p>
+	   <p> אָמָרְתִּי   </p><p> אִמְרִי   </p> 
+	   </div>	
+       <p class="js-first-infrequent"> 9</p>	   
+    </div>
+  
+  <li>both a prefix and a suffix</li>
+       <div class="javascript-example-ltr javascript-border"> </div>   
+     <div class="hidden">
+       <div class="js-hebrew">   <p>וַיֹּאמְרוּ   </p> <p> וְאָמַרְתָּ   </p><p> יֹאמְרוּ   </p><p> וַאֲמַרְתֶּם   </p>
+	   <p> וְאָמְרוּ   </p><p> וְאָמְרָה   </p><p> וְאָמַרְתִּי   </p><p> וַתֹּאמְרוּ   </p><p> תֹּאמְרוּ   </p>
+	   <p> תֹּאמְרִי   </p><p> וַתֹּאמַרְנָה   </p><p> וְאָמַרְתְּ   </p><p> תֹּאמַרְנָה   </p><p> וַתֹּאמְרִי   </p>
+	   <p> יֹאמֵרוּ   </p><p> וְאִמְרוּ   </p><p> וַתֹּאמַרְןָ   </p><p> וְאָמַרְנוּ   </p><p> יִתְאַמְּרוּ   </p><p> תֹאמְרוּן   </p>
+	   <p> וְאֹמְרָה   </p>
+	   </div>	
+      <p class="js-first-infrequent"> 10</p>	   
+     </div>
+ 
+  </ul>
+  
+  <p><img src="images/dontpanic.jpg" width="150px" height="150px">Don't panic, you don't have to memorise all these forms of the verb!</p>
+  <h3 class="lesson-heading">Why are there so many different forms of Hebrew verbs when English verbs only have a few forms?</h3>
+
+  <ul>
+<li>Biblical Hebrew verbs are always a single word. 
+This word often corresponds to 2 or more words in the English translation.
+  <li>includes information about who did the action</li>
+  <li>so sometimes translation has "he", "she" etc when this is part of the verb</li>
+  </ul>
+•	Vayomer from root amr to speak, indicates that a single male spoke, usually translated in past tense
+•	Vatomer indicates a sinlge female spoke
+•	In English “said” same for male or female speakers
+
+<table>
+<tr>
+<td> Abram <span class="emphasised-word">said</span> to Sarai <br> <span class="biblical-reference">Genesis 16:2</span></td>
+<td>
+  <div class="javascript-example-rtl javascript-border"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">וַיֹּ֨אמֶר אַבְרָ֜ם אֶל־ שָׂרַ֗י</p>	
+     <p class="js-translation">said| Abram| to |Sarai</p>	
+     <p class="js-audio">tanakh/gen-16-06aa-db</p>	
+     <p class="js-audio-individual"> words/w011_vayomer| alefbet_people_places/avram | words/w008_el | alefbet_people_places/sarai </p>	
+	 <p class="js-emphasis">1</p>
+  </div>
+  </td>
+</tr>
+</table>
+<table>
+<tr>
+<td>Sarai <span class="emphasised-word">said</span> to Abram <br> <span class="biblical-reference">Genesis 16:6</span></td>
+<td>
+  <div class="javascript-example-rtl javascript-border"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">וַתֹּ֨אמֶר שָׂרַ֜י אֶל־ אַבְרָ֗ם  </p>	
+     <p class="js-translation">said|Sarai| to | Abram</p>	
+     <p class="js-audio">tanakh/gen-16-02aa-db</p>	
+     <p class="js-audio-individual"> words/w011_vatomer| alefbet_people_places/sarai | words/w008_el | alefbet_people_places/avram </p>	
+	 <p class="js-emphasis">1</p>
+  </div>
+  </td>
+</tr>
+</table>
+
+
+<table>
+<tr>
+<td>the woman <span class="emphasised-word">said</span> to the serpent <br> <span class="biblical-reference">Genesis 3:2</span></td>
+<td>
+  <div class="javascript-example-rtl javascript-border"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">וַתֹּ֥אמֶר הָֽאִשָּׁ֖ה אֶל־ הַנָּחָ֑שׁ </p>	
+     <p class="js-translation">said|the woman| to | the serpent</p>	
+     <p class="js-audio">tanakh/gen-03-02a-db</p>	
+     <p class="js-audio-individual"> words/w011_vatomer| words/w061_haisha | words/w008_el | words/xxx </p>	
+	 <p class="js-emphasis">1</p>
+  </div>
+  </td>
+</tr>
+</table>
+
+
+<table>
+<tr>
+<td>the men <span class="emphasised-word">said</span> to Lot <br> <span class="biblical-reference">Genesis 19:12</span></td>
+<td>
+  <div class="javascript-example-rtl javascript-border"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">וַיֹּאמְר֨וּ הָאֲנָשִׁ֜ים אֶל־ ל֗וֹט </p>	
+     <p class="js-translation"> said|the men| to | Lot</p>	
+     <p class="js-audio">tanakh/gen-19-12aa-db</p>	
+     <p class="js-audio-individual"> words/w011_vayomru| words/w011_haanashim | words/w008_el | alefbet_people_places/lot </p>	
+	 <p class="js-emphasis">1</p>
+  </div>
+  </td>
+</tr>
+</table>
+
+
+ <p>In English, verbs have information about when, not so much about who. In Hebrew, info about who, not so much about When
+ </p>
+   <p>quite often, there are sentences without a verb, more about this in lesson xx haya</p>
+
+  <p>An example which occurs many times in the Torah, for example  :  </p>
+	  
+	<p><span class="biblical-reference">Exodus 4:4</span><span class="hebrew30"> וַיֹּ֤אמֶר יְהוָה֙ אֶל־מֹשֶׁ֔ה </span>
+	God said to Moses</p>  
+
+ 
+   <p>The individual Hebrew words are:</p>
+   
+  <div class="javascript-example-rtl"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">וַיֹּ֤אמֶר יְהוָה֙ אֶל־ מֹשֶׁ֔ה</p>	
+     <p class="js-translation">said|God| to | Moses</p>	
+     <p class="js-audio">tanakh/ex-04-04aa</p>	
+     <p class="js-audio-individual"> words/w011_vayomer| words/w062_adonai | words/w008_el | alefbet_people_places/moshe </p>	
+  </div>
+
+ 
+   <p>So word-for-word the translation would be "Said God to Moses".</p>
+><img src="images/bootstrap-search.png" width="25px" height="25px">Being a detective</p>
+<p> Can use words you know to figure out words you have't learnt yet.
+<p>For example, person speaking comes after vayomer, example  Gen 3:2 the woman replied to the serpent, 
+Gen 2:4 And the serpent said to the woman</p>
+  
+
+  </div>
+ 
+<p></p>
+ 
+
+<h3 class="lesson-heading">Tanakh verbs contain more information than English verbs about who is doing the action,
+ so don’t need personal pronouns, these are mostly used for emphasis </h3>
+  <div class="lesson-section" >
+ 
+
+
+ <p class="biblical-reference">Genesis 22:1</p>
+ <p>Some time afterward, God put Abraham to the test. <span class="emphasised-word">He said</span> to him "Abraham" 
+ and <span class="emphasised-word">he answered</span> "Here I am".
+ </p>
+ <div class="javascript-example-rtl"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">וַיְהִ֗י אַחַר֙ הַדְּבָרִ֣ים הָאֵ֔לֶּה וְהָ֣אֱלֹהִ֔ים נִסָּ֖ה אֶת־אַבְרָהָ֑ם וַיֹּ֣אמֶר אֵלָ֔יו אַבְרָהָ֖ם וַיֹּ֥אמֶר הִנֵּֽנִי׃</p>	
+     <p class="js-translation">||||God|put to the test|Abraham|He said|to him|Abraham| and he answered|Here I am</p>	
+	 <p class="js-emphasis">8 11</p>
+     <p class="js-audio">tanakh/gen-22-01-db</p>	
+  </div>
+
+
+
+ <p>
+ <span class="biblical-reference">Genesis 21:9</span>
+ <span>Sarah saw the son whom Hagar the Egyptian had borne to Abraham playing.</span>
+ &emsp;
+ <span class="biblical-reference">Genesis 21:10</span>
+ <span class="emphasised-word">She said</span> to Abraham, "Cast out that slave woman and her son".
+ </p>
+
+ <div class="javascript-example-rtl"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">וַתֹּ֙אמֶר֙ לְאַבְרָהָ֔ם גָּרֵ֛שׁ הָאָמָ֥ה הַזֹּ֖את וְאֶת־בְּנָ֑הּ </p>	
+     <p class="js-translation">She said|to Abraham|cast out|slave woman|that|and her son|</p>	
+	 <p class="js-emphasis">1</p>
+     <p class="js-audio">tanakh/gen-21-10a-db</p>	
+  </div>
+
+  </div> 
+
+
+
+
+<p></p>
+
+ 
+<h2  class="lesson-exercise-header ">
+<span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>
+  Exercise Who spoke to whom? Practise names, 
+  <div class="flex-container-ltr">
+  <span class="hebrew-in-text soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>,&ensp;
+<span class="hebrew-in-text soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>,&ensp;
+<span class="hebrew-in-text soundclick ">אֵל	</span><span class="hidden">words/w008_el</span>&ensp; 
+   </div>
+</h2>
+<div class="hidden lesson-exercise-container">		
+ <p>Select a <span class="whospoke-flex-drag-drop-query-intext"></span> box,
+ then select the correct answer from the names in the top row 
+
+</p> 
+<p>OR</p>
+<p>
+drag a name from the names in the top row and drop in the corresponding 
+<span class="whospoke-flex-drag-drop-query-intext"></span>  box 
+(See top of <a href="alefbet-exercises.html">Alefbet exercises</a> for instructions on dragging and dropping.)
+ </p>
+
+<p>For each text, click on <span class="start-audio"></span> to hear the text spoken.</p>
+<p>  There is a "reward" for finishing the exercise.</p>
+
+ <button type="button" class="button-exercise" onclick="reCreateWhoSpokeExercise('whospoke-exercise')">Practise again</button>
+ 
+ <div id="cr-whospoke-exercise" class="onload-whospoke-exercise lesson-exercise" ></div>
+    <div class="hidden ">
+    <p class="whospoke-exercise-nselection">7</p>	
+    <p class="whospoke-exercise-answers ">God|Cain|Abel|Noah|Abram|Abraham|Sarai|Sarah|Lot|Isaac|Rebekah|Esau|Jacob|Rachel|Leah|Joseph|Pharaoh|Israel|Judah|Moses|Aaron</p>
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֥אמֶר יְהוָ֖ה אֶל־קָ֑יִן</p>	
+     <p class="whospoke-exercise-reference ">Genesis 4:6</p>	
+     <p class="whospoke-exercise-audio ">gen-04-06a</p>	
+     <p class="whospoke-exercise-english ">God|Cain</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֥אמֶר קַ֖יִן אֶל־הֶ֣בֶל אָחִ֑יו</p>	
+     <p class="whospoke-exercise-reference ">Genesis 4:8</p>	
+     <p class="whospoke-exercise-audio ">gen-04-08a</p>	
+     <p class="whospoke-exercise-english ">Cain|Abel</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֥אמֶר קַ֖יִן אֶל־יְהוָ֑ה</p>	
+     <p class="whospoke-exercise-reference ">Genesis 4:13</p>	
+     <p class="whospoke-exercise-audio ">gen-04-13a</p>	
+     <p class="whospoke-exercise-english ">Cain|God</p>	
+
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר אֱלֹהִים֙ אֶל־נֹ֔חַ </p>	
+     <p class="whospoke-exercise-reference ">Genesis 9:8</p>	
+     <p class="whospoke-exercise-audio ">gen-09-08aa-db</p>	
+     <p class="whospoke-exercise-english ">God|Noah</p>	
+
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר יְהוָה֙ אֶל־אַבְרָ֔ם</p>	
+     <p class="whospoke-exercise-reference ">Genesis 12:1</p>	
+     <p class="whospoke-exercise-audio ">gen-12-01aa</p>	
+     <p class="whospoke-exercise-english ">God|Abram</p>	
+ 
+     <p class="whospoke-exercise-hebrew">יוַיֹּ֨אמֶר אַבְרָ֜ם אֶל־ל֗וֹט </p>	
+     <p class="whospoke-exercise-reference ">Genesis 13:8</p>	
+     <p class="whospoke-exercise-audio ">gen-13-08aa</p>	
+     <p class="whospoke-exercise-english ">Abram|Lot</p>	
+
+     <p class="whospoke-exercise-hebrew">וַתֹּ֨אמֶר שָׂרַ֜י אֶל־אַבְרָ֗ם</p>	
+     <p class="whospoke-exercise-reference ">Genesis 16:2</p>	
+     <p class="whospoke-exercise-audio ">gen-16-02aa</p>	
+     <p class="whospoke-exercise-english ">Sarai|Abram</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֨אמֶר אַבְרָ֜ם אֶל־שָׂרַ֗י</p>	
+     <p class="whospoke-exercise-reference ">Genesis 16:6</p>	
+     <p class="whospoke-exercise-audio ">gen-16-06aa</p>	
+     <p class="whospoke-exercise-english ">Abram|Sarai</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר אֱלֹהִים֙ אֶל־אַבְרָהָ֔ם</p>	
+     <p class="whospoke-exercise-reference ">Genesis 17:9</p>	
+     <p class="whospoke-exercise-audio ">gen-17-09aa</p>	
+     <p class="whospoke-exercise-english ">God|Abraham</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֨אמֶר יִצְחָ֜ק אֶל־אַבְרָהָ֤ם אָבִיו֙</p>	
+     <p class="whospoke-exercise-reference ">Genesis 22:7</p>	
+     <p class="whospoke-exercise-audio ">gen-22-07aaa-db</p>	
+     <p class="whospoke-exercise-english ">Isaac|Abraham</p>	
+ 
+     <p class="whospoke-exercise-hebrew">וַיֹּ֨אמֶר עֵשָׂ֜ו אֶֽל־יַעֲקֹ֗ב</p>	
+     <p class="whospoke-exercise-reference ">Genesis 25:30</p>	
+     <p class="whospoke-exercise-audio ">gen-25-30aa</p>	
+     <p class="whospoke-exercise-english ">Esau|Jacob</p>	
+ 
+     <p class="whospoke-exercise-hebrew">וַיֹּ֣אמֶר יַעֲקֹ֔ב אֶל־רִבְקָ֖ה אִמּ֑וֹֹ</p>	
+     <p class="whospoke-exercise-reference ">Genesis 27:11</p>	
+     <p class="whospoke-exercise-audio ">gen-27-11a</p>	
+     <p class="whospoke-exercise-english ">Jacob|Rebekah</p>	
+ 
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר יִצְחָק֙ אֶֽל־יַעֲקֹ֔ב</p>	
+     <p class="whospoke-exercise-reference ">Genesis 27:21</p>	
+     <p class="whospoke-exercise-audio ">gen-27-21aa</p>	
+     <p class="whospoke-exercise-english ">Isaac|Jacob</p>	
+ 
+     <p class="whospoke-exercise-hebrew">וַתֹּ֤אמֶר רִבְקָה֙ אֶל־יִצְחָ֔ק</p>	
+     <p class="whospoke-exercise-reference ">Genesis 27:46</p>	
+     <p class="whospoke-exercise-audio ">gen-27-46aa</p>	
+     <p class="whospoke-exercise-english ">Rebekah|Isaac</p>	
+
+     <p class="whospoke-exercise-hebrew">וַתֹּ֤אמֶר רָחֵל֙ אֶל־לֵאָ֔ה</p>	
+     <p class="whospoke-exercise-reference ">Genesis 30:14</p>	
+     <p class="whospoke-exercise-audio ">gen-30-14aa</p>	
+     <p class="whospoke-exercise-english ">Rachel|Leah</p>	
+ 
+     <p class="whospoke-exercise-hebrew">וַיֹּ֨אמֶר יִשְׂרָאֵ֜ל אֶל־יוֹסֵ֗ף</p>	
+     <p class="whospoke-exercise-reference ">Genesis 37:13</p>	
+     <p class="whospoke-exercise-audio ">gen-37-13aa</p>	
+     <p class="whospoke-exercise-english ">Israel|Joseph</p>	
+ 
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר פַּרְעֹה֙ אֶל־יוֹסֵ֔ף</p>	
+     <p class="whospoke-exercise-reference ">Genesis 41:15</p>	
+     <p class="whospoke-exercise-audio ">gen-41-15aa</p>	
+     <p class="whospoke-exercise-english ">Pharaoh|Joseph</p>	
+ 
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר יוֹסֵף֙ אֶל־פַּרְעֹ֔ה</p>	
+     <p class="whospoke-exercise-reference ">Genesis 41:25</p>	
+     <p class="whospoke-exercise-audio ">gen-41-25aa</p>	
+     <p class="whospoke-exercise-english ">Joseph|Pharaoh</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֨אמֶר יְהוּדָ֜ה אֶל־יִשְׂרָאֵ֣ל אָבִ֗יו</p>	
+     <p class="whospoke-exercise-reference ">Genesis 43:8</p>	
+     <p class="whospoke-exercise-audio ">gen-43-08aa</p>	
+     <p class="whospoke-exercise-english ">Judah|Israel</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֥אמֶר פַּרְעֹ֖ה אֶֽל־יַעֲקֹ֑ב</p>	
+     <p class="whospoke-exercise-reference ">Genesis 47:8</p>	
+     <p class="whospoke-exercise-audio ">gen-47-08a</p>	
+     <p class="whospoke-exercise-english ">Pharaoh|Jacob</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר יַעֲקֹב֙ אֶל־יוֹסֵ֔ף</p>	
+     <p class="whospoke-exercise-reference ">Genesis 48:03</p>	
+     <p class="whospoke-exercise-audio ">gen-48-03aa</p>	
+     <p class="whospoke-exercise-english ">Jacob|Joseph</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר אֱלֹהִים֙ אֶל־מֹשֶׁ֔ה</p>	
+     <p class="whospoke-exercise-reference ">Exodus 3:14</p>	
+     <p class="whospoke-exercise-audio ">ex-03-14aa</p>	
+     <p class="whospoke-exercise-english ">God|Moses</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר יְהוָה֙ אֶל־מֹשֶׁ֔ה</p>	
+     <p class="whospoke-exercise-reference ">Exodus 4:4</p>	
+     <p class="whospoke-exercise-audio ">ex-04-04aa</p>	
+     <p class="whospoke-exercise-english ">God|Moses</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֨אמֶר מֹשֶׁ֣ה אֶל־יְהוָה֮ </p>	
+     <p class="whospoke-exercise-reference ">Exodus 4:10</p>	
+     <p class="whospoke-exercise-audio ">ex-04-10aa-db</p>	
+     <p class="whospoke-exercise-english ">Moses|God</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר יְהוָה֙ אֶֽל־אַהֲרֹ֔ן </p>	
+     <p class="whospoke-exercise-reference ">Exodus 4:27</p>	
+     <p class="whospoke-exercise-audio ">ex-04-27aa-db</p>	
+     <p class="whospoke-exercise-english ">God|Aaron</p>	
+
+     <p class="whospoke-exercise-hebrew">וַיֹּ֤אמֶר מֹשֶׁה֙ אֶֽל־אַהֲרֹ֔ן </p>	
+     <p class="whospoke-exercise-reference ">Exodus 32:21</p>	
+     <p class="whospoke-exercise-audio ">ex-32-21aa-db</p>	
+     <p class="whospoke-exercise-english ">Moses|Aaron</p>	
+  </div>
+</div>
+
+<h2  class="lesson-exercise-header" >
+<span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>
+  Exercise: Practise  <span class="hebrew30  soundclick vocab-word-color">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span> 
+             and  <span class="hebrew30 lessons-toc-vocab-color  soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>  
+
+
+</h2>		
+<div class="hidden  lesson-exercise-container">
+ <ul>
+  <li> For each <span class="text-border-lesson-exercise-question">word</span> in the translation, 
+  click on the corresponding word in the Hebrew. 
+  </li>
+  <li>
+  Listen to the audio until you can identify the word. You should listen to the audio while looking at text. 
+  Ideally, you should be able to speak along with audio. 
+  </li>
+  </ul>
+<p>  There is a "reward" for identifying all the <span class="text-border-lesson-exercise-question">words</span></p>
+  
+<div id="cr-testtable" class="onload-exercise-table lesson-exercise">
+<div class="hidden">
+<p class="exercise-table-audio-dir ">tanakh</>
+
+
+</div>
+</div>
+  <p>
+  <span class="button-exercise" onclick="reCreateExerciseTable('testtable')">Practise again</span>
+  </p>
+</div>
+
+
+<h2  class="lesson-exercise-header" >
+<span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>
+  Exercise: <img src="images/bootstrap-search.png" width="25px" height="25px"> Practise being a detective with  
+  <span class="hebrew-in-text soundclick"> אֶל </span><span class="hidden">words/w008_el</span>
+
+
+
+</h2>		
+<div class="hidden  lesson-exercise-container">
+
+<p> Can use words you know to figure out words you have't learnt yet.
+For example, the noun or person or place after <span class="hebrew-in-text soundclick"> אֶל </span><span class="hidden">words/w008_el</span>
+</p>
+
+
+ <ul>
+  <li> For each <span class="text-border-lesson-exercise-question">word</span> in the translation, 
+  click on the corresponding word in the Hebrew. 
+  </li>
+  <li>
+  Listen to the audio until you can identify the word. You should listen to the audio while looking at text. 
+  Ideally, you should be able to speak along with audio. 
+  </li>
+  </ul>
+<p>  There is a "reward" for identifying all the <span class="text-border-lesson-exercise-question">words</span></p>
+  
+<div id="cr-testtable2" class="onload-exercise-table lesson-exercise">
+<div class="hidden">
+<p class="exercise-table-audio-dir ">tanakh</>
+
+
+</div>
+</div>
+  <p>
+  <span class="button-exercise" onclick="reCreateExerciseTable('testtable2')">Practise again</span>
+  </p>
+</div>
+
+
+
+</main> 
+
+
+<!-- scripts -->
+<script src="scripts/biblical_hebrew_lessons_start_template.js"></script>
+
+<script src="scripts/biblical_hebrew_whospoke_exercise.js"></script>
+
+<script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
+<script src="scripts/biblical_hebrew_exercise_table.js"></script>
+<script src="scripts/biblical_hebrew_modal_popups.js"></script>
+
+
+<script src="scripts/biblical_hebrew_lessons_examples.js"></script>
+
+<!--
+<script src="scripts/biblical_hebrew_drag_drop.js"></script>
+<script src="scripts/biblical_hebrew_reference_tables.js"></script>
+<script src="scripts/biblical_hebrew_flexbox_list.js"></script>
+-->
+</body>
+</html>
+
+
