@@ -1011,6 +1011,24 @@ table{
 		width:20%;
 }	
 
+   /* English translation in colimun 1, Hebrew word in column 2
+      -used in lesson 2, if not used elsewhere, can be moved to lesson 2 
+   */
+.lesson-english-hebrew-table{
+	   border-collapse:collapse;
+	   display:table;
+	 /*  width:100%;*/
+}	
+.lesson-english-hebrew-table td:nth-child(2){
+	/* hebrew30 */
+   font-family:'Times New Roman',serif;
+   direction:rtl;
+   line-height:30px;
+   white-space:nowrap;
+   font-size:30px;
+}	
+   
+
    /* used in biblical-hebrew-exercise-table  */
    /*-----------------------------------------*/
    
@@ -1131,6 +1149,9 @@ table{
 .reference-table-infrequent{
      background-color:Wheat;
 	 background-color:Gainsboro;
+}
+.reference-table-infrequent2{
+     color:Gray;
 }
 
  
