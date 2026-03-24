@@ -922,45 +922,80 @@ table{
 .maqqef::after{
      content:"\2010";
 }	
+
 .ha-prefix::after{
+      content:"\05D4\05B7";
+}	
+.ha-prefix-hyphen::after{
       content:"\05D4\05B7\2010";
 }	
 .ha-prefix2::after{
+	/* dash before */
       content:"\2010\05D4\05B7";
 }	
 
 .ha-qamatz-prefix::after{
-      content:"\05D4\05B8\2010";
+      content:"\05D4\05B8";
 }	
+.ha-qamatz-prefix-hyphen::after{
+      content:"\05D4\05B8\2010";
+}
+	
 .v-prefix::after{
+      content:"\05D5\05B0";
+}
+.v-prefix-hyphen::after{
       content:"\05D5\05B0\2010";
 }
 .v-prefix2::after{
+	/* dash before */
       content:"\2010\05D5\05B0";
 }
+
 .u-prefix::after{
+      content:"\05D5\05BC";
+}
+.u-prefix-hyphen::after{
       content:"\05D5\05BC\2010";
 }
 .u-prefix2::after{
+	/* dash before */
       content:"\2010\05D5\05BC";
 }
+
 .l-prefix::after{
+      content:"\05DC\05B0";
+}
+.l-prefix-hyphen::after{
       content:"\05DC\05B0\2010";
 }
+
 .b-prefix::after{
+      content:"\05D1\05BC\05B0";
+}
+.b-prefix-hyphen::after{
       content:"\05D1\05BC\05B0\2010";
 }
+
 .mi-prefix::after{
+      content:"\05DE\05B4";
+}
+.mi-prefix-hyphen::after{
       content:"\05DE\05B4\2010";
 }
+
 .me-prefix::after{
       content:"\05DE\05B5\2010";
 }
+
 .k-prefix::after{
+      content:"\05DB\05BC\05B0";
+}
+.k-prefix-hyphen::after{
       content:"\05DB\05BC\05B0\2010";
 }
 
-
+/*
 .ha-prefix-nohyphen::after{
       content:"\05D4\05B7";
 }	
@@ -991,6 +1026,7 @@ table{
 .k-prefix-nohyphen::after{
       content:"\05DB\05BC\05B0";
 }
+*/
 
        /* tables used in lessons (eg Lesson 1 names of God) */
        /* ------------------------------------------------- */
