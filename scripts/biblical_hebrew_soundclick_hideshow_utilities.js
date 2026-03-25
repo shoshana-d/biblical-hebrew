@@ -11,7 +11,7 @@
 	  	 //thisP = thisP.split(/\s+/); split by one or more spaces
 		 
 var globalAudioFolder = "audio";
-var globalImagesFolder = "images"
+var globalImagesFolder = "images";
 
 // characters used for dividing lists into components
 var globalDivider1 = "|";

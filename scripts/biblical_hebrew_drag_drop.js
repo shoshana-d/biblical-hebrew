@@ -6,7 +6,7 @@
 //----------------------
 document.addEventListener('DOMContentLoaded', function() {
  	var i;
- 
+test("hello from addeventListener in biblical_hebrew_drag_drop.js"); 
    // create the drag drop flexboxes in JS  (includes event listeners) 
    var onloadDragClass = document.getElementsByClassName("onload-flex-drag-drop");
    for (i = 0; i < onloadDragClass.length; i++) {
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
    var parameters = thisSpecElement.innerHTML.split(globalDivider1);
    
    for (j = 0; j < parameters.length; j++) {
-	 var thisParameterSpec = parameters[j]tory
+	 var thisParameterSpec = parameters[j];
 	 var thisP = parameters[j].split(globalDivider2);
 	 var thisP0 = thisP[0].toLowerCase().trim();
 
