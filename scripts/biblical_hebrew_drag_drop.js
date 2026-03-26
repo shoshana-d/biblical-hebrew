@@ -230,14 +230,11 @@ test("hello from addeventListener in biblical_hebrew_drag_drop.js");
 	// answers flexbox
 	//----------------
    
-   var answersFlexdiv = createAnswersFlexbox(answersFlexId, answers, answerClass, answerInImage, imagesDir, sounds);
+   var answersFlexdiv = createAnswersFlexbox(answersFlexId, answers, answerClass, sounds, matchSounds, answerInImage, imagesDir);
 
 	 // add answers flexbox to overall container
    overallFlexdiv.appendChild(answersFlexdiv);
-   	 // add order to each cell
-   // var divs = answersFlexdiv.children;
-	//for (i=0; i < divs.length; i++){ divs[i].style.order = i; }
-        
+         
   
 	// questions flexbox
 	//----------------
@@ -248,6 +245,10 @@ test("hello from addeventListener in biblical_hebrew_drag_drop.js");
 	var nAnswers = answers.length;
 	var anySounds = sounds.length > 0;
 
+   
+    var itemOrder = shuffleArray(createIntegerArray(0,nAnswers-1));
+    
+
 
     for (i=0; i < nAnswers; i++){
  //test("hello from createFlexDragDrop "+  "--" + answers + "--" + questions + "--" + sounds + "--" + i);	       
@@ -255,18 +256,26 @@ test("hello from addeventListener in biblical_hebrew_drag_drop.js");
        var span1 = document.createElement("span");
        span1.classList.add(questionClass);
        span1.classList.add("flex-drag-drop-content");
-       if (anySounds) { span1.classList.add("soundclick");  }
+	   
+       if (anySounds) { 
+	      span1.classList.add("soundclick"); 
+          addsoundclickEventListener(span1, false);	   
+	   }
 	  
-	   if (!(matchSounds)) {    // if matchSounds, questionclass is "ear" which puts the ear image in this span
-         var text1= document.createTextNode(questions[i]);
-	     span1.appendChild(text1);
+	   if (matchSounds) {    // if matchSounds, questionclass is "ear" which puts the ear image in this span
+          span1.addEventListener("click", function(){selectMatchSoundsQuestion(event);});
+		  
+	   } else {    
+          //var text1= document.createTextNode(questions[i]);
+          var text1= document.createTextNode(questions[itemOrder[i]]);
+	      span1.appendChild(text1);
 	   }	 
 	  
 	   celldiv.appendChild(span1);
 		 
        if (anySounds) {
 		  //NB sounds already have subdirectory of /audio added
-          var span2 = crAudioSpan(sounds[i]);
+          var span2 = crAudioSpan(sounds[itemOrder[i]]);
 		  celldiv.appendChild(span2);
 	   }
 	 
@@ -274,6 +283,13 @@ test("hello from addeventListener in biblical_hebrew_drag_drop.js");
        span3.classList.add("query");
        span3.classList.add("flex-drag-drop-query-box");
   	   //span3.setAttribute("id", questionsFlexId + "-" +  i);
+              span3.addEventListener("drop", function(){handleDrop(event);});
+		      span3.addEventListener("dragenter",function(){handleDragEnter(event);});
+		      span3.addEventListener("dragleave",function(){handleDragLeave(event);});
+		      span3.addEventListener("dragover",function(){handleDragOver(event);});
+		   
+		      span3.addEventListener("click", function(){checkAnswer(event);});
+
 	   
 	   celldiv.appendChild(span3);
 	   
@@ -282,12 +298,12 @@ test("hello from addeventListener in biblical_hebrew_drag_drop.js");
 	     // now not allowing multiple images, vowels with the same sound have each been combined into a single image
 		 // depending on how many vowels in an image (1,2 or 3) the image must be displayed with a different width, so needs different class
 		  var element4 = document.createElement("img");
-          element4.src = setJpgName(answers[i].trim(), imagesDir);
-		  element4.classList.add(getVowelImageClass(answers[i]));
+          element4.src = setJpgName(answers[itemOrder[i]].trim(), imagesDir);
+		  element4.classList.add(getVowelImageClass(answers[itemOrder[i]]));
 
 	   }  else {
 		  var element4 = document.createElement("span");
-          var text4 = document.createTextNode(answers[i]);
+          var text4 = document.createTextNode(answers[itemOrder[i]]);
           element4.classList.add(answerClass);
 		  
 	      element4.appendChild(text4);
@@ -296,14 +312,17 @@ test("hello from addeventListener in biblical_hebrew_drag_drop.js");
 	   element4.classList.add("questionsRowAnswer"); // this is needed when shuffling an existing flexbox
        element4.classList.add("hidden");
        element4.classList.add("flex-drag-drop-content");
-       if (anySounds) {element4.classList.add("soundclick");  }
+       if (anySounds) {
+		   element4.classList.add("soundclick");
+           addsoundclickEventListener(element4, false);		   
+	   }
 		  
 	   celldiv.appendChild(element4);
 //test("hello from createFlexDragDrop "+ i+ "--" + nAnswers + "-" + anySounds + "--" + answers + "--" + questions + "--" + sounds);		 
 		  
        if (anySounds) {
 		    //NB sounds already have subdirectory of /audio added
-          var span5 = crAudioSpan(sounds[i]);
+          var span5 = crAudioSpan(sounds[itemOrder[i]]);
 		  celldiv.appendChild(span5);
 	   }
        questionsFlexdiv.appendChild(celldiv);
@@ -314,97 +333,117 @@ test("hello from addeventListener in biblical_hebrew_drag_drop.js");
 	 // add order to each cell
 	//var divs = questionsFlexdiv.children;
 	//for (i=0; i < divs.length; i++){ divs[i].style.order = i; }
+
 	
 	 // add questionsflexbox to overall container
     overallFlexdiv.appendChild(questionsFlexdiv);
 
+
      // add event listeners and attributes to flexbox
 	 //-----------------------------------------------
     // answers
-    var flexdivElements =  answersFlexdiv.getElementsByClassName("flex-drag-drop-content");
-    for (i=0; i < flexdivElements.length; i++){
-	   var thisElement = flexdivElements[i];	
+//    var flexdivElements =  answersFlexdiv.getElementsByClassName("flex-drag-drop-content");
+//    for (i=0; i < flexdivElements.length; i++){
+//	   var thisElement = flexdivElements[i];	
 
-       if (matchSounds){
-          thisElement.addEventListener("click", function(){checkMatchSoundsAnswer(event);});
-		  thisElement.classList.add("clickable");
+//       if (matchSounds){
+//          thisElement.addEventListener("click", function(){checkMatchSoundsAnswer(event);});
+//		  thisElement.classList.add("clickable");
 		  
-	   } else {
-          thisElement.addEventListener("click", function(){selectAnswer(event);});
-          thisElement.addEventListener("dragstart",function(){handleDragStart(event);});
- 	      thisElement.setAttribute("draggable", true);
-       }		   
+//	   } else {
+//          thisElement.addEventListener("click", function(){selectAnswer(event);});
+//          thisElement.addEventListener("dragstart",function(){handleDragStart(event);});
+// 	      thisElement.setAttribute("draggable", true);
+//       }		   
 	   
-    } 
+//    } 
 	// questions
-    var flexdivElements =  questionsFlexdiv.getElementsByTagName("*");
-    for (i=0; i < flexdivElements.length; i++){
-	   var thisElement = flexdivElements[i];	
-	   var thisClassList = flexdivElements[i].classList;
+//    var flexdivElements =  questionsFlexdiv.getElementsByTagName("*");
+//    for (i=0; i < flexdivElements.length; i++){
+//	   var thisElement = flexdivElements[i];	
+//	   var thisClassList = flexdivElements[i].classList;
 	   
-       if (thisClassList.contains("soundclick")) {
-		   addsoundclickEventListener(thisElement, false);
-       }
+//       if (thisClassList.contains("soundclick")) {
+//		   addsoundclickEventListener(thisElement, false);
+//       }
 	   
-	   if (matchSounds){
- 	       if (thisClassList.contains("ear")) {
-              thisElement.addEventListener("click", function(){selectMatchSoundsQuestion(event);});
-		   }  
-	   } else {  
- 	       if (thisClassList.contains("query")) {
-              thisElement.addEventListener("drop", function(){handleDrop(event);});
-		      thisElement.addEventListener("dragenter",function(){handleDragEnter(event);});
-		      thisElement.addEventListener("dragleave",function(){handleDragLeave(event);});
-		      thisElement.addEventListener("dragover",function(){handleDragOver(event);});
+//	   if (matchSounds){
+// 	       if (thisClassList.contains("ear")) {
+//              thisElement.addEventListener("click", function(){selectMatchSoundsQuestion(event);});
+//		   }  
+//	   } else {  
+// 	       if (thisClassList.contains("query")) {
+//              thisElement.addEventListener("drop", function(){handleDrop(event);});
+//		      thisElement.addEventListener("dragenter",function(){handleDragEnter(event);});
+//		      thisElement.addEventListener("dragleave",function(){handleDragLeave(event);});
+//		      thisElement.addEventListener("dragover",function(){handleDragOver(event);});
 		   
-		      thisElement.addEventListener("click", function(){checkAnswer(event);});
-	       } 
-       }		   
-    }   
+//		      thisElement.addEventListener("click", function(){checkAnswer(event);});
+//	       } 
+//       }		   
+//    }   
      
 	// add overall flexbox to document	
 	thisSpecElement.parentNode.insertBefore(overallFlexdiv, thisSpecElement);
 	
 	// finally, shuffle
-	shuffleNewFlexDragDropQuestions(flexId);
-	shuffleNewFlexDragDropAnswers(flexId);
+	// now (March 2026) not needed, shuffling when creating items
+	//shuffleNewFlexDragDropQuestions(flexId);
+	//shuffleNewFlexDragDropAnswers(flexId);
 
 }
 
-function  createAnswersFlexbox(answersFlexId, answers, answerClass, answerInImage, imagesDir, sounds){
+function  createAnswersFlexbox(answersFlexId, answers, answerClass=null, sounds=null, matchSounds=false,answerInImage=false, imagesDir=null){
    var i;
    var j;
    var answersFlexdiv = document.createElement("div");
    answersFlexdiv.setAttribute("id", answersFlexId);
    answersFlexdiv.classList.add("flex-container-drag-drop");
    
+   var itemOrder = shuffleArray(createIntegerArray(0,answers.length-1));
+    
    for (i=0; i < answers.length; i++){
 	  var celldiv = document.createElement("div");
 	  
 	  if (answerInImage){ 
 	     // now not allowing multiple images, vowels with the same sound have each been combined into a single image
 		    var answerElement = document.createElement("img");
-            answerElement.src = setJpgName(answers[i].trim(), imagesDir);
+           // answerElement.src = setJpgName(answers[i].trim(), imagesDir);
 //test("hello from createAnswersFlexbox " + answers + "--" + answerInImage + "--" + answers[i]);
-			answerElement.classList.add(getVowelImageClass(answers[i]));
+			//answerElement.classList.add(getVowelImageClass(answers[i]));
+            answerElement.src = setJpgName(answers[itemOrder[i]].trim(), imagesDir);
+			answerElement.classList.add(getVowelImageClass(answers[itemOrder[i]]));
 		 
 	  }  else {
 		  var answerElement = document.createElement("span");
-          var text1= document.createTextNode(answers[i]);
+          var text1= document.createTextNode(answers[itemOrder[i]]);
 	      answerElement.appendChild(text1);
 		  
-          answerElement.classList.add(answerClass);
+          if(answerClass != null) {answerElement.classList.add(answerClass);}
 	  }
 	  
       answerElement.classList.add("flex-drag-drop-content");
      // if (anySounds) { answerElement.classList.add("soundclick");  }  // now using click event to select answer
 	                                                                    // clicking selected answer gives sound
+
+       if (matchSounds){
+          answerElement.addEventListener("click", function(){checkMatchSoundsAnswer(event);});
+		  answerElement.classList.add("clickable");
 		  
+	   } else {
+          answerElement.addEventListener("click", function(){selectAnswer(event);});
+          answerElement.addEventListener("dragstart",function(){handleDragStart(event);});
+ 	      answerElement.setAttribute("draggable", true);
+       }		   
+
+	  
 	  celldiv.appendChild(answerElement);
+
 		  
-	  if (sounds.length > 0) {
+	  //if (sounds.length > 0) {
+	  if (sounds != null) {
 		    //NB sounds already have subdirectory of /audio added
-          var span2 = crAudioSpan(sounds[i]);
+          var span2 = crAudioSpan(sounds[itemOrder[i]]);
 		  celldiv.appendChild(span2);
 	  }
 
@@ -413,6 +452,8 @@ function  createAnswersFlexbox(answersFlexId, answers, answerClass, answerInImag
 	
    return answersFlexdiv;
 }	
+
+
 
 function reCreateFlexDragDrop(thisId){
     // thisId is the id of the paragraph with the parameters for the drag-drop div
@@ -448,6 +489,7 @@ function reCreateFlexDragDrop(thisId){
 }
 
 
+//---------- no longer required --------------------
 function shuffleNewFlexDragDropAnswers(thisId) {
     // thisId is the id of the flexbox (not the id of the paragraph with the parameters for the flexbox)
 	// this function shuffles a newly created drag drop exercise
@@ -462,8 +504,8 @@ function shuffleNewFlexDragDropAnswers(thisId) {
   for ( i = 0; i < nCells; i++) {
 	answersCells[i].style.order = shuffleOrder[i];
   } 
-
 }
+
 function shuffleNewFlexDragDropQuestions(thisId) {
     // thisId is the id of the flexbox (not the id of the paragraph with the parameters for the flexbox)
 	// this function shuffles a newly created drag drop exercise
@@ -480,44 +522,10 @@ function shuffleNewFlexDragDropQuestions(thisId) {
   } 
 
 }
-
-//---- no longer used, not sure that this works correctly--------------------------------
-//  (may not remove droppable from last selected query box)
-function shuffleExistingFlexDragDrop(thisId) {
-    // thisId is the id of the flexbox (not the id of the paragraph with the parameters for the flexbox)
-  var i;
-  var answersId = thisId + "-answers";
-  var questionsId = thisId + "-questions";
-  const answersContainer = document.getElementById(answersId);
-   if (answersContainer == null){ return;}
-  const questionsContainer = document.getElementById(questionsId);
-   if (questionsContainer == null){ return;}
-  //const nCells = answersContainer.childElementCount ;
-
-   // unselect any selected answers
-   var selected = answersContainer.getElementsByClassName("flex-drag-drop-selected");
-   for (i=0; i < selected.length; i++) {	setUnselected(selected[i]);	}
-	   
- // make answers visible 
-  var answers = answersContainer.getElementsByClassName("flex-drag-drop-content");
-  for ( i = 0; i < answers.length; i++) {
-	answers[i].classList.remove("hidden");
-  } 
-    
-   // in questions section, make query boxes visible and answers invisible
-  var questionMarks = questionsContainer.getElementsByClassName("flex-drag-drop-query-box");
-  for (i=0; i < questionMarks.length; i++) { 
-     questionMarks[i].classList.remove("hidden");
-     questionMarks.classList.remove("flex-drag-drop-droppable"); 
-  }
-  
-  var correctAnswers = questionsContainer.getElementsByClassName("questionsRowAnswer");
-  for (i=0; i < correctAnswers.length; i++) { correctAnswers[i].classList.add("hidden");}
+//-------------------------------------------------------------
 
 
-  shuffleNewFlexDragDropAnswers(thisId);
-  shuffleNewFlexDragDropQuestions(thisId);
-}
+
 
 //------ utility functions ------------------
 //------------------------------------------------
