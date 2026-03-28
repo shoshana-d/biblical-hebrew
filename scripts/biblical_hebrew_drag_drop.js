@@ -229,171 +229,37 @@ test("hello from addeventListener in biblical_hebrew_drag_drop.js");
 
 	// answers flexbox
 	//----------------
-   
-   var answersFlexdiv = createAnswersFlexbox(answersFlexId, answers, answerClass, sounds, matchSounds, answerInImage, imagesDir);
+   var answersFlexdiv = createAnswersFlexbox(
+                               answersFlexId, answers, answerClass, 
+                               sounds, matchSounds, 
+							   answerInImage, imagesDir);
 
 	 // add answers flexbox to overall container
    overallFlexdiv.appendChild(answersFlexdiv);
          
   
 	// questions flexbox
-	//----------------
-    const questionsFlexdiv = document.createElement("div");
- 	questionsFlexdiv.setAttribute("id", questionsFlexId);
-    questionsFlexdiv.classList.add("flex-container-drag-drop");
+	//------------------
+   var questionsFlexdiv = createQuestionsFlexbox(
+                               questionsFlexId, questions, questionClass,
+                               answersFlexId, answers, answerClass, 
+                               sounds, matchSounds, 
+							   answerInImage, imagesDir);
 	
-	var nAnswers = answers.length;
-	var anySounds = sounds.length > 0;
-
-   
-    var itemOrder = shuffleArray(createIntegerArray(0,nAnswers-1));
-    
-
-
-    for (i=0; i < nAnswers; i++){
- //test("hello from createFlexDragDrop "+  "--" + answers + "--" + questions + "--" + sounds + "--" + i);	       
-       var celldiv = document.createElement("div");
-       var span1 = document.createElement("span");
-       span1.classList.add(questionClass);
-       span1.classList.add("flex-drag-drop-content");
-	   
-       if (anySounds) { 
-	      span1.classList.add("soundclick"); 
-          addsoundclickEventListener(span1, false);	   
-	   }
-	  
-	   if (matchSounds) {    // if matchSounds, questionclass is "ear" which puts the ear image in this span
-          span1.addEventListener("click", function(){selectMatchSoundsQuestion(event);});
-		  
-	   } else {    
-          //var text1= document.createTextNode(questions[i]);
-          var text1= document.createTextNode(questions[itemOrder[i]]);
-	      span1.appendChild(text1);
-	   }	 
-	  
-	   celldiv.appendChild(span1);
-		 
-       if (anySounds) {
-		  //NB sounds already have subdirectory of /audio added
-          var span2 = crAudioSpan(sounds[itemOrder[i]]);
-		  celldiv.appendChild(span2);
-	   }
-	 
-	   var span3 = document.createElement("span");
-       span3.classList.add("query");
-       span3.classList.add("flex-drag-drop-query-box");
-  	   //span3.setAttribute("id", questionsFlexId + "-" +  i);
-              span3.addEventListener("drop", function(){handleDrop(event);});
-		      span3.addEventListener("dragenter",function(){handleDragEnter(event);});
-		      span3.addEventListener("dragleave",function(){handleDragLeave(event);});
-		      span3.addEventListener("dragover",function(){handleDragOver(event);});
-		   
-		      span3.addEventListener("click", function(){checkAnswer(event);});
-
-	   
-	   celldiv.appendChild(span3);
-	   
-	   if (answerInImage){ 
-	     // these are the vowels
-	     // now not allowing multiple images, vowels with the same sound have each been combined into a single image
-		 // depending on how many vowels in an image (1,2 or 3) the image must be displayed with a different width, so needs different class
-		  var element4 = document.createElement("img");
-          element4.src = setJpgName(answers[itemOrder[i]].trim(), imagesDir);
-		  element4.classList.add(getVowelImageClass(answers[itemOrder[i]]));
-
-	   }  else {
-		  var element4 = document.createElement("span");
-          var text4 = document.createTextNode(answers[itemOrder[i]]);
-          element4.classList.add(answerClass);
-		  
-	      element4.appendChild(text4);
-	   }
-		  
-	   element4.classList.add("questionsRowAnswer"); // this is needed when shuffling an existing flexbox
-       element4.classList.add("hidden");
-       element4.classList.add("flex-drag-drop-content");
-       if (anySounds) {
-		   element4.classList.add("soundclick");
-           addsoundclickEventListener(element4, false);		   
-	   }
-		  
-	   celldiv.appendChild(element4);
-//test("hello from createFlexDragDrop "+ i+ "--" + nAnswers + "-" + anySounds + "--" + answers + "--" + questions + "--" + sounds);		 
-		  
-       if (anySounds) {
-		    //NB sounds already have subdirectory of /audio added
-          var span5 = crAudioSpan(sounds[itemOrder[i]]);
-		  celldiv.appendChild(span5);
-	   }
-       questionsFlexdiv.appendChild(celldiv);
-  
-	}	
-	
-	
-	 // add order to each cell
-	//var divs = questionsFlexdiv.children;
-	//for (i=0; i < divs.length; i++){ divs[i].style.order = i; }
-
 	
 	 // add questionsflexbox to overall container
-    overallFlexdiv.appendChild(questionsFlexdiv);
+   overallFlexdiv.appendChild(questionsFlexdiv);
 
-
-     // add event listeners and attributes to flexbox
-	 //-----------------------------------------------
-    // answers
-//    var flexdivElements =  answersFlexdiv.getElementsByClassName("flex-drag-drop-content");
-//    for (i=0; i < flexdivElements.length; i++){
-//	   var thisElement = flexdivElements[i];	
-
-//       if (matchSounds){
-//          thisElement.addEventListener("click", function(){checkMatchSoundsAnswer(event);});
-//		  thisElement.classList.add("clickable");
-		  
-//	   } else {
-//          thisElement.addEventListener("click", function(){selectAnswer(event);});
-//          thisElement.addEventListener("dragstart",function(){handleDragStart(event);});
-// 	      thisElement.setAttribute("draggable", true);
-//       }		   
-	   
-//    } 
-	// questions
-//    var flexdivElements =  questionsFlexdiv.getElementsByTagName("*");
-//    for (i=0; i < flexdivElements.length; i++){
-//	   var thisElement = flexdivElements[i];	
-//	   var thisClassList = flexdivElements[i].classList;
-	   
-//       if (thisClassList.contains("soundclick")) {
-//		   addsoundclickEventListener(thisElement, false);
-//       }
-	   
-//	   if (matchSounds){
-// 	       if (thisClassList.contains("ear")) {
-//              thisElement.addEventListener("click", function(){selectMatchSoundsQuestion(event);});
-//		   }  
-//	   } else {  
-// 	       if (thisClassList.contains("query")) {
-//              thisElement.addEventListener("drop", function(){handleDrop(event);});
-//		      thisElement.addEventListener("dragenter",function(){handleDragEnter(event);});
-//		      thisElement.addEventListener("dragleave",function(){handleDragLeave(event);});
-//		      thisElement.addEventListener("dragover",function(){handleDragOver(event);});
-		   
-//		      thisElement.addEventListener("click", function(){checkAnswer(event);});
-//	       } 
-//       }		   
-//    }   
      
 	// add overall flexbox to document	
-	thisSpecElement.parentNode.insertBefore(overallFlexdiv, thisSpecElement);
+	//--------------------------------
+   thisSpecElement.parentNode.insertBefore(overallFlexdiv, thisSpecElement);
 	
-	// finally, shuffle
-	// now (March 2026) not needed, shuffling when creating items
-	//shuffleNewFlexDragDropQuestions(flexId);
-	//shuffleNewFlexDragDropAnswers(flexId);
-
 }
 
-function  createAnswersFlexbox(answersFlexId, answers, answerClass=null, sounds=null, matchSounds=false,answerInImage=false, imagesDir=null){
+function createAnswersFlexbox(answersFlexId, answers, answerClass=null, 
+                               sounds=null, matchSounds=false,
+							   answerInImage=false, imagesDir=null){
    var i;
    var j;
    var answersFlexdiv = document.createElement("div");
@@ -453,7 +319,119 @@ function  createAnswersFlexbox(answersFlexId, answers, answerClass=null, sounds=
    return answersFlexdiv;
 }	
 
+function createQuestionsFlexbox(questionsFlexId, questions, questionClass=null, 
+                               answersFlexId, answers, answerClass=null, 
+                               sounds=null, matchSounds=false,
+							   answerInImage=false, imagesDir=null){
+							   
+    var i;
+    var j;
+	
+    const questionsFlexdiv = document.createElement("div");
+ 	questionsFlexdiv.setAttribute("id", questionsFlexId);
+    questionsFlexdiv.classList.add("flex-container-drag-drop");
+	
+	var nAnswers = answers.length;
+	var anySounds = sounds.length > 0;
+   
+    var itemOrder = shuffleArray(createIntegerArray(0,nAnswers-1));
+    
 
+    for (i=0; i < nAnswers; i++){
+ //test("hello from createFlexDragDrop "+  "--" + answers + "--" + questions + "--" + sounds + "--" + i);	       
+       var celldiv = document.createElement("div");
+       var span1 = document.createElement("span");
+       if(questionClass != null) span1.classList.add(questionClass);
+       span1.classList.add("flex-drag-drop-content");
+	   
+     //  if (anySounds) { 
+	 //     span1.classList.add("soundclick"); 
+     //     addsoundclickEventListener(span1, false);	   
+	 //  }
+	  
+	   if (matchSounds) {    // if matchSounds, questionclass is "ear" which puts the ear image in this span
+          span1.addEventListener("click", function(){selectMatchSoundsQuestion(event);});
+	      span1.classList.add("soundclick"); 
+          addsoundclickEventListener(span1, false);	   
+		  
+	   } else {    
+          //var text1= document.createTextNode(questions[i]);
+          var text1= document.createTextNode(questions[itemOrder[i]]);
+	      span1.appendChild(text1);
+	   }	 
+	  
+	   celldiv.appendChild(span1);
+		 
+     //  if (anySounds) {
+		  //NB sounds already have subdirectory of /audio added
+     //     var span2 = crAudioSpan(sounds[itemOrder[i]]);
+	//	  celldiv.appendChild(span2);
+	 //  }
+       if (matchSounds) {
+		  //NB sounds already have subdirectory of /audio added
+          var span2 = crAudioSpan(sounds[itemOrder[i]]);
+		  celldiv.appendChild(span2);
+	   }
+
+ 		  //NB sounds already have subdirectory of /audio added
+     //     var span2 = crAudioSpan(sounds[itemOrder[i]]);
+	//	  celldiv.appendChild(span2);
+	 //  }
+
+	 
+	   var span3 = document.createElement("span");
+       span3.classList.add("query");
+       span3.classList.add("flex-drag-drop-query-box");
+  	   //span3.setAttribute("id", questionsFlexId + "-" +  i);
+              span3.addEventListener("drop", function(){handleDrop(event);});
+		      span3.addEventListener("dragenter",function(){handleDragEnter(event);});
+		      span3.addEventListener("dragleave",function(){handleDragLeave(event);});
+		      span3.addEventListener("dragover",function(){handleDragOver(event);});
+		   
+		      span3.addEventListener("click", function(){checkAnswer(event);});
+
+	   
+	   celldiv.appendChild(span3);
+	   
+	   if (answerInImage){ 
+	     // these are the vowels
+	     // now not allowing multiple images, vowels with the same sound have each been combined into a single image
+		 // depending on how many vowels in an image (1,2 or 3) the image must be displayed with a different width, so needs different class
+		  var element4 = document.createElement("img");
+          element4.src = setJpgName(answers[itemOrder[i]].trim(), imagesDir);
+		  element4.classList.add(getVowelImageClass(answers[itemOrder[i]]));
+
+	   }  else {
+		  var element4 = document.createElement("span");
+          var text4 = document.createTextNode(answers[itemOrder[i]]);
+          element4.classList.add(answerClass);
+		  
+	      element4.appendChild(text4);
+	   }
+		  
+	   element4.classList.add("questionsRowAnswer"); // this is needed when shuffling an existing flexbox
+       element4.classList.add("hidden");
+       element4.classList.add("flex-drag-drop-content");
+       if (anySounds) {
+		   element4.classList.add("soundclick");
+           addsoundclickEventListener(element4, false);		   
+	   }
+		  
+	   celldiv.appendChild(element4);
+//test("hello from createFlexDragDrop "+ i+ "--" + nAnswers + "-" + anySounds + "--" + answers + "--" + questions + "--" + sounds);		 
+		  
+       if (anySounds) {
+		    //NB sounds already have subdirectory of /audio added
+          var span5 = crAudioSpan(sounds[itemOrder[i]]);
+		  celldiv.appendChild(span5);
+	   }
+       questionsFlexdiv.appendChild(celldiv);
+  
+	}
+	
+   return questionsFlexdiv;
+	
+}
 
 function reCreateFlexDragDrop(thisId){
     // thisId is the id of the paragraph with the parameters for the drag-drop div
@@ -487,43 +465,6 @@ function reCreateFlexDragDrop(thisId){
    createFlexDragDrop(thisSpecElement);
 
 }
-
-
-//---------- no longer required --------------------
-function shuffleNewFlexDragDropAnswers(thisId) {
-    // thisId is the id of the flexbox (not the id of the paragraph with the parameters for the flexbox)
-	// this function shuffles a newly created drag drop exercise
-  var i;
-  var answersId = thisId + "-answers";
-  const answersContainer = document.getElementById(answersId);
-   if (answersContainer == null){ return;}
-  const answersCells = answersContainer.children;  
-  const nCells = answersContainer.childElementCount ;
-
-  var shuffleOrder = shuffleArray(createIntegerArray(0, nCells-1));
-  for ( i = 0; i < nCells; i++) {
-	answersCells[i].style.order = shuffleOrder[i];
-  } 
-}
-
-function shuffleNewFlexDragDropQuestions(thisId) {
-    // thisId is the id of the flexbox (not the id of the paragraph with the parameters for the flexbox)
-	// this function shuffles a newly created drag drop exercise
-  var i;
-  var questionsId = thisId + "-questions";
-  const questionsContainer = document.getElementById(questionsId);
-   if (questionsContainer == null){ return;}
-  const questionsCells = questionsContainer.children;  
-  const nCells = questionsContainer.childElementCount ;
- 
-  var shuffleOrder = shuffleArray(createIntegerArray(0, nCells-1));
-  for ( i = 0; i < nCells; i++) {
-	questionsCells[i].style.order = shuffleOrder[i];
-  } 
-
-}
-//-------------------------------------------------------------
-
 
 
 
@@ -722,6 +663,12 @@ function checkMatchSoundsAnswer(ev) {
 	
 	var idAnswersDiv = ev.target.parentElement.parentElement.id;
 	var idQuestionsDiv = idAnswersDiv.slice(0,idAnswersDiv.indexOf("answers")) + "questions";
+	
+	// play sound  regardless of whether match or not     
+    var thisLetter =  ev.target.nextElementSibling.innerHTML;
+	var thisSound = setMp3Name(thisLetter);
+	playSound(thisSound);
+
 	
 	var selected = getChildrenWhichAreSelected(document.getElementById(idQuestionsDiv));
  //test("hello from checkMatchSoundsAnswer, proposedAnswer=" + proposedAnswer + "--" + selected);
