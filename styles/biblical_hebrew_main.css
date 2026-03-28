@@ -378,14 +378,38 @@ table{
 }
 .preposition-color{
    background-color:Gold;
-}   
-.lessons-lists-menu-color{
+} 
+
+
+/*----------------------------------------------------------------*/
 	/* menu at the top of each lesson created in JS, 
 	consonant list, vowels list, cantillation marks list 
 	- probably not used any more
 	*/
+  
+.lessons-lists-menu-color{
    background-color:FloralWhite;
 }	
+     /* headers of clickable lists of consonants, vowels, cantillation marks */
+.lessons-help-lists{
+   font-size:15px;
+}   
+
+.flex-container-heb-lessons-lists {
+	/* used in lists of consonants, vowels and cantillation marks at top of each lesson */
+    justify-content:center;
+	border-bottom:solid; 
+	border-bottom-width:1px; 
+	border-bottom-color:gray;
+	border-top:solid; 
+	border-top-width:1px; 
+	border-top-color:gray;
+ }
+.flex-container-heb-lessons-lists > div {
+  margin: 6px 0 3px 5px; /* top right bottom left */
+  text-align: center;
+ }
+/*-------------------------------------------------------*/
 
 
 /*--- emphasised text -----------*/
@@ -860,10 +884,6 @@ table{
    content:"\2721";
 }	
 	
-     /* headers of clickable lists of consonants, vowels, cantillation marks */
-.lessons-help-lists{
-   font-size:15px;
-}   
 
 .lesson-exercise-header{
 	margin-top:20px;
@@ -914,7 +934,7 @@ table{
 .biblical-reference{
    font-style:italic; /* only used in lessons */
 }  
-.lessons-vocab-word-color{ 
+.lesson-vocab-word-color{ 
   /* in Lessons */
    background-color:#ffffcc;  /* w3-yellow */
 }
@@ -1065,10 +1085,10 @@ table{
 }	
    
 
-   /* used in biblical-hebrew-exercise-table  */
+   /* used in biblical-hebrew-lessons-exercise  */
    /*-----------------------------------------*/
    
-   /* created by biblical-hebrew-exercise-table.js */
+   /* created by biblical-hebrew-lessons-exercise.js */
    
 .exercise-table{
 	width:100%;
@@ -1506,40 +1526,26 @@ background-color:white;
    /*-------- lessons pages---------*/
    /*--------------------------------*/                                    
 	  
-.flex-container-heb-lessons-exercises > div 
+.flex-container-heb-lesson-exercise > div 
 {
   margin: 3px 0 3px 15px; /* top right bottom left */
   margin: 3px 0 3px 13px; /* top right bottom left */
   text-align: center;
  }
  
-.flex-container-heb-lessons-exercises > div p{
+.flex-container-heb-lesson-exercise > div p{
 	margin:0 0 2px 0;
 }
-
-.flex-container-heb-lessons-lists {
-	/* used in lists of consonants, vowels and cantillation marks at top of each lesson */
-    justify-content:center;
-	border-bottom:solid; 
-	border-bottom-width:1px; 
-	border-bottom-color:gray;
-	border-top:solid; 
-	border-top-width:1px; 
-	border-top-color:gray;
- }
-.flex-container-heb-lessons-lists > div {
-  margin: 6px 0 3px 5px; /* top right bottom left */
-  text-align: center;
- }
-
  
       /* "tooltips" */
 
-.flex-container-lessons-tooltip{
+.flex-container-lesson-exercise-tooltip{
 	/* used to show translation in lessons exercise */
    border-style:dotted;
    border-width:2px;
    padding:0;
+   text-align: center;
+
 }
 
 
