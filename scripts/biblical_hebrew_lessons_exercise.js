@@ -243,7 +243,7 @@ function createLessonsExercise(thisDiv){
 	   for (i = 0; i < sections.length; i++) {
 		  if (i % 2 == 1) {questionWords[(i-1)/2] = sections[i];}
        }
-	   var hebrewAnswerWordNumbers = thisAnswerWords.innerHTML.split(/\s+/); //split by one or more spaces
+	   var hebrewAnswerWordNumbers = thisAnswerWords.innerHTML.trim().split(/\s+/); //split by one or more spaces
 	   
  	   for (i = 0; i < hebrewWords.length; i++) {
           var thisAnswerDiv = document.createElement("div");
