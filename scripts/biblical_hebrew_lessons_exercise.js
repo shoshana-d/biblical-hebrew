@@ -3,6 +3,14 @@
 
 document.addEventListener('DOMContentLoaded', function() {
    var i;
+   
+   // create the text before each exercise table
+   var onloadLessonsExerciseClass = document.getElementsByClassName("onload-lessons-exercise-text-before");
+   for (i = 0; i < onloadLessonsExerciseClass.length; i++) {
+      var thisSpec = onloadLessonsExerciseClass[i];
+      createLessonsExerciseTextBefore(thisSpec);
+   }	
+   
    // create the exercise tables in JS on load (includes event listeners) 
    var onloadLessonsExerciseClass = document.getElementsByClassName("onload-lessons-exercise");
    for (i = 0; i < onloadLessonsExerciseClass.length; i++) {
@@ -56,6 +64,59 @@ function lessonsExerciseShowTranslationEventListener(ev){
     thisElement.classList.toggle("button-plus");
     thisElement.classList.toggle("button-minus");
 }	
+
+// add the instructions text that goes before each exercise	
+function createLessonsExerciseTextBefore(thisDiv){
+
+  var unorderedList = document.createElement('ul');
+  var listItem = document.createElement('li');
+  
+  listItem.appendChild(document.createTextNode("For each "));
+  
+  var span = document.createElement('span');
+  span.classList.add("lesson-exercise-question-text-border");
+  span.appendChild(document.createTextNode("word"));
+  listItem.appendChild(span);
+  
+  listItem.appendChild( document.createTextNode(" in the translation,click on the corresponding word in the Hebrew. "));
+  
+  unorderedList.appendChild(listItem);
+  thisDiv.appendChild(unorderedList);
+ 
+  thisDiv.appendChild(document.createElement('p'));
+
+  var unorderedList = document.createElement('ul');
+  var listItem = document.createElement('li');
+ 
+  listItem.appendChild(document.createTextNode("Click on "));
+  
+  var span = document.createElement('span');
+  span.classList.add("start-audio");
+  listItem.appendChild(span);
+  
+  listItem.appendChild(document.createTextNode("to hear the audio. "));
+  listItem.appendChild(document.createTextNode(" You should listen  until you can identify the Hebrew word corresponding to "));
+  
+  var span = document.createElement('span');
+  span.classList.add("lesson-exercise-question-text-border");
+  span.appendChild(document.createTextNode("word"));
+  listItem.appendChild(span);
+
+  listItem.appendChild(document.createTextNode(". Listen to the audio while looking at text."));
+  listItem.appendChild(document.createTextNode(" Ideally, you should be able to speak along with the audio. "));
+ 
+  unorderedList.appendChild(listItem);
+  thisDiv.appendChild(unorderedList);
+
+  var para = document.createElement('p');
+  para.appendChild(document.createTextNode('There is a "reward" for identifying all the '));
+  var span = document.createElement('span');
+  span.classList.add("lesson-exercise-question-text-border");
+  span.appendChild(document.createTextNode("words."));
+  para.appendChild(span);
+  thisDiv.appendChild(para);
+	
+}
 
 function reCreateLessonsExercise(thisTableId){
 	// thisTableId is the id of the exercise table
@@ -160,7 +221,7 @@ function createLessonsExercise(thisDiv){
 	   
 	   var answerDiv = document.createElement("div");
 	   answerDiv.classList.add("flex-container-rtl");
-	//   answerDiv.classList.add("flex-container-heb-lesson-exercise");
+	   answerDiv.classList.add("flex-container-heb-lesson-exercise");
 	   
 	   //var thisAnswerList = thisAnswer.children;
 	   var hebrewWords = thisHebrewText.innerHTML.trim().split(/\s+/); //split by one or more spaces

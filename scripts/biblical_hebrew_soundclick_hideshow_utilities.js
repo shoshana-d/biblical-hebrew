@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //------- code extended audio --------------------------------------------
 //-------------------------------------------------------------------------
-function crExtendedAudio(element){
 	// used when element created in HTML with class="extendedaudioclick"
+function crExtendedAudio(element){
 	
 	// "element" is the span with class="extendedaudioclick"
 	// "element" should not have any other classes, class start-audio is added in this function
@@ -76,8 +76,8 @@ function crExtendedAudio(element){
 	
 }
 
-function addExtendedAudioElements(container, audioFileName){
     // used when element created in JS
+function addExtendedAudioElements(container, audioFileName){
 	
 	// audioFileName should include directory
 
