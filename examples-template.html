@@ -36,6 +36,24 @@
 
 </div>
 
+<div class=" lesson-exercise-container">
+<ul>
+  <li> For each <span class="lesson-exercise-question-text-border">word</span> in the translation, 
+  click on the corresponding word in the Hebrew. 
+  </li>
+ </ul> 
+ <p></p>
+ <ul> 
+  <li >
+  Click on <span class="start-audio"></span> to hear the audio. You should listen  until you can identify the 
+  Hebrew word corresponding to 
+  <span class="lesson-exercise-question-text-border">word</span>. 
+  Listen to the audio while looking at text. 
+  Ideally, you should be able to speak along with the audio. 
+  </li>
+  </ul>
+<p>  There is a "reward" for identifying all the <span class="lesson-exercise-question-text-border">words.</span></p>
+ </div>
 
 <h3 class="lesson-heading-jewish"> extra stuff from Jewish life</h3>
 
@@ -90,7 +108,7 @@
      </div>	
    </div>
    
-    
+ <p>longer example showing wrapping </p>   
     <div class="flex-container-rtl flex-container-examples dotted-border" >
      <div>
 	    <span class="extendedaudioclick" ></span><span class="hidden">tanakh/gen-06-18-db</span>
@@ -152,7 +170,7 @@
    <hr>
 
  
-<h3>Example using  class="flex-container-rtl flex-container-examples-no-border" </h3>
+<h3>Example using  class="flex-container-rtl flex-container-examples-no-border", hebrew words in individual divs </h3>
       <div class="flex-container-rtl flex-container-examples-no-border" >
      <div>
 	    <span class="soundclick start-audio" > </span><span class="hidden">tanakh/ex-04-04aa</span>
@@ -176,6 +194,7 @@
    </div>
    
    <hr>
+   <p>Showing unwanted wrapping behaviour when hebrew specified in a block</p>
        <div class="flex-container-rtl flex-container-examples-no-border" >
      <div>
 	    <span class="soundclick start-audio" > </span><span class="hidden">tanakh/ex-04-04aa</span>
@@ -188,6 +207,46 @@
    
    <hr>
  </div>  
+ 
+ 
+ 
+  <h3 class="lesson-heading">Examples using class="flex-container-ltr flex-container-examples +/- dotted-border"
+   contained in flex-container-ltr</h3>
+   <p>hebrew text in reverse order</p>
+   <p>note that if hebrew text is too long it wont wrap properly</p>
+<div class="lesson-section">
+
+
+ <div class="flex-container-ltr" >
+ <div >God <span class="emphasised-word">said</span> to Moses <br> <span class="biblical-reference">Genesis 3:4</span>
+  </div>
+
+   <div class="flex-container-ltr flex-container-examples" >
+     <div>
+	    <span class="hebrew30 soundclick vocab-word-color">   מֺשֶׁה  </span><span class="hidden">alefbet_people_places/moshe</span>
+		  <p>Moses </p>
+     </div>	
+     <div>
+	    <span class="hebrew30 soundclick vocab-word-color"> אֶל </span><span class="hidden">words/w008_el</span>
+		  <p>to </p>
+     </div>	
+     <div class="soundclick">
+	    <span class="hebrew30 vocab-word-color"> יְהוָה</span>
+		  <p>God </p>
+     </div><span class="hidden">words/w062_adonai</span>	
+     <div class="soundclick">
+	    <span class="hebrew30   vocab-word-color emphasised-word">וַיֹּאמֶר</span>
+		  <p>(and)  said </p>
+     </div>	<span class="hidden">words/w011_vayomer</span> 
+     <div>
+	    <span class="extendedaudioclick" > </span><span class="hidden">tanakh/ex-04-04aa</span>
+     </div>	
+   </div>
+  </div>
+
+
+
+</div>
    
  <h3 class="lesson-heading">Examples using class="flex-container-ltr flex-container-examples"</h3>
  <div class="lesson-section">
@@ -379,7 +438,6 @@
      <p class="js-audio-individual"> | | | | alefbet_people_places/sarai| </p>	
 	 <p class="js-emphasis"> 1</p>
   </div>
- 
   
  <hr>
  <p>class=javascript-example-ltr (this is a flexbox)</p>
@@ -390,8 +448,22 @@
        <p class="js-highlight">verb-reference-table-root| |||1 2 3|1 2 3|1 2 3 </p>	   
   </div>
  
+  
+<hr>
+ <p>class=javascript-example-false-rtl (this is a ltr flexbox contained in another ltr flexbox)</p>
 
-
+<div class="flex-container-ltr" >
+ <div >the serpent <span class="emphasised-word">said</span> to the woman <br> <span class="biblical-reference">Genesis 3:4</span>
+ </div>
+  <div class="javascript-example-false-rtl javascript-border"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew">וַיֹּ֥אמֶר הַנָּחָ֖שׁ אֶל־ הָֽאִשָּׁ֑ה</p>	
+     <p class="js-translation">said| the serpent| to |the woman</p>	
+     <p class="js-audio">tanakh/gen-03-04a-db</p>	
+     <p class="js-audio-individual"> words/w011_vayomer| words/xxx | words/w008_el | words/w061_haisha </p>	
+	 <p class="js-emphasis">1</p>
+  </div>
+</div>
   
  <hr>
 
