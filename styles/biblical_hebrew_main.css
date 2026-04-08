@@ -1006,6 +1006,9 @@ table{
 }
 
 .me-prefix::after{
+      content:"\05DE\05B5";
+}
+.me-prefix-hyphen::after{
       content:"\05DE\05B5\2010";
 }
 
