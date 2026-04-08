@@ -1049,10 +1049,11 @@ table{
 }
 */
 
-       /* tables used in lessons (eg Lesson 1 names of God) */
-       /* ------------------------------------------------- */
+       /* tables used in lessons  */
+       /* ----------------------- */
      
 	 /* vocab word in column 1, translation/explanation in column 2 */
+     /*  used in  Lesson 1 names of God */
 .lesson-vocab-table{
 	   border-collapse:collapse;
 	   display:table;
@@ -1068,22 +1069,42 @@ table{
 		width:20%;
 }	
 
-   /* English translation in colimun 1, Hebrew word in column 2
-      -used in lesson 2, if not used elsewhere, can be moved to lesson 2 
-   */
-.lesson-english-hebrew-table{
+	 /* vocab word in column 1, translation in column 2, examples in column 3 */
+     /*  used in  Lesson 4 prefixes (uses lesson-vocab-table-3cols), 
+	              Lesson 5 vav (uses lesson-vocab-table-3cols2)  */
+    
+.lesson-vocab-table-3cols,
+.lesson-vocab-table-3cols2
+	{
 	   border-collapse:collapse;
 	   display:table;
-	 /*  width:100%;*/
-}	
-.lesson-english-hebrew-table td:nth-child(2){
-	/* hebrew30 */
-   font-family:'Times New Roman',serif;
-   direction:rtl;
-   line-height:30px;
-   white-space:nowrap;
-   font-size:30px;
-}	
+	   width:100%;
+     }
+.lesson-vocab-table-3cols,
+.lesson-vocab-table-3cols2{
+	    border-bottom:1px solid black;
+	    border-top:1px solid black
+     }
+	 
+.lesson-vocab-table-3cols td:first-child{
+        text-align:center;
+		width:10%;
+	 }
+	 
+.lesson-vocab-table-3cols td:nth-child(2){
+        text-align:center;
+		width:10%;
+	 }
+	 
+.lesson-vocab-table-3cols2 td:first-child{
+        text-align:center;
+		width:15%;
+	 }
+	 
+.lesson-vocab-table-3cols2 td:nth-child(2){
+        text-align:center;
+		width:15%;
+	 }	
    
 
    /* used in biblical-hebrew-lessons-exercise  */
