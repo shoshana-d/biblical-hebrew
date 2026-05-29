@@ -433,6 +433,10 @@ table{
     background-color:white; 
 	
 	white-space:nowrap;
+}
+.highlighted-char{
+    color:red;
+	font-weight:500; /* medium, 400=normal*/
 }	
 
     /*--- only in alefbet pages -----------*/
