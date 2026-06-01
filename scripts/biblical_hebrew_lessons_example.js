@@ -221,7 +221,7 @@ function createJavascriptExampleRTLFlexbox(thisDiv, border=true){
       var cellDiv = document.createElement("div");
       var thisSpan = document.createElement("span"); 
 	  thisSpan.classList.add("hebrew30");
-	  thisSpan.classList.add("vocab-word-color");
+	//  thisSpan.classList.add("vocab-word-color");
 	  if (anyEmphasis){
 		  if (wordEmphasised[i]) {thisSpan.classList.add("emphasised-word");}
 	  }	  
@@ -286,6 +286,12 @@ function createJavascriptExampleLTRFlexbox(thisDiv, border=true){
   // var hebrewWords = reverseArray(hebrewWords);
    var hebrewParas = hebrewDiv.children;
    
+   var emphasisedWordClass = "emphasised-word";
+   var infrequentWordClass = "reference-table-infrequent2";
+  // var highlightedCharClass = "highlighted-char";
+   
+
+   
    var anyTranslations = false;
    if (translationPara.length > 0){
 	   anyTranslations = true;
@@ -316,7 +322,7 @@ function createJavascriptExampleLTRFlexbox(thisDiv, border=true){
    if (highlightPara.length > 0){
 	   anyHighlight = true;
 	   var highlights = highlightPara[0].innerHTML.trim().split(globalDivider1);
-	   var highlightClass = highlights.shift(); // extract name of class to use for highlighting 
+	   var highlightClass = highlights.shift().trim(); // extract name of class to use for highlighting 
    }
   
    var firstInfrequent = hebrewParas.length + 1;
@@ -344,10 +350,10 @@ function createJavascriptExampleLTRFlexbox(thisDiv, border=true){
 	  }	
 	 
 	  if (anyEmphasis){
-		  if (wordEmphasised[i]) {cellDiv.classList.add("emphasised-word");}
+   		  if (wordEmphasised[i]) {cellDiv.classList.add(emphasisedWordClass);}
 	  }	 
 
-      if ( i >= firstInfrequent ) {cellDiv.classList.add("reference-table-infrequent2");}	  
+      if ( i >= firstInfrequent ) {cellDiv.classList.add(infrequentWordClass);}	  
 
 	  if (anyHighlight) {
          var thisHebrewConsonants = convertHebrewWordToArray(hebrewWord);
@@ -366,7 +372,7 @@ function createJavascriptExampleLTRFlexbox(thisDiv, border=true){
                if (!(currentSpan)){
                   var thisSpan = document.createElement("span"); 
 	              thisSpan.classList.add("hebrew30");
-	              thisSpan.classList.add("vocab-word-color");
+	            //  thisSpan.classList.add("vocab-word-color");
 				  var currentSpan = true;
 			   }   
                thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
@@ -376,7 +382,7 @@ function createJavascriptExampleLTRFlexbox(thisDiv, border=true){
 	  } else {
          var thisSpan = document.createElement("span"); 
 	     thisSpan.classList.add("hebrew30");
-	     thisSpan.classList.add("vocab-word-color");
+	   //  thisSpan.classList.add("vocab-word-color");
          thisSpan.appendChild(document.createTextNode(hebrewWord));
          cellDiv.appendChild(thisSpan);
 	  }	 
@@ -487,7 +493,7 @@ function createJavascriptExampleFalseRTLFlexbox(thisDiv, border=true){
       var cellDiv = document.createElement("div");
       var thisSpan = document.createElement("span"); 
 	  thisSpan.classList.add("hebrew30");
-	  thisSpan.classList.add("vocab-word-color");
+	//  thisSpan.classList.add("vocab-word-color");
 	  if (anyEmphasis){
 		  if (wordEmphasised[i]) {thisSpan.classList.add("emphasised-word");}
 	  }	  
