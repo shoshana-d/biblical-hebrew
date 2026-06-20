@@ -299,6 +299,7 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 		 // bet indicates leave a space in hebrew 
          var thisSpan = document.createElement("span"); 
          thisSpan.appendChild(document.createTextNode(mspace));
+ 	     thisSpan.classList.add("hebrew30");
          cellDiv.appendChild(thisSpan);
       } else {
 		 var noHighlightsThisWord = true;
