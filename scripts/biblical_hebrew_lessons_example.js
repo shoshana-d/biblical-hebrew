@@ -180,6 +180,8 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 	  }	 
    }
 
+   var nHebrewWords = hebrewWords.length;
+   
    var individualAudioPara = dataDiv.getElementsByClassName("js-audio-individual");
    var translationPara = dataDiv.getElementsByClassName("js-translation");
    var emphasisPara = dataDiv.getElementsByClassName("js-emphasis");
@@ -208,9 +210,11 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 	   // list of hebrew words to be emphasised (numbers separated by spaces)is in 
 	   // a single para, with optional name of class to be used in first position
 	   var emphasisSpecs = emphasisPara[0].innerHTML.trim().split(/\s+/);
-	   // check whether first iem is class name
-	   if (Number(emphasisSpecs[0]) == NaN){
-	      emphasisedWordClass = emphasisSpecs.shift().trim(); // extract name of class to use for emphasising 
+	   // check whether first item is class name
+	   if (emphasisSpecs[0].length > 2 ){
+//test("hello from createJavascriptExampleRTLLTRFlexbox, emphasisSpecs[0].length=" + emphasisSpecs[0].length + ",nHebrewWords="+nHebrewWords );
+	      emphasisedWordClass = emphasisSpecs[0].trim(); //extract name of class to use for emphasising 
+		  emphasisSpecs.shift(); // remove first item
 	   }	   
 	   var wordEmphasised = [];
        for (i=0; i < hebrewWords.length; i++){
@@ -229,8 +233,9 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 	   // - empty if no highlighted consonants for that word
 	   var highlightsSpecs = highlightPara[0].innerHTML.trim().split(globalDivider1);
 	   // check whether first iem is class name
-	   if (Number(highlightsSpecs[0]) == NaN){
-	      highlightedCharClass = highlightsSpecs.shift().trim(); // extract name of class to use for highlighting 
+	   if (highlightsSpecs[0].length > 2){
+	      highlightedCharClass = highlightsSpecs[0].trim(); // extract name of class to use for highlighting 
+		  highlightsSpecs.shift(); // remove first item
 	   }	   
    }
    
@@ -270,7 +275,8 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
       flexDiv.appendChild(cellDiv);  
    }	   
    
-   for (i=0; i < hebrewWords.length; i++){
+   //for (i=0; i < hebrewWords.length; i++){
+   for (i=0; i < nHebrewWords; i++){
       var hebrewWord = hebrewWords[i];
 
       var cellDiv = document.createElement("div");
