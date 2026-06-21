@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
  	  var thisDiv = javascriptListClass[i];
 	  var border = false;
 	  if (thisDiv.classList.contains("javascript-border")){ border=true;}
-      //createJavascriptExampleLTRFlexbox(thisDiv, border); 
+    //  createJavascriptExampleLTRFlexbox(thisDiv, border); 
       createJavascriptExampleRTLLTRFlexbox(thisDiv, "LTR", border=true)
    }
 
@@ -110,17 +110,6 @@ function createJavascriptInlineQuote(thisDiv){
 	  thisCol.style.textAlign = "center";
 	  
       addExtendedAudioElements(thisCol, audioText)
-	  
-//      var thisSpan = document.createElement("span");   
-//      thisSpan.classList.add("start-audio");
-//      thisSpan.classList.add("soundclick");
-//      thisSpan.addEventListener("click", soundclickEventListener);
-//      thisCol.appendChild(thisSpan);
-   
-//      var thisSpan = document.createElement("span");   
-//      thisSpan.classList.add("hidden");
-//      thisSpan.appendChild(document.createTextNode(audioText));
-//      thisCol.appendChild(thisSpan);
    
       thisRow.appendChild(thisCol);  
    }
@@ -136,6 +125,7 @@ function createJavascriptInlineQuote(thisDiv){
 	// specify direction="RTL" or direction="LTR"
 	// RTL for quotes, LTR for individual words reading left to right
 	// optional audio for individual words
+	// optional directory for all individual words audio (otherwise have to specify directory for each word)
 	// optional specification of which words to highlight
 	//          - optional first item is class to be applied to highlight a word (default class is "emphasised-word")
 	// optional specification of which consonant(s) in each word should be highlighted (numbering starting at 1)
@@ -147,7 +137,7 @@ function createJavascriptInlineQuote(thisDiv){
 	// 
 	// when LTR
 	//    optional specification of first word in list to be flagged infrequent (all words after are also infrequent)
-	//      - these words have class "reference-table-infrequent2"
+	//     - optional first item is the class to be applied, default class is  "reference-table-infrequent2"
 
 function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    var i;
@@ -171,18 +161,20 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
       var hebrewPara = dataDiv.getElementsByClassName("js-hebrew")[0];
       var hebrewWords = hebrewPara.innerHTML.trim().split(/\s+/); //split by one or more spaces
    } else {   
-     //  LTR, each hebrew word is in a separate paragraph   
+     //  LTR, each hebrew word is in a separate paragraph, specified in required LTR order   
       var hebrewDiv = dataDiv.getElementsByClassName("js-hebrew")[0];
       var hebrewParas = hebrewDiv.children;
 	  var hebrewWords = [];
       for (i=0; i < hebrewParas.length; i++){
 	     hebrewWords[i] = hebrewParas[i].innerHTML.trim();
 	  }	 
+//test("hello from createJavascriptExampleRTLLTRFlexbox, hebrewWords=" + hebrewWords);
    }
 
    var nHebrewWords = hebrewWords.length;
    
    var individualAudioPara = dataDiv.getElementsByClassName("js-audio-individual");
+   var individualAudioDirPara = dataDiv.getElementsByClassName("js-audio-individual-dir");
    var translationPara = dataDiv.getElementsByClassName("js-translation");
    var emphasisPara = dataDiv.getElementsByClassName("js-emphasis");
    var highlightPara = dataDiv.getElementsByClassName("js-highlight");
@@ -196,6 +188,13 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    if (individualAudioPara.length > 0){
 	   anyIndividualAudio = true;
 	   var audios = individualAudioPara[0].innerHTML.split(globalDivider1);
+	   for (i=0; i < audios.length; i++) { audios[i] = audios[i].trim();}
+	   if (individualAudioDirPara.length > 0){
+		   var individualAudioDir = individualAudioDirPara[0].innerHTML.trim();
+		   for (i=0; i < audios.length; i++){
+			   if (audios[i].length > 0){  audios[i] = individualAudioDir + "/" + audios[i]; }
+		   }	   
+	   }	   
    }
 
    var anyTranslations = false;
@@ -233,7 +232,7 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 	   // - empty if no highlighted consonants for that word
 	   var highlightsSpecs = highlightPara[0].innerHTML.trim().split(globalDivider1);
 	   // check whether first iem is class name
-	   if (highlightsSpecs[0].length > 2){
+	   if (highlightsSpecs.length >  nHebrewWords){
 	      highlightedCharClass = highlightsSpecs[0].trim(); // extract name of class to use for highlighting 
 		  highlightsSpecs.shift(); // remove first item
 	   }	   
@@ -246,7 +245,7 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    var firstInfrequent = hebrewWords.length + 1;
    if (firstInfrequentPara.length > 0){
 	   var firstInfrequentSpecs = firstInfrequentPara[0].innerHTML.trim().split(/\s+/);
-	   if (Number(firstInfrequentSpecs[0]) == NaN){
+	   if (firstInfrequentSpecs[0].length > 2){
           infrequentWordClass = firstInfrequentSpecs[0];
 		  firstInfrequent = Number(firstInfrequentSpecs[1]);
 	   } else {	   
@@ -258,8 +257,8 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 
    var flexDiv = document.createElement("div");
  
-   if (direction = RTL){flexDiv.classList.add("flex-container-rtl");}
-   else                {flexDiv.classList.add("flex-container-ltr");}
+   if (direction == RTL){flexDiv.classList.add("flex-container-rtl");}
+   else                 {flexDiv.classList.add("flex-container-ltr");}
 
    flexDiv.classList.add("flex-container-examples");
    if (border) {flexDiv.classList.add("dotted-border");}
@@ -278,14 +277,19 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    //for (i=0; i < hebrewWords.length; i++){
    for (i=0; i < nHebrewWords; i++){
       var hebrewWord = hebrewWords[i];
-
-      var cellDiv = document.createElement("div");
-
+	  
+	  var thisIndividualAudio = false;
 	  if (anyIndividualAudio){
 		 if (audios[i].trim().length > 0) {
-			cellDiv.classList.add("soundclick");
-            cellDiv.addEventListener("click", soundclickEventListener);
-		 } 
+			 thisIndividualAudio = true;
+		 }
+      }
+	  
+      var cellDiv = document.createElement("div");
+
+	  if (thisIndividualAudio){
+		  cellDiv.classList.add("soundclick");
+          cellDiv.addEventListener("click", soundclickEventListener);
 	  }	
 
 	  if (anyEmphasis){
@@ -350,15 +354,15 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 	  
 	  flexDiv.appendChild(cellDiv);
 	  
-	  if (anyIndividualAudio){
-		 if (audios[i].trim().length > 0){ 
-            var thisSpan = document.createElement("span");   
-            thisSpan.classList.add("hidden");
-            thisSpan.appendChild(document.createTextNode(audios[i]));
-            flexDiv.appendChild(thisSpan);
-		 }	
-	  }	  
-   }
+	  if (thisIndividualAudio){
+          var thisSpan = document.createElement("span");   
+          thisSpan.classList.add("hidden");
+          thisSpan.appendChild(document.createTextNode(audios[i]));
+          flexDiv.appendChild(thisSpan);
+	  }	
+	  
+   } // end of for loop
+   
    
    thisDiv.appendChild(flexDiv);
 
