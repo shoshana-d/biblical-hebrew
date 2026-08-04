@@ -40,6 +40,7 @@
    .lessons-toc-table{
 	  width:100%;
 	  margin-right:10px;
+	  table-layout:fixed;
 	  /*
 	  background-color:WhiteSmoke;
 	  background-color:GhostWhite;
@@ -49,45 +50,37 @@
 	  border-bottom: 2px dotted gray;  /* width style color */
    }
    .lessons-toc-table  td:first-child{
-	  width:5%;
+	  width:15%;
 	  vertical-align: middle;
 	  vertical-align:top;
 	  padding-top:5px;
 	 /* text-align: right; */
 	  text-align: left;
 	  padding-right:15px;
-	  padding-right:0px;
 	  padding-left:10px;
+	  padding-right:0;
    }
   
     .lessons-toc-table  td:nth-child(2){
-	  width:45%;
+	  width:50%;
 	  /*vertical-align: baseline;*/
 	  vertical-align:top;
 	  padding-top:5px;
 	  text-align: left;
    }
-  /* 
-   .lessons-toc-table  td:nth-child(2){
-	  vertical-align: baseline;
-	  text-align: left;
-   }
-  */
    .lessons-toc-table  td:nth-child(3){
+      width:35%;
 	  vertical-align: baseline;
 	  vertical-align:top;
 	  padding-top:0px;
 	  text-align: left;
    }
  
-    
-   .lessons-toc-bottom-border{
-   	  border-bottom: 2px dotted gray;  /* width style color */
-   }
-   .lessons-toc-top-border{
-   	  border-top: 2px dotted gray;  /* width style color */
-   }
-  
+    .lessons-toc-table-colspan{
+        text-align:left;
+		padding-top:0;	
+	}
+	
   
   /* colours */
   .lessons-toc-table-prefix-suffix-color{
@@ -197,6 +190,10 @@
   margin-right:5px;
   padding-left:5px;
   padding-right:5px;
+  
+  margin-left: 0;
+  margin-right:0;
+  padding-right:0
   border-radius:5px;
    /*font-weight: bold;*/
   white-space: nowrap;
@@ -363,7 +360,7 @@ You also want to know how your translation handles the traditional Jewish interp
  </table>
   
   <p>Genesis 37:25</p>
-  <p>KJV, JPS 1917: "And they sat down to eat bread: and they lifted uo their eyes and looked and behold, a caravan of Ishmeelites came from Gilead..."
+  <p>KJV, JPS 1917: "And they sat down to eat bread: and they lifted uo their eyes and looked and behold, a caravan of Ishmeelites came from Gilead..."</p>
   <p>JPS 2017: "Then they sat down to a meal. Looking up, they saw a caravan of Ishmaelites coming from Gilead..."  </p>
   <p>Alter: "And they sat down to eat bread, and they raised their eyes and saw, and look, a caravan of Ishmaelites was coming from Gilead..."</p>
   <p>Plaut: "They had sat down to eat, when they looked up and saw a caravan of Ishmaelites traveling from Gilead..."</p>
@@ -375,8 +372,9 @@ You also want to know how your translation handles the traditional Jewish interp
 		  <p >And they sat down </p>
      </div>	
      <div>
-	    <span class="hebrew30 "> לֶֽאֱכׇל־לֶ֒חֶם֒ 		  <p>to eat bread </p>
-</span>
+	    <span class="hebrew30 "> לֶֽאֱכׇל־לֶ֒חֶם֒ 	</span>	  
+		<p>to eat bread </p>
+
      </div>	
      <div>
 	    <span class="hebrew30 ">  וַיִּשְׂא֤וּ  </span>
@@ -462,7 +460,6 @@ You also want to know how your translation handles the traditional Jewish interp
  </div>
 
 
-
  <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> Getting the most out of the lessons</h3>
  <div class="hidden lessons-before-we-start-div" >
 
@@ -486,22 +483,8 @@ Some sections have "more detail". These are not essential, suggest at first leav
  <h2  class="w3-container w3-card  w3-cursive heading-color">Lessons</h2>
  
  <table class="lessons-toc-table ">
- 
- 
- <tr >
- <td colspan="2"  class="lessons-toc-top-border" style="text-align:left;padding-top:0"> 
-
-<h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>To start with ...
-</h3>
-
- <div class="hidden" style="text-align:left" >
- not used at the moment
-</div>
- </td>     
-</tr>
-
-<tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0"> 
+ <tr>
+ <td colspan="3"   style="text-align:left;padding-top:0"> 
 
  <p>In these lessons, our starting point will be the English translation of the Tanakh. 
   We will decipher the Biblical text by working out which
@@ -510,6 +493,11 @@ Some sections have "more detail". These are not essential, suggest at first leav
 <p>In the first lesson we start by learning to recognize names - of God, people and places.</p>
  </td>     
 </tr>
+</table>
+
+
+ <table class="lessons-toc-table ">
+ 
 
 <tr class="noun-color">
   <td><a href="lesson01-names.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 1</span></a></td>
@@ -535,19 +523,20 @@ Some sections have "more detail". These are not essential, suggest at first leav
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
-<p>deal with maqqef here instead of in next lesson? ben-, bnei-<p>
+ <td colspan="3"   style="text-align:left;padding-top:0; color:gray"> 
+<p>deal with maqqef here instead of in next lesson? ben-, bnei-</p>
 </td>
 </tr>
 
 <tr class="noun-color">
-  <td><a href="lesson02-nouns-ben-elohim-eretz.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 2</span></a></td>
+  <td><a href="lesson02-nouns-ben-bat-elohim-eretz.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 2</span></a></td>
   <td >Common nouns, ben, elohim, eretz, singular/plural, (gender), no special form
   including construct,   no Tanakh Hebrew word for of, when 2 nouns together, 
-  translated as though "of" between them,
+  translated as though "of" between them
   
 but as we will see, need to be detective cos may have prefix and/or suffix
   need to learn to recognize the most frequently occurring
+  -im, -ot endings always stressed
  </td>
  <td>
            <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
@@ -577,6 +566,16 @@ but as we will see, need to be detective cos may have prefix and/or suffix
 		  </div>
 		  </div>
 		  
+		  
+         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 soundclick">בַּת</span><span class="hidden">words/w082_bat </span>&ensp;   
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew30 soundclick">בָּנוֺת</span><span class="hidden">words/w082_banot </span>&ensp;   
+		     <span class="hebrew30 soundclick">בְּנוֺת</span><span class="hidden">words/w082_bnot </span>&emsp;   
+		  </div>
+		  </div>
+		  
         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
             <div class="flex-container-ltr">
              <span><img src="images/suffixes/plural-ending-im.jpg" class="vowel-image-plural-ending"></span>	  
@@ -593,8 +592,8 @@ but as we will see, need to be detective cos may have prefix and/or suffix
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
-<p>things not dealt with in the first lessons:<p>
+ <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
+<p>things not dealt with in the first lessons:</p>
 
   <ul> 
  <li>Order of words is different,  adjective after noun (hazeh,hazot,numbers), negative before verb
@@ -617,7 +616,7 @@ but as we will see, need to be detective cos may have prefix and/or suffix
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0"> 
 
 There's lots of talking in the Tanakh: God talks to people,
     people talk to God, the prophets talk to the Israelites, people talk to each other, and even 
@@ -629,10 +628,10 @@ There's lots of talking in the Tanakh: God talks to people,
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
 what is a verb
-vayomer,   el , maqqef, word order (verb first)
-</p>
+vayomer,   el , word order (verb first)
+
 <p>different translations of vayomer </p>
 <p>being a detective with vayomer (word after), el (word after) word after is a noun</p>
 <p>exercises: 1. who spoke ( remove vatomer) 2. finding el  
@@ -657,7 +656,7 @@ vayomer,   el , maqqef, word order (verb first)
 	  <li>word order - verb before subject</li>
 	  <li>the preposition 
 	       <span class="hebrew-in-text soundclick">אֶל</span><span class="hidden">words/w008_el</span>  </li>
-	  <li>maqqef: the dash symbol - joining 2 or more words</li>
+	  <li>maqqef: the dash symbol - joining 2 or more words- now in lesson 2, nouns</li>
 	  <li>different translations of <span class="hebrew-in-text  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span></li>
 	  <li>being a detective with vayomer, el</li>
 	
@@ -685,7 +684,7 @@ vayomer,   el , maqqef, word order (verb first)
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray">
+ <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray">
 <ul> 
 <li>vatomer, different versions of amar (introduce amar and lemor??)</li>
 <li>information about person performing the action, how it was performed, translated by tense in English</li>
@@ -734,7 +733,7 @@ vayomer,   el , maqqef, word order (verb first)
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0"> 
 <p>As we have seen in the previous lessons, a verb which is a single word in Hebrew can correspond to two or more
 words in the English translation</p> 
  
@@ -824,7 +823,7 @@ like/as <span class="hebrew30  ">כּ</span>
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style="color:gray"> 
 Now starting with vav and ha, also vav-ha,  vav at start of non-verbs,
 explain this lesson only about vav=and, later lesson about vav=verb
   </td>     
@@ -867,7 +866,7 @@ explain this lesson only about vav=and, later lesson about vav=verb
  
  
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
 this lesson about "the" with corresponding "ha", later lessons about "the" no "ha" (construct with proper noun, 
 l'ha etc)-construct now covered in lesson 2, can deal with l'ha etc in l'lesson so may not need this later lesson,
  and "ha" with no "the" (one lesson about ha ele and adjectives, another about verb to be)
@@ -908,7 +907,7 @@ includes v'ha
 
  
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style=" color:gray"> 
 the prefix l', include directional -ah here, comment on l', el both translated a "to", sometimes
 see "to" in the translation but l' or el, likely to be directional -h=ah, when see "to" or "towards"
 look for el, then word starting with l' (mostly likely l+schwah)
@@ -919,7 +918,7 @@ Include lifnei here??
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
 mention most frequent occurrences of l, lifnei and lemor??
   </td>     
 </tr>
@@ -949,7 +948,7 @@ mention most frequent occurrences of l, lifnei and lemor??
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
 b+ha and K+ha (though infrequent) , but not mi, becomes min
 Probably make this into 3 separate lessons
   </td>     
@@ -980,7 +979,7 @@ Probably make this into 3 separate lessons
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style="color:gray"> 
 narrative verbs starting with vav, recognizing vay', vat', van', a bit about vavyiktol and weqatal
   </td>     
 </tr>
@@ -1104,9 +1103,10 @@ the preposition al
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" > 
 <p>Next lessons about suffixes, this lesson about possessive pronouns my, your, his, her, our, their
  </p>
+ </td>
 </tr>
 
 
@@ -1139,13 +1139,14 @@ the preposition al
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" > 
 <p>Next lessons about suffixes, this lesson about object pronouns me, you, him, her, us, them after prepositions
  </p>
+ </td>
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style="color:gray"> 
 include reference lists of suffixes on l' b' mi' k' el al, learn lo, bo, elav, alav
   </td>     
 </tr>
@@ -1243,7 +1244,7 @@ include reference lists of suffixes on l' b' mi' k' el al, learn lo, bo, elav, a
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style="color:gray"> 
 need to consolidate the material in these lessons into previous lesson
   </td>     
 </tr>
@@ -1308,7 +1309,7 @@ need to consolidate the material in these lessons into previous lesson
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0; background-color:orange"> 
+ <td colspan="3"  class="lessons-toc-table-colspan" style=" background-color:orange"> 
 <p>Section 2: Extra vocabulary </p>
 
  </td>     
@@ -1317,7 +1318,7 @@ need to consolidate the material in these lessons into previous lesson
  
 
 <tr class="noun-color">
- <td colspan="3"  class="lessons-toc-top-border" style="text-align:left;padding-top:0">  
+ <td colspan="3"  class="lessons-toc-table-colspan" >  
  <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> The most frequently occurring nouns </h3>
  
  <div class="hidden" style="text-align:left" >
@@ -1433,46 +1434,6 @@ also  frequently occurring possessive suffix form and/or prefix form</p>
  		&emsp;
 		
 		
-		
-      <div class="hidden flex-container-ltr lessons-toc-flex-container-nouns-list " style="align-items:center">		      
-             <a href="lesson-ish.html" class="lessons-toc" > <span class="lessons-toc-link-button"></span></a>
-        <table >		
-		  <tr style="border-bottom:none">
-			 <td style="text-align:left">
-			  man, husband 
-              <div class="flex-container-ltr">
-		        <span class="hebrew30 soundclick">אִישׁ</span><span class="hidden">words/w023_ish</span>&ensp; 
-                <span class="lessons-toc-noun-divider"></span>		 
-		        <span class="hebrew25  soundclick">אֲנָשִׁים</span><span class="hidden">words/w023_anashim </span>&ensp;   
-		        <span class="hebrew25  soundclick">אַנְשֵׁי</span><span class="hidden">words/w023_anshei</span>&emsp;   
-		      </div>
-              <div class="flex-container-ltr">
-                <span class="hebrew25  soundclick">הָאִישׁ</span><span class="hidden">words/w023_haish</span>&emsp; 
-                <span class="hebrew25  soundclick">וְאִישׁ</span><span class="hidden">words/w023_vish</span>&emsp; 
-                <span class="hebrew25  soundclick">הָאֲנָשִׁים</span><span class="hidden">words/w023_haanashim</span>&emsp; 
-              </div>
-		     </td>
-		  </tr>
-         <tr style="border-bottom:none">
- 			<td  style="text-align:left">
-		    woman, wife
-              <div class="flex-container-ltr">
-                <span class="hebrew30 soundclick">אִשָּׁה</span><span class="hidden">words/w061_isha</span>&ensp; 			 
-		        <span class="hebrew25  soundclick">אֵשֶׁת</span><span class="hidden">words/w061_eshet </span>&ensp;   
-                <span class="lessons-toc-noun-divider"></span>		 
-		        <span class="hebrew25  soundclick">נָשִׁים</span><span class="hidden">words/w061_nashim </span>&ensp;   
-		        <span class="hebrew25  soundclick">נְשֵׁי</span><span class="hidden">words/w061_nshei</span>&emsp;   
-		      </div>
-              <div class="flex-container-ltr">
-                <span class="hebrew25  soundclick">אִשְׁתּוֺ </span><span class="hidden">words/w061_ishto</span>&ensp;   
-                <span class="hebrew25  soundclick">נָשָׁיו</span><span class="hidden">words/w061_nashav</span>&ensp;
-              </div>
-		    </td>
-		 </tr>
-		</table> 
-      </div>	
- 		&emsp;  
-
 
 	  
 		
@@ -1637,7 +1598,7 @@ also  frequently occurring possessive suffix form and/or prefix form</p>
 </tr>
 
 <tr class="verb-color">
- <td colspan="3  class="lessons-toc-top-border" style="text-align:left;padding-top:0">  
+ <td colspan="3"  class="lessons-toc-table-colspan" >  
  <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> The most frequently occurring verbs </h3>
  
  <div class="hidden" style="text-align:left" >
@@ -1667,7 +1628,7 @@ also  frequently occurring possessive suffix form and/or prefix form</p>
   <p><span class="verb-color" >Verbs</span>#19 bo</p>
   <p><span class="verb-color" >Verbs</span>verb #26 natan</p>
 
-
+ </div>
 
 
 </td>
