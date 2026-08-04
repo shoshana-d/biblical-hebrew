@@ -184,6 +184,8 @@ header >h1{
 header >h1::before{
    content:"Getting started in Biblical Hebrew:\a";
    white-space: pre; 
+   white-space: pre-wrap; 
+   white-space: normal; 
 }
 footer {
    background-color: #b91d47;  /* = w3-metro-dark-red */
@@ -921,7 +923,7 @@ table{
 	border-style:solid;
 	border-color:red;
 	border-color:green;
-	padding:0 ; /* top right bottom left   for images*/
+	padding:0 2px 0 2px ; /* top right bottom left   for images*/
 	
 	white-space:nowrap;
 }
@@ -1095,21 +1097,25 @@ table{
 	 
 .lesson-vocab-table-3cols td:first-child{
         text-align:center;
+		vertical-align:text-top;
 		width:10%;
 	 }
 	 
 .lesson-vocab-table-3cols td:nth-child(2){
         text-align:center;
+		vertical-align:text-top;
 		width:10%;
 	 }
 	 
 .lesson-vocab-table-3cols2 td:first-child{
         text-align:center;
+		vertical-align:text-top;
 		width:15%;
 	 }
 	 
 .lesson-vocab-table-3cols2 td:nth-child(2){
         text-align:center;
+		vertical-align:text-top;
 		width:15%;
 	 }	
    
@@ -1449,11 +1455,11 @@ background-color:white;
   margin-top: 5px;
   margin-bottom: 5px;
  /* margin-right: 15px;  */
-  margin-left: 7px; 
+  margin-left: 8px; 
   text-align: center;
   /*line-height:35px;*/
   /* margin-top:50px; */
-  margin-right:7px;
+  margin-right:8px;
   
 }
 .flex-container-examples > div > p {
@@ -1572,7 +1578,7 @@ background-color:white;
 	/* used to show translation in lessons exercise */
    border-style:dotted;
    border-width:2px;
-   padding:0;
+   padding:0 2px 0 2px;
    text-align: center;
 
 }
@@ -1598,11 +1604,11 @@ background-color:white;
   /* w3.css container property - not sure what it does
   - appears to ensure that container is on new line - but this
   seems to happen regardless*/
- /* 
+
  content:"";
   display:table;
   clear:both
-  */
+ 
 }
 
 /* cant see where this is used 
