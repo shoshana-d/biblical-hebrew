@@ -35,7 +35,87 @@
 	  margin-left:10px;
 	  margin-right:10px;   
     }
+	
+	/* 2 column table */
+    .lessons-toc-table-2cols{
+	  width:100%;
+	  margin-right:10px;
+	  table-layout:fixed;
+	  /*
+	  background-color:WhiteSmoke;
+	  background-color:GhostWhite;
+	  */
+  }	
+  .lessons-toc-table-2cols tr {
+	  border-bottom: 2px dotted gray;  /* width style color */
+   }
+   .lessons-toc-table-2cols  td:first-child{
+	  width:60%;
+	  vertical-align: middle;
+	  vertical-align:top;
+	  padding-top:5px;
+	 /* text-align: right; */
+	  text-align: left;
+	  padding-right:15px;
+	  padding-left:10px;
+	  padding-right:0;
+   }
   
+    .lessons-toc-table-2cols  td:nth-child(2){
+	  width:40%;
+	  /*vertical-align: baseline;*/
+	  vertical-align:top;
+	  padding-top:5px;
+	  text-align: left;
+   }
+   
+   
+   
+   
+   
+   
+   /* 1. Define the parent container layout */
+.flex-container-toc-2cols {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to stack when they run out of room */
+  gap: 10px;       /* Adds clean spacing between the two divs */
+}
+
+/* 2. Configure the first child element */
+.sidebar-toc-2cols {
+  flex: 1 1 10px; /* Grow, shrink, and set a 250px baseline width */
+}
+
+/* 3. Configure the text-heavy child element */
+.main-content-toc-2cols {
+  flex: 2 1 350px; /* Takes up twice the remaining space if available */
+  flex: 2 1 50px; /* Takes up twice the remaining space if available */
+  min-width: 0;    /* CRITICAL: Forces long words/text strings to wrap */
+  word-wrap: break-word; /* Optional safety net for unbroken long URLs */
+}
+
+
+/* 2. Fixed width column (does not grow, does not shrink) */
+.sidebar-toc-2cols {
+  flex: 0 0 10px; /* Grow: 0, Shrink: 0, Basis: 250px */
+  /* Optional: width: 100% can be applied via media query if you want it full-width when stacked */
+}
+
+/* 3. Expanding column with wrapped text */
+.main-content-toc-2cols {
+  flex: 1 1 300px; /* Grow: 1 (fills space), Shrink: 1, Basis: 300px (stacking point) */
+  min-width: 0;    /* Forces text to wrap instead of overflowing */
+}
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   /* toc table formatting */
    .lessons-toc-table{
 	  width:100%;
@@ -108,21 +188,22 @@
 	  padding-top:5px;
 	  padding-bottom:5px;
 	  padding-left:10px;
+	  padding-left:0px;
 	  padding-right:10px;
 	  row-gap:5px;
 	  column-gap:12px;
    }
-   .lessons-toc-flex-container-vocab-list > div{
-   /*
+  .lessons-toc-flex-container-vocab-list > div{
+           /*
      margin-top: 5px;
-     margin-right: 15px; 
      margin-bottom: 5px;
-     margin-left: 15px; 
-
-  */	 
+     margin-right: 15px; 
+     line-height:35px;
+     margin-top:50px; 
+         */	 
+	 text-align:left;
      text-align: center;
-     /*line-height:35px;*/
-     /* margin-top:50px; */
+     margin-left: 5px; 
    }
    .lessons-toc-flex-container-vocab-list > div > p {
 	  margin:0;
@@ -495,6 +576,121 @@ Some sections have "more detail". These are not essential, suggest at first leav
 </tr>
 </table>
 
+
+<p>this is the 2 column table</p>
+ <table class="lessons-toc-table-2cols ">
+<tr>
+  <td> THis is very long text that will have to wrap 
+  THis is very long text that will have to wrap
+  THis is very long text that will have to wrap
+  THis is very long text that will have to wrap
+  THis is very long text that will have to wrap
+  </td>
+   <td>         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+              <span class="hebrew30 ">יְהוָה</span>
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30  soundclick">אֱלֹהִים</span><span class="hidden">words/w018_elohim</span>  
+           </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30   soundclick"> אֲדוֹנָי</span><span class="hidden">words/w062_adonai</span> 
+            </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30  soundclick">אֵל</span><span class="hidden">words/w188_el </span>
+           </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30  soundclick">יָהּ</span><span class="hidden">alefbet/yah </span>  
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+  </td>
+ 
+  
+ </tr> 
+ 
+   
+ <tr class="noun-color">
+  <td><div class="flex-container-toc-2cols ">
+           <div class="sidebar-toc-2cols">
+              <a href="lesson01-names.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 1</span></a>
+		   </div>
+           <div class="main-content-toc-2cols">
+  <span class="hebrew30 soundclick">וַיֹּ֨אמֶר אַבְרָ֜ם אֶל־שָׂרַ֗י</span><span class="hidden">tanakh/gen-16-06aa-db</span> 
+ <br> Abram said to Sarai 
+           </div>
+  
+      </div>
+  
+  </td>
+
+   <td>         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+              <span class="hebrew30 ">יְהוָה</span>
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30  soundclick">אֱלֹהִים</span><span class="hidden">words/w018_elohim</span>  
+           </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30   soundclick"> אֲדוֹנָי</span><span class="hidden">words/w062_adonai</span> 
+            </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30  soundclick">אֵל</span><span class="hidden">words/w188_el </span>
+           </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30  soundclick">יָהּ</span><span class="hidden">alefbet/yah </span>  
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+  </td>
+</tr>
+ 
+ 
+ 
+ 
+ 
+  
+<tr class="noun-color">
+  <td><div class="flex-container-toc-2cols ">
+           <div class="sidebar-toc-2cols">
+              <a href="lesson01-names.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 1</span></a>
+		   </div>
+           <div class="main-content-toc-2cols">
+              Words for God, names of people and places (proper nouns) and here is some more text
+           </div>
+  
+      </div>
+  
+  </td>
+
+   <td>         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+              <span class="hebrew30 ">יְהוָה</span>
+		  </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30  soundclick">אֱלֹהִים</span><span class="hidden">words/w018_elohim</span>  
+           </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30   soundclick"> אֲדוֹנָי</span><span class="hidden">words/w062_adonai</span> 
+            </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30  soundclick">אֵל</span><span class="hidden">words/w188_el </span>
+           </div>
+           <div class="flex-container-ltr">
+              <span class="hebrew30  soundclick">יָהּ</span><span class="hidden">alefbet/yah </span>  
+           </div>
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+  </td>
+</tr>
+
+
+ </table>
+<p></p>
+
+
+
+
+
+
+<p>This is the original 3 column table</p>
 
  <table class="lessons-toc-table ">
  
