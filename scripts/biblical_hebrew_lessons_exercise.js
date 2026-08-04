@@ -67,6 +67,13 @@ function lessonsExerciseShowTranslationEventListener(ev){
 
 // add the instructions text that goes before each exercise	
 function createLessonsExerciseTextBefore(thisDiv){
+  var para = document.createElement('p');
+  para.appendChild(document.createTextNode('Instructions'));
+  var span = document.createElement('span');
+  span.classList.add("button-plus");
+  span.addEventListener('click', ShowHideParentNextSiblingEventListener)
+  para.appendChild(span);
+  thisDiv.parentNode.insertBefore(para, thisDiv);
 
   var unorderedList = document.createElement('ul');
   var listItem = document.createElement('li');
@@ -232,6 +239,7 @@ function createLessonsExercise(thisDiv){
 	   if (thisShouldKnowWords.innerHTML.trim().length > 0) {
 		   anyShouldKnowWords = true;
 		   var tempList = thisShouldKnowWords.innerHTML.trim().split(globalDivider1);
+//test("hello from createLessonsExercise, hebrewWords:"+ hebrewWords + ",templist:" + tempList);   
 		   for (i=0; i < tempList.length; i++){
 			   var thisPair = tempList[i].trim().split(globalDivider2);
 			   shouldKnowWordsList[Number(thisPair[0])-1] = thisPair[1].trim();
@@ -278,7 +286,6 @@ function createLessonsExercise(thisDiv){
 				translationPara.classList.add("hidden");
              }			 
 		  }	
-//test("hello from createExerciseTableRevised,r=" + r + ",nitems=" + nItems);   
           
 		 // is this hebrew word a should know word?
 		  if (anyShouldKnowWords){

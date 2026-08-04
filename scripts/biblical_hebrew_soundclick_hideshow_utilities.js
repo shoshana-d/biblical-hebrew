@@ -322,7 +322,14 @@ function ShowHideParentNextSibling(element){
     element.classList.toggle("button-minus");
     element.classList.toggle("button-plus");   
 }	
+ // javascript
+function ShowHideParentNextSiblingEventListener(){
+    var nextSib =  this.parentElement.nextElementSibling;
+    nextSib.classList.toggle("hidden"); 
 
+    this.classList.toggle("button-minus");
+    this.classList.toggle("button-plus");   
+}	
 
  //----------------------------------------------------------------------------------------------
 
