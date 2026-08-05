@@ -12,143 +12,115 @@
   <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
   
   <style>
-  
-  /*
- 	background-image:url("images/pomegranate-clipart-small.jpg");
-            background-size: cover;
-            background-position: left;
-            background-repeat: repeat;
-	background-image:url("images/lavender-drawing.jpg");
-             background-position: center;
-            background-repeat: repeat;
  
- 	background-image:url("images/header-esther-scroll.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-  
-  
-  
-  */
    .lessons-before-we-start-div{
       background-color:GhostWhite;
 	  margin-left:10px;
 	  margin-right:10px;   
     }
 	
-	/* 2 column table */
-    .lessons-toc-table-2cols{
-	  width:100%;
-	  margin-right:10px;
-	  table-layout:fixed;
-	  /*
-	  background-color:WhiteSmoke;
-	  background-color:GhostWhite;
-	  */
-  }	
-  .lessons-toc-table-2cols tr {
-	  border-bottom: 2px dotted gray;  /* width style color */
-   }
-   .lessons-toc-table-2cols  td:first-child{
-	  width:60%;
-	  vertical-align: middle;
-	  vertical-align:top;
-	  padding-top:5px;
-	 /* text-align: right; */
-	  text-align: left;
-	  padding-right:15px;
-	  padding-left:10px;
-	  padding-right:0;
-   }
-  
-    .lessons-toc-table-2cols  td:nth-child(2){
-	  width:40%;
-	  /*vertical-align: baseline;*/
-	  vertical-align:top;
-	  padding-top:5px;
-	  text-align: left;
-   }
-   
-   
-   
-   
-   
-   
-   /* 1. Define the parent container layout */
-.flex-container-toc-2cols {
-  display: flex;
-  flex-wrap: wrap; /* Allows items to stack when they run out of room */
-  gap: 10px;       /* Adds clean spacing between the two divs */
-}
-
-/* 2. Configure the first child element */
-.sidebar-toc-2cols {
-  flex: 1 1 10px; /* Grow, shrink, and set a 250px baseline width */
-}
-
-/* 3. Configure the text-heavy child element */
-.main-content-toc-2cols {
-  flex: 2 1 350px; /* Takes up twice the remaining space if available */
-  flex: 2 1 50px; /* Takes up twice the remaining space if available */
-  min-width: 0;    /* CRITICAL: Forces long words/text strings to wrap */
-  word-wrap: break-word; /* Optional safety net for unbroken long URLs */
-}
-
-
-/* 2. Fixed width column (does not grow, does not shrink) */
-.sidebar-toc-2cols {
-  flex: 0 0 10px; /* Grow: 0, Shrink: 0, Basis: 250px */
-  /* Optional: width: 100% can be applied via media query if you want it full-width when stacked */
-}
-
-/* 3. Expanding column with wrapped text */
-.main-content-toc-2cols {
-  flex: 1 1 300px; /* Grow: 1 (fills space), Shrink: 1, Basis: 300px (stacking point) */
-  min-width: 0;    /* Forces text to wrap instead of overflowing */
-}
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  /* toc table formatting */
+	/* 2 column table    */
+   /*---------------------*/
    .lessons-toc-table{
 	  width:100%;
 	  margin-right:10px;
 	  table-layout:fixed;
-	  /*
-	  background-color:WhiteSmoke;
-	  background-color:GhostWhite;
-	  */
-  }	
-  .lessons-toc-table tr {
+   }	
+   .lessons-toc-table tr {
 	  border-bottom: 2px dotted gray;  /* width style color */
    }
    .lessons-toc-table  td:first-child{
-	  width:15%;
-	  vertical-align: middle;
+	  width:60%;
 	  vertical-align:top;
 	  padding-top:5px;
-	 /* text-align: right; */
 	  text-align: left;
+	  
 	  padding-right:15px;
 	  padding-left:10px;
 	  padding-right:0;
    }
   
     .lessons-toc-table  td:nth-child(2){
+	  width:40%;
+	  vertical-align:top;
+	  padding-top:5px;
+	  text-align: left;
+   }
+   
+   
+   
+   /* 1. Define the parent container layout for column 1*/
+   /*----------------------------------------------------*/
+.lessons-toc-col1-flex-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to stack when they run out of room */
+  gap: 10px;       /* Adds clean spacing between the two divs */
+}
+
+   /* Lesson link button */
+   /*---------------------*/
+/* 2. Configure the first child element version 1*/
+.lessons-toc-col1-flex-container-div1 {
+  flex: 1 1 10px; /* Grow, shrink, and set a 250px baseline width */
+}
+
+/* 2. Fixed width column (does not grow, does not shrink) */
+.lessons-toc-col1-flex-container-div1 {
+  flex: 0 0 10px; /* Grow: 0, Shrink: 0, Basis: 250px */
+  /* Optional: width: 100% can be applied via media query if you want it full-width when stacked */
+}
+
+  /* Info about lesson */
+  /*-------------------------------------------------*/
+  /* 3. Configure the text-heavy child element version 1*/
+ .lessons-toc-col1-flex-container-div2 {
+  flex: 2 1 350px; /* Takes up twice the remaining space if available */
+  flex: 2 1 50px; /* Takes up twice the remaining space if available */
+  min-width: 0;    /* CRITICAL: Forces long words/text strings to wrap */
+  word-wrap: break-word; /* Optional safety net for unbroken long URLs */
+}
+
+/* 3. Expanding column with wrapped text */
+.lessons-toc-col1-flex-container-div2 {
+  flex: 1 1 300px; /* Grow: 1 (fills space), Shrink: 1, Basis: 300px (stacking point) */
+  min-width: 0;    /* Forces text to wrap instead of overflowing */
+}
+
+  
+ 
+  /* original 3 column toc table formatting */
+   /*---------------------------------------*/
+  .lessons-toc-table-3cols{
+	  width:100%;
+	  margin-right:10px;
+	  table-layout:fixed;
+	  /*
+	  background-color:WhiteSmoke;
+	  background-color:GhostWhite;
+	  */
+  }	
+  .lessons-toc-table-3cols tr {
+	  border-bottom: 2px dotted gray;  /* width style color */
+   }
+   .lessons-toc-table-3cols  td:first-child{
+	  width:15%;
+	  vertical-align: middle;
+	  vertical-align:top;
+	  padding-top:5px;
+	  text-align: left;
+	  padding-right:15px;
+	  padding-left:10px;
+	  padding-right:0;
+   }
+  
+    .lessons-toc-table-3cols  td:nth-child(2){
 	  width:50%;
 	  /*vertical-align: baseline;*/
 	  vertical-align:top;
 	  padding-top:5px;
 	  text-align: left;
    }
-   .lessons-toc-table  td:nth-child(3){
+   .lessons-toc-table-3cols  td:nth-child(3){
       width:35%;
 	  vertical-align: baseline;
 	  vertical-align:top;
@@ -156,33 +128,25 @@
 	  text-align: left;
    }
  
-    .lessons-toc-table-colspan{
+    .lessons-toc-table-3cols-colspan{
         text-align:left;
 		padding-top:0;	
 	}
 	
-  
-  /* colours */
-  .lessons-toc-table-prefix-suffix-color{
-     background-color:LavenderBlush;
-  }	 
 
 
   /* vocab flexbox lists */
-  
-  .lessons-toc-vocab-color{
-      background-color:LemonChiffon;
-   }
+  /*---------------------*/
   .lessons-toc-flex-container-vocab-list{
  	  border:dotted;
  	  border:solid;
 	  border-color:gray;
-       background-color:WhiteSmoke; 
-       background-color:white; 
-  }
-   .lessons-toc-flex-container-vocab-list{
 	  border-width: 2px;
 	  border-width: thin;
+ 
+      background-color:WhiteSmoke; 
+      background-color:white; 
+	  
 	  margin-top:5px;
 	  margin-bottom:5px;
 	  padding-top:5px;
@@ -190,6 +154,7 @@
 	  padding-left:10px;
 	  padding-left:0px;
 	  padding-right:10px;
+	  
 	  row-gap:5px;
 	  column-gap:12px;
    }
@@ -210,8 +175,9 @@
    } 
    
    
-     /* nouns */
-   .lessons-toc-flex-container-nouns-list{
+    /* nouns   */
+   /*----------*/
+  .lessons-toc-flex-container-nouns-list{
  	  border:dotted;
  	  border:solid;
 	  border-color:gray;
@@ -238,47 +204,35 @@
 	  margin:0;
    } 
 
-.lessons-toc-noun-divider{
+   .lessons-toc-noun-divider{
      color:Gray;
 	 background-color: white;
 	 font-size:20px ;
-}
-.lessons-toc-noun-divider::after{
-   content: "\2506";	
-}
+   }
+   .lessons-toc-noun-divider::after{
+     content: "\2506";	
+   }
 
 	  
-   
+   /* button linking to Lesson */
+  /*---------------------------*/
 	
 .lessons-toc-link-button{
   font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;   
-  border:none;
-  background-color: white;
+  font-size: 16px;
+  white-space: nowrap;
   
   border-style: solid;
   border-width: 1px;
   border-color: gray;
-	/* these are h3 */
-  /*display: block;*/
-  /*font-size: 1.17em;*/
-  font-size: 18px;
-  font-size: 16px;
-  /*
-  margin-top: 1em;
-  margin-bottom: 1em;
-  */
-  margin-left: 2px;
-  margin-right:5px;
-  padding-left:5px;
-  padding-right:5px;
+  border-radius:5px;
   
   margin-left: 0;
   margin-right:0;
-  padding-right:0
-  border-radius:5px;
-   /*font-weight: bold;*/
-  white-space: nowrap;
-  
+  padding-right:5px;
+  padding-left:5px;
+ 
+  background-color: white;
   box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
 }
 .lessons-toc-link-button::before{
@@ -295,9 +249,19 @@
 	color:black;
    }  
    
+  
+  /* colours             */
+  /*---------------------*/
+  .lessons-toc-table-prefix-suffix-color{
+     background-color:LavenderBlush;
+  }	 
+  
+  .lessons-toc-vocab-color{
+      background-color:LemonChiffon;
+   }
 
  
-	/* noun-color, verb-color and preposition-color defined in main.css - maybe move to here? */
+/* noun-color, verb-color and preposition-color defined in main.css - maybe move to here? */
     .lessons-noun-preposition-color{
         background: linear-gradient(
                     to bottom,
@@ -345,7 +309,7 @@
 
 <h2  class="w3-container w3-card-4"  ><span> </span> Before we start</h2>
 
- <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> What grammar do I need to know?</h3>
+ <h3 onclick="ShowHideNextSibling(event)" class="clickable"><span class="button-plus"></span> What grammar do I need to know?</h3>
  <div class="hidden lessons-before-we-start-div">
    <p>
  Grammatical terms kept to a minimum. Noun, verb, preposition, adjective
@@ -354,7 +318,7 @@
  </div>
 
 
- <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> About translations and resources for self-study</h3>
+ <h3 onclick="ShowHideNextSibling(event)" class="clickable"><span class="button-plus"></span> About translations and resources for self-study</h3>
  <div class="hidden lessons-before-we-start-div">
  discusses different translations - not all translations are equal,
 to help you decide which translation(s) will be most helpful for you
@@ -541,7 +505,7 @@ You also want to know how your translation handles the traditional Jewish interp
  </div>
 
 
- <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> Getting the most out of the lessons</h3>
+ <h3 onclick="ShowHideNextSibling(event)" class="clickable"><span class="button-plus"></span> Getting the most out of the lessons</h3>
  <div class="hidden lessons-before-we-start-div" >
 
  <p>Should do all the exercises. Exercises give the translation and ask you to find specific words from the
@@ -563,7 +527,7 @@ Some sections have "more detail". These are not essential, suggest at first leav
  
  <h2  class="w3-container w3-card  w3-cursive heading-color">Lessons</h2>
  
- <table class="lessons-toc-table ">
+ <table class="lessons-toc-table-3cols ">
  <tr>
  <td colspan="3"   style="text-align:left;padding-top:0"> 
 
@@ -578,83 +542,18 @@ Some sections have "more detail". These are not essential, suggest at first leav
 
 
 <p>this is the 2 column table</p>
- <table class="lessons-toc-table-2cols ">
-<tr>
-  <td> THis is very long text that will have to wrap 
-  THis is very long text that will have to wrap
-  THis is very long text that will have to wrap
-  THis is very long text that will have to wrap
-  THis is very long text that will have to wrap
-  </td>
-   <td>         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-              <span class="hebrew30 ">יְהוָה</span>
-		  </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30  soundclick">אֱלֹהִים</span><span class="hidden">words/w018_elohim</span>  
-           </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30   soundclick"> אֲדוֹנָי</span><span class="hidden">words/w062_adonai</span> 
-            </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30  soundclick">אֵל</span><span class="hidden">words/w188_el </span>
-           </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30  soundclick">יָהּ</span><span class="hidden">alefbet/yah </span>  
-           </div>
-          </div> <!-- lessons-toc-flex-container-vocab-list-->
-  </td>
- 
-  
- </tr> 
- 
-   
- <tr class="noun-color">
-  <td><div class="flex-container-toc-2cols ">
-           <div class="sidebar-toc-2cols">
-              <a href="lesson01-names.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 1</span></a>
-		   </div>
-           <div class="main-content-toc-2cols">
-  <span class="hebrew30 soundclick">וַיֹּ֨אמֶר אַבְרָ֜ם אֶל־שָׂרַ֗י</span><span class="hidden">tanakh/gen-16-06aa-db</span> 
- <br> Abram said to Sarai 
-           </div>
-  
-      </div>
-  
-  </td>
-
-   <td>         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-              <span class="hebrew30 ">יְהוָה</span>
-		  </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30  soundclick">אֱלֹהִים</span><span class="hidden">words/w018_elohim</span>  
-           </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30   soundclick"> אֲדוֹנָי</span><span class="hidden">words/w062_adonai</span> 
-            </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30  soundclick">אֵל</span><span class="hidden">words/w188_el </span>
-           </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30  soundclick">יָהּ</span><span class="hidden">alefbet/yah </span>  
-           </div>
-          </div> <!-- lessons-toc-flex-container-vocab-list-->
-  </td>
-</tr>
- 
- 
+ <table class="lessons-toc-table ">
  
  
  
   
 <tr class="noun-color">
-  <td><div class="flex-container-toc-2cols ">
-           <div class="sidebar-toc-2cols">
+  <td><div class="lessons-toc-col1-flex-container ">
+           <div class="lessons-toc-col1-flex-container-div1">
               <a href="lesson01-names.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 1</span></a>
 		   </div>
-           <div class="main-content-toc-2cols">
-              Words for God, names of people and places (proper nouns) and here is some more text
+           <div class="lessons-toc-col1-flex-container-div2">
+              Words for God, names of people and places (proper nouns) 
            </div>
   
       </div>
@@ -680,6 +579,139 @@ Some sections have "more detail". These are not essential, suggest at first leav
           </div> <!-- lessons-toc-flex-container-vocab-list-->
   </td>
 </tr>
+
+
+<tr class="noun-color">
+  <td><div class="lessons-toc-col1-flex-container ">
+           <div class="lessons-toc-col1-flex-container-div1">
+              <a href="lesson02-nouns-ben-bat-elohim-eretz.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 2</span></a>
+		   </div>
+           <div class="lessons-toc-col1-flex-container-div2">
+              Common nouns, ben, elohim, eretz, singular/plural, (gender), no special form
+              including construct,   no Tanakh Hebrew word for of, when 2 nouns together, 
+                translated as though "of" between them
+  
+             but as we will see, need to be detective cos may have prefix and/or suffix
+                need to learn to recognize the most frequently occurring
+             -im, -ot endings always stressed
+           </div>
+  
+      </div>
+  
+  </td>
+ <td>
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 soundclick">בֵּן</span><span class="hidden">words/w013_ben</span>&ensp;  		  
+              <span class="hebrew30  soundclick">בֶּן</span><span class="hidden">words/w013_ben</span>&ensp; 
+          <span class="lessons-toc-noun-divider" ></span>		 
+            <span class="hebrew30  soundclick">	בָּנִים</span><span class="hidden">words/w013_banim</span>&ensp; 
+             <span class="hebrew30   soundclick">בְּנֵי</span><span class="hidden">words/w013_bnei</span>&emsp;  		  
+           </div>
+ 		  </div> 
+		  
+          <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+            <span class="lessons-toc-noun-divider" ></span>		 
+             <span class="hebrew30  soundclick">אֱלֹהִים</span><span class="hidden">words/w018_elohim</span>&ensp;  
+             <span class="hebrew30  soundclick">אֱלֹהֵי</span><span class="hidden">words/w018_elohei</span> 
+           </div>
+  		  </div> 
+		  
+         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 soundclick">אֶרֶץ</span><span class="hidden">words/w021_eretz </span>&ensp;   
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew30 soundclick">	אֲרָצוֹת</span><span class="hidden">words/w021_arazot </span>&ensp;   
+		     <span class="hebrew30 soundclick">	אַרְצוֺת </span><span class="hidden">words/w021_arzot </span>&emsp;   
+		  </div>
+		  </div>
+		  
+		  
+         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 soundclick">בַּת</span><span class="hidden">words/w082_bat </span>&ensp;   
+        <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew30 soundclick">בָּנוֺת</span><span class="hidden">words/w082_banot </span>&ensp;   
+		     <span class="hebrew30 soundclick">בְּנוֺת</span><span class="hidden">words/w082_bnot </span>&emsp;   
+		  </div>
+		  </div>
+		  
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+            <div class="flex-container-ltr">
+             <span><img src="images/suffixes/plural-ending-im.jpg" class="vowel-image-plural-ending"></span>	  
+            </div>
+           <div class="flex-container-ltr">
+             <span><img src="images/suffixes/plural-ending-ot.jpg" class="vowel-image-plural-ending"></span>	  
+            </div>
+           <div class="flex-container-ltr">
+             <span><img src="images/suffixes/plural-ending-ei.jpg" class="vowel-image-plural-ending"></span>	  
+            </div>
+
+          </div> <!-- lessons-toc-flex-container-vocab-list-->
+ </td>
+</tr>
+ 
+ <tr>
+ <td colspan="2"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0"> 
+
+There's lots of talking in the Tanakh: God talks to people,
+    people talk to God, the prophets talk to the Israelites, people talk to each other, and even 
+     some animals talk (the serpent to Eve, the ass to Balaam (Numbers 22).
+	 The most frequently occurring verb in the Tanakh is "say" from the root <span class="hebrew-in-text">אמר</span>. 
+  <br>
+  So in the next 2 lessons we'll learn how to decipher some verses abput talking.
+ </td>     
+</tr>
+
+
+ 
+
+<tr class="verb-color">
+  <td><div class="lessons-toc-col1-flex-container ">
+           <div class="lessons-toc-col1-flex-container-div1">
+              <a href="lesson03-intro1.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 3</span></a>
+		   </div>
+           <div class="lessons-toc-col1-flex-container-div2">
+             <span class="hebrew30 soundclick">וַיֹּ֨אמֶר אַבְרָ֜ם אֶל־שָׂרַ֗י</span><span class="hidden">tanakh/gen-16-06aa-db</span> 
+            <br> Abram said to Sarai 
+ 
+            <span class="button-plus" onclick="ShowHideNextItem(this)"></span>
+
+           <div class="hidden nextItem" >
+              <ul>
+	            <li>the verb <span class="hebrew-in-text  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  </li>
+	            <li>word order - verb before subject</li>
+	            <li>the preposition 
+	             <span class="hebrew-in-text soundclick">אֶל</span><span class="hidden">words/w008_el</span>  </li>
+	           <li>maqqef: the dash symbol - joining 2 or more words- now in lesson 2, nouns</li>
+	           <li>different translations of <span class="hebrew-in-text  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span></li>
+	            <li>being a detective with vayomer, el</li>
+	
+	         </ul>
+            </div>
+
+  
+      </div>
+  
+  </td>
+  <td>
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  
+           </div>
+         </div>
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+		   <div class="flex-container-ltr">
+             <span class="maqqef hebrew30 "></span><span class="hebrew30 soundclick">אֶל</span><span class="hidden">words/w008_el</span> 
+           </div>
+		   <div class="flex-container-ltr">
+             <span class="hebrew30 soundclick">אֶל</span><span class="hidden">words/w008_el</span> 
+           </div>
+         </div>
+  </td>
+</tr>
+
 
 
  </table>
@@ -692,7 +724,7 @@ Some sections have "more detail". These are not essential, suggest at first leav
 
 <p>This is the original 3 column table</p>
 
- <table class="lessons-toc-table ">
+ <table class="lessons-toc-table-3cols ">
  
 
 <tr class="noun-color">
@@ -788,7 +820,7 @@ but as we will see, need to be detective cos may have prefix and/or suffix
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0; color:gray"> 
 <p>things not dealt with in the first lessons:</p>
 
   <ul> 
@@ -812,7 +844,7 @@ but as we will see, need to be detective cos may have prefix and/or suffix
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0"> 
 
 There's lots of talking in the Tanakh: God talks to people,
     people talk to God, the prophets talk to the Israelites, people talk to each other, and even 
@@ -824,7 +856,7 @@ There's lots of talking in the Tanakh: God talks to people,
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0; color:gray"> 
 what is a verb
 vayomer,   el , word order (verb first)
 
@@ -880,7 +912,7 @@ vayomer,   el , word order (verb first)
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray">
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0; color:gray">
 <ul> 
 <li>vatomer, different versions of amar (introduce amar and lemor??)</li>
 <li>information about person performing the action, how it was performed, translated by tense in English</li>
@@ -929,7 +961,7 @@ vayomer,   el , word order (verb first)
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0"> 
 <p>As we have seen in the previous lessons, a verb which is a single word in Hebrew can correspond to two or more
 words in the English translation</p> 
  
@@ -1019,7 +1051,7 @@ like/as <span class="hebrew30  ">כּ</span>
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="color:gray"> 
 Now starting with vav and ha, also vav-ha,  vav at start of non-verbs,
 explain this lesson only about vav=and, later lesson about vav=verb
   </td>     
@@ -1062,7 +1094,7 @@ explain this lesson only about vav=and, later lesson about vav=verb
  
  
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0; color:gray"> 
 this lesson about "the" with corresponding "ha", later lessons about "the" no "ha" (construct with proper noun, 
 l'ha etc)-construct now covered in lesson 2, can deal with l'ha etc in l'lesson so may not need this later lesson,
  and "ha" with no "the" (one lesson about ha ele and adjectives, another about verb to be)
@@ -1103,7 +1135,7 @@ includes v'ha
 
  
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style=" color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style=" color:gray"> 
 the prefix l', include directional -ah here, comment on l', el both translated a "to", sometimes
 see "to" in the translation but l' or el, likely to be directional -h=ah, when see "to" or "towards"
 look for el, then word starting with l' (mostly likely l+schwah)
@@ -1114,7 +1146,7 @@ Include lifnei here??
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0; color:gray"> 
 mention most frequent occurrences of l, lifnei and lemor??
   </td>     
 </tr>
@@ -1144,7 +1176,7 @@ mention most frequent occurrences of l, lifnei and lemor??
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0; color:gray"> 
 b+ha and K+ha (though infrequent) , but not mi, becomes min
 Probably make this into 3 separate lessons
   </td>     
@@ -1175,7 +1207,7 @@ Probably make this into 3 separate lessons
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="color:gray"> 
 narrative verbs starting with vav, recognizing vay', vat', van', a bit about vavyiktol and weqatal
   </td>     
 </tr>
@@ -1299,7 +1331,7 @@ the preposition al
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" > 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" > 
 <p>Next lessons about suffixes, this lesson about possessive pronouns my, your, his, her, our, their
  </p>
  </td>
@@ -1335,14 +1367,14 @@ the preposition al
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" > 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" > 
 <p>Next lessons about suffixes, this lesson about object pronouns me, you, him, her, us, them after prepositions
  </p>
  </td>
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="color:gray"> 
 include reference lists of suffixes on l' b' mi' k' el al, learn lo, bo, elav, alav
   </td>     
 </tr>
@@ -1440,7 +1472,7 @@ include reference lists of suffixes on l' b' mi' k' el al, learn lo, bo, elav, a
 </tr>
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style="color:gray"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="color:gray"> 
 need to consolidate the material in these lessons into previous lesson
   </td>     
 </tr>
@@ -1505,7 +1537,7 @@ need to consolidate the material in these lessons into previous lesson
 
 
 <tr>
- <td colspan="3"  class="lessons-toc-table-colspan" style=" background-color:orange"> 
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" style=" background-color:orange"> 
 <p>Section 2: Extra vocabulary </p>
 
  </td>     
@@ -1514,7 +1546,7 @@ need to consolidate the material in these lessons into previous lesson
  
 
 <tr class="noun-color">
- <td colspan="3"  class="lessons-toc-table-colspan" >  
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" >  
  <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> The most frequently occurring nouns </h3>
  
  <div class="hidden" style="text-align:left" >
@@ -1794,7 +1826,7 @@ also  frequently occurring possessive suffix form and/or prefix form</p>
 </tr>
 
 <tr class="verb-color">
- <td colspan="3"  class="lessons-toc-table-colspan" >  
+ <td colspan="3"  class="lessons-toc-table-3cols-colspan" >  
  <h3><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> The most frequently occurring verbs </h3>
  
  <div class="hidden" style="text-align:left" >

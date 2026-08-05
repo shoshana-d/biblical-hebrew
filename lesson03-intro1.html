@@ -321,10 +321,10 @@ the most frequent will be able torecognize one or more words in mearly every ver
   
  <hr>
  <h3  class="lesson-heading">Being a detective with vayomer, el </h3>
+ 
+<div class="lesson-section" >  
  The serpent said to the woman 
           <span class="hebrew30">וַיֹּ֥אמֶר הַנָּחָ֖שׁ אֶל־הָֽאִשָּׁ֑ה  </span> 
-
-   <div class="lesson-section" > 
 
 <div class="flex-container-ltr" >
  <div >the serpent <span class="emphasised-word">said</span> to the woman <br> <span class="biblical-reference">Genesis 3:4</span>
@@ -339,10 +339,12 @@ the most frequent will be able torecognize one or more words in mearly every ver
   </div>
 </div>
 
-
+</div>
  
-<h2  class="lesson-exercise-header " id="exercise1">
-<span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>
+ 
+ 
+<h2  class="lesson-exercise-header " id="exercise1" onclick="ShowHideNextSibling(event)" >
+<span class="button-plus"></span>
   Exercise Who spoke to whom? Practise names, 
   <div class="flex-container-ltr">
   <span class="hebrew-in-text soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>,&ensp;
@@ -350,20 +352,26 @@ the most frequent will be able torecognize one or more words in mearly every ver
 <span class="hebrew-in-text soundclick ">אֵל	</span><span class="hidden">words/w008_el</span>&ensp; 
    </div>
 </h2>
-<div class="hidden lesson-exercise-container">		
- <p>Select a <span class="whospoke-flex-drag-drop-query-intext"></span> box,
- then select the correct answer from the names in the top row 
-
-</p> 
-<p>OR</p>
-<p>
-drag a name from the names in the top row and drop in the corresponding 
-<span class="whospoke-flex-drag-drop-query-intext"></span>  box 
-(See top of <a href="alefbet-exercises.html">Alefbet exercises</a> for instructions on dragging and dropping.)
+<div class="hidden lesson-exercise-container">	
+	
+<p onclick="ShowHideNextSibling(event)" class="clickable">
+   <span class="button-plus"></span> instructions
+</p>   
+<div class="hidden">	
+	
+  <p>Select a <span class="whospoke-flex-drag-drop-query-intext"></span> box,
+  then select the correct answer from the names in the top row 
+  </p> 
+  <p>OR</p>
+ <p>
+  drag a name from the names in the top row and drop in the corresponding 
+  <span class="whospoke-flex-drag-drop-query-intext"></span>  box 
+  (See top of <a href="alefbet-exercises.html">Alefbet exercises</a> for instructions on dragging and dropping.)
  </p>
 
-<p>For each text, click on <span class="start-audio"></span> to hear the text spoken.</p>
-<p>  There is a "reward" for finishing the exercise.</p>
+ <p>For each text, click on <span class="start-audio"></span> to hear the text spoken.</p>
+ <p>  There is a "reward" for finishing the exercise.</p>
+</div>
 
  <button type="button" class="button-exercise" onclick="reCreateWhoSpokeExercise('whospoke-exercise')">Practise again</button>
  
@@ -491,8 +499,8 @@ drag a name from the names in the top row and drop in the corresponding
   </div>
 </div>
 
-<h2  class="lesson-exercise-header" >
-<span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>
+<h2  class="lesson-exercise-header" onclick="ShowHideNextSibling(event)" >
+<span class="button-plus" "></span>
   no contentExercise: Practise  <span class="hebrew30  soundclick vocab-word-color">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span> 
              and  <span class="hebrew30 lessons-toc-vocab-color  soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>  
 
@@ -503,8 +511,8 @@ drag a name from the names in the top row and drop in the corresponding
 </div>
 
 
-<h2  class="lesson-exercise-header" >
-<span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>
+<h2  class="lesson-exercise-header" onclick="ShowHideNextSibling(event)">
+<span class="button-plus" ></span>
   no content Exercise: <img src="images/bootstrap-search.png" width="25px" height="25px"> Practise being a detective with  
   <span class="hebrew-in-text soundclick"> אֶל </span><span class="hidden">words/w008_el</span>
 
@@ -526,21 +534,14 @@ For example, the noun or person or place after <span class="hebrew-in-text sound
 
 <!-- scripts -->
 <script src="scripts/biblical_hebrew_lessons_start_template.js"></script>
-
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
-<script src="scripts/biblical_hebrew_modal_popups.js"></script>
-
 <script src="scripts/biblical_hebrew_lessons_example.js"></script>
 <script src="scripts/biblical_hebrew_lessons_exercise.js"></script>
+<script src="scripts/biblical_hebrew_modal_popups.js"></script>
 
 <script src="scripts/biblical_hebrew_whospoke_exercise.js"></script>
 
-<!--
-<script src="scripts/biblical_hebrew_exercise_table.js"></script>
-<script src="scripts/biblical_hebrew_drag_drop.js"></script>
-<script src="scripts/biblical_hebrew_reference_tables.js"></script>
-<script src="scripts/biblical_hebrew_flexbox_list.js"></script>
--->
+
 </body>
 </html>
 
