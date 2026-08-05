@@ -897,6 +897,8 @@ table{
 	padding:10px;
 	background-color: PaleGreen;
     background-color: LightGreen;
+	
+	cursor:pointer;
 }	
 .lesson-exercise-container{
 	/* from detail-item */
