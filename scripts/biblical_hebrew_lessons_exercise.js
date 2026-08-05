@@ -67,14 +67,20 @@ function lessonsExerciseShowTranslationEventListener(ev){
 
 // add the instructions text that goes before each exercise	
 function createLessonsExerciseTextBefore(thisDiv){
-  var para = document.createElement('p');
-  para.appendChild(document.createTextNode('Instructions'));
+  var showHideInstructionsPara = document.createElement('p');
+  
+  showHideInstructionsPara.addEventListener('click',function(){ShowHideNextSibling(event)});
   var span = document.createElement('span');
   span.classList.add("button-plus");
-  span.addEventListener('click', ShowHideParentNextSiblingEventListener)
-  para.appendChild(span);
-  thisDiv.parentNode.insertBefore(para, thisDiv);
+  showHideInstructionsPara.appendChild(span);
+  showHideInstructionsPara.appendChild(document.createTextNode(' Instructions'));
+ // span.addEventListener('click', ShowHideParentNextSiblingEventListener)
+//  thisDiv.parentNode.insertBefore(showHideInstructionsPara, thisDiv);
+  thisDiv.appendChild(showHideInstructionsPara);
 
+  var instructionsDiv = document.createElement("div");
+  instructionsDiv.classList.add("hidden");
+  
   var unorderedList = document.createElement('ul');
   var listItem = document.createElement('li');
   
@@ -88,9 +94,9 @@ function createLessonsExerciseTextBefore(thisDiv){
   listItem.appendChild( document.createTextNode(" in the translation,click on the corresponding word in the Hebrew. "));
   
   unorderedList.appendChild(listItem);
-  thisDiv.appendChild(unorderedList);
+  instructionsDiv.appendChild(unorderedList);
  
-  thisDiv.appendChild(document.createElement('p'));
+  instructionsDiv.appendChild(document.createElement('p'));
 
   var unorderedList = document.createElement('ul');
   var listItem = document.createElement('li');
@@ -113,7 +119,7 @@ function createLessonsExerciseTextBefore(thisDiv){
   listItem.appendChild(document.createTextNode(" Ideally, you should be able to speak along with the audio. "));
  
   unorderedList.appendChild(listItem);
-  thisDiv.appendChild(unorderedList);
+  instructionsDiv.appendChild(unorderedList);
 
   var para = document.createElement('p');
   para.appendChild(document.createTextNode('There is a "reward" for identifying all the '));
@@ -121,7 +127,9 @@ function createLessonsExerciseTextBefore(thisDiv){
   span.classList.add("lesson-exercise-question-text-border");
   span.appendChild(document.createTextNode("words."));
   para.appendChild(span);
-  thisDiv.appendChild(para);
+  instructionsDiv.appendChild(para);
+  
+  thisDiv.appendChild(instructionsDiv);
 	
 }
 

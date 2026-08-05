@@ -314,7 +314,10 @@ window.onclick = function(e) {
 //----------------------------------------------------------------------------------------------
 
   // user has clicked a +/- button
-  // replaces showhidenextsiblingclick
+  // button is a span element within a header or div
+  // info about what the button does follows, clicking on the info doesn't do anything
+  // clicking on the button hides/displays the content in the next element after the header/div containing the button
+  // HTML, called using onclick
 function ShowHideParentNextSibling(element){
     var nextSib =  element.parentElement.nextElementSibling;
     nextSib.classList.toggle("hidden"); 
@@ -330,6 +333,35 @@ function ShowHideParentNextSiblingEventListener(){
     this.classList.toggle("button-minus");
     this.classList.toggle("button-plus");   
 }	
+
+//----------------------------------------------------------------------------------------------
+
+  // user has clicked a somewhere in a div or header containing a +/- button
+  // button is a span element within a header or div
+  // info about the button may be before or after the button
+  // clicking on the button or anywhere else in the div/header EXCEPT
+  //    for an element with class soundclick
+  //  hides/displays the content in the next element after the header/div containing the button
+  //  and toggles the button
+  // HTML, called using onclick="ShowHideNextSibling(event)"
+function ShowHideNextSibling(event){
+	var containerElement = event.currentTarget;
+	var clickElement = event.target;
+	
+	if (!clickElement.classList.contains("soundclick")){
+       var nextSib =  containerElement.nextElementSibling;
+       nextSib.classList.toggle("hidden"); 
+
+       for (const child of containerElement.children) {
+         if (child.classList.contains("button-minus") || child.classList.contains("button-plus")){
+            child.classList.toggle("button-minus");
+            child.classList.toggle("button-plus");  
+            break;		 
+         }		  
+      }
+	}	  
+}	
+
 
  //----------------------------------------------------------------------------------------------
 
