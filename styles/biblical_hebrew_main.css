@@ -855,9 +855,7 @@ table{
 	background-color:LightPink;
 	
 }
-.lesson-synopsis{
 
-}	
 .lesson-heading{
 	border-bottom:solid;
 	border-bottom:none;
@@ -873,6 +871,27 @@ table{
    content:"\2605";
 }
 
+.lesson-toc-container{
+   border-style:solid;
+   border-width:1px;
+   border-style:none;
+   
+   margin-left:30px;
+   margin-right:30px;
+   
+   padding:20px;
+  background-image: url("../images/uneven-border2.jpg");
+  background-size: 100% 100%;    /* Forces width and height to match the div */
+  background-repeat: no-repeat;
+
+}
+
+.lesson-toc-header{
+   font-size:16px;	
+}
+.lesson-toc-header::before{
+   content:"In this lesson:";
+}	
 .lesson-heading-jewish{
 	border-bottom:solid;
 	border-bottom:none;
@@ -916,6 +935,7 @@ table{
 	background-color:LightYellow;
 	background-color:White;
  }
+ 
 .lesson-exercise{
    background-color:HoneyDew; 	
 }	
