@@ -1,0 +1,186 @@
+<!-- this is a comment -->
+ <!DOCTYPE html> 
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Biblical Hebrew Basics</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="styles/biblical_hebrew_main.css">
+  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
+</head>
+
+
+<body>
+
+<header class="w3-container-h1"> 
+  <h1>Getting started in Biblical Hebrew: Lesson XXX</h1>
+</header>  
+
+
+<!-- top menu -->
+
+<nav class="w3-card-4 navbar">
+  <a href="lessons-index.html" >About</a>  
+  <div class="navbar-dropdown">
+  <button class="navbar-dropbtn " onclick="showHideNavbarDropdown('navbarDropdown1')">Alefbet
+  </button>
+  <div class="navbar-dropdown-content hidden" id="navbarDropdown1">
+    <a href="lessons-alefbet.html" >Learn alefbet</a>
+    <a href="lessons-alefbet-exercises.html">Practise alefbet</a>
+    <a href="lessons-alefbetplus.html" >Alefbet extra</a>
+  </div>
+  </div> 
+  <a href="lessons.html" class="this-page" >Lessons</a>
+  <a href="lessons-extra-vocabulary.html" >Extra vocabulary</a>
+  <a href="reference-tables.html" >Reference tables</a>
+  <a href="lessons-resources.html" >Resources</a>
+</nav>
+
+<!-- main body of text -->
+<main>
+
+<!-- testing section  --> 
+<p>Temporary testing section</p>
+ <p>TEST</p>
+ <p id="mytest">test</p> 
+<!--  END testing section --> 
+
+	  
+<div class="flex-container-ltr flex-container-menu-items " style="background-color:FloralWhite">
+   <div><span id="btn-consonants" class="button-plus" onclick="showHideJsToggle('consonants','btn-consonants')"></span> Consonants</div>
+   <div><span id="btn-vowels" class="button-plus" onclick="showHideJsToggle('vowels','btn-vowels')"></span> Vowels</div>
+   <div><span id="btn-cantillation" class="button-plus" onclick="showHideJsToggle('cantillation','btn-cantillation')"></span> Cantillation marks</div>
+</div>
+
+ 
+<div id="consonants" > 
+  <div class="js-toggle hidden">
+  <p id="consonants-sounds" class="hidden">א:silence| בּ:b| ב:v| ג: g|ד:d| ה: h|ו:v| ז:z| ח:ch| ט :t
+  |י:y| כּ: k|כ:ch| ך:ch| ל : l|מ: m|ם :m| נ: n|ן:n| ס:s| ע  :silence| פּ:p| פ:f| ף: f|צ:ts| ץ:ts| ק:k
+  | ר: r|שׁ:sh| שׂ:s| ת :t </p>
+  <p id="cr-consonants-list" class="javascript-list  hidden ">source: consonants-sounds |id: consonants-list
+  | colorClass: consonant-color  |audio: alefbet_consonants_and_vowels | hebrewclass:hebrew35 
+  | containerclass:flex-container-heb-lessons </p>
+  </div>
+</div>
+
+<div id="vowels" >
+  <div class="js-toggle hidden">
+  <p id="vowels-sounds" class="hidden">  a1:a | a2 : a | a_or_o: a_or_o 
+   |  o1 : o | o2 : o | o3  : o |  ei1  : ei    | ei2 : ei | e1 : e | e2 : e |  e3 :  e  
+   | i1 : i     |    i2 : i  | u1 : u  | u2 : u  | uh_or_silent :  uh_or_silent
+   |  ie1 : ie | ie2 : ie | oi : oi  | ui : ui </p>
+  <p id="cr-vowel-sounds" class="javascript-list hidden">source: vowels-sounds| id: vowels-list
+    | colorClass: vowel-color|audio: alefbet_consonants_and_vowels 
+	| hebrewinimage: vowels | hebrewclass: vowel-image-intext2 |containerclass: flex-container-heb-lessons
+ </p>
+  </div>
+</div>
+
+<div id="cantillation" >
+  <div class="js-toggle hidden">
+ <div id="javascript-cantillation" class="flex-container-ltr flex-container-heb-lessons " style="display:flex;background-color:white;">
+ </div>
+  </div>
+</div>
+
+
+
+<h2>Lesson XXX Don't use this template - for reference only</h2>
+
+
+<div class="lesson-toc-container">
+  <p class="lesson-toc-header"></p>
+  <ul>
+    <li><a href="#heading1">Names of God in the Tanakh</a></li>
+    <li><a href="#exercise1">Exercises</a></li>
+  </ul>
+</div>
+
+
+</main> 
+
+
+<footer>
+ <p>&#169; 2023 Susan Donath  </p>
+</footer>
+
+
+
+<!-- scripts -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   
+   // create list of cantillation marks at the top of the page
+   crCantillationList();
+
+})
+//---------------------------------------------------------------------------
+
+
+function  crCantillationList(){
+	var i;
+	
+	var cantillationDiv = document.getElementById("javascript-cantillation");
+	if (cantillationDiv != null) { 
+	   var imageDir = "vowels";
+
+	   var imageClass = "cantillation-image-lesson";
+	   var cantillation1 = ["sofpasuk", "etnachta", "tipcha", "tvir", "mercha", "munach", 
+	                         "mapach", "darga", "katon", "zakefgadol", "rvii", "azla", "gershayim",
+							 "pazer", "kadma"];
+	   for (i=0; i < cantillation1.length; i++) {
+		  var thisDiv = document.createElement("div");
+  	   	  var image1 = document.createElement("img");
+	      image1.src = setJpgName(cantillation1[i], imageDir);
+	      image1.classList.add(imageClass);
+		  thisDiv.appendChild(image1);
+          cantillationDiv.appendChild(thisDiv);
+	   }
+       var thisDiv = document.createElement("div");	   
+       var thisSpan = document.createElement("span");
+       thisSpan.classList.add("example-spacing");
+       thisDiv.appendChild(thisSpan);
+       cantillationDiv.appendChild(thisDiv);
+ 
+	   var imageClass = "cantillation-image2-lesson";
+	   
+       var thisDiv = document.createElement("div");	   
+       var image1 = document.createElement("img");
+	   image1.src = setJpgName("pashta", imageDir);
+	   image1.classList.add(imageClass);
+	   thisDiv.appendChild(image1);
+       cantillationDiv.appendChild(thisDiv);
+
+
+       var thisDiv = document.createElement("div");	   
+       var thisSpan = document.createElement("span");
+       thisSpan.classList.add("example-spacing");
+       thisDiv.appendChild(thisSpan);
+       cantillationDiv.appendChild(thisDiv);
+	   
+	   var cantillation2 = ["segol", "zarka", "tlisha_ktana", "tlisha_gdola"];
+	   for (i=0; i < cantillation2.length; i++) {
+		  var thisDiv = document.createElement("div");
+  	   	  var image1 = document.createElement("img");
+	      image1.src = setJpgName(cantillation2[i], imageDir);
+	      image1.classList.add(imageClass);
+		  thisDiv.appendChild(image1);
+          cantillationDiv.appendChild(thisDiv);
+	   }
+ 	
+	}
+
+	
+}	
+
+</script>
+
+<script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
+<script src="scripts/biblical_hebrew_modal_popups.js"></script>
+
+</body>
+</html>
