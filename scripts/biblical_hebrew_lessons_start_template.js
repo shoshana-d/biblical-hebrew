@@ -60,10 +60,61 @@ document.addEventListener('DOMContentLoaded', function() {
    firstDiv.appendChild(breadcrumb);
 
  // main
+ //-----
    var main = document.getElementsByTagName("main")[0];
    main.classList.add("main-color" );
    
+ // add table of contents created from class="lesson-heading" and class="lesson-exercise-header"
+ //--------------------------------------------------------------------------------------------
+   var tocdiv =  document.createElement("div");
+   tocdiv.classList.add("lesson-toc-container");
+   var tocheader = document.createElement("p");
+   tocheader.classList.add("lesson-toc-header"); // content added in css
+   tocdiv.appendChild(tocheader);
    
+   const ul = document.createElement('ul');
+   
+   var lessonHeadings = document.getElementsByClassName("lesson-heading");
+   for (i = 0; i < lessonHeadings.length; i++) {
+	  var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.innerHTML = lessonHeadings[i].innerHTML;
+      a.href = "#" + lessonHeadings[i].id; 
+	  
+	  li.appendChild(a);
+      ul.appendChild(li);
+   }
+
+     // for exercise headings, need to remove the button
+   var exerciseHeadings = document.getElementsByClassName("lesson-exercise-header");
+   for (i = 0; i < exerciseHeadings.length; i++) {
+	  var li = document.createElement('li');
+ 	  var tocRef = exerciseHeadings[i].id;
+      var a = document.createElement('a');
+	  
+      const tempContainer = document.createElement('div');
+      tempContainer.innerHTML = exerciseHeadings[i].innerHTML;
+	  
+	  // 3. Find and remove the very first span element
+      const firstSpan = tempContainer.querySelector('span');
+      if (firstSpan) {
+         firstSpan.remove();
+      }
+
+      // 4. Insert the modified innerHTML into the target element
+      a.innerHTML = tempContainer.innerHTML;
+      a.href = "#" + tocRef; 
+	  
+	  li.appendChild(a);
+      ul.appendChild(li);
+   }
+
+   tocdiv.appendChild(ul);
+
+   var lessonTitle = document.getElementsByClassName("lesson-title")[0];
+   lessonTitle.after(tocdiv);
+
+ 
   // lists of consonants, vowels, cantillation marks
 //   var listDiv = document.createElement("div");
 //   listDiv.classList.add("flex-container-ltr");
