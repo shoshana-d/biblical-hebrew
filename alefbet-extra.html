@@ -12,6 +12,22 @@
   <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
   
    <style>
+.alefbetplus-indent{
+  padding-left: 20px; /* Pushes the entire paragraph to the right */
+  text-indent: -20px; /* Pulls only the very first line back to the left */
+}
+
+.alefbetplus-detail-item{
+	  border-style:solid;
+	  border-color:Gray;
+	  border-width:1px;
+	  padding-left:5px;
+	  padding-right:5px;
+	  padding-bottom:5px;
+	  margin-bottom:30px;
+   background-color:AliceBlue;
+}	
+
 
 .alefbetplus-audio-indicator{
 	border-bottom:dotted;
@@ -82,37 +98,9 @@
 
 <p>This page contains extra information, deeper dives and background about Biblical Hebrew pronunciation.</p>
 
-<div class="flex-container-ltr flex-container-menu-items " style="background-color:MintCream">
-   <div id="show-alefbetplus1"><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Consonants and vowels pronunciation variations</div>
-   <div id="show-alefbetplus2"><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Why are <span class="hebrew40">ו</span> and 
-                              <span class="hebrew40">י</span> both vowels and consonants?</div>
-   <div id="show-alefbetplus3" ><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> More on pronunciation of 
-   <span class="hebrew35">יהוה</span> the Tetragrammaton</div>
-  <div id="show-alefbetplus5" ><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Names of vowels</div>
-  <div id="show-alefbetplus6" ><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Hebrew names of marks</div>
-  <div id="show-alefbetplus7"><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Some rules for when the secondlast syllable is stressed</div>
-  <div id="show-alefbetplus8" ><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> 
-            <span class="hebrew40">  וּ   </span> at the start of a word</div>
-   <div id="show-alefbetplus9" ><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Dividing words which contain 
-           <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" > and/or 
-           <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" > into syllables</div>
-  <div id="show-alefbetplus10" ><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> 
-           <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" > "a" or "o"? 
-		   Pronunciation of the vowel kamatz</div>
-  <div id="show-alefbetplus11" ><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> 
-          <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2"> "a" or "o"? 
-       The troublesome <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" >
-		  <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" style="margin-left:-5px;"> combination</div>
-  <div id="show-alefbetplus12" ><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Hebrew-English translations</div>
-</div>
-
-  
-<!--
-    consonants and vowels pronunciation variations  
--->
- 
- <div id="alefbetplus1" class="detail-item hidden alefbet-plus-color"  >  
- <h2>Consonants and vowels pronunciation variations <span class="btn-close" onclick="menuContentClose(this)"></span></h2>
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent"><span class="button-plus"></span>
+ Consonants and vowels pronunciation variations</h3>
+<div class="hidden  alefbetplus-detail-item">
  <p>We don't know exactly  how Hebrew was pronounced originally but we do know that even in Biblical times there were different accents.</p>
  <p>The pronunciation guide in <a href="alefbet-learn-alefbet.html">Learn alefbet</a> is widely accepted, but as with any language, there is not really one correct pronunciation
  (although there are often strongly held opinions!).   </p>
@@ -122,9 +110,9 @@
   but is pronounced with a short "uh" sound in some words in Biblical Hebrew.</p>
 
 <hr> 
- <h2>Consonants</h2>
+ <h3>Consonants</h3>
   <p>Note that in the audio examples from Wikipedia, the sound of the consonant is spoken between the sound of "a" </p>
- <p><span class="hebrew40">א</span> and <span class="hebrew40">ע</span> were originally gutteral sounds. Gutteral (literally 'of the throat') speech sounds 
+ <p><span class="hebrew30">א</span> and <span class="hebrew30">ע</span> were originally gutteral sounds. Gutteral (literally 'of the throat') speech sounds 
  are those with a primary place of articulation near the back of the oral cavity, 
 where it is difficult to distinguish a sound's place of articulation and its phonation. In modern Hebrew, some speakers still pronounce 
 <span class="hebrew30">ע</span> as a gutteral consonant, others pronounce both
@@ -135,7 +123,7 @@ others do not pronounce these consonants at all.
  <p>The Wikipedia articles <a href="https://en.wikipedia.org/wiki/Alef">https://en.wikipedia.org/wiki/Alef</a> and 
  <a href="https://en.wikipedia.org/wiki/Ayin">https://en.wikipedia.org/wiki/Ayin</a> have more information about pronunciation of these consonants.</p>
  
-<p><span class="hebrew40 soundclick">ר</span><span hidden>alefbet_consonants_and_vowels/r</span> 
+<p><span class="hebrew30 soundclick">ר</span><span hidden>alefbet_consonants_and_vowels/r</span> 
 According to the Wikipedia page <a href="https://en.wikipedia.org/wiki/Resh"> https://en.wikipedia.org/wiki/Resh
 </a> there are several different ways of pronouncing this consonant: </p>
 <ul>
@@ -162,14 +150,14 @@ or an
 
 
 
- <p><span class="hebrew40">ת</span> When this consonant has a dot in it, <span class="hebrew30">תּ</span>, it is always pronounced "t" and is called "tav".
+ <p><span class="hebrew30">ת</span> When this consonant has a dot in it, <span class="hebrew30">תּ</span>, it is always pronounced "t" and is called "tav".
 Some Ashkenazy Jews pronounce  <span class="hebrew30">ת</span> without a dot as "s" and call this letter "sav". 
 This may be closer to the original biblical pronunciation, which is believed to have been something like the "th" sound in bath or moth.
 </p>
 
 <hr>
 
- <h2>Vowels</h2>
+ <h3>Vowels</h3>
  <p>The difference in pronunciation between 
  <img src="images/vowels/ei1.jpg" class="soundclick vowel-image-intext"><span hidden>alefbet_consonants_and_vowels/ei</span> 
  ("ei")  and 
@@ -187,18 +175,12 @@ This may be closer to the original biblical pronunciation, which is believed to 
 
 <p> Some Ashkenazi Jews pronounce the "o" sound as "oy", for example <span class="hebrew-in-text">תוֹרָה</span> is pronounced "toy-ra".
 </p>
+</div>
 
- </div>
 
-<p> </p>
-
-<!--
-    history of vav and yod  
- -->
-
-<div id="alefbetplus2" class="detail-item hidden alefbet-plus-color"  >  
-<h2>Why are <span class="hebrew40">ו</span> and 
- <span class="hebrew40">י</span> both vowels and consonants? (A bit of history)<span class="btn-close"  onclick="menuContentClose(this)"></span></h2>
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent"><span class="button-plus"></span>
+Why are <span class="hebrew40">ו</span> and <span class="hebrew40">י</span> both vowels and consonants? </h3>
+<div class="hidden  alefbetplus-detail-item">
   <p>
  Biblical Hebrew was originally written only with consonants. This would be like writing in English "th grl pckd p hr pt".
   If you are an English speaker, you can probably figure out that this is "the girl picked up her " - but what did she pick up? 
@@ -247,14 +229,18 @@ being kept alive primarily by Jewish scholars and religious leaders.
    the spelling of "yom" became <span class="hebrew-in-text">יוֹם</span> with
    <img src="images/vowels/o2.jpg" class="soundclick vowel-image-intext">, 
    the vowel marker for "o" added to <span class="hebrew-in-text">י</span>
+   </li>
   <li>the spelling of <span class="hebrew-in-text"> תורה</span>, "torah",  with the matres lectionis <span class="hebrew-in-text">ה</span> and 
       <span class="hebrew-in-text">ו</span> became <span class="hebrew-in-text">תוֹרָה</span>. 
+  </li>	    
   </ul>
   <p>In each case, the matres lectionis is now redundant in relation to pronunciation: </p>
   <ul>
   <li>"yom" could be written  <span class="hebrew-in-text">יֹם</span> (ie omitting the <span class="hebrew-in-text">ו</span>)
    and 
+   </li>
    <li>   "torah" could be written  <span class="hebrew-in-text">תֹרָ</span>
+   </li>
   </ul>
   <p>In addition to the vowel pointings, the Masoretes added another set of marks, the cantillation marks. 
 These marks preserved the tradition of liturgical chanting of the text by indicating the stressed syllable in each word,
@@ -264,14 +250,12 @@ These marks preserved the tradition of liturgical chanting of the text by indica
 </p>
 
 </div>
- 
- 
-<!--
-   more about pronouncung tetragramaton
- -->
-<div id="alefbetplus3" class="detail-item hidden alefbet-plus-color"  >  
-<h2>More about pronunciation of <span class="hebrew35">יהוה</span> the Tetragrammaton<span class="btn-close"  onclick="menuContentClose(this)"></span></h2>
 
+
+
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent"><span class="button-plus"></span>
+More on pronunciation of    <span class="hebrew35">יהוה</span> the Tetragrammaton </h3>
+<div class="hidden  alefbetplus-detail-item">
 <p>There is a longstanding Jewish prohibition on speaking God’s name aloud.
 The origin of this taboo  — according to which, pronouncing God's name aloud is irreverent or possibly even a violation of the 
 commandment not to take God’s name in vain — is not entirely clear. 
@@ -292,19 +276,13 @@ This confused form entered English usage in several translations of the Bible.
 
 <p>It is thought that the original pronunciation of <span class="hebrew-in-text">יהוה</span> was "Yah-weh". </p>
 
- </div>
-
-<p> </p>
+</div>
 
 
- 
- 
- <!--
-    vowel names   
--->
- <div id="alefbetplus5" class="detail-item hidden alefbet-plus-color"  >  <h2>Names of vowels <span class="btn-close"  onclick="menuContentClose(this)"></span></h2>
-  
-    <p></p>
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent"><span class="button-plus"></span>
+Names of vowels </h3>
+ <div class="hidden  alefbetplus-detail-item">
+   <p></p>
    <div class="flex-container-rtl flex-container-heb-vowel-names vowel-color">
   <div><img src="images/vowels/a1.jpg" class="soundclick vowel-image-intext"><span hidden>alefbet_consonants_and_vowels/a</span><br><span class=" consonant-vowel">&thinsp;a</span><br>&thinsp;patach</div>
   
@@ -337,15 +315,13 @@ This confused form entered English usage in several translations of the Bible.
   </div> <!-- flex-container-heb -->
     <p></p>
 	
-  </div>	
+ </div>	
 
 
-<!--
-   names of marks
--->
-<div id="alefbetplus6" class="detail-item hidden alefbet-plus-color"  >  
-<h2>Hebrew names of marks <span class="btn-close"  onclick="menuContentClose(this)"></span></h2>
-   
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent"><span class="button-plus"></span>
+Hebrew names of marks </h3>
+<div class="hidden  alefbetplus-detail-item">
+  
  <table  style="border-collapse:collapse;display:table;">
  <tr style="border-bottom: 2px solid DarkGray;"><td style="text-align:right;padding-right:15px;"> vowel marks</td>
 	<td style="padding-left:15px;padding-right:15px;">niqqud or nikud</td>
@@ -368,22 +344,17 @@ This confused form entered English usage in several translations of the Bible.
 	<td>  <span class="hebrew30">מַפִּיק</span>	</td>
  </tr>
  </table>
+
+</div>
+
+
+
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent"><span class="button-plus"></span>
+Some rules for when the secondlast syllable is stressed </h3>
+<div class="hidden  alefbetplus-detail-item">
  
- </div>
- 
-
- <p> </p>
-
-
-
-
-<!--
-   When is secondlast syllable stressed?  
--->
-  <div id="alefbetplus7" class="detail-item hidden alefbet-plus-color" >  
-<h2>Some rules for when the secondlast syllable is stressed <span class="btn-close"  onclick="menuContentClose(this)"></span></h2>
- 
- <p style="margin-bottom:0">The following rules cover many of the words where the secondlast syllable is stressed. </p>
+ <p style="margin-bottom:0">The following rules cover many of the words where the secondlast 
+ syllable is stressed. 
 </p>
  
  <p  style="margin-top:0;margin-bottom:0"><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> 
@@ -545,14 +516,13 @@ This confused form entered English usage in several translations of the Bible.
   
  </div>
 
-  <p></p>
 
-<!--
- u at start of word  
--->
+</div>
 
-<div id="alefbetplus8" class="detail-item hidden alefbet-plus-color"  >  
-<h2><span class="hebrew40">  וּ   </span> at the start of a word <span class="btn-close"  onclick="menuContentClose(this)"></span></h2>
+
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent" id="vavprefix"><span class="button-plus"></span>
+ <span class="hebrew40">  וּ   </span> at the start of a word</h3>
+<div class="hidden  alefbetplus-detail-item">
  
  <p>The consonant <span class="hebrew30 soundclick"> וְ </span><span hidden>alefbet_consonants_and_vowels/v</span> 
  is often added to the beginning of a word. 
@@ -659,21 +629,15 @@ When it's added to a noun it means "and". It also often occurs as the first lett
 </div>
 
  <p> </p> 
- 
-   </div>
- 
- 
- 
-<!--
-    kametz/schwah words into syllables   
- -->
+</div>
 
- <div id="alefbetplus9" class="detail-item hidden alefbet-plus-color"  >  
-<h2>Dividing words which contain 
-  <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" > and/or 
-  <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" > into syllables
-  <span class="btn-close"  onclick="menuContentClose(this)"></span>
- </h2>
+
+
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent"><span class="button-plus"></span> 
+ Dividing words which contain 
+           <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" > and/or 
+           <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" > into syllables</h3>
+<div class="hidden  alefbetplus-detail-item">
     <p></p>
   <p>The vowel marks <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" > and
   <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" > cause difficulties because each of them 
@@ -682,13 +646,16 @@ When it's added to a noun it means "and". It also often occurs as the first lett
   </p>
   <p>As we have already seen, in Biblical Hebrew, the <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" > mark in some words indicates 
 a vowel with "uh" sound and in other words indicates that there is no sound. </p>
-<p>In relation to syllables, <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" > is either:</p>
+<p>In relation to syllables, <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" > 
+is either:</p>
 <ul style="margin-left:40px;list-style-type:circle; ">
 <li> the <strong>vowel</strong> in a <strong>Consonant-Vowel</strong> syllable 
 (pronounced with a <strong>short "uh" sound</strong>),   
  <br>or
-<li> marking the <strong>end</strong> of a <strong>Consonant-Vowel-Consonant</strong> syllable (<strong>no sound</strong>) 	
-
+ </li>
+<li> marking the <strong>end</strong> of a <strong>Consonant-Vowel-Consonant</strong> 
+syllable (<strong>no sound</strong>) 	
+</li>
 </ul>
  
  <p ><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>
@@ -734,6 +701,7 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
  	   <p>If there are 2 together at the
 	   end of a word <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" ><img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" > , 
 	   they mark the end of a syllable that looks like Consonant-Vowel-Consonant-Consonant (both silent)
+	   </p>
        <div class="flex-container-ltr flex-container-examples ">
 		<div><span class="hebrew30 soundclick"> אָמַרְתְּ </span><span class="hidden">alefbet_words/w011_amart</span>
 	   	    <br>
@@ -766,6 +734,7 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
       	    <span class="hebrew30">אִשְׁ תְּ </span> <span class="hebrew30 unmarked-text">  ךָ</span>  
 	   </div> 
  	   </div>
+	   </li>
         
   <li><p>If there is the <img src="images/vowels/meteg_blue.jpg" class=" vowel-image-intext2" > mark under the previous consonant, 
         ie <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" >
@@ -786,6 +755,7 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
        	    <span class="hebrew30">נָֽ תְ </span> <span class="hebrew30 unmarked-text">  נוּ  </span>  
 		</div> 
  	   </div>
+	   </li>
     <li><p><span class="hebrew30"> יְ </span>&thinsp; is Consonant-Vowel (short "uh" sound)
      </p>
         <div class="flex-container-ltr flex-container-examples ">
@@ -805,7 +775,7 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
 			  <span class="hebrew30 unmarked-text">דַ בֵּר</span> 
 		</div>	  
  	   </div>
-  
+     </li>
 		</ul>
 		
  
@@ -824,9 +794,11 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
 		  <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" style="margin-left:-5px;"> is a Consonant-Vowel-Consonant syllable, 
          <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2"> is pronounced "o"
 		 <p></p>
+	</li>	 
    <li>If <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext2" >
 		  <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" style="margin-left:-5px;"> is 2 Consonant-Vowel syllables 
       <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2">  is pronounced "a"
+	 </li> 
    </ul>	  
          
      <div  class="flex-container-ltr flex-container-examples ">
@@ -853,28 +825,24 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
 		
  </div>
 
-		  	 
-  </div>
-  
- 
- 
- 
-   
-<!--
-    kametz a or o
- -->
-<div id="alefbetplus10" class="detail-item hidden alefbet-plus-color"  >  
-<h2 ><img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext" > "a" or "o"? Pronunciation of the vowel kamatz
-<span class="btn-close"  onclick="menuContentClose(this)"></span>
-  </h2>
+</div>
+
+
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent"><span class="button-plus"></span> 
+<img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" > "a" or "o"? 
+		   Pronunciation of the vowel kamatz</h3>
+<div class="hidden  alefbetplus-detail-item">
  <p><img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" > is mostly pronounced <strong>"a"</strong> </p>
  <ul>
    <li><p>It is pronounced <strong>"a"</strong> if the syllable in which it occurs is <strong>stressed</strong>.</p>
+   </li>
    <li><p>It's also almost always pronounced <strong>"a"</strong> in a <strong>Consonant-Vowel syllable</strong> (there's one infrequently occurring
  exception, marked * in the table below). </p>
+   </li>
    <li><p>It is only pronounced <strong>"o"</strong> in an <strong>unstressed Consonant-Vowel-Consonant syllable</strong>. By far the most frequent occurrence of the "o" pronunciation is    
  <span class="hebrew30 main-color soundclick">כָל־</span><span class="hidden">alefbet_words/w010_chol</span> /  
 	<span class="hebrew30 main-color soundclick">כָּל־</span><span class="hidden">alefbet_words/w010_kol</span> &emsp;</p>
+   </li>
  </ul>
  <p>It's therefore mostly straightforward to decide whether 
  <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" > should be pronounced "a" or "o".</p>
@@ -1000,7 +968,7 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
 	 </h4>
 	  <div class="hidden">
 	  <p><img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" > is pronounced <strong>"o"</strong> 
-	when it occurs before <img src="images/vowels/o1.jpg" class=" vowel-image-intext2" ><p>
+	when it occurs before <img src="images/vowels/o1.jpg" class=" vowel-image-intext2" ></p>
    
 	  <p>This is the only time <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2" > is pronounced <strong>"o"</strong>  
 	   in a Consonant-Vowel syllable. </p>
@@ -1045,11 +1013,11 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
     <td>
 	  <h4 class="main-color"><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span> Unstressed Consonant-Vowel-Consonant syllable 
        at the <strong>end</strong> of a word  
- </h4>
+       </h4>
 	  <div class="hidden">
-   <ul>
+      <ul>
    
-  <li>
+     <li>
   <p>where the word ending in a Consonant-Vowel-Consonant syllable is attached to next word, 
   so none of the syllables in the word are stressed</p>
    <p>This occurs most frequently with the word 
@@ -1065,7 +1033,7 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
      <div><span class="hebrew30 soundclick">מִכָּל־בָּנָיו</span><span class="hidden">alefbet_words/w010_mikol_banav </span><br> from all his sons</div>
      <div><span class="hebrew30 soundclick">לְכָל־מִצְרַיִם</span><span class="hidden">alefbet_words/w010_lchol_mitzraim</span><br> to all Egypt</div>
      </div> <!-- flex-container-examples -->
-
+   </li>
    <li>   
    <p>where stress is on the second last syllable </p>
    <p>These are the most frequently occurring examples:</p>
@@ -1114,7 +1082,7 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
 		 </div>
       </div> <!-- flex-container-examples -->
 	  <p></p>
- 
+     </li>
      </ul>
  	  </div>
      </td>
@@ -1131,27 +1099,18 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
  </tr>
 
   </table>
-  
+
 </div>
 
-<!-- kametz a or o -->
 
 
-
-
-
- 
-   
-<!--
-    kametz a or o
- -->
-<div id="alefbetplus11" class="detail-item hidden alefbet-plus-color"  >  
-<h2><img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext"> "a" or "o"? 
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent"><span class="button-plus"></span> 
+<img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext"> "a" or "o"? 
        The troublesome <img src="images/vowels/uh_or_silent.jpg" class=" vowel-image-intext" >
 		  <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext" style="margin-left:-5px;"> combination
 		  <span class="btn-close"  onclick="menuContentClose(this)"></span>
-  </h2>
- 
+</h3>
+<div class="hidden  alefbetplus-detail-item">
  
  <table class="kametz-table">
 
@@ -1161,8 +1120,10 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
        <ul>
        <li> a Consonant-Vowel-Consonant syllable, in which case
        <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2"> is pronounced "o" 
+	   </li>
 	   <li>or 2 Consonant-Vowel syllables, in which case   <img src="images/vowels/a_or_o.jpg" class=" vowel-image-intext2"> is pronounced "a"
-       </ul>	  
+       </li>
+	   </ul>	  
     <div class="example-spacing"> </div>  
     <div  class="flex-container-ltr flex-container-examples " style="padding:0;">
       <div><p><span class="hebrew30 soundclick"> חָכְמָה   </span><span class="hidden">alefbet_words/w271_chochma </span></p>
@@ -1181,9 +1142,6 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
  	   Once you have learned some biblical Hebrew, you may find this useful.</p>
 	 </td>	   
  </tr>
-
-
-
 
  <tr><td><p>a</p></td>
     <td>
@@ -1289,6 +1247,7 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
        <span class="hebrew30 soundclick">אֲכָלְךָ</span><span class="hidden">alefbet_words/w058_acholcha</span>	"your eating" </p>
 	 
 	 </div>
+	 </div>
      </td>
 
  <tr><td><p>o</p></td>
@@ -1339,6 +1298,8 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
 	  <p>Note especially that when a suffix (for example <span class="hebrew30">&#1498;&#1464;</span>) is added to a word with the sound "o"
 	  such as <span class="hebrew30 soundclick">קֹדֶשׁ</span><span class="hidden">alefbet_words/w108_kodesh</span>, the "o" sound is retained
 	   (<span class="hebrew30 soundclick">קָדְשְׁךָ</span><span class="hidden">alefbet_words/w108_kodshuhcha</span>).
+	  </p>
+	  </p>
 	  </div>
 	  </td>
 
@@ -1347,13 +1308,10 @@ a vowel with "uh" sound and in other words indicates that there is no sound. </p
   </table>
 
 </div>
-<!-- kametz a or o -->
 
-<!--
-  translations of Hebrew example words
--->
-<div id="alefbetplus12" class="detail-item hidden alefbet-plus-color"  >  
-<h2>Hebrew-English translations <span class="btn-close"  onclick="menuContentClose(this)"></span></h2>
+<h3 onclick="ShowHideNextSibling(event)" class="clickable nomargin alefbetplus-indent"><span class="button-plus"></span> 
+Hebrew-English translations</h3>
+<div class="hidden  alefbetplus-detail-item">
 <p>Please note: <br>For many Biblical Hebrew words there are several possible translations, depending on the context. 
 <br>The translations in this 
 list are by no means all the possible translations for every word.</p>
@@ -1656,6 +1614,61 @@ list are by no means all the possible translations for every word.</p>
  
  </div>
  
+
+</div>
+
+  
+<!--
+    consonants and vowels pronunciation variations  
+-->
+ 
+<!--
+    history of vav and yod  
+ -->
+ 
+<!--
+   more about pronouncung tetragramaton
+ -->
+
+ 
+ <!--
+    vowel names   
+-->
+
+
+<!--
+   names of marks
+-->
+
+<!--
+   When is secondlast syllable stressed?  
+-->
+
+<!--
+ u at start of word  
+-->
+ 
+ 
+<!--
+    kametz/schwah words into syllables   
+ -->
+ 
+   
+<!--
+    kametz a or o
+ -->
+
+<!-- kametz a or o -->
+
+   
+<!--
+    kametz a or o
+ -->
+<!-- kametz a or o -->
+
+<!--
+  translations of Hebrew example words
+-->
 
  <p> </p>
 
