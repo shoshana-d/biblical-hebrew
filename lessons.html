@@ -47,44 +47,49 @@
 	  text-align: left;
    }
    
-   
+   .lessons-toc-table-2cols-colspan{
+        text-align:left;
+		padding-top:0;	
+	}
+	
+
    
    /* 1. Define the parent container layout for column 1*/
    /*----------------------------------------------------*/
-.lessons-toc-col1-flex-container {
-  display: flex;
-  flex-wrap: wrap; /* Allows items to stack when they run out of room */
-  gap: 10px;       /* Adds clean spacing between the two divs */
-}
+  .lessons-toc-col1-flex-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to stack when they run out of room */
+    gap: 10px;       /* Adds clean spacing between the two divs */
+  }
 
    /* Lesson link button */
    /*---------------------*/
-/* 2. Configure the first child element version 1*/
-.lessons-toc-col1-flex-container-div1 {
-  flex: 1 1 10px; /* Grow, shrink, and set a 250px baseline width */
-}
+   /* 2. Configure the first child element version 1*/
+   .lessons-toc-col1-flex-container-div1 {
+       flex: 1 1 10px; /* Grow, shrink, and set a 250px baseline width */
+   }
 
-/* 2. Fixed width column (does not grow, does not shrink) */
-.lessons-toc-col1-flex-container-div1 {
-  flex: 0 0 10px; /* Grow: 0, Shrink: 0, Basis: 250px */
-  /* Optional: width: 100% can be applied via media query if you want it full-width when stacked */
-}
+   /* 2. Fixed width column (does not grow, does not shrink) */
+  .lessons-toc-col1-flex-container-div1 {
+      flex: 0 0 10px; /* Grow: 0, Shrink: 0, Basis: 250px */
+     /* Optional: width: 100% can be applied via media query if you want it full-width when stacked */
+  }
 
-  /* Info about lesson */
-  /*-------------------------------------------------*/
-  /* 3. Configure the text-heavy child element version 1*/
+   /* Info about lesson */
+   /*-------------------------------------------------*/
+   /* 3. Configure the text-heavy child element version 1*/
  .lessons-toc-col1-flex-container-div2 {
-  flex: 2 1 350px; /* Takes up twice the remaining space if available */
-  flex: 2 1 50px; /* Takes up twice the remaining space if available */
-  min-width: 0;    /* CRITICAL: Forces long words/text strings to wrap */
-  word-wrap: break-word; /* Optional safety net for unbroken long URLs */
-}
+     flex: 2 1 350px; /* Takes up twice the remaining space if available */
+     flex: 2 1 50px; /* Takes up twice the remaining space if available */
+     min-width: 0;    /* CRITICAL: Forces long words/text strings to wrap */
+     word-wrap: break-word; /* Optional safety net for unbroken long URLs */
+  }
 
-/* 3. Expanding column with wrapped text */
-.lessons-toc-col1-flex-container-div2 {
-  flex: 1 1 300px; /* Grow: 1 (fills space), Shrink: 1, Basis: 300px (stacking point) */
-  min-width: 0;    /* Forces text to wrap instead of overflowing */
-}
+  /* 3. Expanding column with wrapped text */
+ .lessons-toc-col1-flex-container-div2 {
+    flex: 1 1 300px; /* Grow: 1 (fills space), Shrink: 1, Basis: 300px (stacking point) */
+    min-width: 0;    /* Forces text to wrap instead of overflowing */
+  }
 
   
  
@@ -527,9 +532,9 @@ Some sections have "more detail". These are not essential, suggest at first leav
  
  <h2  class="w3-container w3-card  w3-cursive heading-color">Lessons</h2>
  
- <table class="lessons-toc-table-3cols ">
+ <table class="lessons-toc-table">
  <tr>
- <td colspan="3"   style="text-align:left;padding-top:0"> 
+ <td colspan="2"   class="lessons-toc-table-2cols-colspan"> 
 
  <p>In these lessons, our starting point will be the English translation of the Tanakh. 
   We will decipher the Biblical text by working out which
@@ -587,13 +592,13 @@ Some sections have "more detail". These are not essential, suggest at first leav
               <a href="lesson02-nouns-ben-bat-elohim-eretz.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 2</span></a>
 		   </div>
            <div class="lessons-toc-col1-flex-container-div2">
-              Common nouns, ben, elohim, eretz, singular/plural, (gender), no special form
-              including construct,   no Tanakh Hebrew word for of, when 2 nouns together, 
-                translated as though "of" between them
-  
-             but as we will see, need to be detective cos may have prefix and/or suffix
-                need to learn to recognize the most frequently occurring
-             -im, -ot endings always stressed
+              <span class="hebrew30-wrap soundclick">בְּנֵי יִשְׂרָאֵל </span><span class="hidden">words/w013_bnei_yisrael</span> 
+              <br><span> the sons of Israel</span>
+			  <br>
+              <span class="hebrew30-wrap soundclick">בְּנוֹת צְלׇפְחָד</span><span class="hidden">words/w082_bnot_tselophad</span> 
+			  <br><span> the daughters of Zelophehad</span>
+			  <br><br>
+             How Tanakh nouns work: singular, plural, "of"
            </div>
   
       </div>
@@ -622,8 +627,8 @@ Some sections have "more detail". These are not essential, suggest at first leav
            <div class="flex-container-ltr">
 		     <span class="hebrew30 soundclick">אֶרֶץ</span><span class="hidden">words/w021_eretz </span>&ensp;   
         <span class="lessons-toc-noun-divider"></span>		 
-		     <span class="hebrew30 soundclick">	אֲרָצוֹת</span><span class="hidden">words/w021_arazot </span>&ensp;   
-		     <span class="hebrew30 soundclick">	אַרְצוֺת </span><span class="hidden">words/w021_arzot </span>&emsp;   
+		     <span class="hebrew30 soundclick  reference-table-infrequent2">	אֲרָצוֹת</span><span class="hidden">words/w021_arazot </span>&ensp;   
+		     <span class="hebrew30 soundclick  reference-table-infrequent2">	אַרְצוֺת </span><span class="hidden">words/w021_arzot </span>&emsp;   
 		  </div>
 		  </div>
 		  
@@ -652,6 +657,97 @@ Some sections have "more detail". These are not essential, suggest at first leav
  </td>
 </tr>
  
+
+
+<tr>
+ <td colspan="2"  class="lessons-toc-table-2cols-colspan" style="text-align:left;padding-top:0"> 
+<p>Some very frequent English words are not separate words in Biblical Hebrew. In Biblical Hebrew, 
+  these "words" are added as <b>prefixes</b> (at the beginning of a Hebrew word)  or <b>suffixes</b> 
+  (at the end of a word). 
+<p>  
+<ul>
+
+<li>The 6 <b>prefix</b> "words": and <span class="hebrew30 "><b>ו</b></span>, 
+the <span class="hebrew30 "><b>הַ</b></span>, 
+to <span class="hebrew30  "><b>ל</b></span>, 
+in <span class="hebrew30 "><b>בּ </b></span>, 
+from <span class="hebrew30 "><b>מִ</b></span>, 
+like/as <span class="hebrew30  "><b>כּ</b></span>  
+
+&emsp;For example:
+<span class="button-plus" onclick="ShowHideNextItem(this)"></span>
+
+ <div class="hidden nextItem " >
+   <div class="javascript-example-ltr javascript-border"> </div>   
+     <div class="hidden">
+       <div class="js-hebrew"> <p> עִיר </p><p> הָעִיר </p><p> וְעִיר   </p><p> וְהָעִיר </p><p> לְעִיר  </p> 
+          <p> בְּעִיר  </p> <p> מֵעִיר </p> <p> כְּעִיר </p> 
+       </div>	
+       <p class="js-translation">city/town | the city| and a city|and the city|to a city|in a city|from a city|like a city</p>
+       <p class="js-audio-individual"> w039_ir|  |  | || ||</p>
+       <p class="js-audio-individual-dir"> words </p>
+       <p class="js-highlight"> |1|1 |1 2 |1|1|1|1 </p>	   
+   </div>
+
+ </div>
+</li>
+<li><b>Suffix</b> "words": my, your, his, her, our, their, me, you, him, us, them
+&emsp;For example:
+<span class="button-plus" onclick="ShowHideNextItem(this)"></span>
+ <div class="hidden nextItem">
+    <div class="javascript-example-ltr javascript-border"> </div>   
+     <div class="hidden">
+       <div class="js-hebrew"> <p> עִיר </p><p> עִירוֹ </p><p>עִירָהּ   </p><p> עִירִי </p> <p>  עִירָם  </p>
+       </div>	
+       <p class="js-translation">city/town | his city|her city|my city| their city</p>
+       <p class="js-audio-individual"> w039_ir|  |  | || ||</p>
+       <p class="js-audio-individual-dir"> words </p>
+       <p class="js-highlight"> |4|4 |4 |4 </p>	   
+   </div>
+
+     <div class="javascript-example-ltr javascript-border"> </div>   
+     <div class="hidden">
+       <div class="js-hebrew"> <p> אֶל </p><p>אֵלָיו     </p><p> אֵלֶיהָ  </p><p> אֵלַי    </p><p>   אֵלֶיךָ     </p> <p> אֲלֵהֶם    </p> 
+       </div>	
+       <p class="js-translation">to | to him | to her| to me |to you|to them </p>
+       <p class="js-audio-individual"> w008_el|  |  | || </p>
+       <p class="js-audio-individual-dir"> words </p>
+       <p class="js-highlight"> |3 4|3 4 |3  | 3 4|3 4</p>	   
+   </div>
+</div>
+
+</li>
+<li>
+   A word can have both a prefix AND a suffix.
+&emsp;For example:
+<span class="button-plus" onclick="ShowHideNextItem(this)"></span>
+
+ <div class="hidden nextItem ">
+    <div class="javascript-example-ltr javascript-border"> </div>   
+     <div class="hidden">
+       <div class="js-hebrew"> <p> עִיר </p><p>מֵעִירוֺ</p><p> אֶל </p><p>וְאֵלָיו </p>
+       </div>	
+       <p class="js-translation">city/town |from his city|to| and to him</p>
+       <p class="js-audio-individual"> w039_ir|  | w008_el|  </p>
+       <p class="js-audio-individual-dir"> words </p>
+       <p class="js-highlight"> |1 5| |1 5</p>	   
+   </div>
+   
+ </div>
+</li>
+</ul>
+
+ 
+<p>This means that a single Hebrew word often corresponds to two or more English words. 
+It also means that it can be tricky to recognize words which you know because 
+they may have a prefix and/or a suffix.
+ </p>
+ <p>In the next lesson we will learn about the 2 most frequent prefixes.
+ </p>
+ </td>     
+</tr>
+
+ 
  <tr>
  <td colspan="2"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0"> 
 
@@ -664,8 +760,87 @@ There's lots of talking in the Tanakh: God talks to people,
  </td>     
 </tr>
 
-
  
+<tr>
+ <td colspan="2"  class="lessons-toc-table-3cols-colspan" style="color:gray"> 
+Now starting with vav and ha, also vav-ha,  vav at start of non-verbs,
+explain this lesson only about vav=and, later lesson about vav=verb
+
+Maybe combine these 2 lessons, ie vav and ha in one lesson?
+  </td>     
+</tr>
+
+
+<tr class="lessons-toc-table-prefix-suffix-color">
+  <td><a href="lesson05-vav.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 5</span></a></td>
+  <td >
+  <br>The Hebrew prefix <span class="hebrew30 ">ו</span> "and" 
+  </td>
+  <td>
+   
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr">
+             <span class="v-prefix hebrew30"></span>		  
+            </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30">וַ</span>&ensp; 
+            </div>
+           <div class="flex-container-ltr">
+             <span class="u-prefix hebrew30"></span>&ensp; 
+            </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30">וָ</span>&ensp; 
+            </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30">וִי</span>&ensp; 
+            </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30">וֶ</span>&ensp; 
+            </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30">וֵ</span>&ensp; 
+            </div>
+         </div> <!-- lessons-toc-flex-container-vocab-list-->
+  </td>
+</tr>
+ 
+ 
+<tr>
+ <td colspan="2"  class="lessons-toc-table-2cols-colspan" style="text-align:left;padding-top:0; color:gray"> 
+this lesson about "the" with corresponding "ha", later lessons about "the" no "ha" (construct with proper noun, 
+l'ha etc)-construct now covered in lesson 2, can deal with l'ha etc in l'lesson so may not need this later lesson,
+ and "ha" with no "the" (one lesson about ha ele and adjectives, another about verb to be)
+includes v'ha
+  </td>     
+</tr>
+
+
+<tr class="lessons-toc-table-prefix-suffix-color">
+  <td><a href="lesson06-ha.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 6</span></a></td>
+  <td ><span class="hebrew30 soundclick">וְהָאָרֶץ</span>
+  "and the land" 
+  <br>The Hebrew prefix <span class="hebrew30 ha-prefix "></span> "the"
+  </td>
+  <td>
+   
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+            <div class="flex-container-ltr">
+             <span class="hebrew30 ha-prefix"></span>  
+           </div>
+         </div> <!-- lessons-toc-flex-container-vocab-list-->
+  </td>
+</tr>
+ 
+ 
+<tr class="lessons-toc-table-prefix-suffix-color">
+  <td><a href="old-lesson06-prefixes.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson xx</span></a></td>
+  <td > original 6 prefixes lesson with tables of all 6 prefixes, and exercise finding "ha"="the"
+  </td>
+  <td>
+   </td>
+</tr>
+
+
 
 <tr class="verb-color">
   <td><div class="lessons-toc-col1-flex-container ">
@@ -714,6 +889,8 @@ There's lots of talking in the Tanakh: God talks to people,
 
 
 
+
+
  </table>
 <p></p>
 
@@ -729,121 +906,6 @@ There's lots of talking in the Tanakh: God talks to people,
 
  <table class="lessons-toc-table-3cols ">
  
-
-<tr class="noun-color">
-  <td><a href="lesson01-names.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 1</span></a></td>
-  <td >Words for God, names of people and places (proper nouns)</td>
-   <td>         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-              <span class="hebrew30 ">יְהוָה</span>
-		  </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30  soundclick">אֱלֹהִים</span><span class="hidden">words/w018_elohim</span>  
-           </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30   soundclick"> אֲדוֹנָי</span><span class="hidden">words/w062_adonai</span> 
-            </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30  soundclick">אֵל</span><span class="hidden">words/w188_el </span>
-           </div>
-           <div class="flex-container-ltr">
-              <span class="hebrew30  soundclick">יָהּ</span><span class="hidden">alefbet/yah </span>  
-           </div>
-          </div> <!-- lessons-toc-flex-container-vocab-list-->
-  </td>
-</tr>
-
-<tr>
- <td colspan="3"   style="text-align:left;padding-top:0; color:gray"> 
-<p>deal with maqqef here instead of in next lesson? ben-, bnei-</p>
-</td>
-</tr>
-
-<tr class="noun-color">
-  <td><a href="lesson02-nouns-ben-bat-elohim-eretz.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 2</span></a></td>
-  <td >Common nouns, ben, elohim, eretz, singular/plural, (gender), no special form
-  including construct,   no Tanakh Hebrew word for of, when 2 nouns together, 
-  translated as though "of" between them
-  
-but as we will see, need to be detective cos may have prefix and/or suffix
-  need to learn to recognize the most frequently occurring
-  -im, -ot endings always stressed
- </td>
- <td>
-           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-             <span class="hebrew30 soundclick">בֵּן</span><span class="hidden">words/w013_ben</span>&ensp;  		  
-              <span class="hebrew30  soundclick">בֶּן</span><span class="hidden">words/w013_ben</span>&ensp; 
-          <span class="lessons-toc-noun-divider" ></span>		 
-            <span class="hebrew30  soundclick">	בָּנִים</span><span class="hidden">words/w013_banim</span>&ensp; 
-             <span class="hebrew30   soundclick">בְּנֵי</span><span class="hidden">words/w013_bnei</span>&emsp;  		  
-           </div>
- 		  </div> 
-		  
-          <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-            <span class="lessons-toc-noun-divider" ></span>		 
-             <span class="hebrew30  soundclick">אֱלֹהִים</span><span class="hidden">words/w018_elohim</span>&ensp;  
-             <span class="hebrew30  soundclick">אֱלֹהֵי</span><span class="hidden">words/w018_elohei</span> 
-           </div>
-  		  </div> 
-		  
-         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-		     <span class="hebrew30 soundclick">אֶרֶץ</span><span class="hidden">words/w021_eretz </span>&ensp;   
-        <span class="lessons-toc-noun-divider"></span>		 
-		     <span class="hebrew30 soundclick">	אֲרָצוֹת</span><span class="hidden">words/w021_arazot </span>&ensp;   
-		     <span class="hebrew30 soundclick">	אַרְצוֺת </span><span class="hidden">words/w021_arzot </span>&emsp;   
-		  </div>
-		  </div>
-		  
-		  
-         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-		     <span class="hebrew30 soundclick">בַּת</span><span class="hidden">words/w082_bat </span>&ensp;   
-        <span class="lessons-toc-noun-divider"></span>		 
-		     <span class="hebrew30 soundclick">בָּנוֺת</span><span class="hidden">words/w082_banot </span>&ensp;   
-		     <span class="hebrew30 soundclick">בְּנוֺת</span><span class="hidden">words/w082_bnot </span>&emsp;   
-		  </div>
-		  </div>
-		  
-        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-            <div class="flex-container-ltr">
-             <span><img src="images/suffixes/plural-ending-im.jpg" class="vowel-image-plural-ending"></span>	  
-            </div>
-           <div class="flex-container-ltr">
-             <span><img src="images/suffixes/plural-ending-ot.jpg" class="vowel-image-plural-ending"></span>	  
-            </div>
-           <div class="flex-container-ltr">
-             <span><img src="images/suffixes/plural-ending-ei.jpg" class="vowel-image-plural-ending"></span>	  
-            </div>
-
-          </div> <!-- lessons-toc-flex-container-vocab-list-->
- </td>
-</tr>
-
-<tr>
- <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0; color:gray"> 
-<p>things not dealt with in the first lessons:</p>
-
-  <ul> 
- <li>Order of words is different,  adjective after noun (hazeh,hazot,numbers), negative before verb
-  </li>
-  <li>the Hebrew word et which has no English equivalent
-  </li>
-  <li>verbs needing more than one English word because of tense or order
-  </li>
-  <li>In Tanakh Hebrew, verbs are single words which contain a lot of information, so they often need 2 or more
-     English words to translate them </li>
- 
-   <li>sentences without verbs
-  </li>
-   <li> no punctuation apart from cantillation marks</li>
-  
-  </ul>
-</td>
-</tr>
-
 
 
 <tr>
@@ -962,176 +1024,6 @@ vayomer,   el , word order (verb first)
 </tr>
 
 
-
-<tr>
- <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0"> 
-<p>As we have seen in the previous lessons, a verb which is a single word in Hebrew can correspond to two or more
-words in the English translation</p> 
- 
-<p>In the next lessons you will learn about other  ways in which a single Hebrew word often corresponds 
-to two or more English words. 
- </p>
-<ul>
-
-<li>
-Some English words are not separate words in Biblical Hebrew. In Biblical Hebrew, 
-  these "words" are added as <b>prefixes</b> (at the beginning of a Hebrew word)  or <b>suffixes</b> 
-  (at the end of a word). 
-</li>
-<li>The 6 <b>prefix</b> "words": and <span class="hebrew30 ">ו</span>, 
-the <span class="hebrew30 ha-prefix "></span>, 
-to <span class="hebrew30  ">ל</span>, 
-in <span class="hebrew30 ">בּ </span>, 
-from <span class="hebrew30 mi-prefix "></span>, 
-like/as <span class="hebrew30  ">כּ</span>  
-
-&emsp;For example:
-<span class="button-plus" onclick="ShowHideNextItem(this)"></span>
-
- <div class="hidden nextItem " >
-   <div class="javascript-example-ltr javascript-border"> </div>   
-     <div class="hidden">
-       <div class="js-hebrew"> <p> עִיר </p><p> הָעִיר </p><p> וְעִיר   </p><p> וְהָעִיר </p><p> לְעִיר  </p> 
-          <p> בְּעִיר  </p> <p> מֵעִיר </p> <p> כְּעִיר </p> 
-       </div>	
-       <p class="js-translation">city/town | the city| and a city|and the city|to a city|in a city|from a city|like a city</p>
-       <p class="js-audio-individual"> w039_ir|  |  | || ||</p>
-       <p class="js-audio-individual-dir"> words </p>
-       <p class="js-highlight"> |1|1 |1 2 |1|1|1|1 </p>	   
-   </div>
-
- </div>
-</li>
-<li><b>Suffix</b> "words": my, your, his, her, our, their, me, you, him, us, them
-&emsp;For example:
-<span class="button-plus" onclick="ShowHideNextItem(this)"></span>
- <div class="hidden nextItem">
-    <div class="javascript-example-ltr javascript-border"> </div>   
-     <div class="hidden">
-       <div class="js-hebrew"> <p> עִיר </p><p> עִירוֹ </p><p>עִירָהּ   </p><p> עִירִי </p> <p>  עִירָם  </p>
-       </div>	
-       <p class="js-translation">city/town | his city|her city|my city| their city</p>
-       <p class="js-audio-individual"> w039_ir|  |  | || ||</p>
-       <p class="js-audio-individual-dir"> words </p>
-       <p class="js-highlight"> |4|4 |4 |4 </p>	   
-   </div>
-
-     <div class="javascript-example-ltr javascript-border"> </div>   
-     <div class="hidden">
-       <div class="js-hebrew"> <p> אֶל </p><p>אֵלָיו     </p><p> אֵלֶיהָ  </p><p> אֵלַי    </p><p>   אֵלֶיךָ     </p> <p> אֲלֵהֶם    </p> 
-       </div>	
-       <p class="js-translation">to | to him | to her| to me |to you|to them </p>
-       <p class="js-audio-individual"> w008_el|  |  | || </p>
-       <p class="js-audio-individual-dir"> words </p>
-       <p class="js-highlight"> |3 4|3 4 |3  | 3 4|3 4</p>	   
-   </div>
-</div>
-
-</li>
-<li>
-   A word can have both a prefix AND a suffix.
-&emsp;For example:
-<span class="button-plus" onclick="ShowHideNextItem(this)"></span>
-
- <div class="hidden nextItem ">
-    <div class="javascript-example-ltr javascript-border"> </div>   
-     <div class="hidden">
-       <div class="js-hebrew"> <p> עִיר </p><p>מֵעִירוֺ</p><p> אֶל </p><p>וְאֵלָיו </p>
-       </div>	
-       <p class="js-translation">city/town |from his city|to| and to him</p>
-       <p class="js-audio-individual"> w039_ir|  | w008_el|  </p>
-       <p class="js-audio-individual-dir"> words </p>
-       <p class="js-highlight"> |1 5| |1 5</p>	   
-   </div>
-   
- </div>
-</li>
-</ul>
-
- </td>     
-</tr>
-
-
-
-<tr>
- <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="color:gray"> 
-Now starting with vav and ha, also vav-ha,  vav at start of non-verbs,
-explain this lesson only about vav=and, later lesson about vav=verb
-  </td>     
-</tr>
-
-
-
-<tr class="lessons-toc-table-prefix-suffix-color">
-  <td><a href="lesson05-vav.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 5</span></a></td>
-  <td >
-  <br>The Hebrew prefix <span class="hebrew30 ">ו</span> "and" 
-  </td>
-  <td>
-   
-           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-             <span class="v-prefix hebrew30"></span>		  
-            </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30">וַ</span>&ensp; 
-            </div>
-           <div class="flex-container-ltr">
-             <span class="u-prefix hebrew30"></span>&ensp; 
-            </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30">וָ</span>&ensp; 
-            </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30">וִי</span>&ensp; 
-            </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30">וֶ</span>&ensp; 
-            </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30">וֵ</span>&ensp; 
-            </div>
-         </div> <!-- lessons-toc-flex-container-vocab-list-->
-  </td>
-</tr>
- 
- 
-<tr>
- <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0; color:gray"> 
-this lesson about "the" with corresponding "ha", later lessons about "the" no "ha" (construct with proper noun, 
-l'ha etc)-construct now covered in lesson 2, can deal with l'ha etc in l'lesson so may not need this later lesson,
- and "ha" with no "the" (one lesson about ha ele and adjectives, another about verb to be)
-includes v'ha
-  </td>     
-</tr>
-
-
-
-
-<tr class="lessons-toc-table-prefix-suffix-color">
-  <td><a href="lesson06-ha.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 6</span></a></td>
-  <td ><span class="hebrew30 soundclick">וְהָאָרֶץ</span>
-  "and the land" 
-  <br>The Hebrew prefix <span class="hebrew30 ha-prefix "></span> "the"
-  </td>
-  <td>
-   
-           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-            <div class="flex-container-ltr">
-             <span class="hebrew30 ha-prefix"></span>  
-           </div>
-         </div> <!-- lessons-toc-flex-container-vocab-list-->
-  </td>
-</tr>
- 
- 
-<tr class="lessons-toc-table-prefix-suffix-color">
-  <td><a href="old-lesson06-prefixes.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson xx</span></a></td>
-  <td > original 6 prefixes lesson with tables of all 6 prefixes, and exercise finding "ha"="the"
-  </td>
-  <td>
-   </td>
-</tr>
 
 
 
