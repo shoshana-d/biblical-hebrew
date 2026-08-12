@@ -36,11 +36,172 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 .w3-center .w3-bar{display:inline-block;width:auto}
 
 
+/*---------------------------------------*/
+
+  /* used in alefbet and top menu */
+.w3-card-4{box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
+.w3-card-4 {margin-bottom: 15px;}	
+
+  /* used in alefbet exercises */
+.w3-card{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
+
+
+/*  used in headings (not h1 top heading or individual lessons headings) */
+/*------------------------------------------*/
+.w3-container{
+/* my extras, to counteract main */	
+    padding:0.01em 16px; 
+	margin-left:-16px; 
+	margin-right:-16px;
+} 
+.w3-container:after,
+.w3-container:before
+{content:"";display:table;clear:both}
+
+
+/*------ redefinitions of tags-----------------------*/
+/*---------------------------------------------------*/
+/* redefinitions of h2 etc */
+/*--------------------------*/
+/* h2{font-size:30px} h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}*/
+h1{font-size:36px}h2{font-size:22px}h3{font-size:18px}h4{font-size:18px}h5{font-size:16px}h6{font-size:16px}
+h1,h2,h3,h4,h5,h6{font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;font-weight:400;margin:10px 0}
+
+html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}
+html{overflow-x:hidden}
+html{
+/*
+  max-width:1100px;
+  max-width:70ch;
+  max-width:850px;
+  max-width:1000px;
+ */ 
+  margin: auto;
+	
+  /*  background-size:cover;*/
+/*	background-image:url("../images/chenspec-apples-5949836.jpg");*/
+ /* Shrink the image to a specific width and height (e.g., 50px by 50px) 
+  background-size: 300px 200px; 
+ */ 
+  /* Forces the shrunken image to repeat horizontally and vertically 
+  background-repeat: repeat; 
+*/
+  background-color:LightBlue;
+}
+/*	
+p {
+   margin: 10px;
+}
+
+p.margin2px {
+   margin:2px;
+} 
+  
+ */ 
+p {
+  font-size: 1rem;              /* Baseline font size */
+  line-height: 1.6;             /* Optimal line height for body text */
+  margin-block-start: 0;        /* Clear default top margins to avoid collapse chaos */
+  margin-block-end: 1.25rem;    /* Optimal space between paragraphs */
+  max-width: 65ch;              /* Keeps line length readable (~45-75 characters) */
+} 
+p.nomargin{
+   margin-bottom:0;	
+}	
+h3.nomargin{
+   margin:0;
+}  
+header{
+	padding-top:0.01em;
+	padding-bottom:0.01em;
+	padding-left:16px;
+	padding-right:16px;
+
+	background-size:cover;
+	background-image:url("../images/header-esther-scroll.jpg");
+}	
+header >h1{
+   text-align:center;	
+   color:white;
+   background-color:#b91d47;  /* = w3-metro-dark-red */
+   font-size:50px;
+   font-size:40px;
+   font-size:36px;
+   margin-left:60px;
+   margin-right:60px;
+   margin-top:65px;
+   margin-bottom:65px;
+   
+   margin-left:20px;
+   margin-right:20px;
+
+}
+header >h1::before{
+   content:"Getting started in Biblical Hebrew:\a";
+   white-space: pre; 
+   white-space: pre-wrap; 
+   white-space: normal; 
+}
+footer {
+   background-color: #b91d47;  /* = w3-metro-dark-red */
+   color: white;
+   padding: 15px;
+   margin-top:10px;
+}	
+
+main {
+  /* w3-container 
+ /* padding:0.01em 5px 16px ;/* top/bottom right/left */
+	
+/* from chatgpt */	
+  max-width: 65ch;        /* Limits your text layout to ~65 characters */
+  max-width:80ch;
+  width: 100%;            /* Keeps it fully responsive on mobile devices */
+  margin-inline: auto;    /* Centers the entire text block on large screens */
+  padding-inline: 1.5rem; /* Prevents text from touching mobile screen edges */
+  box-sizing: border-box; /* Ensures the padding is included in the width */
+}
+
+/* ---- horizontal line dividing sections--------*/
+hr {
+  display: block;
+  margin-top: 1em;  /* default is 0.5 */
+  margin-bottom: 1em;/* default is 0.5 */
+  /*margin-left: auto;
+  margin-right: auto;*/
+  border-width: 1px;
+  border-style: solid;
+  border-color: DarkSeaGreen;
+  border-color: DarkOrange;
+  border-color: DarkGray;
+}
+
+hr.standard-spacing{
+  margin-top: 0.5em;  /* default is 0.5 */
+  margin-bottom: 0.5em;/* default is 0.5 */
+}
+
+hr.thick{
+   border-width:3px;	 
+}	
+	
+table{
+	border-collapse:collapse;
+	display:table;
+}
+
+
 /* these are only used in the top menu of each page */
 /*----------------------------------------------*/
 
 .navbar {
   overflow: hidden;
+  background-color:white;
+  margin-bottom:20px; /* required to make the top menu shadow visible */
+	/* same size as w3-large */
+  font-size:18px;
+  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;
+
 }
 .navbar:before,
 .navbar:after{content:"";display:table;clear:both}
@@ -52,6 +213,7 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
   text-decoration: none;
   color: inherit;
   background-color:inherit;
+  background-color:white;
   font-size: 16px;
 }
 .navbar a:hover {
@@ -111,128 +273,7 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 .navbar-dropdown-content a:hover {
   background-color: LightGray;
 }
-/*---------------------------------------*/
 
-  /* used in alefbet and top menu */
-.w3-card-4{box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
-.w3-card-4 {margin-bottom: 15px;}	
-
-  /* used in alefbet exercises */
-.w3-card{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
-
-
-/*  used in headings (not h1 top heading or individual lessons headings) */
-/*------------------------------------------*/
-.w3-container{
-/* my extras, to counteract main */	
-    padding:0.01em 16px; 
-	margin-left:-16px; 
-	margin-right:-16px;
-} 
-.w3-container:after,
-.w3-container:before
-{content:"";display:table;clear:both}
-
-
-/*------ redefinitions of tags-----------------------*/
-/*---------------------------------------------------*/
-/* redefinitions of h2 etc */
-/*--------------------------*/
-/* h2{font-size:30px} h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}*/
-h1{font-size:36px}h2{font-size:22px}h3{font-size:18px}h4{font-size:18px}h5{font-size:16px}h6{font-size:16px}
-h1,h2,h3,h4,h5,h6{font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;font-weight:400;margin:10px 0}
-
-html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}
-html{overflow-x:hidden}
-html{
-  max-width:1100px;
-  max-width:1000px;
-  max-width:850px;
-  margin: auto;
-}
-	
-p {
-   margin: 10px;
-}
-/*
-p.margin2px {
-   margin:2px;
-}   
- */  
-h3.nomargin{
-   margin:0;
-}  
-header{
-	padding-top:0.01em;
-	padding-bottom:0.01em;
-	padding-left:16px;
-	padding-right:16px;
-
-	background-size:cover;
-	background-image:url("../images/header-esther-scroll.jpg");
-}	
-header >h1{
-   text-align:center;	
-   color:white;
-   background-color:#b91d47;  /* = w3-metro-dark-red */
-   font-size:50px;
-   font-size:40px;
-   font-size:36px;
-   margin-left:60px;
-   margin-right:60px;
-   margin-top:65px;
-   margin-bottom:65px;
-}
-header >h1::before{
-   content:"Getting started in Biblical Hebrew:\a";
-   white-space: pre; 
-   white-space: pre-wrap; 
-   white-space: normal; 
-}
-footer {
-   background-color: #b91d47;  /* = w3-metro-dark-red */
-   color: white;
-   padding: 30px;
-}	
-nav {
-  margin-bottom:20px; /* required to make the top menu shadow visible */
-	/* same size as w3-large */
-  font-size:18px;
-  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;
-}
-main{
-  /* w3-container */
-  padding:0.01em 16px /* top/bottom right/left */
-}
-
-
-/* ---- horizontal line dividing sections--------*/
-hr {
-  display: block;
-  margin-top: 1em;  /* default is 0.5 */
-  margin-bottom: 1em;/* default is 0.5 */
-  /*margin-left: auto;
-  margin-right: auto;*/
-  border-width: 1px;
-  border-style: solid;
-  border-color: DarkSeaGreen;
-  border-color: DarkOrange;
-  border-color: DarkGray;
-}
-
-hr.standard-spacing{
-  margin-top: 0.5em;  /* default is 0.5 */
-  margin-bottom: 0.5em;/* default is 0.5 */
-}
-
-hr.thick{
-   border-width:3px;	 
-}	
-	
-table{
-	border-collapse:collapse;
-	display:table;
-}
 
 /*-- indented sections --*/
 /*----------------------------------------------*/
@@ -377,6 +418,7 @@ table{
 }
 .preposition-color{
    background-color:Gold;
+  background-color:LightSalmon;
 } 
 
 
