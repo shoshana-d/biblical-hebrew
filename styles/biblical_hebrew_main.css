@@ -107,7 +107,7 @@ p {
 } 
 p.nomargin{
    margin-bottom:0;	
-}	
+header}	
 h3.nomargin{
    margin:0;
 }  
@@ -132,8 +132,6 @@ header >h1{
    margin-top:65px;
    margin-bottom:65px;
    
-   margin-left:20px;
-   margin-right:20px;
 
 }
 header >h1::before{
