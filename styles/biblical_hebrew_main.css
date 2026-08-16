@@ -107,7 +107,8 @@ p {
 } 
 p.nomargin{
    margin-bottom:0;	
-header}	
+}
+
 h3.nomargin{
    margin:0;
 }  
@@ -400,24 +401,6 @@ table{
 .alefbet-exercise-color{
    background-color:LightYellow;
 }  
-
-
-   /*- only  in lessons pages - only in lessons toc page? if so, can move to there  
-    -----------------------------------------------------------------------------
-   */
-.verb-color{
-   background-color:LightGreen;
-   background-color:HoneyDew;
-}	
-.noun-color{
-   background-color:LightBlue;
-   background-color:LightCyan;
-   background-color:AliceBlue;
-}
-.preposition-color{
-   background-color:Gold;
-  background-color:LightSalmon;
-} 
 
 
 /*----------------------------------------------------------------*/
