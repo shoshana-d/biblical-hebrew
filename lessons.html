@@ -71,7 +71,7 @@
 
    /* 2. Fixed width column (does not grow, does not shrink) */
   .lessons-toc-col1-flex-container-div1 {
-      flex: 0 0 10px; /* Grow: 0, Shrink: 0, Basis: 250px */
+      flex: 0 0 10px; /* Grow: 0, Shrink: 0, Basis: 10px */
      /* Optional: width: 100% can be applied via media query if you want it full-width when stacked */
   }
 
@@ -257,7 +257,7 @@
   
   /* colours             */
   /*---------------------*/
-  .lessons-toc-table-prefix-suffix-color{
+  .prefix-suffix-color{
      background-color:LavenderBlush;
      background-color:Ivory;
   }	 
@@ -266,8 +266,36 @@
       background-color:LemonChiffon;
    }
 
+  .noun-color-verb-color{
+     background: linear-gradient(to bottom, HoneyDew 50%, AliceBlue 50%);
+     background: linear-gradient(135deg, HoneyDew 50%, AliceBlue 50%);
+     background: linear-gradient(to right, AliceBlue 50%, HoneyDew 50%);
+  }
+   .verb-color-preposition-color{
+     background: linear-gradient(to right, HoneyDew 50%, LightSalmon 50%);
+     background: linear-gradient(to bottom, HoneyDew 50%, LightSalmon 50%);
+  }
  
 /* noun-color, verb-color and preposition-color defined in main.css - maybe move to here? */
+
+   /* these were in main.css
+   - only  in lessons pages - only in lessons toc page? if so, can move to there  
+    -----------------------------------------------------------------------------
+   */
+.verb-color{
+   background-color:LightGreen;
+   background-color:HoneyDew;
+}	
+.noun-color{
+   background-color:LightBlue;
+   background-color:LightCyan;
+   background-color:AliceBlue;
+}
+.preposition-color{
+   background-color:Gold;
+  background-color:LightSalmon;
+} 
+
 
 
  </style>
@@ -539,7 +567,7 @@ Some sections have "more detail". These are not essential, suggest at first leav
        </div>
    </td>
 
-   <td>         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+   <td>         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list noun-color ">
            <div class="flex-container-ltr">
               <span class="hebrew30 ">יְהוָה</span>
 		  </div>
@@ -574,12 +602,12 @@ Some sections have "more detail". These are not essential, suggest at first leav
 			  <br><span> the daughters of Zelophehad</span>
 			  <br><br>
              How Tanakh nouns work: singular, plural, "of";
-			  hyphens (maqqef) in Hebrew 
+			  
            </div>
       </div>
   </td>
  <td>
-           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list noun-color ">
            <div class="flex-container-ltr">
              <span class="hebrew30 soundclick">בֵּן</span><span class="hidden">words/w013_ben</span>&ensp;  		  
               <span class="hebrew30  soundclick">בֶּן</span><span class="hidden">words/w013_ben</span>&ensp; 
@@ -589,7 +617,7 @@ Some sections have "more detail". These are not essential, suggest at first leav
            </div>
  		  </div> 
 		  
-          <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+          <div class="flex-container-ltr lessons-toc-flex-container-vocab-list noun-color">
            <div class="flex-container-ltr">
             <span class="lessons-toc-noun-divider" ></span>		 
              <span class="hebrew30  soundclick">אֱלֹהִים</span><span class="hidden">words/w018_elohim</span>&ensp;  
@@ -597,7 +625,7 @@ Some sections have "more detail". These are not essential, suggest at first leav
            </div>
   		  </div> 
 		  
-         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list noun-color">
            <div class="flex-container-ltr">
 		     <span class="hebrew30 soundclick">אֶרֶץ</span><span class="hidden">words/w021_eretz </span>&ensp;   
         <span class="lessons-toc-noun-divider"></span>		 
@@ -607,7 +635,7 @@ Some sections have "more detail". These are not essential, suggest at first leav
 		  </div>
 		  
 		  
-         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list noun-color">
            <div class="flex-container-ltr">
 		     <span class="hebrew30 soundclick">בַּת</span><span class="hidden">words/w082_bat </span>&ensp;   
         <span class="lessons-toc-noun-divider"></span>		 
@@ -625,7 +653,10 @@ Some sections have "more detail". These are not essential, suggest at first leav
             </div>
            <div class="flex-container-ltr">
              <span><img src="images/suffixes/plural-ending-ei.jpg" class="vowel-image-plural-ending"></span>	  
-            </div>
+           </div>
+           <div class="flex-container-ltr">
+             <span> <b>-</b> (maqqef)</span>	  
+           </div>
 
           </div> <!-- lessons-toc-flex-container-vocab-list-->
  </td>
@@ -727,7 +758,7 @@ they may have a prefix and/or a suffix.
   <td><div class="lessons-toc-col1-flex-container ">
            <div class="lessons-toc-col1-flex-container-div1">
               <a href="lesson05-vav.html" class="lessons-toc"> 
-			  <span class="lessons-toc-link-button lessons-toc-table-prefix-suffix-color">Lesson 3</span></a>
+			  <span class="lessons-toc-link-button prefix-suffix-color">Lesson 3</span></a>
 		   </div>
            <div class="lessons-toc-col1-flex-container-div2">
               <span class="hebrew30-wrap soundclick">רָחֵל וְלֵאָה</span><span class="hidden">words/w000_rachel_v_leah</span> 
@@ -740,7 +771,7 @@ they may have a prefix and/or a suffix.
 
   <td>
    
-           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list prefix-suffix-color">
            <div class="flex-container-ltr">
              <span class="v-prefix hebrew30"></span>		  
             </div>
@@ -768,44 +799,242 @@ they may have a prefix and/or a suffix.
  
   
 <tr>
- <td colspan="2"  class="lessons-toc-table-3cols-colspan" style="color:gray"> 
+ <td colspan="2"  class="lessons-toc-table-colspan" style="color:gray"> 
 <p>Hardly any words start with vav (vav, a few names), so word starting with vav is either
 prefix "and" or a verb. A bit (how much??) about how verbs work. 
 learn vayomer, always comes before subject, may have extra word (and, then, so), 
 may include pronoun subject
 Various translations of vayomer. 
 </p>
-<p>content from previous Lesson 3 intro and Lesson 4 intro</p>
+  </td>     
+</tr>
+
+
+<tr>
+ <td colspan="2"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0"> 
+
+There's lots of talking in the Tanakh: God talks to people,
+    people talk to God, the prophets talk to the Israelites, people talk to each other, and even 
+     some animals talk (the serpent to Eve, the ass to Balaam (Numbers 22).
+	 The most frequently occurring verb in the Tanakh is "say" from the root <span class="hebrew-in-text">אמר</span>. 
+  <br>
+  So in the next 2 lessons we'll learn how to decipher some verses about talking.
+ </td>     
+</tr>
+
+<tr>
+ <td colspan="2"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray"> 
+what is a verb
+vayomer,   el , word order (verb first)
+
+<p>different translations of vayomer </p>
+<p>being a detective with vayomer (word after), el (word after) word after is a noun</p>
+<p>exercises: 1. who spoke ( remove vatomer) 2. finding el  
+3. ? finding common noun with vayomer</p>
   </td>     
 </tr>
 
 
 
+
+
 <tr class="">
+
   <td><div class="lessons-toc-col1-flex-container ">
            <div class="lessons-toc-col1-flex-container-div1">
-              <a href="lesson04-vayomer.html" class="lessons-toc"> 
-			  <span class="lessons-toc-link-button verb-color">Lesson 4</span></a>
+              <a href="lesson03-intro1.html" class="lessons-toc"> 
+			  <span class="lessons-toc-link-button verb-color-preposition-color">Lesson 4</span></a>
 		   </div>
            <div class="lessons-toc-col1-flex-container-div2">
-              <span class="hebrew30-wrap soundclick">וַיֹּאמֶר אֱלֹהִים</span><span class="hidden">words/w000_vayomer_elohim</span> 
-              <br><span> God said</span>
-			  <br>
-		   The Hebrew prefix <span class="hebrew30 ">ו</span> on verbs
+             <span class="hebrew30-wrap soundclick">וַיֹּ֨אמֶר אַבְרָ֜ם אֶל־שָׂרַ֗י</span><span class="hidden">tanakh/gen-16-06aa-db</span> 
+             <br> Abram said to Sarai 
+             <br><span class="hebrew30-wrap soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span> 
+             <br> he said
+             <br>
+              <span class="button-plus" onclick="ShowHideNextItem(this)"></span>
+                 <div class="hidden nextItem" >
+                 <ul>
+	              <li>the verb <span class="hebrew-in-text  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  </li>
+	              <li>word order - verb before subject</li>
+	              <li>the preposition 
+	                 <span class="hebrew-in-text soundclick">אֶל</span><span class="hidden">words/w008_el</span>  </li>
+	              <li>different translations of <span class="hebrew-in-text  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span></li>
+	              <li>being a detective with vayomer, el</li>
+	            </ul>
+                </div>
+          </div>
+       </div>
+  </td>
+  <td>
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list verb-color ">
+           <div class="flex-container-ltr">
+             <span class="hebrew30  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  
            </div>
-      </div>
+         </div>
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list preposition-color ">
+		   <div class="flex-container-ltr">
+             <span class="maqqef hebrew30 "></span><span class="hebrew30 soundclick">אֶל</span><span class="hidden">words/w008_el</span> 
+           </div>
+		   <div class="flex-container-ltr">
+             <span class="hebrew30 soundclick">אֶל</span><span class="hidden">words/w008_el</span> 
+           </div>
+         </div>
+  </td>
+</tr>
+
+
+<tr>
+ <td colspan="2"  class="lessons-toc-table-colspan" style="text-align:left;padding-top:0; color:gray">
+<ul> 
+<li>vatomer, different versions of amar (introduce amar and lemor??)</li>
+<li>information about person performing the action, how it was performed, translated by tense in English</li>
+<li> vayomer, vatomer, vaydiber these verbs may be translated by 2 or 3 English words, 
+"he", "she", "and"</li>
+<li>"he", "she" etc used for emphasis or in sentences with no verb</li>
+<li>could do vay', vat' lesson now if wanted</li>
+<li>ALL verbs starting with vav come before the subject</li>
+</ul>
+<p>exercise: finding vayomer, vatomer, vaydaber, amar with and without subject</p>
+<p>need to combine material in next 2 lessons</p>
+  </td>     
+</tr>
+
+<tr class="">
+  <td><div class="lessons-toc-col1-flex-container ">
+        <div class="lessons-toc-col1-flex-container-div1">
+              <a href="lesson04-intro2.html" class="lessons-toc"> 
+			  <span class="lessons-toc-link-button verb-color">Lesson 5</span></a>
+		</div>
+        <div class="lessons-toc-col1-flex-container-div2">
+             <span class="hebrew30-wrap soundclick">וַתֹּ֨אמֶר שָׂרַ֜י אֶל־אַבְרָ֗ם</span><span class="hidden">tanakh/gen-16-02aa-db</span> 
+             <br>Sarai said to Abram 
+             <br>	
+             <span class="hebrew30-wrap  soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>  
+             <br>she said 
+       </div>
+  </td>
+  <td>
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list verb-color">
+           <div class="flex-container-ltr">
+             <span class="hebrew30  soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>  
+           </div>
+            <div class="flex-container-ltr">
+             <span class="hebrew30 soundclick">וַיֹּאמְרוּ</span><span class="hidden">words/w011_vayomru</span> 
+           </div>         
+           <div class="flex-container-ltr">
+             <span class="hebrew30  soundclick">אָמַר</span><span class="hidden">words/w011_amar</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30  soundclick">לֵאמֹר</span><span class="hidden">words/w011_lemor</span>  
+           </div>
+		</div>
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list verb-color">
+          <div class="flex-container-ltr">
+		     <span class="hebrew30">אמר</span> 
+           </div>
+           <div class="flex-container-ltr">
+              <p  class="hebrew30 nomargin" dir="rtl"><span dir="ltr" class="hebrew30">&#x25CC;</span>אמר</p>           
+		   </div>
+              <p  class="hebrew30 nomargin" dir="rtl">ו<span dir="ltr" class="hebrew30">&#x25CC;</span>אמר</p>		   
+           <div class="flex-container-ltr">
+           </div>
+		   
+		   
+         </div>
+  </td>
+</tr>
+
+
+<tr class="">
+  <td><div class="lessons-toc-col1-flex-container ">
+        <div class="lessons-toc-col1-flex-container-div1">
+              <a href="lessonxx-verbs-amar.html" class="lessons-toc"> 
+			  <span class="lessons-toc-link-button verb-color">Lesson xx</span></a>
+		</div>
+        <div class="lessons-toc-col1-flex-container-div2">
+          <span class="hebrew30 soundclick">וַיֹּ֥אמֶר יְהוָ֖ה אֶל־מֹשֶׁ֥ה לֵּאמֹֽר׃</span><span class="hidden">tanakh/ex-31-12-db</span> 
+          <br>God spoke to Moses saying <br>
+             How Tanakh verbs work, the root <span class="hebrew30 ">אמר</span>
+       </div>
+  </td>
+   <td>
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list verb-color">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 ">אמר</span>
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30  soundclick">אָמַר</span><span class="hidden">words/w011_amar</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30  soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30  soundclick">וַיֹּאמְרוּ</span><span class="hidden">words/w011_vayomru</span>  
+           </div>
+           <div class="flex-container-ltr">
+             <span class="hebrew30  soundclick">לֵאמֹר</span><span class="hidden">words/w011_lemor</span>  
+           </div>
+        </div>
+  </td>
+</tr>
+
+<tr class="">
+  <td><div class="lessons-toc-col1-flex-container ">
+        <div class="lessons-toc-col1-flex-container-div1">
+              <a href="lessonxx-verbs-diber.html" class="lessons-toc"> 
+			  <span class="lessons-toc-link-button noun-color-verb-color">Lesson xx</span></a>
+		</div>
+        <div class="lessons-toc-col1-flex-container-div2">
+          <span class="hebrew30 soundclick">וַיְדַבֵּ֥ר יְהֹוָ֖ה אֶל־מֹשֶׁ֥ה לֵּאמֹֽר׃</span><span class="hidden">tanakh/ex-31-01-db</span> 
+          <br>God spoke to Moses saying 
+		  <br>
+           How Tanakh verbs work, the root <span class="hebrew30 ">דבּר</span>
+		   <br>The noun <span class="hebrew30 soundclick">דָּבָר</span><span class="hidden">words/w030_davar</span>
+		     word, matter, thing
+       </div>
   </td>
 
   <td>
-   
-           <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list verb-color">
+            <div class="flex-container-ltr">
+             <span class="hebrew30 soundclick">וַיְדַבֵּר</span><span class="hidden">words/w037_vaydaber</span> 
+           </div>         
+            <div class="flex-container-ltr">
+             <span class="hebrew30 soundclick">דִּבֶּר</span><span class="hidden">words/w037_diber</span> 
+           </div>         
+            <div class="flex-container-ltr">
+             <span class="hebrew30 soundclick">דַּבֵּר</span><span class="hidden">words/w037_daber</span> 
+           </div>         
+		</div> 
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list verb-color">
+          <div class="flex-container-ltr">
+		     <span class="hebrew30">דבּר</span> 
+           </div>
            <div class="flex-container-ltr">
-              <span class="hebrew30  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>
+              <p  class="hebrew30 nomargin" dir="rtl"><span dir="ltr" class="hebrew30">&#x25CC;</span>דבּר</p>           
 		   </div>
-          </div> <!-- lessons-toc-flex-container-vocab-list-->
-  </td>
+              <p  class="hebrew30 nomargin" dir="rtl">ו<span dir="ltr" class="hebrew30">&#x25CC;</span>דבּר</p>		   
+           <div class="flex-container-ltr">
+           </div>
+	   
+        </div>
+		
+		<div class="flex-container-ltr lessons-toc-flex-container-vocab-list noun-color">
+           <div class="flex-container-ltr">
+		     <span class="hebrew30 soundclick">דָּבָר</span><span class="hidden">words/w030_davar</span>&ensp;   
+		     <span class="hebrew30 soundclick">דְּבַר</span><span class="hidden">words/w030_dvar </span>&ensp; 
+             <span class="lessons-toc-noun-divider"></span>		 
+		     <span class="hebrew30 soundclick">דְּבָרִים</span><span class="hidden">words/w030_dvarim </span>&ensp;   
+		     <span class="hebrew30 soundclick">דִּבְרֵי</span><span class="hidden">words/w030_divrei</span>&emsp;   
+		   </div>
+		</div>   
+
+ </td>
 </tr>
- 
+
   
   
 <tr>
@@ -829,7 +1058,7 @@ and there are the vav schwah+yiktol which mean so that
   <td><div class="lessons-toc-col1-flex-container ">
            <div class="lessons-toc-col1-flex-container-div1">
               <a href="lesson05-vay-vat-verbs.html" class="lessons-toc"> 
-			  <span class="lessons-toc-link-button verb-color">Lesson 5</span></a>
+			  <span class="lessons-toc-link-button verb-color">Lesson 7</span></a>
 		   </div>
            <div class="lessons-toc-col1-flex-container-div2">
  
@@ -843,25 +1072,16 @@ and there are the vav schwah+yiktol which mean so that
   </td>
 
   <td>
-        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
+        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list verb-color">
+           <div class="flex-container-ltr">
+             <span class="hebrew30 soundclick">וַיְהִי</span><span class="hidden">words/w015_vayhi</span> 
+           </div>         
           <div class="flex-container-ltr">
              -<span class="hebrew30 ">וַי</span>
            </div>
           <div class="flex-container-ltr">
              -<span class="hebrew30 ">וַתּ</span>
            </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30 soundclick">וַיְהִי</span><span class="hidden">words/w015_vayhi</span> 
-           </div>         
-           <div class="flex-container-ltr">
-             <span class="hebrew30 soundclick">וַיְדַבֵּר</span><span class="hidden">words/w037_vaydaber</span> 
-           </div>         
-           <div class="flex-container-ltr">
-             <span class="hebrew30 soundclick">וַתֹּאמֶר </span><span class="hidden">words/w011_vatomer</span> 
-           </div>         
-           <div class="flex-container-ltr">
-             <span class="hebrew30 soundclick">וַיֹּאמְרוּ</span><span class="hidden">words/w011_vayomru</span> 
-           </div>         
 		</div> <!-- lessons-toc-flex-container-vocab-list-->
   </td>
 </tr>
@@ -883,7 +1103,7 @@ includes v'ha
   <td><div class="lessons-toc-col1-flex-container ">
            <div class="lessons-toc-col1-flex-container-div1">
               <a href="lesson06-ha.html" class="lessons-toc"> 
-			  <span class="lessons-toc-link-button lessons-toc-table-prefix-suffix-color">Lesson 6</span></a>
+			  <span class="lessons-toc-link-button prefix-suffix-color">Lesson 6</span></a>
 		   </div>
            <div class="lessons-toc-col1-flex-container-div2">
 		    <span class="hebrew30 soundclick"> הָאָרֶץ </span><span class="hidden">words/w021_haaretz</span> 
@@ -921,7 +1141,7 @@ includes v'ha
    <td><div class="lessons-toc-col1-flex-container ">
            <div class="lessons-toc-col1-flex-container-div1">
               <a href="old-lesson06-prefixes.html" class="lessons-toc"> 
-			  <span class="lessons-toc-link-button lessons-toc-table-prefix-suffix-color">Lesson xx</span></a>
+			  <span class="lessons-toc-link-button prefix-suffix-color">Lesson xx</span></a>
 		   </div>
            <div class="lessons-toc-col1-flex-container-div2">
              original 6 prefixes lesson with tables of all 6 prefixes, and exercise finding "ha"="the" 
@@ -1174,7 +1394,7 @@ Include lifnei here?? mention most frequent occurrences of l, lifnei and lemor??
    <td><div class="lessons-toc-col1-flex-container ">
            <div class="lessons-toc-col1-flex-container-div1">
               <a href="lesson07-lamed-prefix.html" class="lessons-toc"> 
-			  <span class="lessons-toc-link-button lessons-toc-table-prefix-suffix-color">Lesson xx</span></a>
+			  <span class="lessons-toc-link-button prefix-suffix-color">Lesson xx</span></a>
 		   </div>
            <div class="lessons-toc-col1-flex-container-div2">
              <span class="hebrew30  soundclick">לְמִצְרַיִם</span><span class="hidden"></span>
@@ -1212,7 +1432,7 @@ Probably make this into 3 separate lessons
   <td><div class="lessons-toc-col1-flex-container ">
            <div class="lessons-toc-col1-flex-container-div1">
               <a href="lessonxx-bet-mem-kaf-prefixes.html" class="lessons-toc"> 
-			  <span class="lessons-toc-link-button lessons-toc-table-prefix-suffix-color">Lesson xx</span></a>
+			  <span class="lessons-toc-link-button prefix-suffix-color">Lesson xx</span></a>
 		   </div>
            <div class="lessons-toc-col1-flex-container-div2">
              "which example?" The remaining 3 Hebrew prefixes:  in, from, like/as
@@ -1259,127 +1479,6 @@ Probably make this into 3 separate lessons
 
  <table class="lessons-toc-table-3cols ">
  
-
-
-<tr>
- <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0"> 
-
-There's lots of talking in the Tanakh: God talks to people,
-    people talk to God, the prophets talk to the Israelites, people talk to each other, and even 
-     some animals talk (the serpent to Eve, the ass to Balaam (Numbers 22).
-	 The most frequently occurring verb in the Tanakh is "say" from the root <span class="hebrew-in-text">אמר</span>. 
-  <br>
-  So in the next 2 lessons we'll learn how to decipher some verses abput talking.
- </td>     
-</tr>
-
-<tr>
- <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0; color:gray"> 
-what is a verb
-vayomer,   el , word order (verb first)
-
-<p>different translations of vayomer </p>
-<p>being a detective with vayomer (word after), el (word after) word after is a noun</p>
-<p>exercises: 1. who spoke ( remove vatomer) 2. finding el  
-3. ? finding common noun with vayomer</p>
-  </td>     
-</tr>
-
-
-
-<tr class="verb-color">
-  <td><a href="lesson03-intro1.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 3</span></a>
-  </td>
-   <td >
-    <span class="hebrew30-wrap soundclick">וַיֹּ֨אמֶר אַבְרָ֜ם אֶל־שָׂרַ֗י</span><span class="hidden">tanakh/gen-16-06aa-db</span> 
- <br> Abram said to Sarai 
- 
-  <span class="button-plus" onclick="ShowHideNextItem(this)"></span>
-
- <div class="hidden nextItem" >
-    <ul>
-	  <li>the verb <span class="hebrew-in-text  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  </li>
-	  <li>word order - verb before subject</li>
-	  <li>the preposition 
-	       <span class="hebrew-in-text soundclick">אֶל</span><span class="hidden">words/w008_el</span>  </li>
-	  <li>maqqef: the dash symbol - joining 2 or more words- now in lesson 2, nouns</li>
-	  <li>different translations of <span class="hebrew-in-text  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span></li>
-	  <li>being a detective with vayomer, el</li>
-	
-	</ul>
- </div>
- 
- 
-  </td>
-  <td>
-        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-             <span class="hebrew30  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  
-           </div>
-         </div>
-        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-		   <div class="flex-container-ltr">
-             <span class="maqqef hebrew30 "></span><span class="hebrew30 soundclick">אֶל</span><span class="hidden">words/w008_el</span> 
-           </div>
-		   <div class="flex-container-ltr">
-             <span class="hebrew30 soundclick">אֶל</span><span class="hidden">words/w008_el</span> 
-           </div>
-         </div>
-  </td>
-</tr>
-
-
-<tr>
- <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="text-align:left;padding-top:0; color:gray">
-<ul> 
-<li>vatomer, different versions of amar (introduce amar and lemor??)</li>
-<li>information about person performing the action, how it was performed, translated by tense in English</li>
-<li> vayomer, vatomer, vaydiber these verbs may be translated by 2 or 3 English words, 
-"he", "she", "and"</li>
-<li>"he", "she" etc used for emphasis or in sentences with no verb</li>
-<li>could do vay', vat' lesson now if wanted</li>
-<li>ALL verbs starting with vav come before the subject</li>
-</ul>
-<p>exercise: finding vayomer, vatomer, vaydaber, amar with and without subject</p>
-  </td>     
-</tr>
-
-
-<tr class="verb-color">
-  <td><a href="lesson04-intro2.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson 4</span></a>
-  </td>
-   <td >
-    <span class="hebrew30 soundclick">וַתֹּ֨אמֶר שָׂרַ֜י אֶל־אַבְרָ֗ם</span><span class="hidden">tanakh/gen-16-02aa-db</span> 
- <br> Sarai said to Abram 
-    <br>
-   <span class="hebrew30  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  
-    he said
-<br>	
-    <span class="hebrew30  soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>  
-    she said 
-   </td>
-  <td>
-        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-             <span class="hebrew30  soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>  
-           </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30  soundclick">וַיְדַבֵּר</span><span class="hidden">words/w037_vaydaber</span>  
-           </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30  soundclick">אָמַר</span><span class="hidden">words/w011_amar</span>  
-           </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30  soundclick">לֵאמֹר</span><span class="hidden">words/w011_lemor</span>  
-           </div>
-         </div>
-  </td>
-</tr>
-
-
-
-
-
 
 
  
@@ -1439,7 +1538,7 @@ vayomer,   el , word order (verb first)
 </tr>
 
 
-<tr class="lessons-toc-table-prefix-suffix-color">
+<tr class="prefix-suffix-color">
   <td><a href="lessonxx-possessive-suffixes.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson xx</span></a></td>
   <td ><span class="hebrew30  soundclick">בְּנ</span><span class="hidden">words/w013_bno</span><span class="hebrew30  lessons-vocab-word-color">וֹ</span>
        "his son"  my, your, his, her, our, their: possesive suffixes added to the end of nouns
@@ -1456,7 +1555,7 @@ vayomer,   el , word order (verb first)
   </td>
 </tr>
 
-<tr class="lessons-toc-table-prefix-suffix-color">
+<tr class="prefix-suffix-color">
   <td>
    <p> </p>
    <a href="old-lesson-all-possessive-suffixes.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson ??</span></a>
@@ -1481,7 +1580,7 @@ include reference lists of suffixes on l' b' mi' k' el al, learn lo, bo, elav, a
 </tr>
 
 
-<tr class="lessons-toc-table-prefix-suffix-color">
+<tr class="prefix-suffix-color">
   <td><a href="lessonxx-object-suffixes-after-prepositions.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson xx</span></a></td>
   <td ><span class="hebrew30  soundclick">ל</span><span class="hidden">words/w003_lo</span><span class="hebrew30  lessons-vocab-word-color">וֹ</span>
        "to him"  Suffixes overview: me, you, him, her, us, them after prepositions
@@ -1499,7 +1598,7 @@ include reference lists of suffixes on l' b' mi' k' el al, learn lo, bo, elav, a
 </tr>
 
 
-<tr class="lessons-toc-table-prefix-suffix-color">
+<tr class="prefix-suffix-color">
   <td><a href="lessonxx-object-suffixes-after-verbs.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson xx</span></a></td>
   <td ><span class="hebrew30  soundclick">אֹתוֹ</span><span class="hidden">words/w005_oto</span>
        "him"   me, you, him, her, us after verbs
@@ -1565,68 +1664,6 @@ include reference lists of suffixes on l' b' mi' k' el al, learn lo, bo, elav, a
    Hebrew verb always one word
   </td>
 </tr>
-
-<tr class="verb-color">
-  <td><a href="lesson-xx.html" class="lessons-toc"> <span class="lessons-toc-link-button">Lesson xx</span></a></td>
-  <td >How to recognize the verbs amar and diber
-  </td>
-</tr>
-
-<tr>
- <td colspan="3"  class="lessons-toc-table-3cols-colspan" style="color:gray"> 
-need to consolidate the material in these lessons into previous lesson
-  </td>     
-</tr>
-
-<tr class="verb-color">
-  <td><a href="lessonxx-verbs-amar.html" class="lessons-toc"> <span class="lessons-toc-link-button">verb lesson xx</span></a>
-  </td>
-   <td >
-    <span class="hebrew30 soundclick">וַיֹּ֥אמֶר יְהוָ֖ה אֶל־מֹשֶׁ֥ה לֵּאמֹֽר׃</span><span class="hidden">tanakh/ex-31-12-db</span> 
-  <br>God spoke to Moses saying <br>
-   How Tanakh verbs work, the root <span class="hebrew30 ">אמר</span>
-   </td>
-   <td>
-        <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-           <div class="flex-container-ltr">
-             <span class="hebrew30 ">אמר</span>
-           </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30  soundclick">אָמַר</span><span class="hidden">words/w011_amar</span>  
-           </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30  soundclick">וַיֹּאמֶר</span><span class="hidden">words/w011_vayomer</span>  
-           </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30  soundclick">וַתֹּאמֶר</span><span class="hidden">words/w011_vatomer</span>  
-           </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30  soundclick">וַיֹּאמְרוּ</span><span class="hidden">words/w011_vayomru</span>  
-           </div>
-           <div class="flex-container-ltr">
-             <span class="hebrew30  soundclick">לֵאמֹר</span><span class="hidden">words/w011_lemor</span>  
-           </div>
-        </div>
-  </td>
-</tr>
-
-
-
-
-<tr class="verb-color">
-  <td><a href="lessonxx-verbs-diber.html" class="lessons-toc"> <span class="lessons-toc-link-button">verb lesson xx</span></a>
-  </td>
-   <td >
-    <span class="hebrew30 soundclick">וַיְדַבֵּ֥ר יְהֹוָ֖ה אֶל־מֹשֶׁ֥ה לֵּאמֹֽר׃</span><span class="hidden">tanakh/ex-31-01-db</span> 
-  God spoke to Moses saying <br>
-   How Tanakh verbs work, the root <span class="hebrew30 ">דבּר</span>
-   </td>
-   <td>
-   <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
-         </div>
-  </td>
-</tr>
-
 
  
 
@@ -1973,10 +2010,7 @@ also  frequently occurring possessive suffix form and/or prefix form</p>
   <td >Lesson 28</td>
   <td >hinei #43 hineini</td>
 </tr>
-<tr>
-  <td >Lesson 29</td>
-  <td ><span style="color:red"><i> 123</i></span> Numbers adjectives 1 some numbers echad #45 sh'nayim (#64) shalosh (#78) me'ah (#84) </td>
-</tr>
+
 <tr>
   <td >Lesson 32</td>
   <td >nouns from verb roots, "m" often added (like participle)</td>
