@@ -1290,9 +1290,13 @@ table{
 	text-align:right;
 	padding-right:30px;
 }
-.reference-table-infrequent{
+
+.reference-table td.reference-table-infrequent,
+.verb-reference-table td.reference-table-infrequent{
      background-color:Wheat;
 	 background-color:Gainsboro;
+	 background-color:WhiteSmoke;
+	/* font-style:italic;*/
 }
 .reference-table-infrequent2{
      color:Gray;
