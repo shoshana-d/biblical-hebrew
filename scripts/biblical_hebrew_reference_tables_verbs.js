@@ -16,10 +16,10 @@ function crVerbTableHeaderRow(imperative=false, rootSeparateColumns=false){
 	var i;
 
     if (imperative) {
-       var headings1 = ["Qatal","Weqatal","Yiktol", "Imperative","Wayyiktol"];
+       var headings1 = ["Qatal","Weqatal","Yiktol", "Imperative","Vavyiktol"];
        var headings2 = ["","(vav + Qatal)","", "", "(vav + Yiktol)"];
     } else {		
-       var headings1 = ["Qatal","Weqatal","Yiktol","Wayyiktol"];
+       var headings1 = ["Qatal","Weqatal","Yiktol","Vavyiktol"];
        var headings2 = ["","(vav + Qatal)","","(vav + Yiktol)"];
     }
   
@@ -588,8 +588,8 @@ function crGenericVerbReferenceTableInfinitiveConstruct(thisDiv){
 function crVerbReferenceTablesFromHTML(thisDiv){
 	var i;
 	var v;
-	
     var dataDiv = thisDiv.firstElementChild;
+	
     var whichVerbs = dataDiv.firstElementChild.innerHTML.split(globalDivider1);
 	
     var mainTable = document.createElement("div");
@@ -598,7 +598,6 @@ function crVerbReferenceTablesFromHTML(thisDiv){
     var imperativeTable = document.createElement("div");
     var participleTable = document.createElement("div");
     var infinitiveConstructTable = document.createElement("div");
-//test("hello from crVerbReferenceTablesFromHTML, v=" + v + ", thisverb=" + thisVerb);	
 	
 	for (v=0; v < whichVerbs.length; v++){
        var thisVerb = whichVerbs[v].trim(); 
@@ -627,6 +626,7 @@ function crVerbReferenceTablesFromHTML(thisDiv){
 	   } else {
 		   break;
 	   }
+//test("hello from crVerbReferenceTablesFromHTML, v=" + v + ", thisverb=" + thisVerb);	
 	   
 	   var containerDiv = document.createElement("div");
 	   
@@ -645,46 +645,27 @@ function crVerbReferenceTablesFromHTML(thisDiv){
 	       }	   
 	   }
 
-       if (anyInfrequent){	
+       var hideInfrequent = [true];  // if there are no infrequent verbs, then hiding infrequent doesn't do anything
+      
+	   if (anyInfrequent){	
 	       // need 2 tables
-		   
 	       // create button to toggle between complete view and view excluding infrequently occurring forms
-           containerDiv.appendChild(crToggleInfrequentButton());
-
- 	        // create both tables, initially show view excluding infrequently occurring forms
-		   var hideInfrequent = [true, false];	
-		   for (i=0; i < 2; i++){
-	       
-              if (thisVerb == "main") {var thisTable = crVerbReferenceTableMain(dataDiv, hideInfrequent[i]);}
-              else if (thisVerb == "persons1and3") {var thisTable = crVerbReferenceTablePersons1and3(dataDiv, hideInfrequent[i]);}
-              else if (thisVerb == "person2") {var thisTable = crVerbReferenceTablePerson2(dataDiv, hideInfrequent[i]);}
-              else if (thisVerb == "imperative") {var thisTable = crVerbReferenceTableImperative(dataDiv, hideInfrequent[i]);}
-              else if (thisVerb == "participle") {var thisTable = crVerbReferenceTableParticiple(dataDiv, hideInfrequent[i]);}
-              else if (thisVerb == "infinitive-construct") {var thisTable = crVerbReferenceTableInfinitiveConstruct(dataDiv, hideInfrequent[i]);}
-	          thisTable.classList.add("js-table");
-	          if (hideInfrequent[i] == false) {thisTable.classList.add("hidden");}
-		      containerDiv.appendChild(thisTable);
-	       }
-
-		  // thisDiv.appendChild(containerDiv);
-	   
-	   } else {
-          // only need to create one table, no button needed
-		   
-	       var hideInfrequent = false;
-           if (thisVerb == "main") {var thisTable = crVerbReferenceTableMain(dataDiv, hideInfrequent);}
-           else if (thisVerb == "persons1and3") {var thisTable = crVerbReferenceTablePersons1and3(dataDiv, hideInfrequent[i]);}
-           else if (thisVerb == "person2") {var thisTable = crVerbReferenceTablePerson2(dataDiv, hideInfrequent[i]);}
-           else if (thisVerb == "imperative") {var thisTable = crVerbReferenceTableImperative(dataDiv, hideInfrequent);}
-           else if (thisVerb == "participle") {var thisTable = crVerbReferenceTableParticiple(dataDiv, hideInfrequent);}
-           else if (thisVerb == "infinitive-construct") {var thisTable = crVerbReferenceTableInfinitiveConstruct(dataDiv, hideInfrequent);}
-	       thisTable.classList.add("js-table");
-	       //thisDiv.appendChild(thisTable);
-		   
-   	       containerDiv.appendChild(thisTable);
-
+         containerDiv.appendChild(crToggleInfrequentButton());
+		 var hideInfrequent = [true, false];	// need to create 2 tables, one with everything, one omitting infrequent
        }
-	   
+	   for (i=0; i < hideInfrequent.length; i++){
+ 	        // if anyInfrequent, create both tables, initially show view excluding infrequently occurring forms
+         if (thisVerb == "main") {var thisTable = crVerbReferenceTableMain(dataDiv, hideInfrequent[i]);}
+         else if (thisVerb == "persons1and3") {var thisTable = crVerbReferenceTablePersons1and3(dataDiv, hideInfrequent[i]);}
+         else if (thisVerb == "person2") {var thisTable = crVerbReferenceTablePerson2(dataDiv, hideInfrequent[i]);}
+         else if (thisVerb == "imperative") {var thisTable = crVerbReferenceTableImperative(dataDiv, hideInfrequent[i]);}
+         else if (thisVerb == "participle") {var thisTable = crVerbReferenceTableParticiple(dataDiv, hideInfrequent[i]);}
+         else if (thisVerb == "infinitive-construct") {var thisTable = crVerbReferenceTableInfinitiveConstruct(dataDiv, hideInfrequent[i]);}
+	     thisTable.classList.add("js-table");  // used with button, probably don't need if only one table
+	     if (hideInfrequent[i] == false) {thisTable.classList.add("hidden");}
+		 containerDiv.appendChild(thisTable);
+	   }
+
        if (thisVerb == "main") { mainTable.appendChild(containerDiv);}
        else if (thisVerb == "persons1and3") {persons1and3Table.appendChild(containerDiv);}
        else if (thisVerb == "person2") {person2Table.appendChild(containerDiv);}
@@ -698,9 +679,10 @@ function crVerbReferenceTablesFromHTML(thisDiv){
     if (mainTable.innerHTML.length > 0 ){thisDiv.appendChild(mainTable);}
     if (persons1and3Table.innerHTML.length > 0 ){thisDiv.appendChild(persons1and3Table);}
     if (person2Table.innerHTML.length > 0 ){thisDiv.appendChild(person2Table);}
-    if (imperativeTable.innerHTML.length > 0 ){thisDiv.appendChild(infinitiveConstructTable);}
+    if (imperativeTable.innerHTML.length > 0 ){thisDiv.appendChild(imperativeTable);}
 
 	if ((infinitiveConstructTable.innerHTML.length > 0 ) || (participleTable.innerHTML.length > 0 )) {
+		// these are side by side if both required
 	   var flexDiv = document.createElement("div");
 	   flexDiv.classList.add("flex-container-ltr");
 	   var flexDivCell = document.createElement("div");
@@ -768,31 +750,36 @@ function crVerbReferenceTableColgroup(nGroups){
 }		
 
 function crVerbReferenceSingleRow(thisDiv){
-	//   <p> header </p>
-	//   <p> he said, he says, he will say</p>
-	//  <p> alef:mem:resh </p>
-	//   <p> </p>
-	//   <p>frequent :  : root1 alef+kamatz : root2 mem+patach : root3 resh : |  : vav+schwah : root1 alef+kamatz : root2 mem+patach : root3 resh :   |   : yod+cholam  : root1 alef : root2 mem+patach : root3 resh :  *  : yod+tsere : root1 alef+kamatz : root2 mem+tsere : root3 resh :   |  frequent : vav+patach+yod+dagesh+cholam  : root1 alef : root2 mem+segol : root3 resh :  *  : vav+patach+yod+dagesh+cholam  : root1 alef : root2 mem+patach : root3 resh :  
-    //   </p>
-	
+    // <div class="onload-verb-reference-single-row">
+    // <div class="hidden"> 
+	//  <p> header </p>
+    //  <p class="js-root">alef:mem:resh</p>
+	//  <p class="js-translation"> he said, he says, he will say</p>
+	//  <p class="js-mfsymbol"></p>
+	//  <p class="js-verb">frequent :  : root1 alef+kamatz : root2 mem+patach : root3 resh : |  : vav+schwah : root1 alef+kamatz : root2 mem+patach : root3 resh :   |   : yod+cholam  : root1 alef : root2 mem+patach : root3 resh :  *  : yod+tsere : root1 alef+kamatz : root2 mem+tsere : root3 resh :   |  frequent : vav+patach+yod+dagesh+cholam  : root1 alef : root2 mem+segol : root3 resh :  *  : vav+patach+yod+dagesh+cholam  : root1 alef : root2 mem+patach : root3 resh :  
+    //  </p>
+	//  <p class="js-audio-dir">verbs/amar</p>
+    //  <p class="js-audio">amar|vuhamar|yomar*yeamer|vayomer*vayomar</p>
+	// </div></div>
     var headerYN = thisDiv.firstElementChild.children[0].innerHTML.trim();
-	var header = false;
-	if (headerYN == "header") {var header = true;}
+	var header = headerYN == "header";
 	
-	var translation = thisDiv.firstElementChild.children[1].innerHTML.trim();
-	var verbRoot = thisDiv.firstElementChild.children[2].innerHTML.trim();
+	var translation = thisDiv.getElementsByClassName("js-translation")[0].innerHTML.trim();
+	var verbRoot = thisDiv.getElementsByClassName("js-root")[0].innerHTML.trim();
 	
-	var mfSymbolHTML = thisDiv.firstElementChild.children[3].innerHTML.trim();
+	var mfSymbolHTML = thisDiv.getElementsByClassName("js-mfsymbol")[0].innerHTML.trim();
 	var mfSymbol = "";
 	if (mfSymbolHTML == "m") {mfSymbol = maleSymbol;}
 	else if (mfSymbolHTML == "f") {mfSymbol = femaleSymbol;}
 	else if (mfSymbolHTML == "mm") {mfSymbol = maleSymbol+maleSymbol;}
 	else if (mfSymbolHTML == "ff") {mfSymbol = femaleSymbol+femaleSymbol;}
 	
-    var thisRowSpecs = thisDiv.firstElementChild.children[4].innerHTML.split(globalDivider1);
-    var thisTable = document.createElement("table");
+     var thisTable = document.createElement("table");
     thisTable.classList.add("verb-reference-table");
 	
+	var thisRowSpecs = crArrayOfArrays(thisDiv, "js-verb")
+   // var thisRowSpecs = thisDiv.getElementsByClassName("js-verb")[0].innerHTML.split(globalDivider1);
+
 	var nGroups = thisRowSpecs.length;
  		
     thisTable.appendChild(crVerbReferenceTableColgroup(nGroups));
@@ -803,7 +790,8 @@ function crVerbReferenceSingleRow(thisDiv){
 	   thisTable.appendChild(crVerbTableHeaderRow(imperative,false));
 	}
 	
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translation, mfSymbol, thisRowSpecs);
+	var lastRow = false;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translation, mfSymbol, thisRowSpecs, lastRow);
 
 
   // insert row in document	
@@ -812,61 +800,60 @@ function crVerbReferenceSingleRow(thisDiv){
 	
 }
 	
-function addVerbReferenceTableRow(thisTable, verbRootHTML,  rowTranslation, mfSymbol, verbPartsHTML,lastRow=false){
+function addVerbReferenceTableRow(thisTable, verbRootHTML,  rowTranslation, mfSymbol, verbPartsHTML,lastRow, audioHTML){
+  // NB if any audio, assumes length of verbPartsHTML and audioHTML the same 
+  // verbPartsHTML is array of arrays
    var i;
-   var col;
    var row;
-   var syllable;
    var group;
-   var variant;
-   var nGroups = verbPartsHTML.length ;	// 4 for main part of verb, 1 for imperative
-   
-   var verbPartsVariantsHTML = [];
-   var nVariants = [];
-//test("hello from addVerbReferenceTableRow");  
+  
+//test("hello from addVerbReferenceTableRow, verbPArtsHTML="+verbPartsHTML+ rowTranslation+ " " +  " MF=" +mfSymbol  ); 
 
-    // deal with verb root    var verbRootHTML = verbRootPara.innerHTML.split(globalDivider2);
+    // check if any audio 
+    //var anyAudio = audioHTML.length > 0;	 
+   // if (anyAudio) {var audioVariantsHTML = [];}
 
+    // deal with verb root  
     var verbRootHTMLsplit = verbRootHTML.split(globalDivider2);
 	var verbRoot = [];
-	var verbRootNChars = [];
+	//var verbRootNChars = [];
 	for (i=0; i < verbRootHTMLsplit.length; i++){
-	   verbRoot[i] = convertHTMLToJavascript(verbRootHTMLsplit[i].trim());
-	   verbRootNChars[i] = verbRoot[i].length;
+	   verbRoot[i] = verbRootHTMLsplit[i].trim();
+	 //  verbRoot[i] = convertHTMLToJavascript(verbRootHTMLsplit[i].trim());
+	//   verbRootNChars[i] = verbRoot[i].length;
 	}
- //test("hello from addVerbReferenceTableRow,  verb root=" + verbRoot);
+  
+    var nGroups = verbPartsHTML.length ;	// 4 for main part of verb, 1 for imperative
 
      // check whether any cases where > 1 variant for verb part for a particular person
-   for (group = 0; group < nGroups; group++){
-	  var thisGroupHTML = verbPartsHTML[group].trim();
-	  if ((thisGroupHTML == "noVerbPart") | (thisGroupHTML == "noPersonPart")){
-	     //nVariants[group] = 0;
-	     nVariants[group] = 1;
-		 verbPartsVariantsHTML[group] = thisGroupHTML.split(verbDivider); 
-	  } else {
-	     verbPartsVariantsHTML[group] = thisGroupHTML.split(verbDivider); 
-         nVariants[group] = verbPartsVariantsHTML[group].length;
-	  }
-   }
-
-   var maxVariants = Math.max(...nVariants); 
-
+	 // note that verbPartsHTML is an array of arrays, each verb part [i] is an array, usually of length 1
+    var maxVariants = 1;
+    var nVariants = [];
+	for (group = 0; group < nGroups; group++){
+	   nVariants[group] = verbPartsHTML[group].length;
+	   if (nVariants[group] > maxVariants){maxVariants = nVariants[group];}
+	}	
+//test("hello from addVerbReferenceTableRow, nVariants=" +nVariants ); 
+    		
+   
 
    for (row = 0; row < maxVariants; row++){ 
  //----------------------------------------   
-      var thisRow = document.createElement("tr");
-	  if ( row == 0 ) {thisRow.classList.add("reference-table-border-top");}
-	  if ( lastRow && row == maxVariants - 1 ) {thisRow.classList.add("reference-table-border-bottom");}
+      var thisTableRow = document.createElement("tr");
 	  
-      if ( row == 0 ){
-         // first row for this item (usually only row)
-		 // this function is in biblical_hebrew_reference_tables_utilities.js
-          thisCol = crRowHeadingCol(rowTranslation, mfSymbol);
+	  if ( lastRow && row == maxVariants - 1 ) {thisTableRow.classList.add("reference-table-border-bottom");}
+	  
+	  // first table column (has row heading if first row)
+	  //-------------------------------------------------
+	  if (row == 0 ){
+        // first row (often, the only row)
+          thisTableRow.classList.add("reference-table-border-top");
+          var col1 = crRowHeadingCol(rowTranslation, mfSymbol);
       } else {
-		  // only if > 1 item in this row
-          var thisCol = document.createElement("td");
-      }		  
-      thisRow.appendChild(thisCol);
+		  // nothing in column 1 for subswequent rows
+          var col1 = document.createElement("td");
+ 	  }	 
+      thisTableRow.appendChild(col1);
 
          // verb columns
 		 //-------------
@@ -874,150 +861,117 @@ function addVerbReferenceTableRow(thisTable, verbRootHTML,  rowTranslation, mfSy
 		  
 		 // now not separate columns for root letters, 2 columns, column 1=prefix (if any), column 2=rest of verb
          //--------------------------------------------------------------------------------------------------	 
+         var groupCol1 = document.createElement("td"); // root+suffix column
+         var groupCol2 = document.createElement("td"); // prefix column
+
+         groupCol1.classList.add("hebrew25");
+         groupCol2.classList.add("hebrew25");
+	
+ 		// noVerbPerson = this verb doesn't have instances of this person, from Excel
+		// noVerbPart = qatal, weqatal fem plural, from javascript
 		
-		var infrequent = false;
-		var frequent = false;
-		
-		if (nVariants[group] > row){
-		   	if (verbPartsVariantsHTML[group][row].trim() == "noVerbPerson"){
-		        var thisGroup = "noVerbPerson";
-		   	} else if (verbPartsVariantsHTML[group][row].trim() == "noVerbPart"){
-		        var thisGroup = "noVerbPart";
-	        } else {
-				// verbPartsVariantsHTML= frequent/infrequent : prefix letters : root1 letter(s) : root2 letter(s) : root3 letter(s) : suffix
-				var theseHTMLSyllables = verbPartsVariantsHTML[group][row].split(globalDivider2);
-				if (theseHTMLSyllables[0].trim() == "infrequent") {infrequent=true;}
-				else if (theseHTMLSyllables[0].trim() == "frequent") {frequent=true;}
-				theseHTMLSyllables.shift();
-				var thisGroup = [];
-				var thisGroupRoots = [];
-                for (syllable = 0; syllable < theseHTMLSyllables.length; syllable++){
-				   var possibleRoot = theseHTMLSyllables[syllable].trim().slice(0,4);	
-				   if (possibleRoot == "root"){
-					   var rootWord = theseHTMLSyllables[syllable].trim().slice(0,5);
-                       thisGroupRoots[syllable] = rootWord;
-					   // remove word "rootx"
-                       theseHTMLSyllables[syllable] = theseHTMLSyllables[syllable].trim().slice(5);
-                   } else {
-                       thisGroupRoots[syllable]="";
-                   } 					   
-                   thisGroup[syllable] = convertHTMLToJavascript(theseHTMLSyllables[syllable]);
-				}  
-			}	
-		} else {
-			if (verbPartsVariantsHTML[group][0].trim() == "noVerbPart"){
-				var thisGroup = "noVerbPart";
-            } else {
-				var thisGroup = "";
-			}	
-		}   
-		 
-	    if (thisGroup == "" ){
-			// no content, no formatting 
-            var thisCol = document.createElement("td");
-  		    thisRow.appendChild(thisCol);
-            var thisCol = document.createElement("td");
-  		    thisRow.appendChild(thisCol);
-			
-		} else if (thisGroup == "noVerbPerson") {
-			// insert a -
-            var thisCol = document.createElement("td");
-			thisCol.classList.add("no-verb-person");
+		 if (verbPartsHTML[group][0].trim() == "noVerbPart"  ){
+			// no content, flag that never any content for this category, ie qatal fem plural "they"
+			groupCol1.classList.add("verb-reference-table-no-verb-part");
+			groupCol2.classList.add("verb-reference-table-no-verb-part");
+		 } 
+		 else if (verbPartsHTML[group][0].trim() == "noVerbPerson" && row == 0 ){
+            // for this verb, no content for this category			
+			groupCol1.classList.add("no-verb-person");
 			//var thisSpan = document.createElement("span");
 	       // thisSpan.appendChild(document.createTextNode("-"));
-			//thisCol.appendChild(thisSpan);
-		    thisRow.appendChild(thisCol);
-            var thisCol = document.createElement("td");
-  		    thisRow.appendChild(thisCol);
+			//groupCol1.appendChild(thisSpan);
+		 }
+		 else if (nVariants[group] > row){
+			// there is some content for these 2 table cells
+			//----------------------------------------------
+			// verbPartsHTML[group][row]= frequent/infrequent : prefix letters : root1 letter(s) : root2 letter(s) : root3 letter(s) : suffix
 			
-		} else if (thisGroup == "noVerbPart"){
-//test("hello from addVerbReferenceTableRow, in noVerbPart, maxvariants=" + maxVariants);
-           var thisCol = document.createElement("td");
-			thisCol.classList.add("verb-reference-table-no-verb-part");
- 		    thisRow.appendChild(thisCol);
-            var thisCol = document.createElement("td");
-			thisCol.classList.add("verb-reference-table-no-verb-part");
-  		    thisRow.appendChild(thisCol);
-		 
-		  
-	    } else {	
-
-           // first column (root + suffix)	
-           //----------------------------		   
-             var thisCol = document.createElement("td");
-	         thisCol.classList.add("hebrew25");
-			 if (infrequent) { thisCol.classList.add("reference-table-infrequent"); }
-			 else if (frequent) { thisCol.classList.add("verb-reference-table-frequent-col1"); }
-			 
-			 for (syllable = 1; syllable < thisGroup.length ; syllable++){
-	             var thisSpan = document.createElement("span");
-	             thisSpan.appendChild(document.createTextNode(thisGroup[syllable]));
-				 if ((thisGroupRoots[syllable].length > 0) && (thisGroup[syllable].length > 0)){
-//test("hello from addVerbReferenceTableRow, thisGrouprootsSyllable=" + thisGroupRoots[syllable] + "slice4=" + thisGroupRoots[syllable].slice(4) + ", verb root=" + verbRoot + ",thisgroupsyllable=" +thisGroup[syllable]);
-					 // this is a root consonant, check whether is different from root (eg heh in root changed to tav)
-	                //var thisRootNum = thisGroupRoots[syllable].slice(4);
-					var differentRoot = false;
-	                if (thisGroupRoots[syllable] == "root1"){
-                     //  if (	(verbRoot[0] == shin) || (verbRoot[0] == sin)){
-					 //   if (thisGroup[syllable].slice(0,2) != verbRoot[0]) {differentRoot = true;}
-					 // }					   
-					 //  else if (thisGroup[syllable].slice(0,1) != verbRoot[0]) {differentRoot = true;}
-					 
-					 //  if (thisGroup[syllable].slice(0,verbRootNChars[0]) != verbRoot[0]) {differentRoot = true;}
-					   if (thisGroup[syllable].slice(0,1) != verbRoot[0].slice(0,1)) {differentRoot = true;}
-					}
-	                else if (thisGroupRoots[syllable] == "root2"){ 
-                     // if (	(verbRoot[1] == shin) || (verbRoot[1] == sin)){
-					 //     if (thisGroup[syllable].slice(0,2) != verbRoot[1]) {differentRoot = true;}
-					 //  }					   
-					 // else if (thisGroup[syllable].slice(0,1) != verbRoot[1]) {differentRoot = true;}
-					 
-					 //  if (thisGroup[syllable].slice(0,verbRootNChars[1]) != verbRoot[1]) {differentRoot = true;}
-					   if (thisGroup[syllable].slice(0,1) != verbRoot[1].slice(0,1)) {differentRoot = true;}
-					}
-	                else if (thisGroupRoots[syllable] == "root3"){ 
-                     // if (	(verbRoot[2] == shin) || (verbRoot[2] == sin)){
-					 //     if (thisGroup[syllable].slice(0,2) != verbRoot[2]) {differentRoot = true;}
-					 //  }					   
-					 // else if (thisGroup[syllable].slice(0,1) != verbRoot[2]) {differentRoot = true;}
-					 
-					 //  if (thisGroup[syllable].slice(0,verbRootNChars[2]) != verbRoot[2]) {differentRoot = true;}
-					   if (thisGroup[syllable].slice(0,1) != verbRoot[2].slice(0,1)) {differentRoot = true;}
-					}
-					
-					if (differentRoot) {thisSpan.classList.add("verb-reference-table-verb-root-different");}
-					else               {thisSpan.classList.add("verb-reference-table-root");}
-					
-				 } else {
-					 thisSpan.classList.add("verb-reference-table-non-root");
-                 }					 
-	             thisCol.appendChild(thisSpan);
+			 var theseHTMLSyllables = verbPartsHTML[group][row].split(globalDivider2);
+			 var frequentInfrequent = theseHTMLSyllables[0].trim();
+			 var thisPrefix = theseHTMLSyllables[1].trim();
+			 var thisRoot1 = theseHTMLSyllables[2].replace("root1","").trim();
+			 var thisRoot2 = theseHTMLSyllables[3].replace("root2","").trim();
+			 var thisRoot3 = theseHTMLSyllables[4].replace("root3","").trim();
+			 var thisSuffix = theseHTMLSyllables[5].trim();
+			
+			 if (frequentInfrequent == "infrequent") {
+				groupCol1.classList.add("reference-table-infrequent");
+				groupCol2.classList.add("reference-table-infrequent");
 			 }
-			 thisRow.appendChild(thisCol);
+			 else if (frequentInfrequent == "frequent") {
+				groupCol1.classList.add("verb-reference-table-frequent-col1");
+				groupCol2.classList.add("verb-reference-table-frequent-col2");
+		    }
+		   
+		   // root + suffix (first column)
+		   //-----------------------------
+		   
+		   // root 1
+		    var thisSpan = document.createElement("span");
+		    if (thisRoot1.length > 0){
+               thisSpan.appendChild(document.createTextNode(convertHTMLToJavascript(thisRoot1)));
+			   if (thisRoot1.slice(0,1) != verbRoot[0].slice(0,1)) {
+				  thisSpan.classList.add("verb-reference-table-verb-root-different");
+			   } else {         
+			      thisSpan.classList.add("verb-reference-table-root");
+			   }
+		    }
+		    groupCol1.appendChild(thisSpan);
 
-           // second column (prefix, if any)	
-           //----------------------------		   
-             var thisCol = document.createElement("td");
-	         thisCol.classList.add("hebrew25");
-			 if (infrequent) { thisCol.classList.add("reference-table-infrequent"); }
-			 else if (frequent) { thisCol.classList.add("verb-reference-table-frequent-col2"); }
-			 
-	         var thisSpan = document.createElement("span");
-	         thisSpan.appendChild(document.createTextNode(thisGroup[0]));
-  		     thisSpan.classList.add("verb-reference-table-non-root");
-	         thisCol.appendChild(thisSpan);
-			 thisRow.appendChild(thisCol);
+		   // root 2
+		    var thisSpan = document.createElement("span");
+		    if (thisRoot2.length > 0){
+              thisSpan.appendChild(document.createTextNode(convertHTMLToJavascript(thisRoot2)));
+			  if (thisRoot2.slice(0,1) != verbRoot[1].slice(0,1)) {
+				  thisSpan.classList.add("verb-reference-table-verb-root-different");
+			  } else {
+				  thisSpan.classList.add("verb-reference-table-root");
+			  }
+		    }
+		    groupCol1.appendChild(thisSpan);
+		   
+		   // root 3
+		    var thisSpan = document.createElement("span");
+		    if (thisRoot3.length > 0){
+              thisSpan.appendChild(document.createTextNode(convertHTMLToJavascript(thisRoot3)));
+			  if (thisRoot3.slice(0,1) != verbRoot[2].slice(0,1)) {
+				  thisSpan.classList.add("verb-reference-table-verb-root-different");
+			  } else  {
+				  thisSpan.classList.add("verb-reference-table-root");
+			  }
+		    }
+		    groupCol1.appendChild(thisSpan);
+		   
+		   // suffix
+		    var thisSpan = document.createElement("span");
+		    if (thisSuffix.length > 0){
+              thisSpan.appendChild(document.createTextNode(convertHTMLToJavascript(thisSuffix)));
+			  thisSpan.classList.add("verb-reference-table-non-root");
+		    }
+		    groupCol1.appendChild(thisSpan);
+		   
+		   // prefix (second column)
+		   //-----------------------
+		    var thisSpan = document.createElement("span");
+		    if (thisPrefix.length > 0){
+              thisSpan.appendChild(document.createTextNode(convertHTMLToJavascript(thisPrefix)));
+			  thisSpan.classList.add("verb-reference-table-non-root");
+		    }
+		    groupCol2.appendChild(thisSpan);
 
- 			 
-		}	// group.length > 0 
+		 }
+
+         thisTableRow.appendChild(groupCol1);
+		 thisTableRow.appendChild(groupCol2);
 		 
+      } // for group
 	  
-     } // verb groups
-	 thisTable.appendChild(thisRow);
-	 
-   } // rows	 
-//test("hello from addVerbReferenceTableRow,group="+group);	  	 
+      thisTable.appendChild(thisTableRow);
+	  
+  } // for row
 
+   
    return thisTable;
 }
 
@@ -1035,33 +989,33 @@ function crVerbReferenceTablePersons1and3(dataDiv, hideInfrequent ){
 
     var verbRootPara = dataDiv.getElementsByClassName("js-root")[0];
     var verbRoot = verbRootPara.innerHTML;
-//test("hello from crVerbReferenceTableMain, dataDivverb root=" + verbRoot);	
+//test("hello from crVerbReferenceTableMain, dataDivverb root=" + verbRoot);
+    var audioDir = getAudioDir(dataDiv);	
 	
-	if (hideInfrequent) {
-       var qatalPara = dataDiv.getElementsByClassName("js-qatal-excl-infrequent")[0];
-       var weqatalPara = dataDiv.getElementsByClassName("js-weqatal-excl-infrequent")[0];
-       var yiktolPara = dataDiv.getElementsByClassName("js-yiktol-excl-infrequent")[0];
-       var wayyiktolPara = dataDiv.getElementsByClassName("js-vavyiktol-excl-infrequent")[0];
-		
-	} else {	
-       var qatalPara = dataDiv.getElementsByClassName("js-qatal")[0];
-       var weqatalPara = dataDiv.getElementsByClassName("js-weqatal")[0];
-       var yiktolPara = dataDiv.getElementsByClassName("js-yiktol")[0];
-       var wayyiktolPara = dataDiv.getElementsByClassName("js-vavyiktol")[0];
-	}
+	var exclInfrequent = "";
+	if (hideInfrequent) { var exclInfrequent = "-excl-infrequent";}
 	
-    var qatalHTML = qatalPara.innerHTML.split(globalDivider1);
-    var weqatalHTML = weqatalPara.innerHTML.split(globalDivider1);
-    var yiktolHTML = yiktolPara.innerHTML.split(globalDivider1);
-    var wayyiktolHTML = wayyiktolPara.innerHTML.split(globalDivider1);
+	//var qatalPara = dataDiv.getElementsByClassName("js-qatal" + exclInfrequent)[0];
+   // var weqatalPara = dataDiv.getElementsByClassName("js-weqatal" + exclInfrequent)[0];
+   // var yiktolPara = dataDiv.getElementsByClassName("js-yiktol" + exclInfrequent)[0];
+    //var vavyiktolPara = dataDiv.getElementsByClassName("js-vavyiktol" + exclInfrequent)[0];
 	
+   // var qatalHTML = qatalPara.innerHTML.split(globalDivider1);
+   // var weqatalHTML = weqatalPara.innerHTML.split(globalDivider1);
+   // var yiktolHTML = yiktolPara.innerHTML.split(globalDivider1);
+   // var vavyiktolHTML = vavyiktolPara.innerHTML.split(globalDivider1);
+	
+	var qatalHTML = crArrayOfArrays(dataDiv, "js-qatal" + exclInfrequent);
+	var weqatalHTML = crArrayOfArrays(dataDiv, "js-weqatal" + exclInfrequent);
+	var yiktolHTML = crArrayOfArrays(dataDiv, "js-yiktol" + exclInfrequent);
+	var vavyiktolHTML = crArrayOfArrays(dataDiv, "js-vavyiktol" + exclInfrequent);
 
-    var verbI = [qatalHTML[0],weqatalHTML[0],yiktolHTML[0],wayyiktolHTML[0]];
-    var verbWe  = [qatalHTML[5],weqatalHTML[5],yiktolHTML[5],wayyiktolHTML[5]];
-	var verbHe  = [qatalHTML[3],weqatalHTML[3],yiktolHTML[3],wayyiktolHTML[3]];
-	var verbShe  = [qatalHTML[4],weqatalHTML[4],yiktolHTML[4],wayyiktolHTML[4]];
-	var verbThey = [qatalHTML[7],weqatalHTML[7],yiktolHTML[7],wayyiktolHTML[7]]; 
-	var verbTheyF = ["noVerbPart","noVerbPart",yiktolHTML[9],wayyiktolHTML[9]];	
+    var verbI = [qatalHTML[0],weqatalHTML[0],yiktolHTML[0],vavyiktolHTML[0]];
+    var verbWe  = [qatalHTML[5],weqatalHTML[5],yiktolHTML[5],vavyiktolHTML[5]];
+	var verbHe  = [qatalHTML[3],weqatalHTML[3],yiktolHTML[3],vavyiktolHTML[3]];
+	var verbShe  = [qatalHTML[4],weqatalHTML[4],yiktolHTML[4],vavyiktolHTML[4]];
+	var verbThey = [qatalHTML[7],weqatalHTML[7],yiktolHTML[7],vavyiktolHTML[7]]; 
+	var verbTheyF = [["noVerbPart"],["noVerbPart"],yiktolHTML[9],vavyiktolHTML[9]];	
 	
     var thisTable = document.createElement("table");
     thisTable.classList.add("verb-reference-table");
@@ -1072,24 +1026,27 @@ function crVerbReferenceTablePersons1and3(dataDiv, hideInfrequent ){
     var imperative = false;
     thisTable.appendChild(crVerbTableHeaderRow(imperative));
 	
-   // First person rows
-   // ------------------
-    thisTable.appendChild(crReferenceTableSectionHeaderRow("I, we",9));
-	
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationI, "", verbI);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","we"), "", verbWe);
-	
+	var lastRow = false;
 
    // 3rd person rows
    // ---------------
     thisTable.appendChild(crReferenceTableSectionHeaderRow("he, she, they",9));
    
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationHe, "", verbHe);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationHe.replaceAll("he","she"), "", verbShe);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationHe, "", verbHe,lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationHe.replaceAll("he","she"), "", verbShe,lastRow);
    
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","they"), "", verbThey);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","they"), femaleSymbol+femaleSymbol, verbTheyF, true);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","they"), "", verbThey,lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","they"), femaleSymbol+femaleSymbol, verbTheyF,lastRow);
 
+	
+   // First person rows
+   // ------------------
+    thisTable.appendChild(crReferenceTableSectionHeaderRow("I, we",9));
+	
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationI, "", verbI,lastRow);
+	var lastRow = true;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","we"), "", verbWe,lastRow);
+	
 
     // create a scrolling div to contain the table
     var scrollDiv = document.createElement("div");
@@ -1110,34 +1067,34 @@ function crVerbReferenceTablePerson2(dataDiv, hideInfrequent ){
     var verbRootPara = dataDiv.getElementsByClassName("js-root")[0];
     var verbRoot = verbRootPara.innerHTML;
 	
-	if (hideInfrequent) {
-       var qatalPara = dataDiv.getElementsByClassName("js-qatal-excl-infrequent")[0];
-       var weqatalPara = dataDiv.getElementsByClassName("js-weqatal-excl-infrequent")[0];
-       var yiktolPara = dataDiv.getElementsByClassName("js-yiktol-excl-infrequent")[0];
-       var wayyiktolPara = dataDiv.getElementsByClassName("js-vavyiktol-excl-infrequent")[0];
-		
-	} else {	
-       var qatalPara = dataDiv.getElementsByClassName("js-qatal")[0];
-       var weqatalPara = dataDiv.getElementsByClassName("js-weqatal")[0];
-       var yiktolPara = dataDiv.getElementsByClassName("js-yiktol")[0];
-       var wayyiktolPara = dataDiv.getElementsByClassName("js-vavyiktol")[0];
-	}
 	
-    var qatalHTML = qatalPara.innerHTML.split(globalDivider1);
-    var weqatalHTML = weqatalPara.innerHTML.split(globalDivider1);
-    var yiktolHTML = yiktolPara.innerHTML.split(globalDivider1);
-    var wayyiktolHTML = wayyiktolPara.innerHTML.split(globalDivider1);
+	var exclInfrequent = "";
+	if (hideInfrequent) { var exclInfrequent = "-excl-infrequent";}
+	
+	//var qatalPara = dataDiv.getElementsByClassName("js-qatal" + exclInfrequent)[0];
+  //  var weqatalPara = dataDiv.getElementsByClassName("js-weqatal" + exclInfrequent)[0];
+  //  var yiktolPara = dataDiv.getElementsByClassName("js-yiktol" + exclInfrequent)[0];
+   // var vavyiktolPara = dataDiv.getElementsByClassName("js-vavyiktol" + exclInfrequent)[0];
+	
+   // var qatalHTML = qatalPara.innerHTML.split(globalDivider1);
+  //  var weqatalHTML = weqatalPara.innerHTML.split(globalDivider1);
+   // var yiktolHTML = yiktolPara.innerHTML.split(globalDivider1);
+   // var vavyiktolHTML = vavyiktolPara.innerHTML.split(globalDivider1);
 
-	
-	if (hideInfrequent) {var imperativePara = dataDiv.getElementsByClassName("js-imperative-excl-infrequent")[0];}
-	else                {var imperativePara = dataDiv.getElementsByClassName("js-imperative")[0];}
-    var imperativeHTML = imperativePara.innerHTML.split(globalDivider1);
+   // var imperativePara = dataDiv.getElementsByClassName("js-imperative" + exclInfrequent)[0];
+   // var imperativeHTML = imperativePara.innerHTML.split(globalDivider1);
+
+	var qatalHTML = crArrayOfArrays(dataDiv, "js-qatal" + exclInfrequent);
+	var weqatalHTML = crArrayOfArrays(dataDiv, "js-weqatal" + exclInfrequent);
+	var yiktolHTML = crArrayOfArrays(dataDiv, "js-yiktol" + exclInfrequent);
+	var vavyiktolHTML = crArrayOfArrays(dataDiv, "js-vavyiktol" + exclInfrequent);
+	var imperativeHTML = crArrayOfArrays(dataDiv, "js-imperative" + exclInfrequent);
 	
 
-	var verbYouSingM = [qatalHTML[1],weqatalHTML[1],yiktolHTML[1],imperativeHTML[0],wayyiktolHTML[1]];
-	var verbYouSingF  = [qatalHTML[2],weqatalHTML[2],yiktolHTML[2],imperativeHTML[2],wayyiktolHTML[2]];
-	var verbYouPluralM  = [qatalHTML[6],weqatalHTML[6],yiktolHTML[6],imperativeHTML[1],wayyiktolHTML[6]];
-	var verbYouPluralF  = [qatalHTML[8],weqatalHTML[8],yiktolHTML[8],imperativeHTML[3],wayyiktolHTML[8]];
+	var verbYouSingM = [qatalHTML[1],weqatalHTML[1],yiktolHTML[1],imperativeHTML[0],vavyiktolHTML[1]];
+	var verbYouSingF  = [qatalHTML[2],weqatalHTML[2],yiktolHTML[2],imperativeHTML[2],vavyiktolHTML[2]];
+	var verbYouPluralM  = [qatalHTML[6],weqatalHTML[6],yiktolHTML[6],imperativeHTML[1],vavyiktolHTML[6]];
+	var verbYouPluralF  = [qatalHTML[8],weqatalHTML[8],yiktolHTML[8],imperativeHTML[3],vavyiktolHTML[8]];
 
     var thisTable = document.createElement("table");
     thisTable.classList.add("verb-reference-table");
@@ -1157,21 +1114,24 @@ function crVerbReferenceTablePerson2(dataDiv, hideInfrequent ){
 	var translationImperativeSplit = translationImperative.split(globalDivider1);
 	var translation = translationYouSplit[0] + ", " + translationImperativeSplit[0] + " (imperative)"
 	for (i=1; i < translationYouSplit.length; i++){
-       var translation = translation + globalDivider1 + translationYouSplit[i] + ", " + translationImperativeSplit[i] + " (imperative)"
+		// crReferenceTableSectionHeaderRow inserts <br> at globalDivider1
+       var translation = translation + globalDivider1 + translationYouSplit[i] + ", " + translationImperativeSplit[i] + " (imperative)";
     }
     thisTable.appendChild(crReferenceTableSectionHeaderRow(translation, 11,true));
 
+	var lastRow = false;
 	
-   // singular rows
+   // masc rows
 
    //--------------
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", maleSymbol, verbYouSingM);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", femaleSymbol, verbYouSingF);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", maleSymbol, verbYouSingM, lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", maleSymbol+maleSymbol, verbYouPluralM, lastRow);
 
-  // plural rows
+  // fem rows
   //------------
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", maleSymbol+maleSymbol, verbYouPluralM);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", femaleSymbol+femaleSymbol, verbYouPluralF, true);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", femaleSymbol, verbYouSingF, lastRow);
+	lastRow = true;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", femaleSymbol+femaleSymbol, verbYouPluralF, lastRow);
 
     // create a scrolling div to contain the table
     var scrollDiv = document.createElement("div");
@@ -1184,7 +1144,11 @@ function crVerbReferenceTablePerson2(dataDiv, hideInfrequent ){
 }
 
 function crVerbReferenceTableMain(dataDiv, hideInfrequent ){
+//test("hello from crVerbReferenceTableMain=" );
+
 	var i;
+	// "standard" order, singular, plural, plural females only
+	// "you" forms don't include imperative
 	
 	// main table - qatal, weqatal, yiktol, vavyiktol
 	//----------------------------------------------
@@ -1199,39 +1163,42 @@ function crVerbReferenceTableMain(dataDiv, hideInfrequent ){
     var verbRoot = verbRootPara.innerHTML;
 //test("hello from crVerbReferenceTableMain, dataDivverb root=" + verbRoot);	
 	
-	if (hideInfrequent) {
-       var qatalPara = dataDiv.getElementsByClassName("js-qatal-excl-infrequent")[0];
-       var weqatalPara = dataDiv.getElementsByClassName("js-weqatal-excl-infrequent")[0];
-       var yiktolPara = dataDiv.getElementsByClassName("js-yiktol-excl-infrequent")[0];
-       var wayyiktolPara = dataDiv.getElementsByClassName("js-vavyiktol-excl-infrequent")[0];
-		
-	} else {	
-       var qatalPara = dataDiv.getElementsByClassName("js-qatal")[0];
-       var weqatalPara = dataDiv.getElementsByClassName("js-weqatal")[0];
-       var yiktolPara = dataDiv.getElementsByClassName("js-yiktol")[0];
-       var wayyiktolPara = dataDiv.getElementsByClassName("js-vavyiktol")[0];
-	}
+	var exclInfrequent = "";
+	if (hideInfrequent) { var exclInfrequent = "-excl-infrequent";}
 	
-    var qatalHTML = qatalPara.innerHTML.split(globalDivider1);
-    var weqatalHTML = weqatalPara.innerHTML.split(globalDivider1);
-    var yiktolHTML = yiktolPara.innerHTML.split(globalDivider1);
-    var wayyiktolHTML = wayyiktolPara.innerHTML.split(globalDivider1);
+//test("hello from crVerbReferenceTableMain, exclinfrequent=" + exclInfrequent);	
 	
+	//var qatalPara = dataDiv.getElementsByClassName("js-qatal" + exclInfrequent)[0];
+    //var weqatalPara = dataDiv.getElementsByClassName("js-weqatal" + exclInfrequent)[0];
+    //var yiktolPara = dataDiv.getElementsByClassName("js-yiktol" + exclInfrequent)[0];
+    //var vavyiktolPara = dataDiv.getElementsByClassName("js-vavyiktol" + exclInfrequent)[0];
 
-    var verbI = [qatalHTML[0],weqatalHTML[0],yiktolHTML[0],wayyiktolHTML[0]];
-	var verbYouSingM = [qatalHTML[1],weqatalHTML[1],yiktolHTML[1],wayyiktolHTML[1]];
-	var verbYouSingF  = [qatalHTML[2],weqatalHTML[2],yiktolHTML[2],wayyiktolHTML[2]];
-	var verbHe  = [qatalHTML[3],weqatalHTML[3],yiktolHTML[3],wayyiktolHTML[3]];
-	var verbShe  = [qatalHTML[4],weqatalHTML[4],yiktolHTML[4],wayyiktolHTML[4]];
-    var verbWe  = [qatalHTML[5],weqatalHTML[5],yiktolHTML[5],wayyiktolHTML[5]];
-	var verbYouPluralM  = [qatalHTML[6],weqatalHTML[6],yiktolHTML[6],wayyiktolHTML[6]];
+    //var qatalHTML = qatalPara.innerHTML.split(globalDivider1);
+    //var weqatalHTML = weqatalPara.innerHTML.split(globalDivider1);
+    //var yiktolHTML = yiktolPara.innerHTML.split(globalDivider1);
+    //var vavyiktolHTML = vavyiktolPara.innerHTML.split(globalDivider1);
+	
+	var qatalHTML = crArrayOfArrays(dataDiv, "js-qatal" + exclInfrequent);
+    var weqatalHTML = crArrayOfArrays(dataDiv, "js-weqatal" + exclInfrequent);
+    var yiktolHTML = crArrayOfArrays(dataDiv, "js-yiktol" + exclInfrequent);
+    var vavyiktolHTML = crArrayOfArrays(dataDiv, "js-vavyiktol" + exclInfrequent);
+//test("hello from crVerbReferenceTableMain, qatalHTML=" + qatalHTML);	
+
+
+    var verbI = [qatalHTML[0],weqatalHTML[0],yiktolHTML[0],vavyiktolHTML[0]];
+	var verbYouSingM = [qatalHTML[1],weqatalHTML[1],yiktolHTML[1],vavyiktolHTML[1]];
+	var verbYouSingF  = [qatalHTML[2],weqatalHTML[2],yiktolHTML[2],vavyiktolHTML[2]];
+	var verbHe  = [qatalHTML[3],weqatalHTML[3],yiktolHTML[3],vavyiktolHTML[3]];
+	var verbShe  = [qatalHTML[4],weqatalHTML[4],yiktolHTML[4],vavyiktolHTML[4]];
+    var verbWe  = [qatalHTML[5],weqatalHTML[5],yiktolHTML[5],vavyiktolHTML[5]];
+	var verbYouPluralM  = [qatalHTML[6],weqatalHTML[6],yiktolHTML[6],vavyiktolHTML[6]];
 	//var verbThey = [qatalHTML[7],weqatalHTML[7],[],[]]; 
-	//var verbTheyM  = [[],[],yiktolHTML[7],wayyiktolHTML[7]];
-	var verbThey = [qatalHTML[7],weqatalHTML[7],"noVerbPart","noVerbPart"]; 
-	var verbTheyM  = ["noVerbPart","noVerbPart",yiktolHTML[7],wayyiktolHTML[7]];
-	var verbYouPluralF  = [qatalHTML[8],weqatalHTML[8],yiktolHTML[8],wayyiktolHTML[8]];
-	//var verbTheyF = [[],[],yiktolHTML[9],wayyiktolHTML[9]];	
-	var verbTheyF = ["noVerbPart","noVerbPart",yiktolHTML[9],wayyiktolHTML[9]];	
+	//var verbTheyM  = [[],[],yiktolHTML[7],vavyiktolHTML[7]];
+	var verbThey = [qatalHTML[7],weqatalHTML[7],["noVerbPart"],["noVerbPart"]]; 
+	var verbTheyM  = [["noVerbPart"],["noVerbPart"],yiktolHTML[7],vavyiktolHTML[7]];
+	var verbYouPluralF  = [qatalHTML[8],weqatalHTML[8],yiktolHTML[8],vavyiktolHTML[8]];
+	//var verbTheyF = [[],[],yiktolHTML[9],vavyiktolHTML[9]];	
+	var verbTheyF = [["noVerbPart"],["noVerbPart"],yiktolHTML[9],vavyiktolHTML[9]];	
 	
     var thisTable = document.createElement("table");
     thisTable.classList.add("verb-reference-table");
@@ -1245,30 +1212,38 @@ function crVerbReferenceTableMain(dataDiv, hideInfrequent ){
    // "Singular" header row
     thisTable.appendChild(crReferenceTableSectionHeaderRow("Singular",9));
 
+    var lastRow = false;
+	
    // singular rows
    //--------------
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationI, "", verbI);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou, maleSymbol, verbYouSingM);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou, femaleSymbol, verbYouSingF);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationHe, "", verbHe);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationHe.replaceAll("he","she"), "", verbShe, true);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationI, "", verbI, lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou, maleSymbol, verbYouSingM, lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou, femaleSymbol, verbYouSingF, lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationHe, "", verbHe, lastRow);
+	lastRow = true;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationHe.replaceAll("he","she"), "", verbShe, lastRow);
 
   // plural rows
   //------------
+  
+    lastRow = false;
     thisTable.appendChild(crReferenceTableSectionHeaderRow("Plural",9));
 
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","we"), "", verbWe);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou, maleSymbol+maleSymbol, verbYouPluralM);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","they"), "", verbThey);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","they"), maleSymbol+maleSymbol,verbTheyM, true);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","we"), "", verbWe, lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou, maleSymbol+maleSymbol, verbYouPluralM, lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","they"), "", verbThey, lastRow);
+    lastRow = true;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","they"), maleSymbol+maleSymbol,verbTheyM, lastRow);
 
 
   // females only rows
   //------------------
     thisTable.appendChild(crReferenceTableSectionHeaderRow("Females only",9));
 	
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou, femaleSymbol+femaleSymbol, verbYouPluralF);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","they"), femaleSymbol+femaleSymbol, verbTheyF, true);
+    lastRow = false;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou, femaleSymbol+femaleSymbol, verbYouPluralF, lastRow);
+    lastRow = true;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationYou.replaceAll("you","they"), femaleSymbol+femaleSymbol, verbTheyF, lastRow);
 
     // create a scrolling div to contain the table
     var scrollDiv = document.createElement("div");
@@ -1281,6 +1256,7 @@ function crVerbReferenceTableMain(dataDiv, hideInfrequent ){
 }
 
 function crVerbReferenceTableImperative(dataDiv, hideInfrequent){
+//test("hello from crVerbReferenceTableImperative");	
 	var i;
 
 	// imperative table
@@ -1288,13 +1264,22 @@ function crVerbReferenceTableImperative(dataDiv, hideInfrequent){
 	
     var verbRootPara = dataDiv.getElementsByClassName("js-root")[0];
     var verbRoot = verbRootPara.innerHTML;
-								  
+                                                                       				  
     var translationImperativePara = dataDiv.getElementsByClassName("js-translationImperative")[0];
     var translationImperative = translationImperativePara.innerHTML;
 	
-	if (hideInfrequent) {var imperativePara = dataDiv.getElementsByClassName("js-imperative-excl-infrequent")[0];}
-	else                {var imperativePara = dataDiv.getElementsByClassName("js-imperative")[0];}
-    var imperativeHTML = imperativePara.innerHTML.split(globalDivider1);
+	var exclInfrequent = "";
+	if (hideInfrequent) { var exclInfrequent = "-excl-infrequent";}
+	
+	//var imperativePara = dataDiv.getElementsByClassName("js-imperative" + exclInfrequent)[0];
+    //var imperativeHTML = imperativePara.innerHTML.split(globalDivider1);
+
+	var imperativeHTML = crArrayOfArrays(dataDiv, "js-imperative" + exclInfrequent);
+	
+	var imperativeMS = [imperativeHTML[0]];
+	var imperativeMP = [imperativeHTML[1]];
+	var imperativeFS = [imperativeHTML[2]];
+	var imperativeFP = [imperativeHTML[3]];
 	
    // table with imperative
     var thisTable = document.createElement("table");
@@ -1308,13 +1293,14 @@ function crVerbReferenceTableImperative(dataDiv, hideInfrequent){
     thisTable.appendChild(thisRow);
 	
 	//var thisTranslation = translationImperative + "\u2003" + " speaking to "
-	var thisTranslation = translationImperative +  " (speaking to "
+	var thisTranslation = translationImperative +  " (speaking to ";
  	
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol, [imperativeHTML[0]], hideInfrequent);
-//test("hello from crVerbReferenceTableImperative");	
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol+maleSymbol,[imperativeHTML[1]], hideInfrequent);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol,[imperativeHTML[2]], hideInfrequent);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol+femaleSymbol,[imperativeHTML[3]], hideInfrequent, true);
+	var lastRow = false;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol, imperativeMS, lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol+maleSymbol,imperativeMP, lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol,imperativeFS, lastRow);
+    var lastRow = true;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol+femaleSymbol,imperativeFP, lastRow);
 
     return thisTable;
 
@@ -1333,9 +1319,18 @@ function crVerbReferenceTableParticiple(dataDiv, hideInfrequent){
     var translationParticiple = translationParticiplePara.innerHTML;
 //test("hello from crVerbReferenceTableparticiple, translationParticiple=" + translationParticiple);	
 
-	if (hideInfrequent) {var participlePara = dataDiv.getElementsByClassName("js-participle-excl-infrequent")[0];}
-	else                {var participlePara = dataDiv.getElementsByClassName("js-participle")[0];}
-    var participleHTML = participlePara.innerHTML.split(globalDivider1);
+	var exclInfrequent = "";
+	if (hideInfrequent) { var exclInfrequent = "-excl-infrequent";}
+	
+	//var participlePara = dataDiv.getElementsByClassName("js-participle" + exclInfrequent)[0];
+   // var participleHTML = participlePara.innerHTML.split(globalDivider1);
+
+	var participleHTML = crArrayOfArrays(dataDiv, "js-participle" + exclInfrequent);
+	
+	var participleMS = [participleHTML[0]];
+	var participleMP = [participleHTML[1]];
+	var participleFS = [participleHTML[2]];
+	var participleFP = [participleHTML[3]];
 	
    // table with participles
     var thisTable = document.createElement("table");
@@ -1349,11 +1344,13 @@ function crVerbReferenceTableParticiple(dataDiv, hideInfrequent){
 	
 	var thisTranslation = translationParticiple + " (describing "; 
  	
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol, [participleHTML[0]], hideInfrequent);
+	var lastRow = false;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol, participleMS, lastRow);
 //test("hello from crVerbReferenceTableparticiple");	
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol+maleSymbol,[participleHTML[1]], hideInfrequent);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol,[participleHTML[2]], hideInfrequent);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol+femaleSymbol,[participleHTML[3]], hideInfrequent, true);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol+maleSymbol,participleMP, lastRow);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol,participleFS, lastRow);
+    var lastRow = true;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol+femaleSymbol,participleFP, lastRow);
 
     return thisTable;
 
@@ -1369,10 +1366,16 @@ function crVerbReferenceTableInfinitiveConstruct(dataDiv, hideInfrequent){
     var translationInfinitiveConstructPara = dataDiv.getElementsByClassName("js-translationInfinitiveConstruct")[0];
     var translationInfinitiveConstruct = translationInfinitiveConstructPara.innerHTML;
 
-	if (hideInfrequent) {var infinitiveConstructPara = dataDiv.getElementsByClassName("js-infinitive-construct-excl-infrequent")[0];}
-	else                {var infinitiveConstructPara = dataDiv.getElementsByClassName("js-infinitive-construct")[0];}
-    var infinitiveConstructHTML = infinitiveConstructPara.innerHTML.split(globalDivider1);
+	var exclInfrequent = "";
+	if (hideInfrequent) { var exclInfrequent = "-excl-infrequent";}
+	
+	//var infinitiveConstructPara = dataDiv.getElementsByClassName("js-infinitive-construct" + exclInfrequent)[0];
+   // var infinitiveConstructHTML = infinitiveConstructPara.innerHTML.split(globalDivider1);
+
+	var infinitiveConstructHTML = crArrayOfArrays(dataDiv, "js-infinitive-construct" + exclInfrequent);
+
 	        // (should be only one)
+    var infinitiveConstruct = [infinitiveConstructHTML[0]]	;		
 	
    // table with infinitive construct
     var thisTable = document.createElement("table");
@@ -1386,8 +1389,39 @@ function crVerbReferenceTableInfinitiveConstruct(dataDiv, hideInfrequent){
 	
 	var thisTranslation = translationInfinitiveConstruct; 
  	
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, "", [infinitiveConstructHTML[0]], hideInfrequent);
+	var lastRow = false;
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, "", infinitiveConstruct, lastRow);
 
     return thisTable;
 
 }
+
+
+// utility functions //
+//-------------------//
+function getAudioDir(dataDiv){	
+	var anyAudio = dataDiv.getElementsByClassName("js-audio-dir");
+	if (anyAudio.length > 0){	var audioDir = anyAudio[0];}
+	else                    {   var audioDir = ""; }
+	
+	return audioDir;
+}	
+
+function crArrayOfArrays(dataDiv, className){
+   var i;
+//test("hello from crArrayOfArrays, classname=" + className  );
+  
+   var thisArray = [];
+
+   var HTMLParas = dataDiv.getElementsByClassName(className);  
+//test("hello from crArrayOfArrays, classname=" + className + " ,HTMLPAras[0]=" + HTMLParas[0].innerHTML );
+   if (HTMLParas.length > 0) {
+      var array1 = HTMLParas[0].innerHTML.trim().split(globalDivider1);
+	  for (i=0; i < array1.length; i++){
+		thisArray[i] = array1[i].trim().split(verbDivider);
+	  }	 
+   }	  
+//test("hello from crArrayOfArrays, classname=" + className + " ,HTMLPAras[0]=" + HTMLParas[0].innerHTML + ", thisArray=" + thisArray);
+  return thisArray;	
+
+}	
