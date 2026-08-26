@@ -141,7 +141,8 @@ function endedEventListener(){
 function soundclickEventListener(){
 	 // usage: element.addEventListener("click",soundclickEventListener);
 	 // soundclick item(s) in <span>, audio reference in following <p> (or <span>) ie next sibling
-	 // pathname must be included in the sound reference
+	 // if audio is in a subdirectory of audio directory, pathname to subdirectory must be included in the sound reference
+	 // (top directory "audio" added in setMp3Name)
     var thisLetter =  this.nextElementSibling.innerHTML;
     var thisSound = setMp3Name(thisLetter);
     playSound(thisSound);
