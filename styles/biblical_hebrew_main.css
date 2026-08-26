@@ -159,6 +159,8 @@ main {
   margin-inline: auto;    /* Centers the entire text block on large screens */
   padding-inline: 1.5rem; /* Prevents text from touching mobile screen edges */
   box-sizing: border-box; /* Ensures the padding is included in the width */
+  
+  padding-bottom:5px;
 }
 
 /* ---- horizontal line dividing sections--------*/
@@ -1128,6 +1130,7 @@ table{
 }	
 .lesson-vocab-table td:first-child{
         text-align:center;
+		/*vertical-align:top;*/
 		width:20%;
 }	
 
@@ -1400,6 +1403,13 @@ table{
 .verb-reference-table-no-verb-part{
   background-color:LightGray;
   background-color:WhiteSmoke;
+    background: repeating-linear-gradient(
+    45deg,        /* Angle of the stripes */
+    white,      /* Stripe 1: Start color */
+    white 10px, /* Stripe 1: End color & width */
+    WhiteSmoke 10px, /* Stripe 2: Start color (matches Stripe 1 end for sharp line) */
+    WhiteSmoke 20px  /* Stripe 2: End color & total width of pattern loop */
+  );
 }
 
 
