@@ -17,7 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
       var thisSpec = onloadLessonsExerciseClass[i];
       createLessonsExercise(thisSpec);
    }	
- 	
+ 
+
+   // create the exercise tables in JS on load (includes event listeners)
+   // this is the exercise just in English, practising finding nouns or verbs   
+   var onloadLessonsExerciseClass = document.getElementsByClassName("onload-lessons-English-exercise");
+   for (i = 0; i < onloadLessonsExerciseClass.length; i++) {
+      var thisSpec = onloadLessonsExerciseClass[i];
+      createLessonsEnglishExercise(thisSpec);
+   }	
+ 
 })	
 
 
@@ -361,5 +370,110 @@ function createLessonsExercise(thisDiv){
 	
 }
 
+function reCreateLessonsEnglishExercise(thisTableId){
+	// thisTableId is the id of the exercise table
+	
+   // remove the exercise table if it exists
+   var thisDiv = document.getElementById(thisTableId);	 
+   if ( thisDiv != null) {
+	   // remove div
+	   thisDiv.parentNode.removeChild(thisDiv);
+    }
+
+   // now create the list again
+   var instructionsDivId = "cr-" + thisTableId;
+   var instructionsDiv =  document.getElementById(instructionsDivId);
+   createLessonsEnglishExercise(instructionsDiv);
+
+}	
+
+function createLessonsEnglishExercise(thisDiv){
+	// thisDiv is div with the instructions for creating the exercise table
+	// user clicks on words which are nouns/verbs
+	
+	var r;
+	var i;
+	var j;
+	
+    var thisTable = document.createElement("table");
+    thisTable.setAttribute("id", thisDiv.id.replace("cr-",""));
+    thisTable.classList.add("English-exercise-table");
+	var translations = thisDiv.getElementsByClassName("js-lessons-exercise-translation");
+	var references = thisDiv.getElementsByClassName("js-lessons-exercise-reference");
+	var answerWords = thisDiv.getElementsByClassName("js-lessons-exercise-answer-words");
+
+   	var nselectionDiv = thisDiv.getElementsByClassName("js-lessons-exercise-nselection");
+	if (nselectionDiv.length > 0) {
+		var nItems = nselectionDiv[0].innerHTML.trim();
+		if (nItems > translations.length) {var nItems = translations.length;}
+	} else 	{ 
+		var nItems = translations.length;
+	}
+	
+    var shuffleOrder = shuffleArray(createIntegerArray(0, translations.length-1));
+
+    for (r = 0; r < nItems; r++) {
+	
+	   var thisRow = document.createElement("tr");
+	   
+	   var thisTranslation = translations[shuffleOrder[r]].innerHTML.trim().split(/\s+/); //split by one or more spaces;
+	   var thisReference = references[shuffleOrder[r]].innerHTML.trim();
+	   var thisAnswerWords = answerWords[shuffleOrder[r]].innerHTML.trim().split(/\s+/);
+
+	   var col1 = document.createElement("td");
+
+ 	   
+	   var nWords = thisTranslation.length;
+//test("hello from createLessonsEnglishExercise, translationWords=" + translationWords + ", nWords=" + nWords);
+	   
+	   var para = document.createElement('p');
+       para.classList.add("nomargin");
+	   
+       for (i = 0; i < nWords; i++) {
+          var word = document.createTextNode(thisTranslation[i] + " ");
+	      var span = document.createElement("span");
+	      span.appendChild(word);
+		  span.classList.add("clickable");
+		  
+	    // is this hebrew word an answer word?
+		  var isAnswerWord = false;
+		  for (j=0; j < thisAnswerWords.length; j++) {
+			 if (thisAnswerWords[j]-1 ==  i){
+				isAnswerWord = true;
+             }			 
+		  }	
+		  
+		  if (isAnswerWord) {
+	        span.addEventListener("click", function(){lessonsExerciseAnswerEventListener(event, thisTable.id);});
+			span.classList.add("notchecked");
+		  } else {
+            span.addEventListener("click", function(){lessonsExerciseWrongAnswerEventListener(event, thisTable.id);});
+          }			  
+	      para.appendChild(span);
+	   }
+	   
+      // add text for how many words to find
+       var span = document.createElement("span");
+       var nanswers = document.createTextNode(" (" + thisAnswerWords.length + " words)");
+	   span.appendChild(nanswers);
+	   para.appendChild(span);
+	   
+	   col1.appendChild(para);
+	   
+	   var para = document.createElement('p');
+	   para.innerHTML = thisReference;
+       para.classList.add("biblical-reference");
+       para.classList.add("nomargin");
+	   col1.appendChild(para);
+	   
+	   thisRow.appendChild(col1);
+
+	   thisTable.appendChild(thisRow);
+
+    }
+
+    thisDiv.appendChild(thisTable);
+	
+}	
 
 //
