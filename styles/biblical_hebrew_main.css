@@ -1203,6 +1203,18 @@ table{
    text-align: center;
 }
 
+.English-exercise-table{
+	width:100%;
+}
+
+.English-exercise-table td{
+    padding:8px;
+	display:table-cell;
+	vertical-align:top;
+	border-bottom:1px solid #ddd;
+}
+
+
   /* reference tables  */
   /*-------------------*/
 
