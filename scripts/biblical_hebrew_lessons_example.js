@@ -503,7 +503,7 @@ function createJavascriptExampleFalseRTLFlexbox(thisDiv, border=true){
 
 
 //--------------------------------------------------------------------------------------------------
-//-------- original separate functions for LTR and RTl, now (19/6/2026) combined in single function
+//-------- original separate functions for LTR and RTL, now (19/6/2026) combined in single function
 
 //-----------------------------------------------------------------------------------------------
 
@@ -860,5 +860,71 @@ function createJavascriptExampleLTRFlexbox(thisDiv, border=true){
 }
 
 
+    // In grammar section in Before we Start in Lessons page
+	// onClick button which highlights words with specified part of speech in following text
+function highlightPartOfSpeech(divId,partOfSpeech){
+   var i;
+   
+   var emphasisedWordClass = "emphasised-word";
 
+   var thisDiv = document.getElementById(divId);
+   
+   // clicking a button toggles highlighting the part of speech
+   // - if this part of speech is already highlighted, remove highlighting
+   // - if this part of speech is not already highlighted, remove any highlighting of other part of speech
+   //    and add highlighting to this part of speech
+
+   if (partOfSpeech == "nouns"){
+	   var jsClass = "js-noun";
+	   var heading = "Nouns";
+   } 
+   else if (partOfSpeech == "verbs"){
+	   var jsClass = "js-verb";
+	   var heading = "Verbs";
+   } 	   
+   else if (partOfSpeech == "prepositions"){
+	   var jsClass = "js-preposition";
+	   var heading = "Prepositions";
+   } 	   
+   else if (partOfSpeech == "pronouns"){
+	   var jsClass = "js-pronoun";
+	   var heading = "Pronouns";
+   }
+
+   // check whether this part of speech is already highlighted
+   var alreadyHighlighted = false;  
+
+   var thisPartSpans = thisDiv.getElementsByClassName(jsClass);
+   var thisPartFirstSpan = thisPartSpans[0];
+   if (thisPartFirstSpan.classList.contains(emphasisedWordClass)){ alreadyHighlighted=true;}
+   
+   if (alreadyHighlighted) {
+	   // remove highlighting for this part of speech
+       for (i=0; i < thisPartSpans.length; i++){
+	      thisPartSpans[i].classList.remove(emphasisedWordClass);
+	   } 
+	   // reset heading
+	   heading = "";
+   }
+   else {
+       // not already highlighted, but another part of speech may be highlighted, so first remove any highlighting
+       var partsAlreadyHighlighted = thisDiv.getElementsByClassName(emphasisedWordClass);
+	   
+          // Loop backwards to safely handle the live collection
+       for (i = partsAlreadyHighlighted.length - 1; i >= 0; i--) {
+ 	      partsAlreadyHighlighted[i].classList.remove(emphasisedWordClass);
+       }
+ 
+       // now add highlighting to this part of speech
+       for (i=0; i < thisPartSpans.length; i++){
+	      thisPartSpans[i].classList.add(emphasisedWordClass);
+	   } 
+	   
+   }
+
+   // reset heading   
+   var headingPara = thisDiv.getElementsByClassName("js-whichpart")[0];
+   headingPara.innerHTML = heading;
+
+}
 // end
