@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // -when user clicks on correct answer word it is outlined
 // and if there is a translation it is displayed beneath
 
-function lessonsExerciseAnswerEventListener(ev, tableid){
+function lessonsExerciseAnswerEventListener(ev, tableid, english=false){
 	var thisElement = ev.target;
 	if (thisElement.nextSibling != null){ 
        thisElement.nextSibling.classList.remove("hidden");
@@ -45,8 +45,13 @@ function lessonsExerciseAnswerEventListener(ev, tableid){
 	var thisTable = document.getElementById(tableid);
 	var nUnchecked = thisTable.getElementsByClassName("notchecked").length;
     if (nUnchecked == 0) {
-	   var nWrong = thisTable.getElementsByClassName("lesson-exercise-wrong-answer").length;	
-	   rewardModalExerciseTable(nWrong); 
+	   var nWrong = thisTable.getElementsByClassName("lesson-exercise-wrong-answer").length;
+       if (english) {
+          if (nWrong == 0) {rewardModalExerciseTable(nWrong); }	
+		  var tick = thisTable.getElementsByClassName("tick");
+		  tick[0].classList.remove("hidden");
+       } 
+	   else { rewardModalExerciseTable(nWrong); }
     }	  
 }	
 
@@ -401,18 +406,49 @@ function createLessonsEnglishExercise(thisDiv){
 	var translations = thisDiv.getElementsByClassName("js-lessons-exercise-translation");
 	var references = thisDiv.getElementsByClassName("js-lessons-exercise-reference");
 	var answerWords = thisDiv.getElementsByClassName("js-lessons-exercise-answer-words");
-
-   	var nselectionDiv = thisDiv.getElementsByClassName("js-lessons-exercise-nselection");
-	if (nselectionDiv.length > 0) {
-		var nItems = nselectionDiv[0].innerHTML.trim();
-		if (nItems > translations.length) {var nItems = translations.length;}
-	} else 	{ 
-		var nItems = translations.length;
-	}
 	
-    var shuffleOrder = shuffleArray(createIntegerArray(0, translations.length-1));
+	var nTestItems = translations.length;
 
-    for (r = 0; r < nItems; r++) {
+ //  	var nselectionDiv = thisDiv.getElementsByClassName("js-lessons-exercise-nselection");
+//	if (nselectionDiv.length > 0) {
+//		var nItems = nselectionDiv[0].innerHTML.trim();
+//		if (nItems > translations.length) {var nItems = nTestItems;}
+//	} else 	{ 
+//		var nItems = translations.length;
+//	}
+	
+	var alreadyDoneList = thisDiv.getElementsByClassName("js-already-done")[0].innerHTML.trim();
+//test("hello from createLessonsEnglishExercise, alreadydonelist=" + alreadyDoneList );
+
+    var startingAgainMsg = "";	
+
+    var shuffleOrder = shuffleArray(createIntegerArray(0, nTestItems-1));
+	if (alreadyDoneList == "none") {
+		var r = 0;
+	}
+	else {
+		var alreadyDone = true;
+		for (i=0; i < shuffleOrder.length; i++){
+		   if (!alreadyDoneList.includes(shuffleOrder[i])){
+			  alreadyDone = false;
+			  break;
+		   }
+		} 
+        if (!alreadyDone) { var r = i;}
+        else { 
+		  // starting again
+		   startingAgainMsg = "Well done! You've done all the exercises. Now starting again";
+		   alreadyDoneList = "none";
+		   var r = 0;
+		}		
+		   
+	}
+	if (alreadyDoneList == "none"){alreadyDoneList = shuffleOrder[r].toString();}
+	else {alreadyDoneList = alreadyDoneList + " " + shuffleOrder[r];}
+    thisDiv.getElementsByClassName("js-already-done")[0].innerHTML  = alreadyDoneList;
+    
+ //   var nItems = 1;  
+ //   for (r = 0; r < nItems; r++) {
 	
 	   var thisRow = document.createElement("tr");
 	   
@@ -444,21 +480,21 @@ function createLessonsEnglishExercise(thisDiv){
 		  }	
 		  
 		  if (isAnswerWord) {
-	        span.addEventListener("click", function(){lessonsExerciseAnswerEventListener(event, thisTable.id);});
+	        span.addEventListener("click", function(){lessonsExerciseAnswerEventListener(event, thisTable.id, true);});
 			span.classList.add("notchecked");
 		  } else {
             span.addEventListener("click", function(){lessonsExerciseWrongAnswerEventListener(event, thisTable.id);});
           }			  
 	      para.appendChild(span);
 	   }
+	   col1.appendChild(para);
 	   
       // add text for how many words to find
-       var span = document.createElement("span");
+       var para = document.createElement("para");
        var nanswers = document.createTextNode(" (" + thisAnswerWords.length + " words)");
-	   span.appendChild(nanswers);
-	   para.appendChild(span);
-	   
+	   para.appendChild(nanswers);
 	   col1.appendChild(para);
+	   
 	   
 	   var para = document.createElement('p');
 	   para.innerHTML = thisReference;
@@ -467,10 +503,28 @@ function createLessonsEnglishExercise(thisDiv){
 	   col1.appendChild(para);
 	   
 	   thisRow.appendChild(col1);
+	   
+	   
+	   // second column
+	   //-------------
+	   var col2 = document.createElement("td");
+	 //  var para = document.createElement('p');
+	 //  para.innerHTML = "Already done:" + Math.trunc(alreadyDoneList.split(/\s+/).length/nTestItems*100) + "%";
+	 //  col2.appendChild(para);
+	   var para = document.createElement('p');
+	   para.innerHTML = startingAgainMsg;
+	   col2.appendChild(para);
+	   var para = document.createElement('p');
+	   para.classList.add("tick");
+	   para.classList.add("hidden");
+	   col2.appendChild(para);
+	   
+	   thisRow.appendChild(col2);
+	   
 
 	   thisTable.appendChild(thisRow);
 
-    }
+ //   }
 
     thisDiv.appendChild(thisTable);
 	
