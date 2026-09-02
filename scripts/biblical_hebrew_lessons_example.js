@@ -925,6 +925,8 @@ function highlightPartOfSpeech(divId,partOfSpeech){
    // reset heading   
    var headingPara = thisDiv.getElementsByClassName("js-whichpart")[0];
    headingPara.innerHTML = heading;
+   if (heading == ""){headingPara.classList.remove(emphasisedWordClass );}
+   else    { headingPara.classList.add(emphasisedWordClass );}
 
 }
 // end

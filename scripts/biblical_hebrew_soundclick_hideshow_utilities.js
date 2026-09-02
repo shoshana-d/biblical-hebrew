@@ -318,6 +318,7 @@ window.onclick = function(e) {
   // button is a span element within a header or div
   // info about what the button does follows, clicking on the info doesn't do anything
   // clicking on the button hides/displays the content in the next element after the header/div containing the button
+
   // HTML, called using onclick
 function ShowHideParentNextSibling(element){
     var nextSib =  element.parentElement.nextElementSibling;
@@ -344,6 +345,7 @@ function ShowHideParentNextSiblingEventListener(){
   //    for an element with class soundclick
   //  hides/displays the content in the next element after the header/div containing the button
   //  and toggles the button
+
   // HTML, called using onclick="ShowHideNextSibling(event)"
 function ShowHideNextSibling(event){
 	var containerElement = event.currentTarget;
@@ -390,6 +392,7 @@ function ShowHideNextItem(element){
 
 
 function showHideMenuItem(element, hideMenu=false){
+	// used in alefbet and alefbet exercises
 	
 	// if menu item is already selected (menu-item-selected and content visible) 
 	//       sets to unselected and hides content
