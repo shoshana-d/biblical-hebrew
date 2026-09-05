@@ -136,8 +136,9 @@ function createJavascriptInlineQuote(thisDiv){
 	//    in Hebrew input, include single bet with space on either side if want a space left (for example, for [is] translation)
 	// 
 	// when LTR
-	//    optional specification of first word in list to be flagged infrequent (all words after are also infrequent)
+	//    optional specification of number of first word in list to be flagged infrequent (all words after are also infrequent)
 	//     - optional first item is the class to be applied, default class is  "reference-table-infrequent2"
+    //    optional +/- button to toggle display of words after number of specified word in list
 
 function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    var i;
@@ -182,6 +183,7 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    var audioPara = dataDiv.getElementsByClassName("js-audio");
    // only if direction = LTR
    var firstInfrequentPara = dataDiv.getElementsByClassName("js-first-infrequent");
+   var togglePara = dataDiv.getElementsByClassName("js-toggle-after");
 
    
    var anyIndividualAudio = false;
@@ -247,11 +249,20 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 	   var firstInfrequentSpecs = firstInfrequentPara[0].innerHTML.trim().split(/\s+/);
 	   if (firstInfrequentSpecs[0].length > 2){
           infrequentWordClass = firstInfrequentSpecs[0];
-		  firstInfrequent = Number(firstInfrequentSpecs[1]);
+		  firstInfrequent = Number(firstInfrequentSpecs[1]) -1; // cos numbering spec starts at 1
 	   } else {	   
-		  firstInfrequent = Number(firstInfrequentSpecs[0]);
+		  firstInfrequent = Number(firstInfrequentSpecs[0]) -1;
        }
-   }	   
+   }
+   // only if direction = LTR
+   // single number, insert +/- button after this word number in list
+   //     all subsequent words toggled hidden/displayed when button clicked
+   var toggle = false;
+   if (togglePara.length > 0 ){
+	   toggle = true;
+	   var toggleAfterNumber = Number(togglePara[0].innerHTML.trim());
+   }   
+   
    
    //-------- create the list-------------------
 
@@ -276,6 +287,21 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    
    //for (i=0; i < hebrewWords.length; i++){
    for (i=0; i < nHebrewWords; i++){
+	  
+	  // insert +/- button?
+      if (toggle){
+         if (toggleAfterNumber == i){
+            var cellDiv = document.createElement("div");
+            var thisSpan = document.createElement("span");
+            thisSpan.classList.add("clickable");			
+            thisSpan.classList.add("button-plus");
+            thisSpan.addEventListener("click", showHideJsToggleParentParentEventListener);
+            cellDiv.appendChild(thisSpan);			 
+	        flexDiv.appendChild(cellDiv);
+		 }	 
+      }		  
+	   
+	   
       var hebrewWord = hebrewWords[i];
 	  
 	  var thisIndividualAudio = false;
@@ -297,6 +323,10 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 	  }	 
 
       if ( i >= firstInfrequent ) {cellDiv.classList.add(infrequentWordClass);}	  
+      if ( i >= toggleAfterNumber ) {
+		  cellDiv.classList.add("js-toggle");
+		  cellDiv.classList.add("hidden");
+	  }	  
 	
 	  
 	  if (hebrewWord == bet ) {

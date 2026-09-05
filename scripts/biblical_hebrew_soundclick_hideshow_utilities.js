@@ -138,11 +138,11 @@ function endedEventListener(){
 
 //------- code for sound (audio)--------------------------------------------
 //-------------------------------------------------------------------------
-function soundclickEventListener(){
 	 // usage: element.addEventListener("click",soundclickEventListener);
 	 // soundclick item(s) in <span>, audio reference in following <p> (or <span>) ie next sibling
 	 // if audio is in a subdirectory of audio directory, pathname to subdirectory must be included in the sound reference
 	 // (top directory "audio" added in setMp3Name)
+function soundclickEventListener(){
     var thisLetter =  this.nextElementSibling.innerHTML;
     var thisSound = setMp3Name(thisLetter);
     playSound(thisSound);
@@ -505,11 +505,10 @@ function JSshowHideJsToggle(ev){
    //----------------------------------------------------------------------------------------------
    //-------only used with onclick (ie in HTML code, not javascript)-------------------------------
    //----------------------------------------------------------------------------------------------
-	
-function showHideJsToggle(elementId, buttonId){
 	// only used with onclick
 	// hides/shows child elements with class list "js-toggle" in the specified element
 	// toggles +/- in the button
+function showHideJsToggle(elementId, buttonId){
 	var j;
 
 	var parentDiv = document.getElementById(elementId);
@@ -527,13 +526,13 @@ function showHideJsToggle(elementId, buttonId){
 }	
 
    //----------------------------------------------------------------------------------------------
-	
-function showHideJsToggleParentParent(element){
-	// only used with onclick
 	// hides/shows child elements with class list "js-toggle" 
 	//    in the parent element of parent element of specified element
 	// toggles +/- in the specified element (should be a button)
 	// for use in flexbox list where each item is in a div
+	
+	// usage with with onclick
+function showHideJsToggleParentParent(element){
 	var j;
 
 	var parentDiv = element.parentElement.parentElement;
@@ -546,7 +545,23 @@ function showHideJsToggleParentParent(element){
     element.classList.toggle("button-plus");
     element.classList.toggle("button-minus");  
 	
-}	
+}
+ // usage with javascript
+function showHideJsToggleParentParentEventListener(){
+	var j;
+
+	var parentDiv = this.parentElement.parentElement;
+
+    var toggleClass = parentDiv.getElementsByClassName("js-toggle");
+    for (j = 0; j < toggleClass.length; j++) {
+		toggleClass[j].classList.toggle("hidden");
+	}	
+	
+    this.classList.toggle("button-plus");
+    this.classList.toggle("button-minus");  
+	
+}
+ 	
 
    //----------------------------------------------------------------------------------------------
  function showHideNextSiblingNoPlusMinus(element){
