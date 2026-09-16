@@ -16,6 +16,70 @@ var globalImagesFolder = "images";
 // characters used for dividing lists into components
 var globalDivider1 = "|";
 var globalDivider2 = ":";
+
+
+	// hebrew global constants
+	// vowels
+	const schwah = "\u05B0";
+	const chatafSegol = "\u05B1";
+	const chatafPatach = "\u05B2";
+	const chatafKamatz = "\u05B3";
+	const chirik = "\u05B4";
+	const tsere = "\u05B5";
+	const segol = "\u05B6";
+	const patach = "\u05B7";
+	const kamatz = "\u05B8";
+	const cholam = "\u05B9";
+	const cholamVav = "\u05BA";
+	const shureq = "\u05BB";
+	const dagesh = "\u05BC";
+	// consonants
+	const alef = "\u05D0";
+	const bet = "\u05D1";
+	const gimel = "\u05D2";
+	const dalet = "\u05D3";
+	const heh = "\u05D4";
+    const vav = "\u05D5";
+    const zayin = "\u05D6";
+    const chet = "\u05D7";
+    const tet = "\u05D8";
+	const yod = "\u05D9";
+	const finalChaf = "\u05DA";
+	const chaf = "\u05DB";
+	const lamed = "\u05DC";
+	const mem = "\u05DE";
+	const finalMem = "\u05DD";
+	const nun = "\u05E0";
+	const finalNun = "\u05DF";
+	const samech  = "\u05E1";
+	const ayin  = "\u05E2";
+	const peh = "\u05E4";
+	const finalPeh = "\u05E3";
+	const tsadi = "\u05E6";
+	const finalTsadi = "\u05E5";
+	const kuf = "\u05E7";
+	const resh = "\u05E8";
+	const shin = "\u05E9\u05C1";
+	const sin = "\u05E9\u05C2";
+	// alternative single character, may not display on all devices??, would need to change Excel coding
+	const alternativeshin = "\uFB2A";
+	const alternativesin = "\uFB2B";
+	const tav = "\u05EA";
+	
+	// cantillation mark to indicate stressed syllable
+	const rvii = "\u0597";
+	const kadma = "\u05A8";
+	const mapach = "\u05A4";
+	
+	const hairsp = "\u200A"; // hairspace
+	const thinsp = "\u2009"; 
+	const nspace = "\u2002"; 
+	const mspace = "\u2003"; 
+	
+	const maleSymbol = "\u2642"; 
+    const femaleSymbol = "\u2640"; 
+	
+	const dash = "\u002D"; 
 		 
 function test(text){
   var thistest = document.getElementById("mytest");
@@ -621,7 +685,7 @@ function convertHebrewWordToArray(thisHebrewWord){
 	var hebrewArray = [];
 	var i;
 	var arrayIndex = -1;
-	
+//console.log("hello from convertHebrewWordToArray, thisHebrewWord=",thisHebrewWord);	
 	for (i=0; i < thisHebrewWord.length; i++){
 	   var thisChar = thisHebrewWord.charAt(i);
 	   if (isConsonant(thisChar)){

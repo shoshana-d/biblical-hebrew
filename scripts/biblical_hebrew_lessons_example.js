@@ -2,7 +2,7 @@
 "use strict";
 	  	 //thisP = thisP.split(/\s+/); split by one or more spaces
 		 // soundclickEventListener() function defined in biblical_hebrew_soundclick_hideshow_utilities.js
-		 
+	     // function crExtendedAudio(element) defined in biblical_hebrew_soundclick_hideshow_utilities.js	 
 
 // code executed on load
 //-----------------------------------------------------------------
@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
  	  var thisDiv = javascriptListClass[i];
 	  var border = false;
 	  if (thisDiv.classList.contains("javascript-border")){ border=true;}
-      //createJavascriptExampleRTLFlexbox(thisDiv, border); 
-      createJavascriptExampleRTLLTRFlexbox(thisDiv, "RTL", border=true)
+	  var individualBorder = false;
+	  if (thisDiv.classList.contains("javascript-individual-border")){ individualBorder=true;}
+     // createJavascriptExampleRTLLTRFlexbox(thisDiv, "RTL", border=true)
+      createJavascriptExampleRTLLTRFlexbox(thisDiv, "RTL", border, individualBorder)
    }
-   
-//test("hello from lessons_examples.js addEventListener");
 
 
     // use this when want to display individual hebrew 
@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	// optional specification of which consonant(s) in each word should be highlighted (numbering starting at 1)
 	//                         - first item is the class to be applied to highlight each consonant
 	// optional specification of first word in list is to be flagged infrequent (all words after are also infrequent)
-
+    // optional +/- button to toggle display of words after number of specified word in list
+    // optional grouping of words so that they don't wrap separately
    var javascriptListClass = document.getElementsByClassName("javascript-example-ltr");
    for (i = 0; i < javascriptListClass.length; i++) {
  	  var thisDiv = javascriptListClass[i];
@@ -134,28 +135,37 @@ function createJavascriptInlineQuote(thisDiv){
  	// when RTL 
 	//    optional audio for whole quote
 	//    in Hebrew input, include single bet with space on either side if want a space left (for example, for [is] translation)
+	//    (not yet implemented) in Hebrew, insert | (no spaces) between words which should be treated as a single unit
+	//              -see exercise.js for how this is implemented
 	// 
 	// when LTR
 	//    optional specification of number of first word in list to be flagged infrequent (all words after are also infrequent)
 	//     - optional first item is the class to be applied, default class is  "reference-table-infrequent2"
     //    optional +/- button to toggle display of words after number of specified word in list
-
-function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
+    //    optional grouping of Hebrew words which should wrap together
+	
+	// in HTML, all specifications of word number start at 1, not zero
+	
+function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, individualBorder=false){
    var i;
    var j;
+   var groupi;
    
    const LTR = "LTR";
    const RTL = "RTL";
    
    if (direction != LTR && direction != RTL) {return;}
    
-   const bet = "\u05D1";
-   const mspace = "\u2003"; 
+   // defined in soundclick-hideshow-utilities
+  // const bet = "\u05D1";
+  // const mspace = "\u2003"; 
    
+   var flexboxBorderClass = "dotted-border";
+
    var emphasisedWordClass = "emphasised-word";
    var highlightedCharClass = "highlighted-char";
    var infrequentWordClass = "reference-table-infrequent2";
-      
+   
    var dataDiv = thisDiv.nextElementSibling;
 
    if (direction == RTL){ 
@@ -184,9 +194,10 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    // only if direction = LTR
    var firstInfrequentPara = dataDiv.getElementsByClassName("js-first-infrequent");
    var togglePara = dataDiv.getElementsByClassName("js-toggle-after");
-
+   var groupsPara = dataDiv.getElementsByClassName("js-groups");
    
    var anyIndividualAudio = false;
+   var audios = [];
    if (individualAudioPara.length > 0){
 	   anyIndividualAudio = true;
 	   var audios = individualAudioPara[0].innerHTML.split(globalDivider1);
@@ -200,12 +211,14 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    }
 
    var anyTranslations = false;
+   var translations = [];
    if (translationPara.length > 0){
 	   anyTranslations = true;
 	   var translations = translationPara[0].innerHTML.split(globalDivider1);
    }
     
    var anyEmphasis = false;
+   var wordEmphasised = [];
    if (emphasisPara.length > 0){
 	   anyEmphasis = true;
 	   // list of hebrew words to be emphasised (numbers separated by spaces)is in 
@@ -217,7 +230,6 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 	      emphasisedWordClass = emphasisSpecs[0].trim(); //extract name of class to use for emphasising 
 		  emphasisSpecs.shift(); // remove first item
 	   }	   
-	   var wordEmphasised = [];
        for (i=0; i < hebrewWords.length; i++){
 		  wordEmphasised[i] = false;
           for (j=0; j < emphasisSpecs.length; j++){
@@ -227,6 +239,7 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    }
    
    var anyHighlights = false;
+   var highlightsSpecs = [];
    if (highlightPara.length > 0){
 	   anyHighlights = true;
 	   // create array
@@ -258,11 +271,28 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    // single number, insert +/- button after this word number in list
    //     all subsequent words toggled hidden/displayed when button clicked
    var toggle = false;
+   var toggleAfterNumber = hebrewWords.length + 1;
    if (togglePara.length > 0 ){
 	   toggle = true;
 	   var toggleAfterNumber = Number(togglePara[0].innerHTML.trim());
    }   
    
+   // only if direction LTR
+   // specifies how hebrew words are to be grouped to avoid splitting when wrapping
+   // (not recommended to combine with above options, but if you do, 
+   //     need to specify group number, not word number, for  button
+   if (groupsPara.length > 0 ){
+	   // groups specified
+	   var anyGroups = true;
+	   var groupsArray = groupsPara[0].innerHTML.trim().split(globalDivider1);
+	   var nGroups = groupsArray.length;
+   }
+   else {
+	   // no groups specified, so all "groups" have a single item
+       var anyGroups = false;
+	   var nGroups = nHebrewWords;
+   }	   
+
    
    //-------- create the list-------------------
 
@@ -272,7 +302,7 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
    else                 {flexDiv.classList.add("flex-container-ltr");}
 
    flexDiv.classList.add("flex-container-examples");
-   if (border) {flexDiv.classList.add("dotted-border");}
+   if (border) {flexDiv.classList.add(flexboxBorderClass);}
 
    // only if direction = RTL
    // this is the audio for the whole verse
@@ -285,10 +315,11 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
       flexDiv.appendChild(cellDiv);  
    }	   
    
-   //for (i=0; i < hebrewWords.length; i++){
-   for (i=0; i < nHebrewWords; i++){
+  // for (i=0; i < nHebrewWords; i++){
+   for (groupi=0; groupi < nGroups; groupi++){
 	  
 	  // insert +/- button?
+	  // toggleAfterNumber is group number, not word number (they are the same if no groupings)
       if (toggle){
          if (toggleAfterNumber == i){
             var cellDiv = document.createElement("div");
@@ -301,104 +332,194 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true){
 		 }	 
       }		  
 	   
-	   
-      var hebrewWord = hebrewWords[i];
-	  
-	  var thisIndividualAudio = false;
-	  if (anyIndividualAudio){
-		 if (audios[i].trim().length > 0) {
-			 thisIndividualAudio = true;
-		 }
-      }
-	  
-      var cellDiv = document.createElement("div");
-
-	  if (thisIndividualAudio){
-		  cellDiv.classList.add("soundclick");
-          cellDiv.addEventListener("click", soundclickEventListener);
-	  }	
-
-	  if (anyEmphasis){
-   		  if (wordEmphasised[i]) {cellDiv.classList.add(emphasisedWordClass);}
-	  }	 
-
-      if ( i >= firstInfrequent ) {cellDiv.classList.add(infrequentWordClass);}	  
-      if ( i >= toggleAfterNumber ) {
-		  cellDiv.classList.add("js-toggle");
-		  cellDiv.classList.add("hidden");
+	  var nWordsThisGroup = 1;
+	  if (anyGroups){
+		  var thisGroup = groupsArray[groupi];
+	      var thisGroupWordNumbers = thisGroup.trim().split(/\s+/);
+		  nWordsThisGroup = thisGroupWordNumbers.length;
 	  }	  
-	
 	  
-	  if (hebrewWord == bet ) {
-		 // bet indicates leave a space in hebrew 
-         var thisSpan = document.createElement("span"); 
-         thisSpan.appendChild(document.createTextNode(mspace));
- 	     thisSpan.classList.add("hebrew30");
-         cellDiv.appendChild(thisSpan);
-      } else {
-		 var noHighlightsThisWord = true;
-		 if (anyHighlights){
-			if (highlightsSpecs[i] != ""){	
-			    noHighlightsThisWord = false;
+	  // do we need the more complicated flexbox structure?
+	  //--------------------------------------------------
+	  if (!anyGroups || nWordsThisGroup==1){
+
+		// no
+		//---
+          var thisWordIndex = groupi;
+		 
+	      var thisIndividualAudio = false;
+	      if (anyIndividualAudio){
+		    if (audios[thisWordIndex].trim().length > 0) {
+			  thisIndividualAudio = true;
 		    }
-         }
-         if (noHighlightsThisWord){
-            var thisSpan = document.createElement("span"); 
-	        thisSpan.classList.add("hebrew30");
-            thisSpan.appendChild(document.createTextNode(hebrewWord));
-            cellDiv.appendChild(thisSpan);
+          }
 
-         } else {			 
-            var thisHebrewConsonants = convertHebrewWordToArray(hebrewWord);
-            var thisHebrewHighlight = crSelectedArray(highlightsSpecs[i],thisHebrewConsonants.length);
-		    var currentSpan = false;
-            for (j=0; j < thisHebrewConsonants.length; j++){
-			   if (thisHebrewHighlight[j]){
-			      if (currentSpan) {cellDiv.appendChild(thisSpan);}
-                  var thisSpan = document.createElement("span"); 
-	              thisSpan.classList.add("hebrew30");
-	              thisSpan.classList.add(highlightedCharClass);
-                  thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
-                  cellDiv.appendChild(thisSpan);
-			      currentSpan = false;
-               } else {
-                   if (!(currentSpan)){
-                     var thisSpan = document.createElement("span"); 
-	                 thisSpan.classList.add("hebrew30");
-	            //  thisSpan.classList.add("vocab-word-color");
-				     var currentSpan = true;
-			       }   
-                   thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
+          var thisCellDiv = createExampleDiv(
+                                groupi,	   
+                                thisWordIndex,
+	                            hebrewWords,
+	                            thisIndividualAudio, 
+	                            translations, 
+	                            wordEmphasised,
+	                            highlightsSpecs, 
+	                            firstInfrequent, 
+	                            toggleAfterNumber,
+                                emphasisedWordClass, 
+	                            highlightedCharClass,
+                                infrequentWordClass 
+								);
+console.log("hello from createJavascriptExampleRTLLTRFlexbox, individualBorder=",individualBorder);
+		  if (individualBorder) {thisCellDiv.classList.add(flexboxBorderClass);}						
+          flexDiv.appendChild(thisCellDiv);
 
-              }
-            }
-		    if (currentSpan) {cellDiv.appendChild(thisSpan);}
-		 }	
-	  }	 
+	      if (thisIndividualAudio){
+            var thisSpan = document.createElement("span");   
+            thisSpan.classList.add("hidden");
+            thisSpan.appendChild(document.createTextNode(audios[thisWordIndex]));
+            flexDiv.appendChild(thisSpan);
+	      }
+
+	  } // no groups
 	  
-	  if (anyTranslations) {
-		  var thisPara = document.createElement("p");
-		  thisPara.appendChild(document.createTextNode(translations[i]));
-		  cellDiv.appendChild(thisPara);
-	  }	
+	  else {
+		  // yes, need more complicated structure cos this group has more than 1 item
+		 // -------------------------------------------------------------------------
+         var flexDiv2 = document.createElement("div");
+ 
+         flexDiv2.classList.add("flex-container-ltr");  // only works for LTR lists
+         flexDiv2.classList.add("flex-container-examples");
+         //if (border) {flexDiv2.classList.add(flexboxBorderClass);}
+         for (i=0; i < nWordsThisGroup; i++){
+		    var thisWordIndex = Number(thisGroupWordNumbers[i]) - 1;
+            flexDiv2.appendChild( 
+		        createExampleDiv(
+                                groupi,	   
+                                thisWordIndex,
+	                            hebrewWords,
+	                            thisIndividualAudio, 
+	                            translations, 
+	                            wordEmphasised,
+	                            highlightsSpecs, 
+	                            firstInfrequent, 
+	                            toggleAfterNumber,
+                                emphasisedWordClass, 
+	                            highlightedCharClass,
+                                infrequentWordClass 
+								)
+				);
+
+	        if (thisIndividualAudio){
+               var thisSpan = document.createElement("span");   
+               thisSpan.classList.add("hidden");
+               thisSpan.appendChild(document.createTextNode(audios[thisWordIndex]));
+               flexDiv2.appendChild(thisSpan);
+	        }
+		  
+		 } //for each word in group 
+		 
+		 flexDiv.appendChild(flexDiv2);
+		  
+	  } // end of else group with more than one item
 	  
-	  flexDiv.appendChild(cellDiv);
-	  
-	  if (thisIndividualAudio){
-          var thisSpan = document.createElement("span");   
-          thisSpan.classList.add("hidden");
-          thisSpan.appendChild(document.createTextNode(audios[i]));
-          flexDiv.appendChild(thisSpan);
-	  }	
-	  
-   } // end of for loop
+   } // end of for loop 
    
    
    thisDiv.appendChild(flexDiv);
 
 }
 
+function createExampleDiv(
+       groupIndex,	   
+       wordIndex,
+	   hebrewWords,
+	   thisAudio, 
+	   translations, 
+	   wordEmphasised,
+	   highlightsSpecs, 
+	   firstInfrequent, 
+	   toggleAfterNumber,
+       emphasisedWordClass, 
+	   highlightedCharClass,
+       infrequentWordClass ){
+  var j;
+  
+  var cellDiv = document.createElement("div");
 
+  var hebrewWord = hebrewWords[wordIndex];
+//console.log("hello from createExampleDiv, hebrewWords=",hebrewWords,", wordIndex=",wordIndex);  
+  if (hebrewWord == bet ) {
+   // bet indicates leave a space in hebrew , only needed in RTL
+      var thisSpan = document.createElement("span"); 
+      thisSpan.appendChild(document.createTextNode(mspace));
+ 	  thisSpan.classList.add("hebrew30");
+      cellDiv.appendChild(thisSpan);
+	  
+	  return cellDiv;
+  }
+	
+  if (thisAudio){
+	cellDiv.classList.add("soundclick");
+    cellDiv.addEventListener("click", soundclickEventListener);
+  }	
+
+  if (wordEmphasised.length > 0){
+   	if (wordEmphasised[wordIndex]) {cellDiv.classList.add(emphasisedWordClass);}
+  }	 
+
+  if (wordIndex >= firstInfrequent ) {cellDiv.classList.add(infrequentWordClass);}	
+		 
+  if (groupIndex >= toggleAfterNumber ) {
+	cellDiv.classList.add("js-toggle");
+	cellDiv.classList.add("hidden");
+  }	  
+
+  var noHighlightsThisWord = true;
+  if (highlightsSpecs.length > 0){
+	if (highlightsSpecs[wordIndex] != ""){	
+		noHighlightsThisWord = false;
+	}
+  }
+
+  if (noHighlightsThisWord){
+     var thisSpan = document.createElement("span"); 
+     thisSpan.classList.add("hebrew30");
+     thisSpan.appendChild(document.createTextNode(hebrewWord));
+     cellDiv.appendChild(thisSpan);
+  } else {			 
+     var thisHebrewConsonants = convertHebrewWordToArray(hebrewWord);
+     var thisHebrewHighlight = crSelectedArray(highlightsSpecs[wordIndex],thisHebrewConsonants.length);
+     var currentSpan = false;
+     for (j=0; j < thisHebrewConsonants.length; j++){
+	   if (thisHebrewHighlight[j]){
+	      if (currentSpan) {cellDiv.appendChild(thisSpan);}
+          var thisSpan = document.createElement("span"); 
+          thisSpan.classList.add("hebrew30");
+          thisSpan.classList.add(highlightedCharClass);
+          thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
+          cellDiv.appendChild(thisSpan);
+          currentSpan = false;
+       } else {
+           if (!(currentSpan)){
+              var thisSpan = document.createElement("span"); 
+              thisSpan.classList.add("hebrew30");
+	            //  thisSpan.classList.add("vocab-word-color");
+		      var currentSpan = true;
+	       }   
+           thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
+       }
+       if (currentSpan) {cellDiv.appendChild(thisSpan);}
+	}
+  }	
+
+  if (translations.length > 0) {
+     var thisPara = document.createElement("p");
+     thisPara.appendChild(document.createTextNode(translations[wordIndex]));
+	 cellDiv.appendChild(thisPara);
+  }	
+
+  return cellDiv;
+	
+}	
 
 //-----------------------------------------------------------------------------------------------
     // use this when want to include apparent RTL in another LTR flexbox
@@ -530,366 +651,6 @@ function createJavascriptExampleFalseRTLFlexbox(thisDiv, border=true){
 }
 
 
-
-
-//--------------------------------------------------------------------------------------------------
-//-------- original separate functions for LTR and RTL, now (19/6/2026) combined in single function
-
-//-----------------------------------------------------------------------------------------------
-
-    // use this when want to display hebrew with (optional) translations under hebrew words
-	// optional audio for whole quote
-	// optional audio for individual words
-	// optional specification of which words to highlight
-	// optional specification of which consonant(s) in each word should be highlighted (numbering starting at 1)
-	//                         - first item is the class to be applied to highlight each consonant
-	// in Hebrew input, include single bet with space on either side if want a space left (for example, for [is] translation)
-
-function createJavascriptExampleRTLFlexbox(thisDiv, border=true){
-   var i;
-   var j;
-   const bet = "\u05D1";
-   const mspace = "\u2003"; 
-   var emphasisedWordClass = "emphasised-word";
-	
-   var dataDiv = thisDiv.nextElementSibling;
-
-   var hebrewPara = dataDiv.getElementsByClassName("js-hebrew")[0];
-   var audioPara = dataDiv.getElementsByClassName("js-audio");
-   var individualAudioPara = dataDiv.getElementsByClassName("js-audio-individual");
-   var translationPara = dataDiv.getElementsByClassName("js-translation");
-   var emphasisPara = dataDiv.getElementsByClassName("js-emphasis");
-   var highlightPara = dataDiv.getElementsByClassName("js-highlight");
-   if (audioPara.length > 0){
-      var audioText = audioPara[0].innerHTML;
-      var cellDiv = document.createElement("div");
-	  
-      addExtendedAudioElements(cellDiv, audioText)
-//test("hello from createJavascriptExampleRTLFlexbox");   
-	  
- //     var thisSpan = document.createElement("span");   
- //    thisSpan.classList.add("start-audio");
- //     thisSpan.classList.add("soundclick");
-//      thisSpan.addEventListener("click", soundclickEventListener);
-//      cellDiv.appendChild(thisSpan);
-   
-//      var thisSpan = document.createElement("span");   
-//      thisSpan.classList.add("hidden");
-//      thisSpan.appendChild(document.createTextNode(audioText));
-//      cellDiv.appendChild(thisSpan);
-   
-      //flexDiv.appendChild(cellDiv);  
-   }	   
-   
-   var hebrewWords = hebrewPara.innerHTML.trim().split(/\s+/); //split by one or more spaces
-
-   var anyTranslations = false;
-   if (translationPara.length > 0){
-	   anyTranslations = true;
-	   var translations = translationPara[0].innerHTML.split(globalDivider1);
-   }
-   
-   var anyIndividualAudio = false;
-   if (individualAudioPara.length > 0){
-	   anyIndividualAudio = true;
-	   var audios = individualAudioPara[0].innerHTML.split(globalDivider1);
-   }
-    
-   var anyEmphasis = false;
-   if (emphasisPara.length > 0){
-	   anyEmphasis = true;
-	   var emphasisSpecs = emphasisPara[0].innerHTML.trim().split(/\s+/);
-	   var wordEmphasised = [];
-       for (i=0; i < hebrewWords.length; i++){
-		  wordEmphasised[i] = false;
-          for (j=0; j < emphasisSpecs.length; j++){
-       		 if (Number(emphasisSpecs[j] - 1) == i){wordEmphasised[i] = true;}
-		  }
-	   }	   
-   }
-   
-   var anyHighlight = false;
-   if (highlightPara.length > 0){
-	   anyHighlight = true;
-	   var highlights = highlightPara[0].innerHTML.trim().split(globalDivider1);
-	   var highlightClass = highlights.shift().trim(); // extract name of class to use for highlighting 
-   }
- //test("hello from createJavascriptExampleRTLFlexbox, highlights=" + highlights + ", highlightClass=" + highlightClass);  
-
-   var flexDiv = document.createElement("div");
- 
-   flexDiv.classList.add("flex-container-rtl");
-   flexDiv.classList.add("flex-container-examples");
-   if (border) {flexDiv.classList.add("dotted-border");}
-
-   if (audioPara.length > 0){
-      var audioText = audioPara[0].innerHTML;
-      var cellDiv = document.createElement("div");
-	  
-      addExtendedAudioElements(cellDiv, audioText)
-//test("hello from createJavascriptExampleRTLFlexbox");   
-	  
- //     var thisSpan = document.createElement("span");   
- //    thisSpan.classList.add("start-audio");
- //     thisSpan.classList.add("soundclick");
-//      thisSpan.addEventListener("click", soundclickEventListener);
-//      cellDiv.appendChild(thisSpan);
-   
-//      var thisSpan = document.createElement("span");   
-//      thisSpan.classList.add("hidden");
-//      thisSpan.appendChild(document.createTextNode(audioText));
-//      cellDiv.appendChild(thisSpan);
-   
-      flexDiv.appendChild(cellDiv);  
-   }	   
-   
-   for (i=0; i < hebrewWords.length; i++){
-//test("hello from createJavascriptExampleFlexbox,i=" + i);   
-      var hebrewWord = hebrewWords[i];
-
-      var cellDiv = document.createElement("div");
-
-	//  if (anyIndividualAudio) {
-	//	  thisSpan.classList.add("soundclick");
-    //      thisSpan.addEventListener("click", soundclickEventListener);
-	//  }
-	  if (anyIndividualAudio){
-		 if (audios[i].trim().length > 0) {
-			cellDiv.classList.add("soundclick");
-            cellDiv.addEventListener("click", soundclickEventListener);
-		 } 
-	  }	
-	
-    //  var thisSpan = document.createElement("span"); 
-	//  thisSpan.classList.add("hebrew30");
-	//  thisSpan.classList.add("vocab-word-color");
-	//  if (anyEmphasis){
-	//	  if (wordEmphasised[i]) {thisSpan.classList.add("emphasised-word");}
-	//  }
-	  if (anyEmphasis){
-   		  if (wordEmphasised[i]) {cellDiv.classList.add(emphasisedWordClass);}
-	  }	 
-	
-	  
-	  if (hebrewWord == bet ) {
-         var thisSpan = document.createElement("span"); 
-         thisSpan.appendChild(document.createTextNode(mspace));
-         cellDiv.appendChild(thisSpan);
-      } else {
-	     if (anyHighlight) {
-		 if (highlights[i] != ""){	 
-            var thisHebrewConsonants = convertHebrewWordToArray(hebrewWord);
-            var thisHebrewHighlight = crSelectedArray(highlights[i],thisHebrewConsonants.length);
-		    var currentSpan = false;
-            for (j=0; j < thisHebrewConsonants.length; j++){
-			   if (thisHebrewHighlight[j]){
-			      if (currentSpan) {cellDiv.appendChild(thisSpan);}
-                  var thisSpan = document.createElement("span"); 
-	              thisSpan.classList.add("hebrew30");
-	              thisSpan.classList.add(highlightClass);
-                  thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
-                  cellDiv.appendChild(thisSpan);
-			      currentSpan = false;
-              } else {
-                  if (!(currentSpan)){
-                     var thisSpan = document.createElement("span"); 
-	                 thisSpan.classList.add("hebrew30");
-	            //  thisSpan.classList.add("vocab-word-color");
-				     var currentSpan = true;
-			      }   
-                  thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
-
-              }
-            }
-		    if (currentSpan) {cellDiv.appendChild(thisSpan);}
-			
-		    } else{
-              var thisSpan = document.createElement("span"); 
-	          thisSpan.classList.add("hebrew30");
-              thisSpan.appendChild(document.createTextNode(hebrewWord));
-              cellDiv.appendChild(thisSpan);
-				
-			}	
-		  } else { 
-              var thisSpan = document.createElement("span"); 
-	          thisSpan.classList.add("hebrew30");
-              thisSpan.appendChild(document.createTextNode(hebrewWord));
-              cellDiv.appendChild(thisSpan);
-		 }	
-	  }	 
-	  
-	  if (anyTranslations) {
-		  var thisPara = document.createElement("p");
-		  thisPara.appendChild(document.createTextNode(translations[i]));
-		  cellDiv.appendChild(thisPara);
-	  }	
-	  
-	  flexDiv.appendChild(cellDiv);
-	  
-	  if (anyIndividualAudio){
-		 if (audios[i].trim().length > 0){ 
-            var thisSpan = document.createElement("span");   
-            thisSpan.classList.add("hidden");
-            thisSpan.appendChild(document.createTextNode(audios[i]));
-            flexDiv.appendChild(thisSpan);
-		 }	
-	  }	  
-   }
-   
-   thisDiv.appendChild(flexDiv);
-
-}
-
-
-//-----------------------------------------------------------------------------------------------
-
-    // use this when want to display individual hebrew 
-	// not a quote, so display left to right
-	// optional translations under hebrew words
-	// optional audio for individual words
-	// optional specification of which words to highlight
-	// optional specification of which consonant(s) in each word should be highlighted (numbering starting at 1)
-	//                         - first item is the class to be applied to highlight each consonant
-	// optional specification of first word in list is to be flagged infrequent (all words after are also infrequent)
-
-function createJavascriptExampleLTRFlexbox(thisDiv, border=true){
-   var i;
-   var j;
-   var dataDiv = thisDiv.nextElementSibling;
-
-  // var hebrewPara = dataDiv.getElementsByClassName("js-hebrew")[0];
-   var hebrewDiv = dataDiv.getElementsByClassName("js-hebrew")[0];
-   var translationPara = dataDiv.getElementsByClassName("js-translation");
-   var individualAudioPara = dataDiv.getElementsByClassName("js-audio-individual");
-   var emphasisPara = dataDiv.getElementsByClassName("js-emphasis");
-   var highlightPara = dataDiv.getElementsByClassName("js-highlight");
-   var firstInfrequentPara = dataDiv.getElementsByClassName("js-first-infrequent");
-   
-  // var hebrewWords = hebrewPara.innerHTML.trim().split(/\s+/); //split by one or more spaces
-  // var hebrewWords = reverseArray(hebrewWords);
-   var hebrewParas = hebrewDiv.children;
-   
-   var emphasisedWordClass = "emphasised-word";
-   var infrequentWordClass = "reference-table-infrequent2";
-  // var highlightedCharClass = "highlighted-char";
-   
-
-   
-   var anyTranslations = false;
-   if (translationPara.length > 0){
-	   anyTranslations = true;
-	   var translations = translationPara[0].innerHTML.split(globalDivider1);
-   }
-   
-   var anyIndividualAudio = false;
-   if (individualAudioPara.length > 0){
-	   anyIndividualAudio = true;
-	   var audios = individualAudioPara[0].innerHTML.split(globalDivider1);
-   }
-    
-   var anyEmphasis = false;
-   if (emphasisPara.length > 0){
-	   anyEmphasis = true;
-	   var emphasisSpecs = emphasisPara[0].innerHTML.trim().split(/\s+/);
-	   var wordEmphasised = [];
-       for (i=0; i < hebrewParas.length; i++){
-		  wordEmphasised[i] = false;
-          for (j=0; j < emphasisSpecs.length; j++){
-      		 if (Number(emphasisSpecs[j] - 1) == i){wordEmphasised[i] = true;}
-		  }
-	   }	   
-   }
-   
-   var anyHighlight = false;
-   if (highlightPara.length > 0){
-	   anyHighlight = true;
-	   var highlights = highlightPara[0].innerHTML.trim().split(globalDivider1);
-	   var highlightClass = highlights.shift().trim(); // extract name of class to use for highlighting 
-   }
-  
-   var firstInfrequent = hebrewParas.length + 1;
-   if (firstInfrequentPara.length > 0){
-	   firstInfrequent = Number(firstInfrequentPara[0].innerHTML.trim()) - 1;
-   }	   
-
-   var flexDiv = document.createElement("div");
- 
-   flexDiv.classList.add("flex-container-ltr");
-   flexDiv.classList.add("flex-container-examples");
-   if (border) {flexDiv.classList.add("dotted-border");}
-   
-   for (i=0; i < hebrewParas.length; i++){
-      var hebrewWord = hebrewParas[i].innerHTML.trim();
-  
-      var cellDiv = document.createElement("div");
-	  if (anyIndividualAudio){
-		 if (audios[i].trim().length > 0) {
-			cellDiv.classList.add("soundclick");
-            cellDiv.addEventListener("click", soundclickEventListener);
-		 } 
-	  }	
-	 
-	  if (anyEmphasis){
-   		  if (wordEmphasised[i]) {cellDiv.classList.add(emphasisedWordClass);}
-	  }	 
-
-      if ( i >= firstInfrequent ) {cellDiv.classList.add(infrequentWordClass);}	  
-
-	  if (anyHighlight) {
-         var thisHebrewConsonants = convertHebrewWordToArray(hebrewWord);
-         var thisHebrewHighlight = crSelectedArray(highlights[i],thisHebrewConsonants.length);
-		 var currentSpan = false;
-         for (j=0; j < thisHebrewConsonants.length; j++){
-			if (thisHebrewHighlight[j]){
-			   if (currentSpan) {cellDiv.appendChild(thisSpan);}
-               var thisSpan = document.createElement("span"); 
-	           thisSpan.classList.add("hebrew30");
-	           thisSpan.classList.add(highlightClass);
-               thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
-               cellDiv.appendChild(thisSpan);
-			   currentSpan = false;
-            } else {
-               if (!(currentSpan)){
-                  var thisSpan = document.createElement("span"); 
-	              thisSpan.classList.add("hebrew30");
-	            //  thisSpan.classList.add("vocab-word-color");
-				  var currentSpan = true;
-			   }   
-               thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
-            }
-         }
-		 if (currentSpan) {cellDiv.appendChild(thisSpan);}
-	  } else {
-         var thisSpan = document.createElement("span"); 
-	     thisSpan.classList.add("hebrew30");
-	   //  thisSpan.classList.add("vocab-word-color");
-         thisSpan.appendChild(document.createTextNode(hebrewWord));
-         cellDiv.appendChild(thisSpan);
-	  }	 
-	  
-	  if (anyTranslations) {
-		  var thisPara = document.createElement("p");
-		  thisPara.appendChild(document.createTextNode(translations[i]));
-		  cellDiv.appendChild(thisPara);
-	  }	  
-	  
-	  flexDiv.appendChild(cellDiv);
-	  
-	  if (anyIndividualAudio){
-		 if (audios[i].trim().length > 0){ 
-            var thisSpan = document.createElement("span");   
-            thisSpan.classList.add("hidden");
-            thisSpan.appendChild(document.createTextNode(audios[i]));
-            flexDiv.appendChild(thisSpan);
-		 }	
-	  }	  
-   }
-   
-   thisDiv.appendChild(flexDiv);
-
-}
-
-
     // In grammar section in Before we Start in Lessons page
 	// onClick button which highlights words with specified part of speech in following text
 function highlightPartOfSpeech(divId,partOfSpeech){
@@ -959,4 +720,6 @@ function highlightPartOfSpeech(divId,partOfSpeech){
    else    { headingPara.classList.add(emphasisedWordClass );}
 
 }
+
+
 // end
