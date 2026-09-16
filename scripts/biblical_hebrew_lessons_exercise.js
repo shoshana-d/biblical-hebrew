@@ -494,11 +494,21 @@ console.log("hello from createLessonsEnglishExercise, alreadydonelist=", already
 	
 	   var thisRow = document.createElement("tr");
 
-console.log("hello from createLessonsEnglishExercise, r=", r,",shuffleorder[r]=",shuffleOrder[r]);
-	   
-	   var thisTranslation = translations[shuffleOrder[r]].innerHTML.trim().split(/\s+/); //split by one or more spaces;
-	   var thisReference = references[shuffleOrder[r]].innerHTML.trim();
-	   var thisAnswerWords = answerWords[shuffleOrder[r]].innerHTML.trim().split(/\s+/);
+//console.log("hello from createLessonsEnglishExercise, r=", r,",shuffleorder[r]=",shuffleOrder[r]);
+// 1. Use textContent to drop HTML tags and normalize text entities.
+// 2. Globally replace explicit non-breaking spaces (\u00A0) with standard spaces.
+//var thisTranslation = translations[shuffleOrder[r]].textContent
+//  .replace(/\u00A0/g, ' ') 
+//  .trim()
+//  .split(/\s+/);	
+   
+	  // var thisTranslation = translations[shuffleOrder[r]].innerHTML.trim().split(/\s+/); //split by one or more spaces;
+	  // var thisReference = references[shuffleOrder[r]].innerHTML.trim();
+	  // var thisAnswerWords = answerWords[shuffleOrder[r]].innerHTML.trim().split(/\s+/);
+
+	   var thisTranslation = translations[shuffleOrder[r]].textContent.replace(/\u00A0/g, ' ').trim().split(/\s+/); //split by one or more spaces;
+	   var thisReference = references[shuffleOrder[r]].textContent.trim();
+	   var thisAnswerWords = answerWords[shuffleOrder[r]].textContent.replace(/\u00A0/g, ' ').trim().split(/\s+/);
 
 	   var col1 = document.createElement("td");
 
