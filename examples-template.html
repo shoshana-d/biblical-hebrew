@@ -171,7 +171,7 @@
 
  
 <h3>Example using  class="flex-container-rtl flex-container-examples-no-border", hebrew words in individual divs </h3>
-      <div class="flex-container-rtl flex-container-examples-no-border" >
+      <div class="flex-container-rtl flex-container-examples" >
      <div>
 	    <span class="soundclick start-audio" > </span><span class="hidden">tanakh/ex-04-04aa</span>
      </div>	
@@ -195,7 +195,7 @@
    
    <hr>
    <p>Showing unwanted wrapping behaviour when hebrew specified in a block</p>
-       <div class="flex-container-rtl flex-container-examples-no-border" >
+       <div class="flex-container-rtl flex-container-examples" >
      <div>
 	    <span class="soundclick start-audio" > </span><span class="hidden">tanakh/ex-04-04aa</span>
      </div>	
@@ -221,7 +221,7 @@
  <div >God <span class="emphasised-word">said</span> to Moses <br> <span class="biblical-reference">Genesis 3:4</span>
   </div>
 
-   <div class="flex-container-ltr flex-container-examples" >
+   <div class="flex-container-ltr flex-container-examples dotted-border" >
      <div>
 	    <span class="hebrew30 soundclick vocab-word-color">   מֺשֶׁה  </span><span class="hidden">alefbet_people_places/moshe</span>
 		  <p>Moses </p>
@@ -248,30 +248,70 @@
 
 </div>
    
- <h3 class="lesson-heading">Examples using class="flex-container-ltr flex-container-examples"</h3>
+ <h3 class="lesson-heading">Examples using class="flex-container-ltr flex-container-examples"
+                            twice inorder to prevent paired examples from wrapping separately
+ </h3>
  <div class="lesson-section">
-
+ 
    <div class="flex-container-ltr flex-container-examples" >
      <div>
-	    <span class="hebrew30 soundclick">עִיר</span><span class="hidden">words/w039_ir</span>
-		  <p >city, town</p>
+        <div class="flex-container-ltr flex-container-examples dotted-border" >
+		  <div class="soundclick">
+	        <span class="hebrew30 ">עִיר</span>
+		     <p >city, town</p>
+		  </div>
+		  <span class="hidden">words/w039_ir</span>	 
+          <div>
+	        <span class="hebrew30  lessons-vocab-word-color">הָ</span><span class="hebrew30 ">עִיר</span>
+		    <p>the city</p>
+          </div>
+        </div>		  
      </div>	
+	 
      <div>
-	    <span class="hebrew30  lessons-vocab-word-color">הָ</span><span class="hebrew30 ">עִיר</span>
-		  <p>the city</p>
+        <div class="flex-container-ltr flex-container-examples dotted-border" >
+		  <div>
+	        <span class="hebrew30 soundclick">עִיר</span><span class="hidden">words/w039_ir</span>
+		     <p >city, town</p>
+		  </div>	 
+          <div>
+	         <span class="hebrew30  lessons-vocab-word-color">הָ</span><span class="hebrew30 ">עִיר</span>
+		     <p>the city</p>
+          </div>
+        </div>		  
      </div>	
-      <div>
-	    <span class="hebrew30  lessons-vocab-word-color">וְהָ</span><span class="hebrew30 ">עִיר</span>
-		  <p>and the city</p>
-     </div>	
+	 
      <div>
-	    <span class="hebrew30  lessons-vocab-word-color">מֵהָ</span><span class="hebrew30 ">עִיר</span>
-		  <p>from the city</p>
+        <div class="flex-container-ltr flex-container-examples dotted-border" >
+		  <div>
+	         <span class="hebrew30 soundclick">עִיר</span><span class="hidden">words/w039_ir</span>
+		     <p >city, town</p>
+		  </div>	 
+          <div>
+	        <span class="hebrew30  lessons-vocab-word-color">וְהָ</span><span class="hebrew30 ">עִיר</span>
+		     <p>and the city</p>
+          </div>
+		</div>  
      </div>	
+	 
+     <div>
+        <div class="flex-container-ltr flex-container-examples dotted-border" >
+		  <div>
+	         <span class="hebrew30 soundclick">עִיר</span><span class="hidden">words/w039_ir</span>
+		       <p >city, town</p>
+		  </div>	 
+          <div>
+	       <span class="hebrew30  lessons-vocab-word-color">מֵהָ</span><span class="hebrew30 ">עִיר</span>
+		      <p>from the city</p>
+           </div> 	
+		</div>   
+     </div>	
+	 
      <div>
 	    <span class="hebrew30  lessons-vocab-word-color">לָ</span><span class="hebrew30 ">עִיר</span>
 		  <p>to the city</p>
      </div>	
+	 
      <div>
 	    <span class="hebrew30  lessons-vocab-word-color">כְּ</span><span class="hebrew30 ">עִיר</span>
 		  <p>like a city</p>
@@ -323,7 +363,55 @@
            </div>
      </div> <!-- flex-container-examples -->
   <hr>
+</div>
 
+  
+ <h3 class="lesson-heading">Examples using class="flex-container-ltr flex-container-examples"</h3>
+ <div class="lesson-section">
+
+   <div class="flex-container-ltr flex-container-examples" >
+     <div>
+	    <span class="hebrew30 soundclick">עִיר</span><span class="hidden">words/w039_ir</span>
+		  <p >city, town</p>
+     </div>	
+     <div>
+	    <span class="hebrew30  lessons-vocab-word-color">הָ</span><span class="hebrew30 ">עִיר</span>
+		  <p>the city</p>
+     </div>	
+      <div>
+	    <span class="hebrew30  lessons-vocab-word-color">וְהָ</span><span class="hebrew30 ">עִיר</span>
+		  <p>and the city</p>
+     </div>	
+     <div>
+	    <span class="hebrew30  lessons-vocab-word-color">מֵהָ</span><span class="hebrew30 ">עִיר</span>
+		  <p>from the city</p>
+     </div>	
+     <div>
+	    <span class="hebrew30  lessons-vocab-word-color">לָ</span><span class="hebrew30 ">עִיר</span>
+		  <p>to the city</p>
+     </div>	
+     <div>
+	    <span class="hebrew30  lessons-vocab-word-color">כְּ</span><span class="hebrew30 ">עִיר</span>
+		  <p>like a city</p>
+     </div>	
+      <div>
+	    <span class="hebrew30  lessons-vocab-word-color">בָּ</span><span class="hebrew30 ">עִיר</span>
+		  <p>in the city</p>
+     </div>	
+      <div>
+	    <span class="hebrew30 ">עִיר</span><span class="hebrew30  lessons-vocab-word-color">וֹ</span>
+		  <p>his city</p>
+     </div>	
+      <div>
+	    <span class="hebrew30  lessons-vocab-word-color">בְ</span><span class="hebrew30 ">עִיר</span><span class="hebrew30  lessons-vocab-word-color">וֹ</span>
+		  <p>in his city</p>
+     </div>	
+      <div>
+	    <span class="hebrew30 ">עִירָ</span><span class="hebrew30  lessons-vocab-word-color">ם</span>
+		  <p>their city</p>
+     </div>	
+   </div>
+ 
  </div>  
    
  <h3 class="lesson-heading">Examples using table</h3>
