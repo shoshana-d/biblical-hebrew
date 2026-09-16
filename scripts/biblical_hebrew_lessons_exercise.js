@@ -197,6 +197,8 @@ function reCreateLessonsExercise(thisTableId){
 
 function createLessonsExercise(thisDiv){
 	// thisDiv is div with the instructions for creating the exercise table
+	// if there are separate words in the Hebrew that should be treated as a single entity, insert | between the
+	//    words, no spaces
 	var r;
 	var i;
 	var j;
