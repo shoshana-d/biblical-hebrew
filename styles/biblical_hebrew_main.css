@@ -54,10 +54,12 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 	margin-left:-16px; 
 	margin-right:-16px;
 } 
+
+/*
 .w3-container:after,
 .w3-container:before
 {content:"";display:table;clear:both}
-
+*/
 
 /*------ redefinitions of tags-----------------------*/
 /*---------------------------------------------------*/
@@ -103,7 +105,8 @@ p {
   line-height: 1.6;             /* Optimal line height for body text */
   margin-block-start: 0;        /* Clear default top margins to avoid collapse chaos */
   margin-block-end: 1.25rem;    /* Optimal space between paragraphs */
-  max-width: 65ch;              /* Keeps line length readable (~45-75 characters) */
+  max-width: 65ch; 
+  /* Keeps line length readable (~45-75 characters) */
 } 
 p.nomargin{
    margin-bottom:0;	
@@ -204,9 +207,10 @@ table{
   font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;
 
 }
+/*
 .navbar:before,
 .navbar:after{content:"";display:table;clear:both}
-
+*/
 .navbar a {
   float: left;
   padding: 4px 12px;
@@ -345,9 +349,29 @@ table{
    font-size:25px;
 }
  
- 
+ /* use this when want to embed a few hebrew words in english text
+    with display in HTML order*/
+.hebrew-inline {
+  display: inline; 
+}
+.hebrew-inline > span {
+  display: inline-block; /* Forces left-to-right ordering of the segments */
+  direction: ltr;        /* Ensures the segments themselves line up LTR */
+} 
+  
+  /* when want to keep a few items together, without wrapping */
+.hebrew-inline-nowrap {
+  display: inline; 
+  white-space:nowrap;
+}
+.hebrew-inline-nowrap > span {
+  display: inline-block; /* Forces left-to-right ordering of the segments */
+  direction: ltr;        /* Ensures the segments themselves line up LTR */
+} 
+  
 /*-- english fonts  --*/
 /*----------------------------------------------*/
+ 	
 
     /*--- only in alefbet pages -----------*/
     /*-------------------------------------*/ 
@@ -1208,13 +1232,22 @@ table{
 }
 
 .English-exercise-table td{
-    padding:8px;
+    padding:15px;
 	display:table-cell;
-	vertical-align:top;
 	border-bottom:1px solid #ddd;
 }
-
-
+.English-exercise-table td:first-child{
+   vertical-align:top;
+   padding-left:16px;
+   text-align:left;
+   width:80%;
+	
+}	
+.English-exercise-table td:nth-child(2){
+	vertical-align:center;
+	text-align:center;
+}	
+	
   /* reference tables  */
   /*-------------------*/
 
@@ -1554,17 +1587,19 @@ background-color:white;
   flex-wrap: wrap;
   flex-direction: row-reverse;
 }
+ /* w3.css container property - not sure what it does
+  - appears to ensure that container is on new line - but this
+  seems to happen regardless
+  
 .flex-container-rtl:after,
 .flex-container-rtl:before
 {
-  /* w3.css container property - not sure what it does
-  - appears to ensure that container is on new line - but this
-  seems to happen regardless*/
+ 
   content:"";
   display:table;
   clear:both
 }
-
+*/
 .flex-container-spacer:after{
 	/* used to create extra space between items, for grouping items in the list */
    content: "  ";
@@ -1669,7 +1704,8 @@ background-color:white;
   /* display order is the same as html order */
   /* used for inline examples in text,lists of cantillation marks
        and cantillation marks exercise  */
-	   
+	
+ /* this usually forces a new line */	
 .flex-container-ltr {
   display: inline-flex;
   flex-wrap: wrap;
@@ -1677,18 +1713,27 @@ background-color:white;
   
   position:relative; /* need to specify this to get following close button to position properly */
 }	
+
+  /* w3.css container property - not sure what it does
+  - appears to ensure that container is on new line - but this
+  seems to happen regardless
+  chatgpt
+  The code snippet content:""; display:table; clear:both; 
+  is the famous "Micro Clearfix" hack. 
+  It was historically used to fix layout bugs in older, 
+  float-based layouts. 
+  In relation to Flexbox, this code is 
+  completely obsolete, unnecessary, and can actually break your layout.
+  
+
 .flex-container-ltr:after,
 .flex-container-ltr:before
 {
-  /* w3.css container property - not sure what it does
-  - appears to ensure that container is on new line - but this
-  seems to happen regardless*/
-
  content:"";
   display:table;
   clear:both
- 
 }
+*/
 
 /* cant see where this is used 
 .flex-container-examples-div-div > div 
@@ -1771,13 +1816,16 @@ background-color:white;
   /*padding:0.01em 16px;*/
   padding: 5px;
 }
+
+/* w3.css container property, don't know if needed 
 .flex-container-drag-drop:after,
 .flex-container-drag-drop:before{
-  /* w3.css container property, don't know if needed */
+  
   content:"";
   display:table;
   clear:both
 }
+*/
 .flex-container-drag-drop > div {
   margin-right: 30px; 
   margin-bottom: 20px;
@@ -1953,7 +2001,7 @@ background-color:white;
 }
 
 .blink {
-  animation: blink 1s steps(1, end) 3;
+  animation: blink 5s steps(1, end) 3;
 }
 
 @keyframes blink {
