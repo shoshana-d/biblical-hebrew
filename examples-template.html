@@ -36,7 +36,13 @@
 
 </div>
 
+<h3 class="lesson-heading-jewish"> extra stuff from Jewish life</h3>
+
+<h2  class="w3-container w3-card-4">HTML examples </h2>
+
+
 <div class=" lesson-exercise-container">
+ <h3 class="lesson-heading">how-to text at beginning of lesson exercise</h3>
 <ul>
   <li> For each <span class="lesson-exercise-question-text-border">word</span> in the translation, 
   click on the corresponding word in the Hebrew. 
@@ -54,10 +60,51 @@
   </ul>
 <p>  There is a "reward" for identifying all the <span class="lesson-exercise-question-text-border">words.</span></p>
  </div>
+<hr>
 
-<h3 class="lesson-heading-jewish"> extra stuff from Jewish life</h3>
+<h3 class="lesson-heading">Including hebrew words in text in the same order as in HTML, class="hebrew-inline"</h3>
+<p>
+<span class="hebrew30 soundclick">בְּנוֺת</span><span class="hidden">words/w082_bnot </span> 
+very unusual in having <span class="hebrew30">ת</span> change to <span class="hebrew30">נ</span>, 
+usually
+eg    
+<span class="hebrew-inline">     
+   <span><span class="hebrew30 soundclick">בֵּן</span><span class="hidden">words/w013_ben</span></span>
+   <span>  ->  </span>
+    <span>    <span class="hebrew30  soundclick">	בָּנִים</span><span class="hidden">words/w013_banim</span>&ensp;</span>
+   <span> or	</span>	 
+   <span>    <span class="hebrew30 soundclick">אֶרֶץ</span><span class="hidden">words/w021_eretz </span></span>
+   <span> ->  </span>			 
+   <span> <span class="hebrew30 soundclick">	אֲרָצוֹת</span><span class="hidden">words/w021_arazot </span> </span>
+</span>			 
+				 
+</p>	
+<hr>
 
-<h2  class="lesson-title">HTML examples</h2>
+<h3 class="lesson-heading">Including hebrew words in text in the same order as in HTML, class="hebrew-inline-nowrap"
+   to keep selected words together</h3>
+<p>
+<span class="hebrew30 soundclick">בְּנוֺת</span><span class="hidden">words/w082_bnot </span> 
+very unusual in having <span class="hebrew30">ת</span> change to <span class="hebrew30">נ</span>, 
+usually 
+	 
+eg  
+<span class="hebrew-inline-nowrap">     
+  <span><span class="hebrew30 soundclick">בֵּן</span><span class="hidden">words/w013_ben</span></span>
+  <span>  ->  </span>
+  <span>    <span class="hebrew30  soundclick">	בָּנִים</span><span class="hidden">words/w013_banim</span>&ensp;</span>
+</span>
+ or		 
+<span class="hebrew-inline-nowrap">  
+   	 <span>    <span class="hebrew30 soundclick">אֶרֶץ</span><span class="hidden">words/w021_eretz </span></span>
+     <span>		  ->  </span>			 
+     <span>		     <span class="hebrew30 soundclick">	אֲרָצוֹת</span><span class="hidden">words/w021_arazot </span> </span>
+</span>					 
+</p>	
+
+
+
+<hr>
  <h3 class="lesson-heading">Examples using class="flex-container-rtl flex-container-examples +/- dotted-border"</h3>
 <div class="lesson-section">
    <p><u>class=soundclick</u></p>
@@ -84,6 +131,7 @@
      </div>	
    </div>
  
+   <hr>
    <p>Using new method <u>extendedaudioclick</u></p>
    <p>The individual Hebrew words are:</p>
    <div class="flex-container-rtl flex-container-examples" >
@@ -108,6 +156,7 @@
      </div>	
    </div>
    
+   <hr>
  <p>longer example showing wrapping </p>   
     <div class="flex-container-rtl flex-container-examples dotted-border" >
      <div>
@@ -486,7 +535,7 @@
 <!--------------------------------------------------------------------->
 
 
-<h2  class="lesson-title">javascript examples</h2>
+<h2  class="w3-container w3-card-4">javascript examples</h2>
 
 <h3 class="lesson-heading">lessons javascript examples</h3>
 
@@ -696,17 +745,10 @@
   <hr>
    <p>Hebrew, audio, tooltips specified separately</p>
 
-  <div id="torah-names-hebrew"  class="hidden"><p>  אָדָם </p><p>    חַוָּה     </p><p> קַיִן      </p><p>  הֶבֶל </p><p>    נֹחַ     </p><p>  שֵׁם </p>
-  <p> חָם     </p><p>  יָףֶת      </p><p>  אַבְרָם </p><p> שָׂרַי      </p><p>      לוֹט </p><p>  הָגָר        </p><p>     יׅשְׁמָעֵאל     </p><p>  אַבְרָהָם </p>
-  <p>    שָׂרָה      </p><p>  יִצְחָק </p><p>   רׅבְקָה      </p><p>  עֵשָׂו </p><p> יַעֲקֹב      </p><p>  רָחֵל </p><p>  לֵאָה    </p> <p>    רְאוּבֵן </p>
-  <p>   שִׁמְעוֺן    </p>   <p>    לֵוִי   </p>  <p> יְהוּדָה  </p> <p>  יוֺסֵף    </p><p>     בִּנְיָמִין  </p>      <p> יִשְׂרָאֵל     </p>   <p> פַּרְעֹה     </p> 
-  <p>     מֺשֶׁה </p>  <p>  אַהֲרֺן    </p>  <p>   מִרְיָם    </p>  <p>   יְהוֺשֻׁעַ   </p>   
+  <div id="torah-names-hebrew"  class="hidden"><p>  אָדָם </p><p>    חַוָּה     </p><p> קַיִן      </p><p>  הֶבֶל </p>
   </div>
-  <p id="torah-names-sounds" class="hidden">adam| chava |kayin|hevel|noach| shem| ham| yafet| avram| sarai| lot | hagar| yishmael|avraham
-  |sarah| yitzchak| rivka| esav| yaakov| rachel| leah|reuven|shimon|levi|  yhudah| yosef| binyamin| yisrael| paroh| moshe
-  |aharon|miryam|yhoshua</p>
-  <p id="torah-names-tooltips" class="hidden">Adam|Eve|Cain|Abel|Noah|Shem|Ham|Japheth|Abram|Sarai|Lot|Hagar|Ishmael|Abraham|Sarah
-  |Isaac|Rebecca|Esau|Jacob|Rachel|Leah|Reuben|Simeon|Levi| Judah | Joseph | Benjamin|Israel |Pharaoh|Moses|Aaron|Miriam|Joshua  </p>
+  <p id="torah-names-sounds" class="hidden">adam| chava |kayin|hevel</p>
+  <p id="torah-names-tooltips" class="hidden">Adam|Eve|Cain|Abel </p>
   <p id="cr-torah1" class="javascript-list  hidden ">sourcehebrew: torah-names-hebrew |hebrewSeparateParas
   |sourcesound: torah-names-sounds |id: torah1|tooltips:torah-names-tooltips| arrow|colorClass: vocab-color 
   |audio: alefbet_people_places | containerclass: flex-container-heb-with-tooltips</p>
@@ -716,18 +758,6 @@
 </div>
 <hr>
 
-
-
-<h2  class="lesson-exercise-header" >
-<span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>
-  Exercise 
-</h2>		
-  <div class="hidden lesson-exercise-container">
-  <p>some explanatory text</p>
-  <p class="lesson-exercise">this is the exercise</p>
-
-
-  </div>
 
 
 
