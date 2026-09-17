@@ -1,8 +1,21 @@
 
 "use strict";
 	  	 //thisP = thisP.split(/\s+/); split by one or more spaces
-		 // soundclickEventListener() function defined in biblical_hebrew_soundclick_hideshow_utilities.js
-	     // function crExtendedAudio(element) defined in biblical_hebrew_soundclick_hideshow_utilities.js	 
+		 
+		 // these functions defined in biblical_hebrew_soundclick_hideshow_utilities.js:
+		 //   soundclickEventListener() 
+	     //   crExtendedAudio(element)  
+         //   convertHebrewWordToArray(hebrewWord) 
+         //   crSelectedArray(highlightsSpecs,thisHebrewConsonants.length) 
+
+// Replace innerHTML with textContent when splitting HTML strings
+// 1. Use textContent to drop HTML tags and normalize text entities.
+// 2. Globally replace explicit non-breaking spaces (\u00A0) with standard spaces.
+//  var thisArray = HTML[i].textContent
+//  .replace(/\u00A0/g, ' ') 
+//  .trim()
+//  .split(/\s+/);	
+
 
 // code executed on load
 //-----------------------------------------------------------------
@@ -12,6 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
 	 // see examples-template.html
   var i;
 
+   // use this when have a single hebrew word where one or more consonants need to be highlighted
+   // usage: <span class="javascript-add-highlights">
+   //               <span class="js-hebrew hidden">the hebrew word</span>
+   //               <span class="js-highlight hidden">char #s to be highlighted, starting at 1, separated by space(s)</span>
+   //        </span>
+   var javascriptListClass = document.getElementsByClassName("javascript-add-highlights");
+   for (i = 0; i < javascriptListClass.length; i++) {
+ 	  var thisSpan = javascriptListClass[i];
+      highlightHTMLChars(thisSpan); 
+   }
+   
     // use this when want to display only hebrew, ie no translations under hebrew words
 	// optional audio for whole quote
 	// no audio for individual words
@@ -20,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
  	  var thisDiv = javascriptListClass[i];
       createJavascriptInlineQuote(thisDiv); 
    }
+   
    
     // use this when want to display hebrew quote with (optional) translations under hebrew words
 	// optional audio for whole quote
@@ -81,6 +106,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //---------------------------------------------------------------------
 
+   // use this when have a single hebrew word where one or more consonants need to be highlighted
+   // usage: <span class="javascript-add-highlights">
+   //               <span class="js-hebrew hidden">the hebrew word</span>
+   //               <span class="js-highlight hidden">char #s to be highlighted, starting at 1, separated by space(s)</span>
+   //        </span>
+function highlightHTMLChars(thisSpan){
+	
+   var hebrewSpan = thisSpan.getElementsByClassName("js-hebrew")[0];
+   var hebrewWord = hebrewSpan.textContent.replace(/\u00A0/g, ' ').trim();
+   
+   var highlightsSpan = thisSpan.getElementsByClassName("js-highlights")[0];
+   var highlightsSpecs = highlightsSpan.textContent.replace(/\u00A0/g, ' ').trim();
+
+   var highlightedCharClass = "highlighted-char";
+   
+   thisSpan.appendChild(createSpanWordWithHighlightedChars (
+	             hebrewWord, 
+				 highlightsSpecs, 
+				 highlightedCharClass));
+
+}
+
+
      // use this when want to display only hebrew, ie no translations under hebrew words
 	// optional audio for whole quote
 	// no audio for individual words
@@ -119,6 +167,7 @@ function createJavascriptInlineQuote(thisDiv){
    thisDiv.appendChild(thisTable);
 	
 }	
+
 
 //-----------------------------------------------------------------------------------------------
 
@@ -246,7 +295,7 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
 	   // for each hebrew word, list of consonant number(s) starting from 1 to be highlighted
 	   // - empty if no highlighted consonants for that word
 	   var highlightsSpecs = highlightPara[0].innerHTML.trim().split(globalDivider1);
-	   // check whether first iem is class name
+	   // check whether first item is class name
 	   if (highlightsSpecs.length >  nHebrewWords){
 	      highlightedCharClass = highlightsSpecs[0].trim(); // extract name of class to use for highlighting 
 		  highlightsSpecs.shift(); // remove first item
@@ -368,7 +417,7 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
 	                            highlightedCharClass,
                                 infrequentWordClass 
 								);
-console.log("hello from createJavascriptExampleRTLLTRFlexbox, individualBorder=",individualBorder);
+//console.log("hello from createJavascriptExampleRTLLTRFlexbox, individualBorder=",individualBorder);
 		  if (individualBorder) {thisCellDiv.classList.add(flexboxBorderClass);}						
           flexDiv.appendChild(thisCellDiv);
 
@@ -423,9 +472,7 @@ console.log("hello from createJavascriptExampleRTLLTRFlexbox, individualBorder="
 	  
    } // end of for loop 
    
-   
    thisDiv.appendChild(flexDiv);
-
 }
 
 function createExampleDiv(
@@ -473,30 +520,60 @@ function createExampleDiv(
 	cellDiv.classList.add("hidden");
   }	  
 
-  var noHighlightsThisWord = true;
+  var highlightsThisWord = false;
   if (highlightsSpecs.length > 0){
 	if (highlightsSpecs[wordIndex] != ""){	
-		noHighlightsThisWord = false;
+		highlightsThisWord = true;
 	}
   }
 
-  if (noHighlightsThisWord){
+  if (!highlightsThisWord){
      var thisSpan = document.createElement("span"); 
      thisSpan.classList.add("hebrew30");
      thisSpan.appendChild(document.createTextNode(hebrewWord));
      cellDiv.appendChild(thisSpan);
-  } else {			 
-     var thisHebrewConsonants = convertHebrewWordToArray(hebrewWord);
-     var thisHebrewHighlight = crSelectedArray(highlightsSpecs[wordIndex],thisHebrewConsonants.length);
-     var currentSpan = false;
-     for (j=0; j < thisHebrewConsonants.length; j++){
+  } else {	
+    var thisSpan = createSpanWordWithHighlightedChars (
+	             hebrewWord, 
+				 highlightsSpecs[wordIndex], 
+				 highlightedCharClass);
+    cellDiv.appendChild(thisSpan);
+  }	
+
+  if (translations.length > 0) {
+     var thisPara = document.createElement("p");
+     thisPara.appendChild(document.createTextNode(translations[wordIndex]));
+	 cellDiv.appendChild(thisPara);
+  }	
+
+  return cellDiv;
+}
+
+	
+function createSpanWordWithHighlightedChars (
+                          hebrewWord, 
+						  highlightsSpecs,
+						  highlightedCharClass = "highlighted-char", 
+						  hebrewClass = "hebrew30"){
+	// creates a span element with span children
+	
+	var j;
+	
+          // these 2 functions are in biblical_hebrew_soundclick_hideshow_utilities.js  
+    var thisHebrewConsonants = convertHebrewWordToArray(hebrewWord);
+    var thisHebrewHighlight = crSelectedArray(highlightsSpecs,thisHebrewConsonants.length);
+	 
+	var parentSpan = document.createElement("span"); 
+	
+    var currentSpan = false;
+    for (j=0; j < thisHebrewConsonants.length; j++){
 	   if (thisHebrewHighlight[j]){
-	      if (currentSpan) {cellDiv.appendChild(thisSpan);}
+	      if (currentSpan) {parentSpan.appendChild(thisSpan);}
           var thisSpan = document.createElement("span"); 
-          thisSpan.classList.add("hebrew30");
+          thisSpan.classList.add(hebrewClass);
           thisSpan.classList.add(highlightedCharClass);
           thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
-          cellDiv.appendChild(thisSpan);
+          parentSpan.appendChild(thisSpan);
           currentSpan = false;
        } else {
            if (!(currentSpan)){
@@ -507,17 +584,10 @@ function createExampleDiv(
 	       }   
            thisSpan.appendChild(document.createTextNode(thisHebrewConsonants[j]));
        }
-       if (currentSpan) {cellDiv.appendChild(thisSpan);}
+       if (currentSpan) {parentSpan.appendChild(thisSpan);}
 	}
-  }	
 
-  if (translations.length > 0) {
-     var thisPara = document.createElement("p");
-     thisPara.appendChild(document.createTextNode(translations[wordIndex]));
-	 cellDiv.appendChild(thisPara);
-  }	
-
-  return cellDiv;
+   return parentSpan;	
 	
 }	
 

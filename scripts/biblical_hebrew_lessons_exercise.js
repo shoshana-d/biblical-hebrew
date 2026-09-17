@@ -1,3 +1,9 @@
+// 1. Use textContent to drop HTML tags and normalize text entities.
+// 2. Globally replace explicit non-breaking spaces (\u00A0) with standard spaces.
+//var thisTranslation = translations[shuffleOrder[r]].textContent
+//  .replace(/\u00A0/g, ' ') 
+//  .trim()
+//  .split(/\s+/);	
 
 "use strict";
 
