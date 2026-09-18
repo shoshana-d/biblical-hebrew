@@ -556,20 +556,6 @@ table{
   content:url("../images/bootstrap-pause-circle.png");
 }	
 
-/*-- used to flag sections where extra material from prayerbook or jewish life ---*/
-/*---------------------------------------------------------------------*/
-
-.star-of-david{
-   font-family:'Times New Roman','Times Roman','Times',serif;
-   font-size:30px;
-   padding: 5px 5px 3px;
-   color:blue;
-   background-color:white;
-}
-.star-of-david::before{
-   content:"\2721";
-}	
-
 /*------ ear emoji (used in alefbet-exercises to flag some exercises)---*/
 /*---------------------------------------------------------------------*/
 .ear{
@@ -903,7 +889,9 @@ table{
 	
 }
 
-.lesson-heading{
+.lesson-heading,
+.lesson-heading-jewish,
+.lesson-heading-extra{
 	border-bottom:solid;
 	border-bottom:none;
 	border-width: 2px;
@@ -918,7 +906,42 @@ table{
    content:"\261E";
    content:"\2605\2003"; /*emspace after*/
 }
+.lesson-heading-jewish::after{
+   font-size:25px;	
+   color:Blue;   
+   font-family:'Times New Roman','Times Roman','Times',serif;
+   font-size:30px;
+  /* padding: 5px 5px 3px;*/
+   color:blue;
+  /* background-color:white;*/
+   line-height: 1.1; /* Reduces the invisible "line box" space around the text */
+  margin-top: 0;    /* Removes default top spacing (common on h1-h6 and p tags) */
+  margin-bottom: 0; /* Removes default bottom spacing */
+  vertical-align:-2px;
+   content:"\2721";
+}	
+.lesson-heading-extra::after{
+	  content: "\1F393";
+	  content:"+++";
+}	
 
+
+.star-of-david{
+   font-family:'Times New Roman','Times Roman','Times',serif;
+   font-size:30px;
+  /* padding: 5px 5px 3px;*/
+   color:blue;
+  /* background-color:white;*/
+   line-height: 1.1; /* Reduces the invisible "line box" space around the text */
+  margin-top: 0;    /* Removes default top spacing (common on h1-h6 and p tags) */
+  margin-bottom: 0; /* Removes default bottom spacing */
+  padding: 0;       /* Ensures no inner spacing is inflating the area */
+}
+.star-of-david::before{
+   content:"\2721";
+}	
+
+	
 .lesson-toc-container{
    border-style:none;
    border-style:solid;
@@ -946,23 +969,8 @@ table{
 .lesson-toc-header::before{
    content:"In this lesson:";
 }	
-.lesson-heading-jewish{
-	border-bottom:solid;
-	border-bottom:none;
-	border-width: 2px;
-	margin-top:20px;
-	margin-bottom:20px;
-	background-color:AliceBlue;
-	color:blue;
-}	
 
-.lesson-heading-jewish::before{
-   font-size:25px;	
-   color:Blue;   
-   background-color:white;
-   content:"\2721";
-}	
-	
+
 
 .lesson-exercise-header{
 	margin-top:20px;
