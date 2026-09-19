@@ -1,6 +1,7 @@
 
 "use strict";
 // create the navigation menu at the top of the page
+// lessons pages have a separate script for doing this
 
 // code executed on load
 //----------------------
@@ -19,9 +20,22 @@ document.addEventListener('DOMContentLoaded', function() {
    var pageRefsTexts = ["About","Alefbet","Lessons","Exercises","Extra vocabulary","Reference tables","Resources"];
    for (i=0; i < pageRefs.length; i++){
       var a = document.createElement('a');
-      var reftext = document.createTextNode(pageRefsTexts[i]);
+	  var thisPageRef = pageRefs[i];
+	  var thisPageRefText = pageRefsTexts[i];
+      var reftext = document.createTextNode(thisPageRefText);
       a.appendChild(reftext); 
-      a.href = pageRefs[i]; 
+      a.href = thisPageRef; 
+	  if (thisPageRef == htmlFilename ){a.classList.add("this-page");}
+	  
+	  if ( thisPageRefText == "Alefbet"){
+	      if (
+		        htmlFilename == "alefbet-learn-alefbet.html"
+		     || htmlFilename == "alefbet-practise-alefbet.html"
+			 || htmlFilename == "alefbet-extra.html" )
+			 {
+		     a.classList.add("this-page");
+		 }
+	  }
       topMenu.appendChild(a);
    }
  
@@ -29,16 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
    // insert menu after header
    var pageHeader = document.getElementsByTagName("header")[0];
    pageHeader.parentNode.insertBefore(topMenu, pageHeader.nextSibling); 
-
-   var pageHeader = document.getElementsByTagName("nav")[0];
-   var atags = pageHeader.getElementsByTagName("a");
-   for (i=0; i < atags.length; i++){
-      var lastSlashIndex = Math.max(atags[i].href.lastIndexOf('/'), atags[i].href.lastIndexOf('\\'));
-      var atagFilename = atags[i].href.substring(lastSlashIndex + 1);
-	  if (atagFilename == htmlFilename){
-		  atags[i].classList.add("this-page");
-	  }	  
-   }		   
 
 }) 
 

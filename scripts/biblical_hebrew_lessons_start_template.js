@@ -6,6 +6,7 @@
 //----------------------
 document.addEventListener('DOMContentLoaded', function() {
    var i;
+   var c;
 
  //------------------ create page template ------------------------------
  // get first div 
@@ -24,9 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
    var pageRefsTexts = ["About","Alefbet","Lessons","Exercises","Extra vocabulary","Reference tables","Resources"];
    for (i=0; i < pageRefs.length; i++){
       var a = document.createElement('a');
-      var reftext = document.createTextNode(pageRefsTexts[i]);
-      a.appendChild(reftext); 
+	  var thisRefText = pageRefsTexts[i];
+      a.appendChild(document.createTextNode(thisRefText)); 
       a.href = pageRefs[i]; 
+	  if (thisRefText == "Lessons") {a.classList.add("this-page");}
       topMenu.appendChild(a);
    }	   
    document.body.prepend(topMenu);
@@ -41,23 +43,23 @@ document.addEventListener('DOMContentLoaded', function() {
    document.body.prepend(header);
   
  // breadcrumbs 
-   var breadcrumb = document.createElement("p");
+//   var breadcrumb = document.createElement("p");
    
-   var a = document.createElement('a');
-   var reftext = document.createTextNode("Lessons");
-   a.appendChild(reftext); 
-   a.href = "lessons.html"; 
-   breadcrumb.appendChild(a);
+//   var a = document.createElement('a');
+//   var reftext = document.createTextNode("Lessons");
+//   a.appendChild(reftext); 
+//   a.href = "lessons.html"; 
+//   breadcrumb.appendChild(a);
    
-   var span1 = document.createElement("span");
-   span1.innerHTML = " > ";
-   breadcrumb.appendChild(span1);
+//   var span1 = document.createElement("span");
+//   span1.innerHTML = " > ";
+//   breadcrumb.appendChild(span1);
 
-   var span2 = document.createElement("span");
-   span2.innerHTML = lessonTitle;
-   breadcrumb.appendChild(span2);
+//   var span2 = document.createElement("span");
+//   span2.innerHTML = lessonTitle;
+//   breadcrumb.appendChild(span2);
    
-   firstDiv.appendChild(breadcrumb);
+//   firstDiv.appendChild(breadcrumb);
 
  // main
  //-----
@@ -66,51 +68,53 @@ document.addEventListener('DOMContentLoaded', function() {
    
  // add table of contents created from class="lesson-heading" and class="lesson-exercise-header"
  //--------------------------------------------------------------------------------------------
+   var tocClasses = ["lesson-heading","lesson-exercise-header"];
+   var tocHeadings = ["In this lesson:", "Exercises"];
+ 
    var tocdiv =  document.createElement("div");
    tocdiv.classList.add("lesson-toc-container");
-   var tocheader = document.createElement("p");
-   tocheader.classList.add("lesson-toc-header"); // content added in css
-   tocdiv.appendChild(tocheader);
    
-   const ul = document.createElement('ul');
+   for (c = 0; c < tocClasses.length; c++){
+     var tocElements = document.getElementsByClassName(tocClasses[c]);
+	 
+	 if (tocElements.length > 0 ){
+
+       var tocheader = document.createElement("span");
+       tocheader.classList.add("lesson-toc-header"); 
+	   tocheader.innerHTML = tocHeadings[c];
+       tocdiv.appendChild(tocheader);
    
-   var lessonHeadings = document.getElementsByClassName("lesson-heading");
-   for (i = 0; i < lessonHeadings.length; i++) {
-	  var li = document.createElement('li');
-      var a = document.createElement('a');
-      a.innerHTML = lessonHeadings[i].innerHTML;
-      a.href = "#" + lessonHeadings[i].id; 
-	  
-	  li.appendChild(a);
-      ul.appendChild(li);
-   }
+       const ul = document.createElement('ul');
+   
+       for (i = 0; i < tocElements.length; i++) {
+	     var li = document.createElement('li');
+         var a = document.createElement('a');
+	   
+      // 1. Create a deep clone to preserve HTML structure
+         const clone = tocElements[i].cloneNode(true);
 
-     // for exercise headings, need to remove the button
-   var exerciseHeadings = document.getElementsByClassName("lesson-exercise-header");
-   for (i = 0; i < exerciseHeadings.length; i++) {
-	  var li = document.createElement('li');
- 	  var tocRef = exerciseHeadings[i].id;
-      var a = document.createElement('a');
-	  
-      const tempContainer = document.createElement('div');
-      tempContainer.innerHTML = exerciseHeadings[i].innerHTML;
-	  
-	  // 3. Find and remove the very first span element
-      const firstSpan = tempContainer.querySelector('span');
-      if (firstSpan) {
-         firstSpan.remove();
-      }
+     // 2. Remove the unwanted elements, +/- buttons if any
+         clone.querySelectorAll('.button-plus').forEach(el => el.remove());
 
-      // 4. Insert the modified innerHTML into the target element
-      a.innerHTML = tempContainer.innerHTML;
-      a.href = "#" + tocRef; 
+     // 3. Use innerHTML to keep the remaining formatting and spans
+         a.innerHTML = clone.innerHTML;
+	   
+	   
+         a.href = "#" + tocElements[i].id; 
 	  
-	  li.appendChild(a);
-      ul.appendChild(li);
-   }
+	     li.appendChild(a);
+         ul.appendChild(li);
+       }
+   
+       tocdiv.appendChild(ul);
+	   
+	 }  
 
-   tocdiv.appendChild(ul);
+  }	
 
+
+ 
+   
    var lessonTitle = document.getElementsByClassName("lesson-title")[0];
    lessonTitle.after(tocdiv);
 
