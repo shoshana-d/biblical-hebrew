@@ -31,14 +31,16 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 /* End extract */
 
-/* not used? */
+/* not used? 
 .w3-center{text-align:center!important}
 .w3-center .w3-bar{display:inline-block;width:auto}
-
+*/
 
 /*---------------------------------------*/
 
-  /* used in alefbet and top menu */
+  /* used in alefbet and top menu, also headings on Lessons page 
+    - incorporated in lesson-heading, so not needed there
+  */
 .w3-card-4{box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
 .w3-card-4 {margin-bottom: 15px;}	
 
@@ -47,7 +49,7 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 
 
 /*  used in headings (not h1 top heading or individual lessons headings) */
-/*------------------------------------------*/
+/*----------------------------------------------------------------------*/
 .w3-container{
 /* my extras, to counteract main */	
     padding:0.01em 16px; 
@@ -164,6 +166,7 @@ main {
   box-sizing: border-box; /* Ensures the padding is included in the width */
   
   padding-bottom:5px;
+  padding-top:5px;
 }
 
 /* ---- horizontal line dividing sections--------*/
@@ -879,27 +882,42 @@ table{
 	border:solid;
 	border-width: 2px;
 	*/
-	margin-top:20px;
-	margin-bottom:20px;
+	margin-top:10px;
+	margin-bottom:10px;
 	padding-left:20px;
 	background-color:LightBlue;
 	background-color:LightSteelBlue;
     background-color:white; 
 	background-color:LightPink;
 	
+	padding-top:10px;
+	padding-bottom:10px;
+	
+	box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)/* from w3-card-4 */
+
+  /*  margin-inline: -1.5rem;  Pulls the header into the parent's padding area */
+   /*  padding-inline: 1.5rem; Optional: Re-adds internal padding so text doesn't touch the screen edge */
+	
 }
 
 .lesson-heading,
 .lesson-heading-jewish,
 .lesson-heading-extra{
-	border-bottom:solid;
 	border-bottom:none;
+	border-width:5px;
+	border-bottom:solid;
+	border-top:solid;
 	border-width: 2px;
 	margin-top:20px;
 	margin-bottom:20px;
 	padding:15px;
 	background-color:AliceBlue;
+
+    margin-inline: -1.5rem; /* Pulls the header into the parent's padding area */
+    padding-inline: 1.5rem; /* Optional: Re-adds internal padding so text doesn't touch the screen edge */
+
 }	
+	
 .lesson-heading::before{
    content:"\25B6";
    content:"\25C9";
@@ -966,10 +984,11 @@ table{
 .lesson-toc-header{
    font-size:16px;	
 }
+/*
 .lesson-toc-header::before{
    content:"In this lesson:";
 }	
-
+*/
 
 
 .lesson-exercise-header{
