@@ -438,11 +438,24 @@ function createLessonsEnglishExercise(thisDiv){
     var thisTable = document.createElement("table");
     thisTable.setAttribute("id", thisDiv.id.replace("cr-",""));
     thisTable.classList.add("English-exercise-table");
-	var translations = thisDiv.getElementsByClassName("js-lessons-exercise-translation");
-	var references = thisDiv.getElementsByClassName("js-lessons-exercise-reference");
-	var answerWords = thisDiv.getElementsByClassName("js-lessons-exercise-answer-words");
 	
+	var dataDivID = thisDiv.getElementsByClassName("js-data-id")[0].textContent.replace(/\u00A0/g, ' ').trim();
+	var dataDiv = document.getElementById(dataDivID);
+	
+	var allTranslations = dataDiv.getElementsByClassName("js-lessons-exercise-translation");
+	var allReferences = dataDiv.getElementsByClassName("js-lessons-exercise-reference");
+	
+	var whichExerciseItems = thisDiv.getElementsByClassName("js-exercise-items")[0].textContent.replace(/\u00A0/g, ' ').trim().split(/\s+/);
+	var answerWords = thisDiv.getElementsByClassName("js-lessons-exercise-answer-words");
+
+	var translations = [];
+	var references = [];
+	for (i=0; i < whichExerciseItems.length; i++){
+	   translations.push(allTranslations[Number(whichExerciseItems[i].trim()) -1]);
+	   references.push(allReferences[Number(whichExerciseItems[i].trim()) -1]);
+	}
 	var nTestItems = translations.length;
+console.log("hello from createLessonsEnglishExercise, translations:",translations," references:",references, ", ntestitems:",nTestItems);	
 	
 	//var alreadyDoneList = thisDiv.getElementsByClassName("js-already-done")[0].innerHTML.trim();
 	var alreadyDoneList = thisDiv.getElementsByClassName("js-already-done")[0].innerHTML.trim();
@@ -516,7 +529,7 @@ console.log("hello from createLessonsEnglishExercise, alreadydonelist=", already
 
  	   
 	   var nWords = thisTranslation.length;
-//test("hello from createLessonsEnglishExercise, translationWords=" + translationWords + ", nWords=" + nWords);
+console.log("hello from createLessonsEnglishExercise, nWords=", nWords );
 	   
 	   var para = document.createElement('p');
        para.classList.add("nomargin");
