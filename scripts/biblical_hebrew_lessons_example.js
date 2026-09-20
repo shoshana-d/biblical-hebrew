@@ -119,12 +119,19 @@ function highlightHTMLChars(thisSpan){
    var highlightsSpan = thisSpan.getElementsByClassName("js-highlights")[0];
    var highlightsSpecs = highlightsSpan.textContent.replace(/\u00A0/g, ' ').trim();
 
+   var hebrewClassSpec = "hebrew30";
+   var hebrewClassSpan = thisSpan.getElementsByClassName("js-hebrew-class");
+   if (hebrewClassSpan.length > 0){
+      var hebrewClassSpec = hebrewClassSpan[0].textContent.replace(/\u00A0/g, ' ').trim();
+   }
+
    var highlightedCharClass = "highlighted-char";
    
    thisSpan.appendChild(createSpanWordWithHighlightedChars (
 	             hebrewWord, 
 				 highlightsSpecs, 
-				 highlightedCharClass));
+				 highlightedCharClass,
+				 hebrewClassSpec));
 
 }
 
@@ -184,8 +191,7 @@ function createJavascriptInlineQuote(thisDiv){
  	// when RTL 
 	//    optional audio for whole quote
 	//    in Hebrew input, include single bet with space on either side if want a space left (for example, for [is] translation)
-	//    (not yet implemented) in Hebrew, insert | (no spaces) between words which should be treated as a single unit
-	//              -see exercise.js for how this is implemented
+	//    in Hebrew, insert | (no spaces) between words which should be treated as a single unit
 	// 
 	// when LTR
 	//    optional specification of number of first word in list to be flagged infrequent (all words after are also infrequent)
@@ -492,8 +498,11 @@ function createExampleDiv(
   
   var cellDiv = document.createElement("div");
 
-  var hebrewWord = hebrewWords[wordIndex];
-//console.log("hello from createExampleDiv, hebrewWords=",hebrewWords,", wordIndex=",wordIndex);  
+  var hebrewWord = hebrewWords[wordIndex].trim().replaceAll(globalDivider1," ");
+     // deal with possiblity of  >1 word for example adonai elohim
+ 
+//console.log("hello from createExampleDiv, hebrewWords=",hebrewWords,", wordIndex=",wordIndex);
+  
   if (hebrewWord == bet ) {
    // bet indicates leave a space in hebrew , only needed in RTL
       var thisSpan = document.createElement("span"); 
@@ -526,6 +535,7 @@ function createExampleDiv(
 		highlightsThisWord = true;
 	}
   }
+
 
   if (!highlightsThisWord){
      var thisSpan = document.createElement("span"); 
@@ -578,7 +588,7 @@ function createSpanWordWithHighlightedChars (
        } else {
            if (!(currentSpan)){
               var thisSpan = document.createElement("span"); 
-              thisSpan.classList.add("hebrew30");
+              thisSpan.classList.add(hebrewClass);
 	            //  thisSpan.classList.add("vocab-word-color");
 		      var currentSpan = true;
 	       }   

@@ -63,7 +63,7 @@ function lessonsExerciseAnswerEventListener(ev, tableid){
 }	
 
 function lessonsEnglishExerciseAnswerEventListener(ev, tableid, alreadyDoneList, nTestItems){
-console.log("Hello from lessonsEnglishExerciseAnswerEventListener, alreadyDoneList=",alreadyDoneList);
+//console.log("Hello from lessonsEnglishExerciseAnswerEventListener, alreadyDoneList=",alreadyDoneList);
 	var thisElement = ev.target;
 	
 	thisElement.classList.add("lesson-exercise-answer-text-border");
@@ -320,15 +320,11 @@ function createLessonsExercise(thisDiv){
 	      var hebrewPara = document.createElement("p");
 	      hebrewPara.classList.add("hebrew30");
 	      hebrewPara.classList.add("clickable");
-		  var thisHebrewWords = hebrewWords[i].split(globalDivider1);
-          hebrewPara.appendChild(document.createTextNode(thisHebrewWords[0]));
-		  if (thisHebrewWords.length > 1) {
-			  // deal with case where >1 word for example adonai elohim
-			 for (j=1; j < thisHebrewWords.length; j++){
-                hebrewPara.appendChild(document.createTextNode(" "));
-                hebrewPara.appendChild(document.createTextNode(thisHebrewWords[j]));
-			 }	 
-		  }	  
+
+			  // deal with possiblity of  >1 word for example adonai elohim
+			  //-------------------------------------------------------
+		  var thisHebrewWords = hebrewWords[i].trim().replaceAll(globalDivider1," ");
+          hebrewPara.appendChild(document.createTextNode(thisHebrewWords));
 		  
 		  var anyTranslation = false;
 		  var isAnswerWord = false;
