@@ -173,8 +173,8 @@ main {
  /* padding:0.01em 5px 16px ;/* top/bottom right/left */
 	
 /* from chatgpt */	
-  max-width: 65ch;        /* Limits your text layout to ~65 characters */
   max-width:80ch;
+  max-width: 65ch;        /* Limits your text layout to ~65 characters */
   width: 100%;            /* Keeps it fully responsive on mobile devices */
   margin-inline: auto;    /* Centers the entire text block on large screens */
   padding-inline: 1.5rem; /* Prevents text from touching mobile screen edges */
@@ -300,20 +300,13 @@ table{
 
 /*-- indented sections --*/
 /*----------------------------------------------*/
-.indent-section,
-.lesson-section{
+.indent-section{
 	margin-left:20px;
 	margin-right:20px;
-}
-.lesson-section{
-	padding:5px;
-	background-color:Ivory;
-	background-color:WhiteSmoke;/*#f5f5f5*/
-	background-color:#f5f5f5;
-}
-.indent-section{
 	background-color:GhostWhite;
 }
+
+
 
 /*-- hebrew fonts  --*/
 /*----------------------------------------------*/
@@ -1004,6 +997,18 @@ table{
    content:"In this lesson:";
 }	
 */
+
+.lesson-section{
+	margin-left:20px;
+	margin-right:20px;
+	margin-left:0px;
+	margin-right:0px;
+	padding:10px;
+	padding-left:20px;
+	background-color:Ivory;
+	background-color:WhiteSmoke;/*#f5f5f5*/
+	background-color:#f5f5f5;
+}
 
 
 .lesson-exercise-header{
