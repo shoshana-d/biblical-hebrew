@@ -103,7 +103,7 @@ p.margin2px {
   
  */ 
 p {
-  font-size: 1rem;              /* Baseline font size */
+  font-size: 1rem;              /* Baseline font size, equivalent to 16px on most browsers */
   line-height: 1.6;             /* Optimal line height for body text */
   margin-block-start: 0;        /* Clear default top margins to avoid collapse chaos */
   margin-block-end: 1.25rem;    /* Optimal space between paragraphs */
@@ -827,7 +827,8 @@ table{
    width:56px; 
    height:28px; 
    margin-top:-4px;
-   vertical-align:text-top;   
+   vertical-align:text-top;  
+   vertical-align:-8px;
 }
 .vowel-image-plural-ending-narrow {
 	/* used in lessons toc */
@@ -1004,7 +1005,7 @@ table{
 	margin-left:0px;
 	margin-right:0px;
 	padding:10px;
-	padding-left:20px;
+	/*padding-left:20px;*/
 	background-color:Ivory;
 	background-color:WhiteSmoke;/*#f5f5f5*/
 	background-color:#f5f5f5;
