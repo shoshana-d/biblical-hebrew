@@ -12,15 +12,9 @@
   <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
   
   <style>
- 
-   .lessons-before-we-start-div{
-      background-color:GhostWhite;
-	  margin-left:0;
-	  margin-right:0;   
-    }
 	
-	/* 2 column table    */
-   /*---------------------*/
+/* 2 column table    */
+/*---------------------*/
    .lessons-toc-table{
 	  width:100%;
 	  table-layout:fixed;
@@ -54,94 +48,51 @@
 	
 
    
-   /* 1. Define the parent container layout for column 1*/
-   /*----------------------------------------------------*/
-  .lessons-toc-col1-flex-container {
-    display: flex;
-    flex-wrap: wrap; /* Allows items to stack when they run out of room */
-    gap: 5px;       /* Adds clean spacing between the two divs */
-  }
+    /* 1. Define the parent container layout for column 1*/
+    /*----------------------------------------------------*/
+   .lessons-toc-col1-flex-container {
+     display: flex;
+     flex-wrap: wrap; /* Allows items to stack when they run out of room */
+     gap: 5px;       /* Adds clean spacing between the two divs */
+   }
 
    /* Lesson link button */
    /*---------------------*/
-   /* 2. Configure the first child element version 1*/
-   .lessons-toc-col1-flex-container-div1 {
-       flex: 1 1 10px; /* Grow, shrink, and set a 250px baseline width */
-   }
-
+   /* 
+      2. Configure the first child element version 1
+         .lessons-toc-col1-flex-container-div1 {
+            flex: 1 1 10px; /* Grow, shrink, and set a 250px baseline width */
+         }
+   */
    /* 2. Fixed width column (does not grow, does not shrink) */
-  .lessons-toc-col1-flex-container-div1 {
+   .lessons-toc-col1-flex-container-div1 {
       flex: 0 0 10px; /* Grow: 0, Shrink: 0, Basis: 10px */
      /* Optional: width: 100% can be applied via media query if you want it full-width when stacked */
-  }
+   }
 
    /* Info about lesson */
    /*-------------------------------------------------*/
-   /* 3. Configure the text-heavy child element version 1*/
- .lessons-toc-col1-flex-container-div2 {
-     flex: 2 1 350px; /* Takes up twice the remaining space if available */
-     flex: 2 1 50px; /* Takes up twice the remaining space if available */
-     min-width: 0;    /* CRITICAL: Forces long words/text strings to wrap */
-     word-wrap: break-word; /* Optional safety net for unbroken long URLs */
-  }
-
-  /* 3. Expanding column with wrapped text */
- .lessons-toc-col1-flex-container-div2 {
-    flex: 1 1 300px; /* Grow: 1 (fills space), Shrink: 1, Basis: 300px (stacking point) */
-    min-width: 0;    /* Forces text to wrap instead of overflowing */
-  }
+   /* 
+      3. Configure the text-heavy child element version 1
+         .lessons-toc-col1-flex-container-div2 {
+            flex: 2 1 350px; /* Takes up twice the remaining space if available */
+            flex: 2 1 50px; /* Takes up twice the remaining space if available */
+            min-width: 0;    /* CRITICAL: Forces long words/text strings to wrap */
+            word-wrap: break-word; /* Optional safety net for unbroken long URLs */
+         }
+  */
+  
+   /* 3. Expanding column with wrapped text */
+   .lessons-toc-col1-flex-container-div2 {
+       flex: 1 1 300px; /* Grow: 1 (fills space), Shrink: 1, Basis: 300px (stacking point) */
+       min-width: 0;    /* Forces text to wrap instead of overflowing */
+    }
 
   
  
-  /* original 3 column toc table formatting */
-   /*---------------------------------------*/
-  .lessons-toc-table-3cols{
-	  width:100%;
-	  margin-right:10px;
-	  table-layout:fixed;
-	  /*
-	  background-color:WhiteSmoke;
-	  background-color:GhostWhite;
-	  */
-  }	
-  .lessons-toc-table-3cols tr {
-	  border-bottom: 2px dotted gray;  /* width style color */
-   }
-   .lessons-toc-table-3cols  td:first-child{
-	  width:15%;
-	  vertical-align: middle;
-	  vertical-align:top;
-	  padding-top:5px;
-	  text-align: left;
-	  padding-right:15px;
-	  padding-left:10px;
-	  padding-right:0;
-   }
-  
-    .lessons-toc-table-3cols  td:nth-child(2){
-	  width:50%;
-	  /*vertical-align: baseline;*/
-	  vertical-align:top;
-	  padding-top:5px;
-	  text-align: left;
-   }
-   .lessons-toc-table-3cols  td:nth-child(3){
-      width:35%;
-	  vertical-align: baseline;
-	  vertical-align:top;
-	  padding-top:0px;
-	  text-align: left;
-   }
- 
-    .lessons-toc-table-3cols-colspan{
-        text-align:left;
-		padding-top:0;	
-	}
-	
 
-
-  /* vocab flexbox lists */
-  /*---------------------*/
+/* vocab flexbox lists */
+/*---------------------*/
   .lessons-toc-flex-container-vocab-list{
  	  border:dotted;
  	  border:solid;
@@ -180,21 +131,20 @@
    } 
    
    
-    /* nouns   */
-   /*----------*/
+/* nouns   */
+/*----------*/
   .lessons-toc-flex-container-nouns-list{
  	  border:dotted;
  	  border:solid;
 	  border-color:gray;
-      background-color:WhiteSmoke; 
-       background-color:white; 
-    }
-
-   .lessons-toc-flex-container-nouns-list{
 	  border-width: 2px;
 	  border-width: thin;
+
 	  margin-top:5px;
-   }
+	  
+      background-color:WhiteSmoke; 
+      background-color:white; 
+    }
 
    .lessons-toc-flex-container-nouns-list > div{
      margin-top: 5px;
@@ -219,34 +169,34 @@
    }
 
 	  
-   /* button linking to Lesson */
-  /*---------------------------*/
+/* button linking to Lesson */
+/*---------------------------*/
 	
-.lessons-toc-link-button{
-  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;   
-  font-size: 16px;
-  white-space: nowrap;
+  .lessons-toc-link-button{
+    font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;   
+    font-size: 16px;
+    white-space: nowrap;
   
-  border-style: solid;
-  border-width: 1px;
-  border-color: gray;
-  border-radius:5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    border-radius:5px;
   
-  margin-left: 0;
-  margin-right:5px;
-  padding-right:5px;
-  padding-left:5px;
+    margin-left: 0;
+    margin-right:5px;
+    padding-right:5px;
+    padding-left:5px;
  
-  /*background-color: white;*/
-  box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
-}
-.lessons-toc-link-button::before{
-  content: "\25BA"; /* right facing triangle */
-}
+   /*background-color: white;*/
+    box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
+  }
+  .lessons-toc-link-button::before{
+    content: "\25BA"; /* right facing triangle */
+  }
 
-.lessons-toc-link-button:hover{
-   cursor: pointer;
-}
+  .lessons-toc-link-button:hover{
+     cursor: pointer;
+  }
   
    a.lessons-toc:link, a.lessons-toc:visited{
 	text-decoration:none;
@@ -255,8 +205,8 @@
    }  
    
   
-  /* colours             */
-  /*---------------------*/
+/* colours             */
+/*---------------------*/
   .prefix-suffix-color{
      background-color:LavenderBlush;
      background-color:Ivory;
@@ -276,25 +226,25 @@
      background: linear-gradient(to bottom, HoneyDew 50%, LightSalmon 50%);
   }
  
-/* noun-color, verb-color and preposition-color defined in main.css - maybe move to here? */
+  /* noun-color, verb-color and preposition-color defined in main.css - maybe move to here? */
 
    /* these were in main.css
    - only  in lessons pages - only in lessons toc page? if so, can move to there  
     -----------------------------------------------------------------------------
    */
-.verb-color{
-   background-color:LightGreen;
-   background-color:HoneyDew;
-}	
-.noun-color{
-   background-color:LightBlue;
-   background-color:LightCyan;
-   background-color:AliceBlue;
-}
-.preposition-color{
-   background-color:Gold;
-  background-color:LightSalmon;
-} 
+  .verb-color{
+    background-color:LightGreen;
+    background-color:HoneyDew;
+  }	
+  .noun-color{
+    background-color:LightBlue;
+    background-color:LightCyan;
+    background-color:AliceBlue;
+  }
+  .preposition-color{
+    background-color:Gold;
+    background-color:LightSalmon;
+  } 
 
 
 
@@ -323,15 +273,15 @@
 <!--  END testing section --> 
 
 <h2  class="w3-container w3-card-4"  ><span> </span> Before we start</h2>
-  <div class="lessons-before-we-start-div">
+  <div>
  
  The lessons explain how Tanakh Hebrew works, how to recognize nouns and verbs, and how to recognize
  the most frequently occurring words.
   </div>
 
- <h3 onclick="ShowHideNextSibling(event)" class="clickable"><span class="button-plus"></span> 
+ <h3 onclick="ShowHideNextSibling(event)" class="clickable" id="id-lessons-grammar"><span class="button-plus"></span> 
    A bit of grammar</h3>
-<div class="hidden lessons-before-we-start-div">
+<div class="hidden lesson-section">
   We will be working from the English translation; you need to be able to identiry nouns, pronouns, 
   verbs and prepositions in the English translation;
   <ul>
@@ -476,7 +426,7 @@
   
  <h2  class="lesson-exercise-header"  onclick="ShowHideNextSibling(event)" id="exercise0" >
   <span class="button-plus"></span>
-  Exercise Practise finding nouns in the English translation
+  Practise finding nouns in the English translation
  </h2>	
   <div class="hidden  lesson-exercise-container">
    <p>Click on the words which are <b>nouns</b>. Remember that names of God, people and places are also nouns.
@@ -511,7 +461,7 @@
    
  <h2  class="lesson-exercise-header"  onclick="ShowHideNextSibling(event)" id="exercise1" >
   <span class="button-plus"></span>
-  Exercise Practise finding verbs in the English translation
+  Practise finding verbs in the English translation
  </h2>	
   <div class="hidden  lesson-exercise-container">
    <p>Click on the words which are <b>verbs</b>. Remember that verbs may have more than one word.
@@ -543,7 +493,7 @@
    
  <h2  class="lesson-exercise-header"  onclick="ShowHideNextSibling(event)" id="exercise2" >
   <span class="button-plus"></span>
-  Exercise Practise finding prepositions in the English translation
+  Practise finding prepositions in the English translation
  </h2>	
   <div class="hidden  lesson-exercise-container">
    <p>Click on the words which are <b>prepositions</b> (linking words such as in, from, by, of, to ).
@@ -578,7 +528,7 @@
 
 
  <h3 onclick="ShowHideNextSibling(event)" class="clickable"><span class="button-plus"></span> About translations and resources for self-study</h3>
- <div class="hidden lessons-before-we-start-div">
+ <div class="hidden lesson-section">
  discusses different translations - not all translations are equal,
 to help you decide which translation(s) will be most helpful for you
    <p>
@@ -783,7 +733,7 @@ You also want to know how your translation handles the traditional Jewish interp
 
 
  <h3 onclick="ShowHideNextSibling(event)" class="clickable"><span class="button-plus"></span> Getting the most out of the lessons</h3>
- <div class="hidden lessons-before-we-start-div" >
+ <div class="hidden lesson-section" >
 
  <p>Should do all the exercises. Exercises give the translation and ask you to find specific words from the
 translation in the Hebrew. To get the most out of the material you should listen to all the Hebrew until you
@@ -874,7 +824,7 @@ Some sections have "more detail". These are not essential, suggest at first leav
               <span class="hebrew30  soundclick">בֶּן</span><span class="hidden">words/w013_ben</span>&ensp; 
           <span class="lessons-toc-noun-divider" ></span>		 
             <span class="hebrew30  soundclick">	בָּנִים</span><span class="hidden">words/w013_banim</span>&ensp; 
-             <span class="hebrew30   soundclick">בְּנֵי</span><span class="hidden">words/w013_bnei</span>&emsp;  		  
+             <span class="hebrew30   soundclick">בְּנֵי</span><span class="hidden">words/w013_bnei</span>	  
            </div>
  		  </div> 
 		  
@@ -891,7 +841,7 @@ Some sections have "more detail". These are not essential, suggest at first leav
 		     <span class="hebrew30 soundclick">אֶרֶץ</span><span class="hidden">words/w021_eretz </span>&ensp;   
         <span class="lessons-toc-noun-divider"></span>		 
 		     <span class="hebrew30 soundclick  reference-table-infrequent2">	אֲרָצוֹת</span><span class="hidden">words/w021_arazot </span>&ensp;   
-		     <span class="hebrew30 soundclick  reference-table-infrequent2">	אַרְצוֺת </span><span class="hidden">words/w021_arzot </span>&emsp;   
+		     <span class="hebrew30 soundclick  reference-table-infrequent2">	אַרְצוֺת </span><span class="hidden">words/w021_arzot </span>
 		  </div>
 		  </div>
 		  
@@ -901,7 +851,7 @@ Some sections have "more detail". These are not essential, suggest at first leav
 		     <span class="hebrew30 soundclick">בַּת</span><span class="hidden">words/w082_bat </span>&ensp;   
         <span class="lessons-toc-noun-divider"></span>		 
 		     <span class="hebrew30 soundclick">בָּנוֺת</span><span class="hidden">words/w082_banot </span>&ensp;   
-		     <span class="hebrew30 soundclick">בְּנוֺת</span><span class="hidden">words/w082_bnot </span>&emsp;   
+		     <span class="hebrew30 soundclick">בְּנוֺת</span><span class="hidden">words/w082_bnot </span>
 		  </div>
 		  </div>
 		  
@@ -917,12 +867,16 @@ Some sections have "more detail". These are not essential, suggest at first leav
              <span class="soundclick"><img src="images/suffixes/plural-ending-ei.jpg" class="vowel-image-plural-ending"></span>	  
               <span class="hidden">alefbet_consonants_and_vowels/ei</span> 			 
            </div>
+ 
+         </div> <!-- lessons-toc-flex-container-vocab-list-->
+		 
+         <div class="flex-container-ltr lessons-toc-flex-container-vocab-list ">
            <div class="flex-container-ltr">
-             <span class="hebrew30 maqqef"></span><span>(maqqef)</span>	  
+		        <span class="hebrew30 maqqef" style="line-height:10px"></span>&emsp;<span> maqqef</span>	  
            </div>
 
-          </div> <!-- lessons-toc-flex-container-vocab-list-->
- </td>
+         </div> <!-- lessons-toc-flex-container-vocab-list-->
+</td>
 </tr>
  
 
