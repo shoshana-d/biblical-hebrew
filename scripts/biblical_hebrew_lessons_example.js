@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
    var javascriptListClass = document.getElementsByClassName("javascript-example-rtl");
    for (i = 0; i < javascriptListClass.length; i++) {
  	  var thisDiv = javascriptListClass[i];
-	  var border = false;
-	  if (thisDiv.classList.contains("javascript-border")){ border=true;}
-	  var individualBorder = false;
-	  if (thisDiv.classList.contains("javascript-individual-border")){ individualBorder=true;}
+	  var thisBorder = false;
+	  if (thisDiv.classList.contains("javascript-border")){ thisBorder=true;}
+	  var thisIndividualBorder = false;
+	  if (thisDiv.classList.contains("javascript-individual-border")){ thisIndividualBorder=true;}
      // createJavascriptExampleRTLLTRFlexbox(thisDiv, "RTL", border=true)
-      createJavascriptExampleRTLLTRFlexbox(thisDiv, "RTL", border, individualBorder)
+      createJavascriptExampleRTLLTRFlexbox(thisDiv, "RTL", border=thisBorder, individualBorder=thisIndividualBorder)
    }
 
 
@@ -78,10 +78,12 @@ document.addEventListener('DOMContentLoaded', function() {
    var javascriptListClass = document.getElementsByClassName("javascript-example-ltr");
    for (i = 0; i < javascriptListClass.length; i++) {
  	  var thisDiv = javascriptListClass[i];
-	  var border = false;
-	  if (thisDiv.classList.contains("javascript-border")){ border=true;}
-    //  createJavascriptExampleLTRFlexbox(thisDiv, border); 
-      createJavascriptExampleRTLLTRFlexbox(thisDiv, "LTR", border=true)
+	  var thisBorder = false;
+	  if (thisDiv.classList.contains("javascript-border")){ thisBorder=true;}
+	  var thisIndividualBorder = false;
+	  if (thisDiv.classList.contains("javascript-individual-border")){ thisIndividualBorder=true;}
+// console.log("hello from documentAddEventListener, thiDivclasslist=",thisDiv.classList);
+      createJavascriptExampleRTLLTRFlexbox(thisDiv, "LTR", thisBorder, thisIndividualBorder)
    }
 
     // use this when want to include apparent RTL in another LTR flexbox
@@ -202,7 +204,8 @@ function createJavascriptInlineQuote(thisDiv){
 	// in HTML, all specifications of word number start at 1, not zero
 	
 function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, individualBorder=false){
-   var i;
+// console.log("hello from createJavascriptExampleRTLLTRFlexbox, individualBorder=",individualBorder);
+  var i;
    var j;
    var groupi;
    
@@ -393,14 +396,17 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
 	      var thisGroupWordNumbers = thisGroup.trim().split(/\s+/);
 		  nWordsThisGroup = thisGroupWordNumbers.length;
 	  }	  
+//console.log("hello from createJavascriptExampleRTLLTRFlexbox, anyGroups=",anyGroups, ", nWords Thisgroup=",nWordsThisGroup);
 	  
 	  // do we need the more complicated flexbox structure?
 	  //--------------------------------------------------
-	  if (!anyGroups || nWordsThisGroup==1){
+	  if ((!anyGroups) || (anyGroups && nWordsThisGroup==1)){
 
 		// no
 		//---
-          var thisWordIndex = groupi;
+
+		  if (!anyGroups) { var thisWordIndex = groupi;}
+		  else            { var thisWordIndex = Number(thisGroupWordNumbers[0]) - 1; }
 		 
 	      var thisIndividualAudio = false;
 	      if (anyIndividualAudio){
@@ -409,10 +415,20 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
 		    }
           }
 
-          var thisCellDiv = createExampleDiv(
+          var hebrewWord = hebrewWords[thisWordIndex].trim().replaceAll(globalDivider1," ");
+         // deal with possiblity of  >1 word for example adonai elohim
+		 // - only needed in RTL where input is a single paragraph, words are separated programatically at spaces
+		 // - in LTR, input of individual words in separate paras, so can have several >1 word if necessary
+
+          if (hebrewWord == bet ) {
+			 // create a blank div for spacing (only specified if RTL)
+			 var thisCellDiv = createBlankDiv();
+		  }
+          else {		 
+             var thisCellDiv = createExampleDiv(
                                 groupi,	   
                                 thisWordIndex,
-	                            hebrewWords,
+	                            hebrewWord,
 	                            thisIndividualAudio, 
 	                            translations, 
 	                            wordEmphasised,
@@ -423,6 +439,7 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
 	                            highlightedCharClass,
                                 infrequentWordClass 
 								);
+		  }						
 //console.log("hello from createJavascriptExampleRTLLTRFlexbox, individualBorder=",individualBorder);
 		  if (individualBorder) {thisCellDiv.classList.add(flexboxBorderClass);}						
           flexDiv.appendChild(thisCellDiv);
@@ -443,14 +460,15 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
  
          flexDiv2.classList.add("flex-container-ltr");  // only works for LTR lists
          flexDiv2.classList.add("flex-container-examples");
-         //if (border) {flexDiv2.classList.add(flexboxBorderClass);}
+         if (individualBorder) {flexDiv2.classList.add(flexboxBorderClass);}
          for (i=0; i < nWordsThisGroup; i++){
 		    var thisWordIndex = Number(thisGroupWordNumbers[i]) - 1;
+            var hebrewWord = hebrewWords[thisWordIndex].trim().replaceAll(globalDivider1," ");
             flexDiv2.appendChild( 
 		        createExampleDiv(
                                 groupi,	   
                                 thisWordIndex,
-	                            hebrewWords,
+	                            hebrewWord,
 	                            thisIndividualAudio, 
 	                            translations, 
 	                            wordEmphasised,
@@ -473,6 +491,9 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
 		 } //for each word in group 
 		 
 		 flexDiv.appendChild(flexDiv2);
+		 
+		 // add a blank div for spacing 
+		 flexDiv.appendChild(createBlankDiv());
 		  
 	  } // end of else group with more than one item
 	  
@@ -481,10 +502,20 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
    thisDiv.appendChild(flexDiv);
 }
 
+function createBlankDiv(){
+   var cellDiv = document.createElement("div");
+   var thisSpan = document.createElement("span"); 
+   thisSpan.appendChild(document.createTextNode(mspace));
+   thisSpan.classList.add("hebrew30");
+   cellDiv.appendChild(thisSpan);
+  
+   return cellDiv;
+}	
+
 function createExampleDiv(
        groupIndex,	   
        wordIndex,
-	   hebrewWords,
+	   hebrewWord,
 	   thisAudio, 
 	   translations, 
 	   wordEmphasised,
@@ -497,21 +528,8 @@ function createExampleDiv(
   var j;
   
   var cellDiv = document.createElement("div");
-
-  var hebrewWord = hebrewWords[wordIndex].trim().replaceAll(globalDivider1," ");
-     // deal with possiblity of  >1 word for example adonai elohim
  
 //console.log("hello from createExampleDiv, hebrewWords=",hebrewWords,", wordIndex=",wordIndex);
-  
-  if (hebrewWord == bet ) {
-   // bet indicates leave a space in hebrew , only needed in RTL
-      var thisSpan = document.createElement("span"); 
-      thisSpan.appendChild(document.createTextNode(mspace));
- 	  thisSpan.classList.add("hebrew30");
-      cellDiv.appendChild(thisSpan);
-	  
-	  return cellDiv;
-  }
 	
   if (thisAudio){
 	cellDiv.classList.add("soundclick");
