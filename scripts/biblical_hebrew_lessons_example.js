@@ -408,12 +408,7 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
 		  if (!anyGroups) { var thisWordIndex = groupi;}
 		  else            { var thisWordIndex = Number(thisGroupWordNumbers[0]) - 1; }
 		 
-	      var thisIndividualAudio = false;
-	      if (anyIndividualAudio){
-		    if (audios[thisWordIndex].trim().length > 0) {
-			  thisIndividualAudio = true;
-		    }
-          }
+		  var thisIndividualAudio = getThisIndividualAudio(anyIndividualAudio, audios, thisWordIndex);
 
           var hebrewWord = hebrewWords[thisWordIndex].trim().replaceAll(globalDivider1," ");
          // deal with possiblity of  >1 word for example adonai elohim
@@ -444,11 +439,8 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
 		  if (individualBorder) {thisCellDiv.classList.add(flexboxBorderClass);}						
           flexDiv.appendChild(thisCellDiv);
 
-	      if (thisIndividualAudio){
-            var thisSpan = document.createElement("span");   
-            thisSpan.classList.add("hidden");
-            thisSpan.appendChild(document.createTextNode(audios[thisWordIndex]));
-            flexDiv.appendChild(thisSpan);
+	      if (thisIndividualAudio.length > 0){
+			flexDiv.appendChild(createAudioSpan(thisIndividualAudio));
 	      }
 
 	  } // no groups
@@ -463,7 +455,11 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
          if (individualBorder) {flexDiv2.classList.add(flexboxBorderClass);}
          for (i=0; i < nWordsThisGroup; i++){
 		    var thisWordIndex = Number(thisGroupWordNumbers[i]) - 1;
+//console.log("hello from createJavascriptExampleRTLLTRFlexbox, thisIndividualAudioTF=",thisIndividualAudioTF);
             var hebrewWord = hebrewWords[thisWordIndex].trim().replaceAll(globalDivider1," ");
+					 
+		    var thisIndividualAudio = getThisIndividualAudio(anyIndividualAudio, audios, thisWordIndex);
+
             flexDiv2.appendChild( 
 		        createExampleDiv(
                                 groupi,	   
@@ -481,11 +477,8 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
 								)
 				);
 
-	        if (thisIndividualAudio){
-               var thisSpan = document.createElement("span");   
-               thisSpan.classList.add("hidden");
-               thisSpan.appendChild(document.createTextNode(audios[thisWordIndex]));
-               flexDiv2.appendChild(thisSpan);
+	        if (thisIndividualAudio.length > 0){
+			   flexDiv2.appendChild(createAudioSpan(thisIndividualAudio));
 	        }
 		  
 		 } //for each word in group 
@@ -500,6 +493,22 @@ function createJavascriptExampleRTLLTRFlexbox(thisDiv, direction, border=true, i
    } // end of for loop 
    
    thisDiv.appendChild(flexDiv);
+}
+
+
+function getThisIndividualAudio(anyIndividualAudio, audios, thisWordIndex){
+     var thisIndividualAudio = [];
+	 if (anyIndividualAudio){var thisIndividualAudio = audios[thisWordIndex].trim(); }
+	 
+	 return thisIndividualAudio;
+}
+
+function createAudioSpan(thisIndividualAudio){
+    var thisSpan = document.createElement("span");   
+    thisSpan.classList.add("hidden");
+    thisSpan.appendChild(document.createTextNode(thisIndividualAudio));
+	
+	return thisSpan;
 }
 
 function createBlankDiv(){
@@ -525,13 +534,13 @@ function createExampleDiv(
        emphasisedWordClass, 
 	   highlightedCharClass,
        infrequentWordClass ){
-  var j;
+  var i;
   
   var cellDiv = document.createElement("div");
  
 //console.log("hello from createExampleDiv, hebrewWords=",hebrewWords,", wordIndex=",wordIndex);
 	
-  if (thisAudio){
+  if (thisAudio.length > 0){
 	cellDiv.classList.add("soundclick");
     cellDiv.addEventListener("click", soundclickEventListener);
   }	
@@ -570,7 +579,23 @@ function createExampleDiv(
 
   if (translations.length > 0) {
      var thisPara = document.createElement("p");
-     thisPara.appendChild(document.createTextNode(translations[wordIndex]));
+	    // insert <br> before commas if any
+	 var translationsSections = translations[wordIndex].trim().split(",");	
+	 var thisSpan = document.createElement("span");
+	 thisSpan.innerHTML = translationsSections[0];
+	 thisPara.appendChild(thisSpan);
+	 
+	 if (translationsSections.length > 1){
+	     for (i=1; i < translationsSections.length; i++){
+			thisPara.innerHTML += ",";
+	        thisPara.appendChild(document.createElement("br"));
+            var thisSpan = document.createElement("span");
+	        thisSpan.innerHTML = translationsSections[i];
+	        thisPara.appendChild(thisSpan);
+		 }
+	 }	 
+	 
+    // thisPara.appendChild(document.createTextNode(translations[wordIndex]));
 	 cellDiv.appendChild(thisPara);
   }	
 
