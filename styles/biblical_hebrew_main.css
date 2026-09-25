@@ -71,7 +71,7 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 h1{font-size:36px}h2{font-size:22px}h3{font-size:18px}h4{font-size:18px}h5{font-size:16px}h6{font-size:16px}
 h1,h2,h3,h4,h5,h6{font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;font-weight:400;margin:10px 0}
 
-html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}
+html{font-family:font-size:16px;}
 html{overflow-x:hidden}
 html{
 /*
@@ -92,16 +92,32 @@ html{
 */
   background-color:LightBlue;
 }
-/*	
-p {
-   margin: 10px;
+
+body{
+	font-family:Verdana,sans-serif;
+	line-height:1.5
 }
 
-p.margin2px {
-   margin:2px;
-} 
+main {
+  /* w3-container 
+ /* padding:0.01em 5px 16px ;/* top/bottom right/left */
+	
+/* from chatgpt */	
+  max-width:80ch;
+  max-width: 65ch;        /* Limits your text layout to ~65 characters */
+  width: 100%;            /* Keeps it fully responsive on mobile devices */
+  margin-inline: auto;    /* Centers the entire text block on large screens */
+  padding-inline: 1.5rem; /* Prevents text from touching mobile screen edges */
+  box-sizing: border-box; /* Ensures the padding is included in the width */
   
- */ 
+  padding-bottom:5px;
+  padding-top:5px;
+}
+
+main.practise-alefbet{
+	max-width: 85ch;  
+}	
+ 
 p {
   font-size: 1rem;              /* Baseline font size, equivalent to 16px on most browsers */
   line-height: 1.6;             /* Optimal line height for body text */
@@ -116,7 +132,27 @@ p.nomargin{
 
 h3.nomargin{
    margin:0;
-}  
+} 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+ 
+ul.less-indent {
+  padding-left: 20px; /* Cuts the default 40px indent in half */
+}
+ 
 header{
 	padding-top:0.01em;
 	padding-bottom:0.01em;
@@ -152,37 +188,6 @@ footer {
    padding: 15px;
    margin-top:10px;
 }	
-
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:active {
-  text-decoration: underline;
-}
-main {
-  /* w3-container 
- /* padding:0.01em 5px 16px ;/* top/bottom right/left */
-	
-/* from chatgpt */	
-  max-width:80ch;
-  max-width: 65ch;        /* Limits your text layout to ~65 characters */
-  width: 100%;            /* Keeps it fully responsive on mobile devices */
-  margin-inline: auto;    /* Centers the entire text block on large screens */
-  padding-inline: 1.5rem; /* Prevents text from touching mobile screen edges */
-  box-sizing: border-box; /* Ensures the padding is included in the width */
-  
-  padding-bottom:5px;
-  padding-top:5px;
-}
 
 /* ---- horizontal line dividing sections--------*/
 hr {
@@ -300,6 +305,7 @@ table{
 
 /*-- indented sections --*/
 /*----------------------------------------------*/
+/* only used once in alefbet and once in lessons */
 .indent-section{
 	margin-left:20px;
 	margin-right:20px;
@@ -310,6 +316,37 @@ table{
 
 /*-- hebrew fonts  --*/
 /*----------------------------------------------*/
+
+/* Regular Style (TaameyD) */
+@font-face {
+    font-family: 'Taamey Frank CLM';
+    src: url('../fonts/Taamey_D.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; 
+}
+
+/* Bold Style (TaameyB) */
+@font-face {
+    font-family: 'Taamey Frank CLM';
+    src: url('../fonts/Taamey_B.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* Application to your Hebrew text class suggestion from ChatGP */
+.hebrew-text {
+    font-family: 'Taamey Frank CLM', serif;
+   /* font-size: 1rem;  p  Baseline font size, equivalent to 16px on most browsers */
+   /*  line-height: 1.6;   p  Optimal line height for body text */
+    font-size: 1.6rem;
+    line-height: 1.0;
+}
+
+
+
 .hebrew50,
 .hebrew40,
 .hebrew35,
@@ -317,11 +354,20 @@ table{
 .hebrew30,
 .hebrew30-wrap,
 .hebrew25, 
+.hebrew25-wrap, 
 .hebrew-in-text
 {
+	/*
    font-family:'Times New Roman',serif;
-   direction:rtl;
    line-height:30px;
+   */
+   direction:rtl;
+   
+    font-family: 'Taamey Frank CLM', serif;
+   /* font-size: 1rem;  p  Baseline font size, equivalent to 16px on most browsers */
+   /*  line-height: 1.6;   p  Optimal line height for body text */
+    line-height: 1.0;
+
 }
 .hebrew50,
 .hebrew40,
@@ -342,7 +388,7 @@ table{
    font-size:40px;
 }
 .hebrew35 {
-	 /* used in JS created flex lists*/
+	 /* ? used in JS created flex lists*/
    font-size:35px;
 }
 	 
@@ -356,7 +402,8 @@ table{
 }
 
 .hebrew-in-text,
-.hebrew25 {
+.hebrew25,
+.hebrew25-wrap {
    font-size:25px;
 }
  
@@ -654,10 +701,12 @@ table{
  
   /* specs if using +/- */
   line-height:1;
+  line-height:0.5;
   font-size:30px;
   color: Gray;
 	
 }	
+
 
 .button-plus::before{
  
@@ -826,6 +875,8 @@ table{
 	/* used in lessons toc */
    width:56px; 
    height:28px; 
+   width:50px; 
+   height:25px; 
    margin-top:-4px;
    vertical-align:text-top;  
    vertical-align:-8px;
@@ -1202,7 +1253,7 @@ table{
 }	
 .lesson-vocab-table td:first-child{
         text-align:center;
-		/*vertical-align:top;*/
+	/*	vertical-align:top; */
 		width:20%;
 }	
 
