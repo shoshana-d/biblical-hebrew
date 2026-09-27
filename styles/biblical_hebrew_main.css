@@ -3,27 +3,47 @@
 }
 
 /*-- from w3 -- */
-/* W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes */
-html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+/* W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes 
+html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}*/
+
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
-html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
-article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}summary{display:list-item}
-audio,canvas,progress,video{display:inline-block}progress{vertical-align:baseline}
-audio:not([controls]){display:none;height:0}[hidden],template{display:none}
-a{background-color:transparent}a:active,a:hover{outline-width:0}
+/*html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
+*/
+article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}
+summary{display:list-item}
+audio,canvas,progress,video{display:inline-block}
+progress{vertical-align:baseline}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+/*
+a{background-color:transparent}
+a:active,a:hover{outline-width:0}
+*/
 abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
-b,strong{font-weight:bolder}dfn{font-style:italic}mark{background:#ff0;color:#000}
-small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
-sub{bottom:-0.25em}sup{top:-0.5em}figure{margin:1em 40px}img{border-style:none}
+b,strong{font-weight:bolder}
+dfn{font-style:italic}
+mark{background:#ff0;color:#000}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sub{bottom:-0.25em}
+sup{top:-0.5em}
+figure{margin:1em 40px}
+img{border-style:none}
 code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}
+/*
 hr{box-sizing:content-box;height:0;overflow:visible}
-button,input,select,textarea,optgroup{font:inherit;margin:0}optgroup{font-weight:bold}
-button,input{overflow:visible}button,select{text-transform:none}
+*/
+button,input,select,textarea,optgroup{font:inherit;margin:0}
+optgroup{font-weight:bold}
+button,input{overflow:visible}
+button,select{text-transform:none}
 button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button}
 button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}
 button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}
 fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}
-legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}
+legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}
+textarea{overflow:auto}
 [type=checkbox],[type=radio]{padding:0}
 [type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}
 [type=search]{-webkit-appearance:textfield;outline-offset:-2px}
@@ -31,56 +51,66 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 /* End extract */
 
-/* not used? 
-.w3-center{text-align:center!important}
-.w3-center .w3-bar{display:inline-block;width:auto}
+  /* w3.css container property - not sure what it does
+  - appears to ensure that container is on new line - but this
+  seems to happen regardless
+  chatgpt
+  The code snippet content:""; display:table; clear:both; 
+  is the famous "Micro Clearfix" hack. 
+  It was historically used to fix layout bugs in older, 
+  float-based layouts. 
+  In relation to Flexbox, this code is 
+  completely obsolete, unnecessary, and can actually break your layout.
+  
+
+.flex-container-ltr:after,
+.flex-container-ltr:before
+{
+ content:"";
+  display:table;
+  clear:both
+}
 */
+
 
 /*---------------------------------------*/
 
-  /* used in alefbet and top menu, also headings on Lessons page 
-    - incorporated in lesson-heading, so not needed there
-  */
-.w3-card-4{box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
-.w3-card-4 {margin-bottom: 15px;}	
-
-  /* used in alefbet exercises */
-.w3-card{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
-
-
-/*  used in headings (not h1 top heading or individual lessons headings) */
-/*----------------------------------------------------------------------*/
-.w3-container{
-/* my extras, to counteract main */	
-    padding:0.01em 16px; 
-	margin-left:-16px; 
-	margin-right:-16px;
-} 
-
-/*
-.w3-container:after,
-.w3-container:before
-{content:"";display:table;clear:both}
-*/
 
 /*------ redefinitions of tags-----------------------*/
 /*---------------------------------------------------*/
 /* redefinitions of h2 etc */
 /*--------------------------*/
 /* h2{font-size:30px} h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}*/
-h1{font-size:36px}h2{font-size:22px}h3{font-size:18px}h4{font-size:18px}h5{font-size:16px}h6{font-size:16px}
-h1,h2,h3,h4,h5,h6{font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;font-weight:400;margin:10px 0}
+h1{font-size:36px}
+h2{font-size:22px}
+h3{font-size:18px}
+h4{font-size:18px}
+h5{font-size:16px}
+h6{font-size:16px}
+h1,h2,h3,h4,h5,h6{
+	font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;
+	font-weight:400;
+	margin:10px 0
+}
+/*
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
+*/
 
-html{font-family:font-size:16px;}
-html{overflow-x:hidden}
+/* Apply globally to prevent layout issues everywhere */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 html{
+	font-family:font-size:16px;
+	overflow-x:hidden
 /*
   max-width:1100px;
   max-width:70ch;
   max-width:850px;
   max-width:1000px;
  */ 
-  margin: auto;
+   margin: auto;
 	
   /*  background-size:cover;*/
 /*	background-image:url("../images/chenspec-apples-5949836.jpg");*/
@@ -99,9 +129,7 @@ body{
 }
 
 main {
-  /* w3-container 
- /* padding:0.01em 5px 16px ;/* top/bottom right/left */
-	
+ 
 /* from chatgpt */	
   max-width:80ch;
   max-width: 65ch;        /* Limits your text layout to ~65 characters */
@@ -133,6 +161,11 @@ p.nomargin{
 h3.nomargin{
    margin:0;
 } 
+
+a{
+	background-color:transparent;
+}
+
 a:link {
   text-decoration: none;
 }
@@ -142,10 +175,12 @@ a:visited {
 }
 
 a:hover {
+	outline-width:0;
   text-decoration: underline;
 }
 
 a:active {
+	outline-width:0;
   text-decoration: underline;
 }
  
@@ -190,6 +225,7 @@ footer {
 }	
 
 /* ---- horizontal line dividing sections--------*/
+hr{box-sizing:content-box;height:0;overflow:visible}
 hr {
   display: block;
   margin-top: 1em;  /* default is 0.5 */
@@ -216,6 +252,32 @@ table{
 	border-collapse:collapse;
 	display:table;
 }
+
+/* used with top menu and some h2 headings  */
+/*------------------------------------------*/
+  /* used in top menu (this is always created in biblical_hebrew_cr_top_menu.js) 
+    - also h2 headings on Lessons page, learn-alefbet, practise-alefbet, reference-tables 
+    - incorporated in lesson-heading, so not needed there
+  */
+.w3-card-4{
+	box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+	margin-bottom: 15px;
+}	
+
+/* was used in alefbet exercises, now changed to w3-card-4 
+.w3-card{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
+*/
+
+/*  used when w3-card-4 is used in h2 headings 
+   - only time not used with w3-card-4 is in top menu which uses .navbar instead
+*/
+.w3-container{
+/* my extras, to counteract main */	
+    padding:0.01em 16px; 
+	margin-left:-16px; 
+	margin-right:-16px;
+} 
+
 
 
 /* these are only used in the top menu of each page */
@@ -301,7 +363,7 @@ table{
 .navbar-dropdown-content a:hover {
   background-color: LightGray;
 }
-
+/*-----------------------------------------------*/
 
 /*-- indented sections --*/
 /*----------------------------------------------*/
@@ -520,6 +582,10 @@ table{
 
 /*--- emphasised text -----------*/
 /*--------------------------------*/ 
+/* 
+padding, margin: top right bottom left
+outline: width style colour
+*/
 
 .dotted-border{
 	border:dotted;
@@ -530,16 +596,32 @@ table{
 }
 
      /*--- only in lessons pages -----------*/
+/*	 
 .emphasised-word{
 	border: solid;
 	border-width: 2px;
 	border-color: green;
 	margin-top:5px;
-	padding:0px 5px 2px 5px; /* top right bottom left*/
+	padding:0px 5px 2px 5px; 
     background-color:white; 
 	
 	white-space:nowrap;
 }
+*/
+  /* should be superseded */
+.emphasised-word{
+	outline: 2px solid orange;
+	outline-offset:4px;
+	white-space:nowrap;
+}
+
+  /* used in javascript lesson exercises and examples */
+.green-outline{
+	outline: 2px solid green;
+	outline-offset:1px;
+	white-space:nowrap;
+}	
+	
 .highlighted-char{
     color:red;
 	font-weight:500; /* medium, 400=normal*/
@@ -678,6 +760,34 @@ table{
    font-size:25px;
    font-weight:normal;
 }
+
+/*------ prefixes/suffixes used in lessons ---*/
+/*--------------------------------------------------------*/
+
+.maqqef::after{ content:"\2010";}	
+.ha-prefix::after{content:"\05D4\05B7";}	
+.ha-prefix-hyphen::after{content:"\05D4\05B7\2010";}	
+.ha-prefix2::after{	/* dash before */   content:"\2010\05D4\05B7";}	
+.ha-qamatz-prefix::after{  content:"\05D4\05B8";}	
+.ha-qamatz-prefix-hyphen::after{  content:"\05D4\05B8\2010";}
+.v-prefix::after{  content:"\05D5\05B0";}
+.v-prefix-hyphen::after{ content:"\05D5\05B0\2010";}
+.v-prefix2::after{/* dash before */  content:"\2010\05D5\05B0";}
+.u-prefix::after{ content:"\05D5\05BC";}
+.u-prefix-hyphen::after{ content:"\05D5\05BC\2010";}
+.u-prefix2::after{/* dash before */   content:"\2010\05D5\05BC";}
+.l-prefix::after{ content:"\05DC\05B0";}
+.l-prefix-hyphen::after{ content:"\05DC\05B0\2010";}
+.b-prefix::after{ content:"\05D1\05BC\05B0";}
+.b-prefix-hyphen::after{ content:"\05D1\05BC\05B0\2010";}
+.mi-prefix::after{ content:"\05DE\05B4";}
+.mi-prefix-hyphen::after{   content:"\05DE\05B4\2010";}
+.me-prefix::after{ content:"\05DE\05B5";}
+.me-prefix-hyphen::after{ content:"\05DE\05B5\2010";}
+.k-prefix::after{  content:"\05DB\05BC\05B0";}
+.k-prefix-hyphen::after{ content:"\05DB\05BC\05B0\2010";}
+
+
 
 
 /*------------------------------------------------------------------- 
@@ -879,7 +989,7 @@ table{
    height:25px; 
    margin-top:-4px;
    vertical-align:text-top;  
-   vertical-align:-8px;
+   vertical-align:-7px;
 }
 .vowel-image-plural-ending-narrow {
 	/* used in lessons toc */
@@ -937,6 +1047,11 @@ table{
  /*------ used in lessons (not in alefbet) ---*/
 /*---------------------------------------------------------------------*/
 
+ /* don't think this is used */
+.lesson-vocab-word-color{ 
+    background-color:#ffffcc;  /* w3-yellow */
+}
+	
 .lesson-title{
 	/*
 	border:solid;
@@ -1019,7 +1134,10 @@ table{
    content:"\2721";
 }	
 
-	
+.biblical-reference{
+   font-style:italic; /* only used in lessons */
+}  
+
 .lesson-toc-container{
    border-style:none;
    border-style:solid;
@@ -1044,11 +1162,7 @@ table{
 .lesson-toc-header{
    font-size:16px;	
 }
-/*
-.lesson-toc-header::before{
-   content:"In this lesson:";
-}	
-*/
+
 
 .lesson-section{
 	margin-left:20px;
@@ -1075,8 +1189,8 @@ table{
 	
 	cursor:pointer;
 }	
+   /* specified in HTML */
 .lesson-exercise-container{
-	/* from detail-item */
 	border-style:solid;
     border-color:Gray;
 	border-width:1px;
@@ -1092,11 +1206,45 @@ table{
 	background-color:White;
  }
  
-.lesson-exercise{
+   /* used in biblical-hebrew-lessons-exercise  */
+   /*-----------------------------------------*/
+   
+   /* created by biblical-hebrew-lessons-exercise.js 
+       -col1 translation, with reference underneath
+	   -col2 Hebrew
+	   -col3 audio symbol
+   */
+
+.lesson-exercise-background{
    background-color:HoneyDew; 	
 }	
+.lesson-exercise-table{
+	width:100%;
+}
 
-.lesson-exercise-question-text-border{
+.lesson-exercise-table td{
+ /*   padding:8px;*/
+	display:table-cell;
+	vertical-align:top;
+	border-bottom:1px solid #ddd;
+}
+.lesson-exercise-table td:first-child{
+ /*  padding-left:16px;*/
+   text-align:left;
+   width:40%;
+}
+.lesson-exercise-table td:nth-child(2){
+   text-align: right;
+   width:50%;
+}
+.lesson-exercise-table td:nth-child(3){
+   text-align: center;
+   width:10%;
+   width:5%;
+}
+
+         /*--- these 2 now superseded by green-outline---------- */
+         .lesson-exercise-question-text-border{
 	/* used in lessons exercise in the translation */
 	border-style:solid;
 	border-color:red;
@@ -1104,228 +1252,50 @@ table{
 	padding:0 2px 0 2px ; /* top right bottom left   for images*/
 	
 	white-space:nowrap;
-}
-.lesson-exercise-answer-text-border{
+     }       
+      .lesson-exercise-answer-text-border{
 	/* used in lessons exercise when correct answer is selected */
 	border-style:solid;
 	border-color:red;
 	border-color:green;
 	padding:0px 2px 5px 2px; /* top right bottom left*/
-}
+    }
+        /*------------------------------------------------------*/
+/* correct answer uses green-outline */
 
 .lesson-exercise-wrong-answer{
    color:red;
 }	
-.biblical-reference{
-   font-style:italic; /* only used in lessons */
-}  
-.lesson-vocab-word-color{ 
-  /* in Lessons */
-   background-color:#ffffcc;  /* w3-yellow */
+  
+.lesson-exercise-heb-flex-container > div 
+{
+  margin: 3px 0 3px 15px; /* top right bottom left */
+  margin: 3px 0 3px 13px; /* top right bottom left */
+  text-align: center;
+ }
+ 
+.lesson-exercise-heb-flex-container > div p{
+	margin:0 0 2px 0;
 }
+ 
+      /* "tooltips" */
 
-.maqqef::after{
-     content:"\2010";
-}	
-
-.ha-prefix::after{
-      content:"\05D4\05B7";
-}	
-.ha-prefix-hyphen::after{
-      content:"\05D4\05B7\2010";
-}	
-.ha-prefix2::after{
-	/* dash before */
-      content:"\2010\05D4\05B7";
-}	
-
-.ha-qamatz-prefix::after{
-      content:"\05D4\05B8";
-}	
-.ha-qamatz-prefix-hyphen::after{
-      content:"\05D4\05B8\2010";
-}
-	
-.v-prefix::after{
-      content:"\05D5\05B0";
-}
-.v-prefix-hyphen::after{
-      content:"\05D5\05B0\2010";
-}
-.v-prefix2::after{
-	/* dash before */
-      content:"\2010\05D5\05B0";
-}
-
-.u-prefix::after{
-      content:"\05D5\05BC";
-}
-.u-prefix-hyphen::after{
-      content:"\05D5\05BC\2010";
-}
-.u-prefix2::after{
-	/* dash before */
-      content:"\2010\05D5\05BC";
-}
-
-.l-prefix::after{
-      content:"\05DC\05B0";
-}
-.l-prefix-hyphen::after{
-      content:"\05DC\05B0\2010";
-}
-
-.b-prefix::after{
-      content:"\05D1\05BC\05B0";
-}
-.b-prefix-hyphen::after{
-      content:"\05D1\05BC\05B0\2010";
-}
-
-.mi-prefix::after{
-      content:"\05DE\05B4";
-}
-.mi-prefix-hyphen::after{
-      content:"\05DE\05B4\2010";
-}
-
-.me-prefix::after{
-      content:"\05DE\05B5";
-}
-.me-prefix-hyphen::after{
-      content:"\05DE\05B5\2010";
-}
-
-.k-prefix::after{
-      content:"\05DB\05BC\05B0";
-}
-.k-prefix-hyphen::after{
-      content:"\05DB\05BC\05B0\2010";
-}
-
-/*
-.ha-prefix-nohyphen::after{
-      content:"\05D4\05B7";
-}	
-.ha-qamatz-prefix-nohyphen::after{
-      content:"\05D4\05B8";
-}	
-.v-prefix-nohyphen::after{
-      content:"\05D5\05B0";
-}
-.v-prefix2-nohyphen::after{
-      content:"\05D5\05B0";
-}
-.u-prefix-nohyphen::after{
-      content:"\05D5\05BC";
-}
-.l-prefix-nohyphen::after{
-      content:"\05DC\05B0";
-}
-.b-prefix-nohyphen::after{
-      content:"\05D1\05BC\05B0";
-}
-.mi-prefix-nohyphen::after{
-      content:"\05DE\05B4";
-}
-.me-prefix-nohyphen::after{
-      content:"\05DE\05B5";
-}
-.k-prefix-nohyphen::after{
-      content:"\05DB\05BC\05B0";
-}
-*/
-
-       /* tables used in lessons  */
-       /* ----------------------- */
-     
-	 /* vocab word in column 1, translation/explanation in column 2 */
-     /*  used in  Lesson 1 names of God */
-.lesson-vocab-table{
-	   border-collapse:collapse;
-	   display:table;
-	   width:100%;
-}
-.lesson-vocab-table tr{
-	    border-bottom:1px solid black;
-	    border-top:1px solid black;
-		background-color: white;
-}	
-.lesson-vocab-table td:first-child{
-        text-align:center;
-	/*	vertical-align:top; */
-		width:20%;
-}	
-
-	 /* vocab word in column 1, translation in column 2, examples in column 3 */
-     /*  used in  Lesson 4 prefixes (uses lesson-vocab-table-3cols), 
-	              Lesson 5 vav (uses lesson-vocab-table-3cols2)  */
-    
-.lesson-vocab-table-3cols,
-.lesson-vocab-table-3cols2
-	{
-	   border-collapse:collapse;
-	   display:table;
-	   width:100%;
-     }
-.lesson-vocab-table-3cols,
-.lesson-vocab-table-3cols2{
-	    border-bottom:1px solid black;
-	    border-top:1px solid black
-     }
-	 
-.lesson-vocab-table-3cols td:first-child{
-        text-align:center;
-		vertical-align:text-top;
-		width:10%;
-	 }
-	 
-.lesson-vocab-table-3cols td:nth-child(2){
-        text-align:center;
-		vertical-align:text-top;
-		width:10%;
-	 }
-	 
-.lesson-vocab-table-3cols2 td:first-child{
-        text-align:center;
-		vertical-align:text-top;
-		width:15%;
-	 }
-	 
-.lesson-vocab-table-3cols2 td:nth-child(2){
-        text-align:center;
-		vertical-align:text-top;
-		width:15%;
-	 }	
-   
-
-   /* used in biblical-hebrew-lessons-exercise  */
-   /*-----------------------------------------*/
-   
-   /* created by biblical-hebrew-lessons-exercise.js */
-   
-.exercise-table{
-	width:100%;
-}
-
-.exercise-table td{
-    padding:8px;
-	display:table-cell;
-	vertical-align:top;
-	border-bottom:1px solid #ddd;
-}
-.exercise-table td:first-child{
-   padding-left:16px;
-   text-align:left;
-   width:40%;
-}
-.exercise-table td:nth-child(2){
-   text-align: right;
-}
-.exercise-table td:nth-child(3){
+/*.flex-container-lesson-exercise-tooltip{*/
+.lesson-exercise-translation-under-hebrew{
+	/* used to show translation of correct answer in lessons exercise */
+   border-style:dotted;
+   border-width:2px;
+   padding:0 2px 0 2px;
    text-align: center;
+
 }
 
+   
+
+
+    /* used in A bit of grammar section in Lessons.html
+	   exercise created in javascript
+	*/   
 .English-exercise-table{
 	width:100%;
 }
@@ -1347,6 +1317,61 @@ table{
 	text-align:center;
 }	
 	
+
+/* tables used in lessons  */
+/* ----------------------- */
+     
+	 /* vocab word in column 1, translation/explanation in column 2
+       - table takes whole page width	 
+       - used in  Lesson 1 names of God 
+	 */
+.lesson-vocab-table{
+	   width:100%;
+}
+.lesson-vocab-table tr{
+	    border-bottom:1px solid black;
+	    border-top:1px solid black;
+		background-color: white;
+}	
+.lesson-vocab-table td:first-child{
+ 	    padding-top:5px;
+        text-align:center;
+	/*	vertical-align:top; */
+		width:25%;
+}	
+.lesson-vocab-table td:nth-child(2){
+ 	   padding-top:5px;
+       text-align:left;
+	/*	vertical-align:top; */
+}	
+
+
+   /* equal width columns, vocab word with translation in para underneath 
+    - table is centred on the page, only as wide as necessary
+    - used in Lesson 2 for nouns 
+   */
+.nouns-table {
+	 background-color:white;
+	/* width:100%;*/
+	 margin:0 auto;
+   }	 
+.nouns-table th,td{
+     text-align:center;
+  }	  
+.nouns-table th{
+     font-weight:normal;
+	 padding-top:5px;
+   }	 
+.nouns-table td{
+	 vertical-align:top;
+	 padding-top:5px;
+	 border-top:1px solid black;
+   }
+.nouns-table td > p{
+     margin:2px 20px; /* top/bottom left/right*/
+   }
+
+
   /* reference tables  */
   /*-------------------*/
 
@@ -1610,43 +1635,43 @@ table{
 
   /* used in lessons */
  
-  .tanakh-example-table{
+.tanakh-example-table{
   /* margin-left:25px;
    margin-right:25px;
    */
    width:100%;
 }
-  .tanakh-example-table td{
+.tanakh-example-table td{
     padding:0 10px 0 0; /* Only right padding*/
 	vertical-align:top;
 	/* background-color: #eff4ff; /* metro light blue , consonant-color*/
-background-color:Lavender;
-background-color:Beige;
-background-color:PaleGreen;	
-background-color:Aquamarine;	
-background-color:HoneyDew;	
-background-color:white;
-
+    background-color:Lavender;
+    background-color:Beige;
+    background-color:PaleGreen;	
+    background-color:Aquamarine;	
+    background-color:HoneyDew;	
+    background-color:white;
 }
-  .tanakh-example-table td:first-child{
+.tanakh-example-table td:first-child{
 	/* biblical reference */
 	text-align:left;
 	font-style:italic;
-	width:15%;
+	font-size:0.8rem;
+	width:12%;
 }	
   .tanakh-example-table td:nth-child(2){
 	/* translation */
 	text-align:left;
-	width:40%
+	width:43%
 }	
   .tanakh-example-table td:nth-child(3){
-	/* hebrew30 */
+	/* hebrew30 
    font-family:'Times New Roman',serif;
    direction:rtl;
    line-height:30px;
-   font-size:30px;
+   font-size:30px;*/
    width:40%
-   
+  
 }	
   .tanakh-example-table td:nth-child(4){
     /* audio arrow */
@@ -1676,8 +1701,9 @@ background-color:white;
 .flex-container-examples > div > p {
 	margin:0;
 }
+ 
 
-/*-------- clickable flexbox lists - right to left---------*/
+/*-------- flexbox lists - right to left---------*/
 /*---------------------------------------------------------*/                                    
 
 .flex-container-rtl{
@@ -1686,25 +1712,57 @@ background-color:white;
   flex-wrap: wrap;
   flex-direction: row-reverse;
 }
- /* w3.css container property - not sure what it does
-  - appears to ensure that container is on new line - but this
-  seems to happen regardless
-  
-.flex-container-rtl:after,
-.flex-container-rtl:before
-{
- 
-  content:"";
-  display:table;
-  clear:both
-}
-*/
+
 .flex-container-spacer:after{
 	/* used to create extra space between items, for grouping items in the list */
    content: "  ";
    white-space: pre;   
 } 
 
+
+
+/* -- flexboxes - left to right (not to be used with arrow) ---*/
+/*-------------------------------------------------------------*/
+  /* display order is the same as html order */
+  /* used for inline examples in text,lists of cantillation marks
+       and cantillation marks exercise  */
+	
+ /* this usually forces a new line */	
+.flex-container-ltr {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  
+  position:relative; /* need to specify this to get following close button to position properly */
+}	
+
+/* cant see where this is used 
+.flex-container-examples-div-div > div 
+{
+  margin-right: 25px; 
+}
+
+.flex-container-examples-div-div > div > div
+{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 10px; 
+  margin-left: 10px; 
+  text-align: center;
+}
+
+
+.flex-container-examples-div-div{
+	border:dotted;
+	border-width: 2px;
+	margin-top:5px;
+    background-color:white; 
+}
+.flex-container-examples-div-div > div > div > p
+ {
+	margin:0;
+}
+*/
 
    /*-------- alefbet pages---------*/
    /*--------------------------------*/                                    
@@ -1771,99 +1829,6 @@ background-color:white;
   
 }
 
-   /*-------- lessons pages---------*/
-   /*--------------------------------*/                                    
-	  
-.flex-container-heb-lesson-exercise > div 
-{
-  margin: 3px 0 3px 15px; /* top right bottom left */
-  margin: 3px 0 3px 13px; /* top right bottom left */
-  text-align: center;
- }
- 
-.flex-container-heb-lesson-exercise > div p{
-	margin:0 0 2px 0;
-}
- 
-      /* "tooltips" */
-
-.flex-container-lesson-exercise-tooltip{
-	/* used to show translation in lessons exercise */
-   border-style:dotted;
-   border-width:2px;
-   padding:0 2px 0 2px;
-   text-align: center;
-
-}
-
-
-
-/* -- flexboxes - left to right (not to be used with arrow) ---*/
-/*-------------------------------------------------------------*/
-  /* display order is the same as html order */
-  /* used for inline examples in text,lists of cantillation marks
-       and cantillation marks exercise  */
-	
- /* this usually forces a new line */	
-.flex-container-ltr {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  
-  position:relative; /* need to specify this to get following close button to position properly */
-}	
-
-  /* w3.css container property - not sure what it does
-  - appears to ensure that container is on new line - but this
-  seems to happen regardless
-  chatgpt
-  The code snippet content:""; display:table; clear:both; 
-  is the famous "Micro Clearfix" hack. 
-  It was historically used to fix layout bugs in older, 
-  float-based layouts. 
-  In relation to Flexbox, this code is 
-  completely obsolete, unnecessary, and can actually break your layout.
-  
-
-.flex-container-ltr:after,
-.flex-container-ltr:before
-{
- content:"";
-  display:table;
-  clear:both
-}
-*/
-
-/* cant see where this is used 
-.flex-container-examples-div-div > div 
-{
-  margin-right: 25px; 
-}
-
-.flex-container-examples-div-div > div > div
-{
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 10px; 
-  margin-left: 10px; 
-  text-align: center;
-}
-
-
-.flex-container-examples-div-div{
-	border:dotted;
-	border-width: 2px;
-	margin-top:5px;
-    background-color:white; 
-}
-.flex-container-examples-div-div > div > div > p
- {
-	margin:0;
-}
-*/
-
-   /*-------- alefbet pages---------*/
-   /*--------------------------------*/                                    
 
 .flex-container-cantillation-exercise{
 	border:dotted;
@@ -1899,7 +1864,8 @@ background-color:white;
   margin-left: 15px; 
   margin-top: 0;
 }
-   
+ 
+/* ------end of alefbet pages --------------*/ 
 
 /* -- drag drop flexboxes - left to right---*/
 /*------------------------------------------*/
@@ -1916,15 +1882,7 @@ background-color:white;
   padding: 5px;
 }
 
-/* w3.css container property, don't know if needed 
-.flex-container-drag-drop:after,
-.flex-container-drag-drop:before{
-  
-  content:"";
-  display:table;
-  clear:both
-}
-*/
+
 .flex-container-drag-drop > div {
   margin-right: 30px; 
   margin-bottom: 20px;
@@ -2006,6 +1964,8 @@ background-color:white;
 /* exercise-table, verb-table, noun-table, example-table used in individual lessons, see lessons section above */
 /* tables used only in one page in alefbet defined in <style> on that page */
 
+/* glasses-table defined in learn-alefbet */
+
 /* no longer used
 .w3-table{border-collapse:collapse;border-spacing:0;width:100%;display:table}
 .w3-table td,
@@ -2013,13 +1973,6 @@ background-color:white;
 .w3-table th:first-child,
 .w3-table td:first-child{padding-left:16px}
 */
-
- /* glasses-table has space for glasses or similar in col 1 and content in col2, no borders */
-.glasses-table td:first-child{
-	width: 80px;
-	text-align:center;
-}	
-
 
 
 /*-- modal popup for reward for finishing an exercise --*/
