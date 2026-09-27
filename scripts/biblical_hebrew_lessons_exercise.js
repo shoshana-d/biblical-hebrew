@@ -1,3 +1,14 @@
+		 // these functions defined in biblical_hebrew_soundclick_hideshow_utilities.js:
+		 //   soundclickEventListener() 
+	     //   crExtendedAudio(element)  
+         //   crExtendedAudioElementsSpan(audioFileName)
+         //   convertHebrewWordToArray(hebrewWord) 
+         //   crSelectedArray(highlightsSpecs,thisHebrewConsonants.length) 
+		 
+		 // many constants also defined in biblical_hebrew_soundclick_hideshow_utilities.js
+		 // for example, mspace, bet dash
+
+
 // 1. Use textContent to drop HTML tags and normalize text entities.
 // 2. Globally replace explicit non-breaking spaces (\u00A0) with standard spaces.
 //var thisTranslation = translations[shuffleOrder[r]].textContent
@@ -49,13 +60,14 @@ function lessonsExerciseAnswerEventListener(ev, tableid){
        thisElement.nextSibling.classList.remove("hidden");
     }
 	
-	thisElement.classList.add("lesson-exercise-answer-text-border");
+	//thisElement.classList.add("lesson-exercise-answer-text-border");
+	thisElement.classList.add("green-outline");
 
-    thisElement.classList.remove("notchecked");
+    thisElement.classList.remove("js-notchecked");
 	
 	// check whether all correct answers have been identified
 	var thisTable = document.getElementById(tableid);
-	var nUnchecked = thisTable.getElementsByClassName("notchecked").length;
+	var nUnchecked = thisTable.getElementsByClassName("js-notchecked").length;
     if (nUnchecked == 0) {
 	   var nWrong = thisTable.getElementsByClassName("lesson-exercise-wrong-answer").length;
        rewardModalExerciseTable(nWrong); 
@@ -66,9 +78,10 @@ function lessonsEnglishExerciseAnswerEventListener(ev, tableid, alreadyDoneList,
 //console.log("Hello from lessonsEnglishExerciseAnswerEventListener, alreadyDoneList=",alreadyDoneList);
 	var thisElement = ev.target;
 	
-	thisElement.classList.add("lesson-exercise-answer-text-border");
+	//thisElement.classList.add("lesson-exercise-answer-text-border");
+	thisElement.classList.add("green-outline");
 
-    thisElement.classList.remove("notchecked");
+    thisElement.classList.remove("js-notchecked");
 	
 	// check whether all correct answers have been identified
 	var thisTable = document.getElementById(tableid);
@@ -138,7 +151,8 @@ function createLessonsExerciseTextBefore(thisDiv){
   listItem.appendChild(document.createTextNode("For each "));
   
   var span = document.createElement('span');
-  span.classList.add("lesson-exercise-question-text-border");
+ // span.classList.add("lesson-exercise-question-text-border");
+  span.classList.add("green-outline");
   span.appendChild(document.createTextNode("word"));
   listItem.appendChild(span);
   
@@ -162,7 +176,8 @@ function createLessonsExerciseTextBefore(thisDiv){
   listItem.appendChild(document.createTextNode(" You should listen  until you can identify the Hebrew word corresponding to "));
   
   var span = document.createElement('span');
-  span.classList.add("lesson-exercise-question-text-border");
+ // span.classList.add("lesson-exercise-question-text-border");
+  span.classList.add("green-outline");
   span.appendChild(document.createTextNode("word"));
   listItem.appendChild(span);
 
@@ -175,7 +190,8 @@ function createLessonsExerciseTextBefore(thisDiv){
   var para = document.createElement('p');
   para.appendChild(document.createTextNode('There is a "reward" for identifying all the '));
   var span = document.createElement('span');
-  span.classList.add("lesson-exercise-question-text-border");
+ // span.classList.add("lesson-exercise-question-text-border");
+  span.classList.add("green-outline");
   span.appendChild(document.createTextNode("words."));
   para.appendChild(span);
   instructionsDiv.appendChild(para);
@@ -208,9 +224,14 @@ function createLessonsExercise(thisDiv){
 	var r;
 	var i;
 	var j;
+	
+	const hebrewClass = "hebrew30";
+	
+	thisDiv.classList.add("lesson-exercise-background");
+	
     var thisTable = document.createElement("table");
     thisTable.setAttribute("id", thisDiv.id.replace("cr-",""));
-    thisTable.classList.add("exercise-table");
+    thisTable.classList.add("lesson-exercise-table");
 	var translations = thisDiv.getElementsByClassName("js-lessons-exercise-translation");
 	var references = thisDiv.getElementsByClassName("js-lessons-exercise-reference");
 	var hebrewAudio = thisDiv.getElementsByClassName("js-lessons-exercise-hebrew-audio"); // includes directory
@@ -253,7 +274,8 @@ function createLessonsExercise(thisDiv){
 		    // put a border round every second block
 			// these are the questions
 		  if (i % 2 == 1) {
-			  span0.classList.add("lesson-exercise-question-text-border");
+			//  span0.classList.add("lesson-exercise-question-text-border");
+			  span0.classList.add("green-outline");
 		  }
 	      span0.appendChild(text0);
 	      para.appendChild(span0);
@@ -264,10 +286,10 @@ function createLessonsExercise(thisDiv){
       // para.classList.add("biblical-reference");
 	  // para.innerHTML = thisReference.innerHTML;
 	  // col1.appendChild(para);
-	   var para = document.createElement('span');
-       para.classList.add("biblical-reference");
-	   para.innerHTML = thisReference.innerHTML;
-	   col1.appendChild(para);
+	   var span = document.createElement('span');
+       span.classList.add("biblical-reference");
+	   span.innerHTML = thisReference.innerHTML;
+	   col1.appendChild(span);
 	   
 	   thisRow.appendChild(col1);
 
@@ -289,7 +311,7 @@ function createLessonsExercise(thisDiv){
 	   
 	   var answerDiv = document.createElement("div");
 	   answerDiv.classList.add("flex-container-rtl");
-	   answerDiv.classList.add("flex-container-heb-lesson-exercise");
+	   answerDiv.classList.add("lesson-exercise-heb-flex-container");
 	   
 	   //var thisAnswerList = thisAnswer.children;
 	   var hebrewWords = thisHebrewText.innerHTML.trim().split(/\s+/); //split by one or more spaces
@@ -318,7 +340,7 @@ function createLessonsExercise(thisDiv){
           var thisAnswerDiv = document.createElement("div");
 		  
 	      var hebrewPara = document.createElement("p");
-	      hebrewPara.classList.add("hebrew30");
+	      hebrewPara.classList.add(hebrewClass);
 	      hebrewPara.classList.add("clickable");
 
 			  // deal with possiblity of  >1 word for example adonai elohim
@@ -333,13 +355,13 @@ function createLessonsExercise(thisDiv){
 		  for (j=0; j < hebrewAnswerWordNumbers.length; j++) {
 			 if (hebrewAnswerWordNumbers[j]-1 ==  i){
 		        hebrewPara.addEventListener("click", function(){lessonsExerciseAnswerEventListener(event, thisTable.id);});
-			    hebrewPara.classList.add("notchecked");
+			    hebrewPara.classList.add("js-notchecked");
 				 
 				anyTranslation = true;
 				isAnswerWord = true;
 				var translationPara = document.createElement("p");
                 translationPara.appendChild(document.createTextNode(questionWords[j]));
-				translationPara.classList.add("flex-container-lesson-exercise-tooltip");
+				translationPara.classList.add("lesson-exercise-translation-under-hebrew");
 				translationPara.classList.add("hidden");
              }			 
 		  }	
@@ -373,7 +395,9 @@ function createLessonsExercise(thisDiv){
       //---------	
 	    var col3 = document.createElement("td");
 
-        addExtendedAudioElements(col3, thisHebrewAudio.innerHTML.trim())
+      //  addExtendedAudioElements(col3, thisHebrewAudio.innerHTML.trim())
+        col3.appendChild(crExtendedAudioElementsSpan(thisHebrewAudio.innerHTML.trim()));
+	   
 //        var span1 = document.createElement("span");   
 //	    span1.classList.add("start-audio");
 //	    span1.classList.add("clickable");
@@ -551,7 +575,7 @@ console.log("hello from createLessonsEnglishExercise, nWords=", nWords );
 		  if (isAnswerWord) {
 	        span.addEventListener("click", function(){
 				lessonsEnglishExerciseAnswerEventListener(event, thisTable.id, alreadyDoneList, nTestItems);});
-			span.classList.add("notchecked");
+			span.classList.add("js-notchecked");
 		  } else {
             span.addEventListener("click", function(){lessonsExerciseWrongAnswerEventListener(event, thisTable.id);});
           }			  

@@ -1304,6 +1304,7 @@ function crSyllablesExercise(thisSpecElement){
 	     var thisParameterSpec = parameters[j];
 		 var thisP = parameters[j].split(globalDivider2);
 		 var thisP0 = thisP[0].trim().toLowerCase();
+//console.log("Hello from crSyllablesExercise, thisP0=",thisP0);
 		 
 		 if (thisP0 == "sourcesyllables"){
 		    sourceSyllableIds = removeFirstItem(thisParameterSpec);  // now allowing for possibly multiple sources
@@ -1317,7 +1318,7 @@ function crSyllablesExercise(thisSpecElement){
 	        nSelection = thisP[1].trim();
 		 } 
    }		
-
+//console.log("Hello from crSyllablesExercise, nSelection=",nSelection);
    // check same number of sources
     if (!(sourceSyllableIds.split(globalDivider2).length == sourceSoundIds.split(globalDivider2).length)) {return;}
 

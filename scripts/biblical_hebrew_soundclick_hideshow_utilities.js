@@ -141,23 +141,30 @@ function crExtendedAudio(element){
 }
 
     // used when element created in JS
-function addExtendedAudioElements(container, audioFileName){
+//function addExtendedAudioElements(container, audioFileName){
+function crExtendedAudioElementsSpan(audioFileName){
 	
 	// audioFileName should include directory
-
+    var span0 = document.createElement("span");   
+   
     var span1 = document.createElement("span");   
 	span1.classList.add("start-audio");
 	span1.classList.add("clickable");
 	span1.addEventListener('click', startPauseClickEventListener )
-    container.appendChild(span1);
+   // container.appendChild(span1);
+    span0.appendChild(span1);
 		
     var span2 = crStopClickSpan();
-	container.appendChild(span2);
+	//container.appendChild(span2);
+	span0.appendChild(span2);
 
     var audioElement = document.createElement("audio"); 
     audioElement.src = 	setMp3Name(audioFileName);
     audioElement.addEventListener('ended', endedEventListener)
-    container.appendChild(audioElement);
+   // container.appendChild(audioElement);
+    span0.appendChild(audioElement);
+	
+	return span0;
 }	
 
 function startPauseClickEventListener(){
