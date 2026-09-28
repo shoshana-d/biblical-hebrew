@@ -154,33 +154,25 @@ p {
   max-width: 65ch; 
   /* Keeps line length readable (~45-75 characters) */
 } 
-p.nomargin{
-   margin-bottom:0;	
-}
+p.no-margin{margin-bottom:0;}
+p.nomargin{margin-bottom:0;}
 
-h3.nomargin{
-   margin:0;
-} 
+h3.no-margin{margin:0;} 
+h3.nomargin{margin:0;} 
 
-a{
-	background-color:transparent;
-}
+a{background-color:transparent;}
 
-a:link {
-  text-decoration: none;
-}
+a:link {  text-decoration: none;}
 
-a:visited {
-  text-decoration: none;
-}
+a:visited {  text-decoration: none;}
 
 a:hover {
-	outline-width:0;
+  outline-width:0;
   text-decoration: underline;
 }
 
 a:active {
-	outline-width:0;
+  outline-width:0;
   text-decoration: underline;
 }
  
@@ -225,7 +217,11 @@ footer {
 }	
 
 /* ---- horizontal line dividing sections--------*/
-hr{box-sizing:content-box;height:0;overflow:visible}
+hr{
+	box-sizing:content-box;
+	height:0;
+	overflow:visible
+}
 hr {
   display: block;
   margin-top: 1em;  /* default is 0.5 */
@@ -1133,9 +1129,10 @@ outline: width style colour
 .star-of-david::before{
    content:"\2721";
 }	
-
+    /* only used in lessons */
 .biblical-reference{
-   font-style:italic; /* only used in lessons */
+   font-style:italic; 
+   font-size:0.8rem;
 }  
 
 .lesson-toc-container{
@@ -1206,27 +1203,60 @@ outline: width style colour
 	background-color:White;
  }
  
-   /* used in biblical-hebrew-lessons-exercise  */
-   /*-----------------------------------------*/
+.lesson-exercise-background{
+   background-color:HoneyDew; 	
+}	
+ 
+   /* used in lessons examples and exercises (not really tables)  */
+   /*--------------------------------------------------------------*/
    
    /* created by biblical-hebrew-lessons-exercise.js 
        -col1 translation, with reference underneath
 	   -col2 Hebrew
 	   -col3 audio symbol
+	   
+	  also created by function createJavascriptTanakhExample in
+	        biblical-hebrew-lessons-example.js 
+			uses function createJavascriptExampleRTLFlexbox to populate col2
+			divs in this flexbox have margin-top 5px
+			so cols1 and 3 need padding 5px to line up horizontally (margin doesn't work in table cells)
+			
+	  formats bascially the same with a few tweaks		
    */
 
-.lesson-exercise-background{
-   background-color:HoneyDew; 	
-}	
+
+.tanakh-example-table{
+	width:100%;
+}
+.tanakh-example-table td{
+	display:table-cell;
+	vertical-align:top;
+	border-bottom:2px solid #ddd;
+    background-color:white;
+}
+.tanakh-example-table td:first-child{
+   padding-top:5px;
+   text-align:left;
+   width:40%;
+}
+.tanakh-example-table td:nth-child(2){
+   text-align: right;
+   width:55%;
+}
+.tanakh-example-table td:nth-child(3){
+  padding-top:5px;
+  text-align: center;
+}
+
+
 .lesson-exercise-table{
 	width:100%;
 }
-
 .lesson-exercise-table td{
- /*   padding:8px;*/
 	display:table-cell;
 	vertical-align:top;
-	border-bottom:1px solid #ddd;
+	border-bottom:2px solid #ddd;
+    padding:8px;
 }
 .lesson-exercise-table td:first-child{
  /*  padding-left:16px;*/
@@ -1239,28 +1269,10 @@ outline: width style colour
 }
 .lesson-exercise-table td:nth-child(3){
    text-align: center;
-   width:10%;
-   width:5%;
 }
 
-         /*--- these 2 now superseded by green-outline---------- */
-         .lesson-exercise-question-text-border{
-	/* used in lessons exercise in the translation */
-	border-style:solid;
-	border-color:red;
-	border-color:green;
-	padding:0 2px 0 2px ; /* top right bottom left   for images*/
-	
-	white-space:nowrap;
-     }       
-      .lesson-exercise-answer-text-border{
-	/* used in lessons exercise when correct answer is selected */
-	border-style:solid;
-	border-color:red;
-	border-color:green;
-	padding:0px 2px 5px 2px; /* top right bottom left*/
-    }
-        /*------------------------------------------------------*/
+
+
 /* correct answer uses green-outline */
 
 .lesson-exercise-wrong-answer{
@@ -1278,7 +1290,6 @@ outline: width style colour
 	margin:0 0 2px 0;
 }
  
-      /* "tooltips" */
 
 /*.flex-container-lesson-exercise-tooltip{*/
 .lesson-exercise-translation-under-hebrew{
@@ -1318,8 +1329,8 @@ outline: width style colour
 }	
 	
 
-/* tables used in lessons  */
-/* ----------------------- */
+/* actual tables used in lessons  */
+/* ------------------------------ */
      
 	 /* vocab word in column 1, translation/explanation in column 2
        - table takes whole page width	 
@@ -1633,57 +1644,12 @@ outline: width style colour
 	content:url("../images/reference_tables/consonant_tsere_large_white_background.jpg");
 }
 
-  /* used in lessons */
- 
-.tanakh-example-table{
-  /* margin-left:25px;
-   margin-right:25px;
-   */
-   width:100%;
-}
-.tanakh-example-table td{
-    padding:0 10px 0 0; /* Only right padding*/
-	vertical-align:top;
-	/* background-color: #eff4ff; /* metro light blue , consonant-color*/
-    background-color:Lavender;
-    background-color:Beige;
-    background-color:PaleGreen;	
-    background-color:Aquamarine;	
-    background-color:HoneyDew;	
-    background-color:white;
-}
-.tanakh-example-table td:first-child{
-	/* biblical reference */
-	text-align:left;
-	font-style:italic;
-	font-size:0.8rem;
-	width:12%;
-}	
-  .tanakh-example-table td:nth-child(2){
-	/* translation */
-	text-align:left;
-	width:43%
-}	
-  .tanakh-example-table td:nth-child(3){
-	/* hebrew30 
-   font-family:'Times New Roman',serif;
-   direction:rtl;
-   line-height:30px;
-   font-size:30px;*/
-   width:40%
-  
-}	
-  .tanakh-example-table td:nth-child(4){
-    /* audio arrow */
-	text-align:center;
-	width:5%;
-}
 
 /*-------- flexbox lists -both right to left and left to right---------*/
 /*---------------------------------------------------------------------*/                                    
 
 .flex-container-examples{
-	margin-top:5px;
+	/*margin-top:5px;*/
     background-color:white; 
 }
 
