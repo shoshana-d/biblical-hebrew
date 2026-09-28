@@ -77,12 +77,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	//   column 2 translation
 	//   column 3 hebrew
 	//  hebrew includes all options in createJavascriptExampleRTLFlexbox
-   var javascriptListClass = document.getElementsByClassName("javascript-example-rtl-table");
+  //var javascriptListClass = document.getElementsByClassName("javascript-example-rtl-table");
+   var javascriptListClass = document.getElementsByClassName("javascript-tanakh-example");
    for (i = 0; i < javascriptListClass.length; i++) {
  	  var thisDiv = javascriptListClass[i];
 	  var thisBorder = false;
 	  if (thisDiv.classList.contains("javascript-border")){ thisBorder=true;}
-      createJavascriptExampleRTLTable(thisDiv,  thisBorder);
+      createJavascriptTanakhExample(thisDiv,  thisBorder);
    }
 
 
@@ -764,8 +765,8 @@ function createJavascriptExampleRTLFlexbox(
    
    var dataDiv = thisDiv.nextElementSibling;
 
-      var hebrewPara = dataDiv.getElementsByClassName("js-hebrew")[0];
-      var hebrewWords = hebrewPara.innerHTML.trim().split(/\s+/); //split by one or more spaces
+   var hebrewPara = dataDiv.getElementsByClassName("js-hebrew")[0];
+   var hebrewWords = hebrewPara.innerHTML.trim().split(/\s+/); //split by one or more spaces
 
    var nHebrewWords = hebrewWords.length;
    
@@ -1025,20 +1026,12 @@ function createExampleDivRTL(
    //  col2 is Hebrew quote rtl
    //         created by calling createJavascriptExampleRTLFlexbox
    //  col3 is clickable audio symbol
-function createJavascriptExampleRTLTable(thisDiv, border=true){
+function createJavascriptTanakhExample(thisDiv, border=true){
 	var i;
 
 //   <p class="js-translation">Then |Moses and Aaron| went and assembled all the elders of the Israelites. </p>
 //	 <p class="js-biblical-reference">Exodus 4:29</p>
 
-//	<table class="tanakh-example-table" >
-//	  <tr>
-//	  <td >Exodus 4:4</td>
-//	  <td>And God <span class="emphasised-word">said</span> to Moses</td>
-//	  <td><span class="emphasised-word">וַיֹּ֤אמֶר</span>&thinsp;<span>יְהוָה֙ אֶל־מֹשֶׁ֔ה</span>  </td>
- //     <td> <span class="soundclick start-audio"> </span><span class="hidden">tanakh/ex-04-04aa</span></td>
-//      </tr>
-//	 </table>
 
    var dataDiv = thisDiv.nextElementSibling;
    
@@ -1046,8 +1039,8 @@ function createJavascriptExampleRTLTable(thisDiv, border=true){
    var reference = dataDiv.getElementsByClassName("js-biblical-reference")[0];
    var audioPara = dataDiv.getElementsByClassName("js-audio");
    var thisTable = document.createElement("table");
-  // thisTable.classList.add("tanakh-example-table");
-   thisTable.classList.add("lesson-exercise-table");
+   thisTable.classList.add("tanakh-example-table");
+  // thisTable.classList.add("lesson-example-table");
    
    var thisRow = document.createElement("tr");
    

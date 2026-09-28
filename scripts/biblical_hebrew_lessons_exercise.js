@@ -268,6 +268,7 @@ function createLessonsExercise(thisDiv){
 	   
  	   var sections = thisTranslation.innerHTML.trim().split(globalDivider1);
 	   var para = document.createElement('p');
+	   para.classList.add("no-margin");
 	   for (i = 0; i < sections.length; i++) {
           var text0 = document.createTextNode(sections[i]);
 	      var span0 = document.createElement("span");
