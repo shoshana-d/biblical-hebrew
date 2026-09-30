@@ -466,7 +466,10 @@ table{
 }
  
  /* use this when want to embed a few hebrew words in english text
-    with display in HTML order*/
+    with display in HTML order
+	
+	apply class to a <span> and then have spans within for each word 
+*/
 .hebrew-inline {
   display: inline; 
 }
@@ -1221,10 +1224,16 @@ outline: width style colour
 			divs in this flexbox have margin-top 5px
 			so cols1 and 3 need padding 5px to line up horizontally (margin doesn't work in table cells)
 			
-	  formats bascially the same with a few tweaks		
+	  formats bascially the same with a few tweaks	
+
+      also a 4 column version with biblical reference in a separate column on the left
+         -col1 reference
+         -col2 translation
+         -col3 Hebrew
+         -col4 audio symbol		 
    */
 
-
+    /* 3 columns example */
 .tanakh-example-table{
 	width:100%;
 }
@@ -1249,6 +1258,38 @@ outline: width style colour
 }
 
 
+  /* 4 columns example */
+.tanakh-example-table-ref-left{
+	width:100%;
+}
+.tanakh-example-table-ref-left td{
+	display:table-cell;
+	vertical-align:top;
+	border-bottom:2px solid #ddd;
+    background-color:white;
+}
+.tanakh-example-table-ref-left td:nth-child(1){
+   padding-top:5px;
+   text-align:left;
+   width:15%;
+}
+.tanakh-example-table-ref-left td:nth-child(2){
+   padding-top:5px;
+   text-align:left;
+   width:35%;
+}
+.tanakh-example-table-ref-left td:nth-child(3){
+   text-align: right;
+   width:45%;
+}
+.tanakh-example-table-ref-left td:nth-child(4){
+  padding-top:5px;
+  text-align: center;
+}
+
+
+
+  /* 3 columns exercise */
 .lesson-exercise-table{
 	width:100%;
 }
@@ -1645,7 +1686,60 @@ outline: width style colour
 }
 
 
-/*-------- flexbox lists -both right to left and left to right---------*/
+/*-------- flexbox lists - right to left, quotes---------*/
+/*---------------------------------------------------------*/                                    
+
+.flex-container-rtl{
+  display: flex;
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+
+.flex-container-tanakh-examples{
+	/*margin-top:5px;*/
+    background-color:white; 
+}
+
+.flex-container-tanakh-examples > div{
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  margin-left: 5px; 
+  margin-right:5px;
+  
+  margin-left: 0.3em; 
+  margin-right:0.3em;
+
+
+  text-align: center;
+  
+}
+.flex-container-tanakh-examples > div > p {
+	margin:0;
+}
+ 
+
+
+
+/* -- flexboxes - left to right (not to be used with arrow) ---*/
+/*-------------------------------------------------------------*/
+  /* display order is the same as html order */
+  /* used for inline examples in text,lists of cantillation marks
+       and cantillation marks exercise  */
+	
+ /* this usually forces a new line ie if included within a para */	
+.flex-container-ltr {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  
+  position:relative; /* need to specify this to get following close button to position properly */
+}	
+
+
+/*-------- flexbox lists - left to right individual words ---------*/
 /*---------------------------------------------------------------------*/                                    
 
 .flex-container-examples{
@@ -1668,39 +1762,6 @@ outline: width style colour
 	margin:0;
 }
  
-
-/*-------- flexbox lists - right to left---------*/
-/*---------------------------------------------------------*/                                    
-
-.flex-container-rtl{
-  display: flex;
-  display: inline-flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-}
-
-.flex-container-spacer:after{
-	/* used to create extra space between items, for grouping items in the list */
-   content: "  ";
-   white-space: pre;   
-} 
-
-
-
-/* -- flexboxes - left to right (not to be used with arrow) ---*/
-/*-------------------------------------------------------------*/
-  /* display order is the same as html order */
-  /* used for inline examples in text,lists of cantillation marks
-       and cantillation marks exercise  */
-	
- /* this usually forces a new line */	
-.flex-container-ltr {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  
-  position:relative; /* need to specify this to get following close button to position properly */
-}	
 
 /* cant see where this is used 
 .flex-container-examples-div-div > div 
@@ -1812,6 +1873,11 @@ outline: width style colour
   /*line-height:35px;*/
   /* margin-top:50px; */
 }
+.flex-container-spacer:after{
+	/* used to create extra space between items, for grouping items in the list */
+   content: "  ";
+   white-space: pre;   
+} 
 
      /* used for the menu items which can be clicked to hide /show  an exercise or other item 
 	 flex-container-alefbet-exercises
