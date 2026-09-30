@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
       highlightHTMLChars(thisSpan); 
    }
    
+   // NOT SURE IF THIS IS USED ANYWHERE, a table, so probably doesnt wrap properly
     // use this when want to display only hebrew, ie no translations under hebrew words
 	// optional audio for whole quote
 	// no audio for individual words
@@ -76,6 +77,22 @@ document.addEventListener('DOMContentLoaded', function() {
 	//   column 1 biblical reference
 	//   column 2 translation
 	//   column 3 hebrew
+	//   column 4 audio synbol
+	//  hebrew includes all options in createJavascriptExampleRTLFlexbox
+  //var javascriptListClass = document.getElementsByClassName("javascript-example-rtl-table");
+   var javascriptListClass = document.getElementsByClassName("javascript-tanakh-example-ref-left");
+   for (i = 0; i < javascriptListClass.length; i++) {
+ 	  var thisDiv = javascriptListClass[i];
+	  var thisBorder = false;
+	  if (thisDiv.classList.contains("javascript-border")){ thisBorder=true;}
+      createJavascriptTanakhExample(thisDiv,  thisBorder, true);
+   }
+ 
+    // use this when want to display hebrew quote with (optional) translations under hebrew words
+	// in a table
+	//   column 1 translation, with biblical reference underneath
+	//   column 2 hebrew
+	//   column 3 audio symbol
 	//  hebrew includes all options in createJavascriptExampleRTLFlexbox
   //var javascriptListClass = document.getElementsByClassName("javascript-example-rtl-table");
    var javascriptListClass = document.getElementsByClassName("javascript-tanakh-example");
@@ -112,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	  if (thisDiv.classList.contains("javascript-translation-right")){ translationRight=true;}
 	  
 // console.log("hello from documentAddEventListener, thiDivclasslist=",thisDiv.classList);
-      createJavascriptExampleRTLLTRFlexbox(thisDiv, "LTR", border, individualBorder, translationRight)
+      createJavascriptExampleLTRFlexbox(thisDiv, border, individualBorder, translationRight)
    }
 
     // use this when want to include apparent RTL in another LTR flexbox
@@ -287,32 +304,24 @@ function createBlankDiv(hebrewClass="hebrew25"){
 	
 	// now (26/9/2026) separate version for RTL (which returns flexbox instead of appending to calling div)
 	
-	// specify direction="RTL" or direction="LTR"
-	// RTL for quotes, LTR for individual words reading left to right
+	// LTR for individual words reading left to right
+
 	// optional audio for individual words
 	// optional directory for all individual words audio (otherwise have to specify directory for each word)
 	// optional specification of which words to highlight
-	//          - optional first item is class to be applied to highlight a word (default class is "emphasised-word")
+	//          - optional first item is class to be applied to highlight a word (default class is "green-outline")
 	// optional specification of which consonant(s) in each word should be highlighted (numbering starting at 1)
 	//          - optional first item is the class to be applied to highlight each consonant (default class is "highlighted-char")
-    //
- 	// when RTL 
-	//    optional audio for whole quote
-	//    in Hebrew input, include single bet with space on either side if want a space left (for example, for [is] translation)
-	//    in Hebrew, insert | (no spaces) between words which should be treated as a single unit
-	// 
-	// when LTR
-	//    optional specification of number of first word in list to be flagged infrequent (all words after are also infrequent)
+	// optional specification of number of first word in list to be flagged infrequent (all words after are also infrequent)
 	//     - optional first item is the class to be applied, default class is  "reference-table-infrequent2"
-    //    optional +/- button to toggle display of words after number of specified word in list
-    //    optional grouping of Hebrew words which should wrap together
-	//    optional translation to the right of hebrew instead of under hebrew
+    // optional +/- button to toggle display of words after number of specified word in list
+    // optional grouping of Hebrew words which should wrap together
+	// optional translation to the right of hebrew instead of under hebrew
 	
 	// in HTML, all specifications of word number start at 1, not zero
 	
-function createJavascriptExampleRTLLTRFlexbox(
+function createJavascriptExampleLTRFlexbox(
                            thisDiv, 
-						   direction, 
 						   border=true, 
 						   individualBorder=false,
 						   translationRight=false){
@@ -321,18 +330,18 @@ function createJavascriptExampleRTLLTRFlexbox(
    var j;
    var groupi;
    
-   const LTR = "LTR";
-   const RTL = "RTL";
+  // const LTR = "LTR";
+  // const RTL = "RTL";
    
    const hebrewClass = "hebrew25";
    
-   if (direction != LTR && direction != RTL) {return;}
+ //  if (direction != LTR && direction != RTL) {return;}
    
    // defined in soundclick-hideshow-utilities
   // const bet = "\u05D1";
   // const mspace = "\u2003"; 
    
-   var flexboxBorderClass = "dotted-border";
+   const flexboxBorderClass = "dotted-border";
 
  //  var emphasisedWordClass = "emphasised-word";
    var emphasisedWordClass = "green-outline";
@@ -341,19 +350,14 @@ function createJavascriptExampleRTLLTRFlexbox(
    
    var dataDiv = thisDiv.nextElementSibling;
 
-   if (direction == RTL){ 
-      var hebrewPara = dataDiv.getElementsByClassName("js-hebrew")[0];
-      var hebrewWords = hebrewPara.innerHTML.trim().split(/\s+/); //split by one or more spaces
-   } else {   
      //  LTR, each hebrew word is in a separate paragraph, specified in required LTR order   
       var hebrewDiv = dataDiv.getElementsByClassName("js-hebrew")[0];
       var hebrewParas = hebrewDiv.children;
 	  var hebrewWords = [];
       for (i=0; i < hebrewParas.length; i++){
 	     hebrewWords[i] = hebrewParas[i].innerHTML.trim();
-	  }	 
+      }	 
 //test("hello from createJavascriptExampleRTLLTRFlexbox, hebrewWords=" + hebrewWords);
-   }
 
    var nHebrewWords = hebrewWords.length;
    
@@ -363,7 +367,7 @@ function createJavascriptExampleRTLLTRFlexbox(
    var emphasisPara = dataDiv.getElementsByClassName("js-emphasis");
    var highlightPara = dataDiv.getElementsByClassName("js-highlight");
    // only if direction = RTL
-   var audioPara = dataDiv.getElementsByClassName("js-audio");
+   //var audioPara = dataDiv.getElementsByClassName("js-audio");
    // only if direction = LTR
    var firstInfrequentPara = dataDiv.getElementsByClassName("js-first-infrequent");
    var togglePara = dataDiv.getElementsByClassName("js-toggle-after");
@@ -471,23 +475,9 @@ function createJavascriptExampleRTLLTRFlexbox(
 
    var flexDiv = document.createElement("div");
  
-   if (direction == RTL){flexDiv.classList.add("flex-container-rtl");}
-   else                 {flexDiv.classList.add("flex-container-ltr");}
-
+   flexDiv.classList.add("flex-container-ltr");
    flexDiv.classList.add("flex-container-examples");
    if (border) {flexDiv.classList.add(flexboxBorderClass);}
-
-   // only if direction = RTL
-   // this is the audio for the whole verse
-   if (audioPara.length > 0){
-      var audioText = audioPara[0].innerHTML;
-      var cellDiv = document.createElement("div");
-	  
-    //  addExtendedAudioElements(cellDiv, audioText)
-      cellDiv.appendChild(crExtendedAudioElementsSpan(audioText));
-
-      flexDiv.appendChild(cellDiv);  
-   }	   
    
   // for (i=0; i < nHebrewWords; i++){
    for (groupi=0; groupi < nGroups; groupi++){
@@ -531,11 +521,11 @@ function createJavascriptExampleRTLLTRFlexbox(
 		 // - only needed in RTL where input is a single paragraph, words are separated programatically at spaces
 		 // - in LTR, input of individual words in separate paras, so can have several >1 word if necessary
 
-          if (hebrewWord == bet ) {
-			 // create a blank div for spacing (only specified if RTL)
-			 var thisCellDiv = createBlankDiv();
-		  }
-          else {		 
+       //   if (hebrewWord == bet ) {
+		//	 // create a blank div for spacing (only specified if RTL)
+		//	 var thisCellDiv = createBlankDiv();
+		//  }
+       //   else {		 
              var thisCellDiv = createExampleDiv(
                                 groupi,	   
                                 thisWordIndex,
@@ -551,7 +541,7 @@ function createJavascriptExampleRTLLTRFlexbox(
 	                            highlightedCharClass,
                                 infrequentWordClass 
 								);
-		  }						
+		//  }						
 //console.log("hello from createJavascriptExampleRTLLTRFlexbox, individualBorder=",individualBorder);
 		  if (individualBorder) {thisCellDiv.classList.add(flexboxBorderClass);}						
           flexDiv.appendChild(thisCellDiv);
@@ -713,28 +703,20 @@ function createExampleDiv(
 	
 	// now (26/9/2026) separate version for RTL, returns flexbox instead of appending it to calling div
 	
-	// RTL for quotes
-	// optional audio for individual words
-	// optional directory for all individual words audio (otherwise have to specify directory for each word)
-	// optional specification of which words to highlight
-	//          - optional first item is class to be applied to highlight a word (default class is "emphasised-word")
-	// optional specification of which consonant(s) in each word should be highlighted (numbering starting at 1)
-	//          - optional first item is the class to be applied to highlight each consonant (default class is "highlighted-char")
-    //
- 	// when RTL 
-	//    optional audio for whole quote
-	//    in Hebrew input, include single bet with space on either side if want a space left (for example, for [is] translation)
-	//    in Hebrew, insert | (no spaces) between words which should be treated as a single unit
-
-
+	// RTL for Tanakh quotes
 
     // use this when want to display hebrew quote with (optional) translations under hebrew words
 	// optional audio for whole quote
 	// optional audio for individual words
+	// optional directory for all individual words audio (otherwise have to specify directory for each word)
 	// optional specification of which words to highlight
+	//          - optional first item is class to be applied to highlight a word (default class is "green-outline")
 	// optional specification of which consonant(s) in each word should be highlighted (numbering starting at 1)
-	//                         - first item is the class to be applied to highlight each consonant
-	// in Hebrew input, include single bet with space on either side if want a space left (for example, for [is] translation)
+	//          - optional first item is the class to be applied to highlight each consonant (default class is "highlighted-char")
+	// in Hebrew HTML, include single bet with space on either side if want a space left (for example, for [is] translation)
+	// in Hebrew HTML, insert | (no spaces) between words which should be treated as a single unit
+
+	// in HTML, all specifications of word number start at 1, not zero
 
 function createJavascriptExampleRTLFlexbox(
                            thisDiv, 
@@ -847,7 +829,8 @@ function createJavascriptExampleRTLFlexbox(
  
    flexDiv.classList.add("flex-container-rtl");
 
-   flexDiv.classList.add("flex-container-examples");
+  // flexDiv.classList.add("flex-container-examples");
+   flexDiv.classList.add("flex-container-tanakh-examples");
    if (border) {flexDiv.classList.add(flexboxBorderClass);}
 
    // only if direction = RTL
@@ -1026,7 +1009,16 @@ function createExampleDivRTL(
    //  col2 is Hebrew quote rtl
    //         created by calling createJavascriptExampleRTLFlexbox
    //  col3 is clickable audio symbol
-function createJavascriptTanakhExample(thisDiv, border=true){
+   //
+   //  alternative 4 column version when refLeft = true
+   //  col1 is biblical reference 
+   //  col2 is English translation 
+   //  col3 is Hebrew quote rtl
+   //         created by calling createJavascriptExampleRTLFlexbox
+   //  col4 is clickable audio symbol
+   
+   
+function createJavascriptTanakhExample(thisDiv, border=true, refLeft=false){
 	var i;
 
 //   <p class="js-translation">Then |Moses and Aaron| went and assembled all the elders of the Israelites. </p>
@@ -1038,57 +1030,93 @@ function createJavascriptTanakhExample(thisDiv, border=true){
    var translation = dataDiv.getElementsByClassName("js-translation")[0];
    var reference = dataDiv.getElementsByClassName("js-biblical-reference")[0];
    var audioPara = dataDiv.getElementsByClassName("js-audio");
+ 
    var thisTable = document.createElement("table");
-   thisTable.classList.add("tanakh-example-table");
-  // thisTable.classList.add("lesson-example-table");
-   
+   if (refLeft){thisTable.classList.add("tanakh-example-table-ref-left");}
+   else        {thisTable.classList.add("tanakh-example-table");}
+    
    var thisRow = document.createElement("tr");
    
+   if (refLeft){
+	  // column 1  biblical reference
+      //-----------------------------	  
+      var col1 = document.createElement("td");
+	  
+      var span = document.createElement('span');
+      span.innerHTML = reference.innerHTML;
+      span.classList.add("biblical-reference");
+      col1.appendChild(span);
+	   
+      thisRow.appendChild(col1);
+	 
+ 	  // column 2  translation
+      //-----------------------------	  
+     var col2 = document.createElement("td");
+
+     var sections = translation.innerHTML.trim().split(globalDivider1);
+     for (i = 0; i < sections.length; i++) {
+       var text0 = document.createTextNode(sections[i]);
+       var span0 = document.createElement("span");
+	    // put a border round every second block
+		// these are the emphasised words
+       span0.appendChild(text0);
+      //span0.innerHTML = text0;
+	  // if (i % 2 == 1) {span0.classList.add("emphasised-word"); }
+	   if (i % 2 == 1) {span0.classList.add("green-outline"); }
+
+	   col2.appendChild(span0);
+     }
+	 
+     thisRow.appendChild(col2);
+
+   }
+   else {
 	   
  	  // column 1  translation
       //-----------------------------	  
-   var col1 = document.createElement("td");
+     var col1 = document.createElement("td");
 
-   var sections = translation.innerHTML.trim().split(globalDivider1);
-   for (i = 0; i < sections.length; i++) {
-      var text0 = document.createTextNode(sections[i]);
-      var span0 = document.createElement("span");
+     var sections = translation.innerHTML.trim().split(globalDivider1);
+     for (i = 0; i < sections.length; i++) {
+       var text0 = document.createTextNode(sections[i]);
+       var span0 = document.createElement("span");
 	    // put a border round every second block
 		// these are the emphasised words
-      span0.appendChild(text0);
+       span0.appendChild(text0);
       //span0.innerHTML = text0;
-	 // if (i % 2 == 1) {span0.classList.add("emphasised-word"); }
-	  if (i % 2 == 1) {span0.classList.add("green-outline"); }
+	  // if (i % 2 == 1) {span0.classList.add("emphasised-word"); }
+	   if (i % 2 == 1) {span0.classList.add("green-outline"); }
 
-	  col1.appendChild(span0);
-   }
+	   col1.appendChild(span0);
+     }
 	   
 	  // column 1  biblical reference
       //-----------------------------	  
-   var br = document.createElement("br");
-   col1.appendChild(br);   
-   var span = document.createElement('span');
-   span.innerHTML = reference.innerHTML;
-   span.classList.add("biblical-reference");
-   col1.appendChild(span);
+      var br = document.createElement("br");
+      col1.appendChild(br);   
+      var span = document.createElement('span');
+      span.innerHTML = reference.innerHTML;
+      span.classList.add("biblical-reference");
+     col1.appendChild(span);
 	   
-   thisRow.appendChild(col1);
+     thisRow.appendChild(col1);
+   }	 
 
- 	  // column 2  hebrew (excluding clickable audio symbol)
+ 	  // column 2/3  hebrew (excluding clickable audio symbol)
       //---------------------------------------------------	  
-   var col2 = document.createElement("td");
+   var col23 = document.createElement("td");
 
-   col2.appendChild(createJavascriptExampleRTLFlexbox(thisDiv,  border, false));
+   col23.appendChild(createJavascriptExampleRTLFlexbox(thisDiv,  border, false));
 	   
-   thisRow.appendChild(col2);
+   thisRow.appendChild(col23);
    
- 	  // column 3  clickable audio symbol
+ 	  // column 3/4  clickable audio symbol
       //----------------------------------	  
    if (audioPara.length > 0){
-     var col3 = document.createElement("td");
+     var col34 = document.createElement("td");
      var audioText = audioPara[0].innerHTML.trim();
-     col3.appendChild(crExtendedAudioElementsSpan(audioText));
-     thisRow.appendChild(col3);
+     col34.appendChild(crExtendedAudioElementsSpan(audioText));
+     thisRow.appendChild(col34);
   }
 
 	
