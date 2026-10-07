@@ -1,0 +1,140 @@
+<!-- this is a comment -->
+ <!DOCTYPE html> 
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Biblical Hebrew Basics</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="styles/biblical_hebrew_main.css">
+<!--  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'> 
+  now downloaded and included in fonts directory
+-->
+  
+ <style>
+
+ </style>
+ 
+</head>
+
+<body>
+
+<header> 
+  <h1>Verbs</h1>
+</header>  
+
+<p class="hidden" id="htmlfilename">lessons-verbs.html</p>
+
+<!-- top menu added in JS -->
+
+<!-- main body of text -->
+<main class="main-color">
+<!-- testing section  --> 
+<!--  
+<p>Temporary testing section</p>
+ <p>TEST</p>
+ <p id="mytest">test</p>
+--> 
+<!--  END testing section --> 
+
+<h2  class="w3-container w3-card-4"  ><span> </span> heading</h2>
+  <div>
+ 
+ stuff about page
+  </div>
+
+ <h3 onclick="ShowHideNextSibling(event)" class="clickable" id="xx"><span class="button-plus"></span> 
+  first part</h3>
+<div class="hidden ">
+  text
+  
+</div>
+
+
+
+
+</main> 
+
+
+<footer>
+ <p>&#169; 2023 Susan Donath  </p>
+</footer>
+
+
+
+<!-- scripts -->
+<!-- scripts -->
+<!------------->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+"use strict";
+var i;
+ 
+  // verb reference tables
+  //----------------------
+  
+      // create  verb reference tables
+	  
+	 // non-generic verb tables with content specified in HTML 
+   var onloadTable = document.getElementsByClassName("onload-verb-table");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crVerbReferenceTablesFromHTML(thisDiv);
+    }
+ 
+   // create generic verb reference table
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-persons1and3");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTablePersons1and3(thisDiv);
+    }
+
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-person2");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTablePerson2(thisDiv);
+    }
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-main");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTableMain(thisDiv);
+    }
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-imperative");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTableImperative(thisDiv);
+    }
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-infinitive-construct-and-participle");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTableInfinitiveConstructAndActiveParticiple(thisDiv);
+    }
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-participle");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTableActiveParticiple(thisDiv);
+    }
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-infinitive-construct");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTableInfinitiveConstruct(thisDiv);
+    }
+	
+
+})	
+</script>
+
+<script src="scripts/biblical_hebrew_cr_top_menu.js"></script>
+
+<script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
+<script src="scripts/biblical_hebrew_lessons_example.js"></script>
+
+<script src="scripts/biblical_hebrew_reference_tables_utilities.js"></script>
+<script src="scripts/biblical_hebrew_reference_tables_verbs.js"></script>
+<script src="scripts/biblical_hebrew_reference_tables.js"></script>
+
+</body>
+</html>
