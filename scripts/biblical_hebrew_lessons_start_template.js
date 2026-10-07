@@ -21,8 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
    topMenu.classList.add("navbar");
    topMenu.classList.add("w3-card-4");
    
-   var pageRefs = ["index.html","alefbet.html","lessons.html","lessons-exercises.html","lessons-extra-vocabulary.html","reference-tables.html","resources.html"];
-   var pageRefsTexts = ["About","Alefbet","Lessons","Exercises","Extra vocabulary","Reference tables","Resources"];
+  // var pageRefs = ["index.html","alefbet.html","lessons.html","lessons-verbs.html","lessons-exercises.html","lessons-extra-vocabulary.html","reference-tables.html","resources.html"];
+  // var pageRefsTexts = ["About","Alefbet","Lessons","Verbs","Exercises","Extra vocabulary","Reference tables","Resources"];
+   var pageRefs = ["index.html","alefbet.html","lessons.html","lessons-verbs.html","lessons-exercises.html","reference-tables.html","resources.html"];
+   var pageRefsTexts = ["About","Alefbet","Lessons","Verbs","Exercises","Reference tables","Resources"];
    for (i=0; i < pageRefs.length; i++){
       var a = document.createElement('a');
 	  var thisRefText = pageRefsTexts[i];
