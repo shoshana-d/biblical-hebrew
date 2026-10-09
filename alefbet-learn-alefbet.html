@@ -41,25 +41,17 @@
 
 
 <body>
-
-<header > 
-  <h1>Learn alefbet</h1>
-</header>  
-<p class="hidden" id="htmlfilename">alefbet-learn-alefbet.html</p>
-
-<!-- top menu added in JS -->
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Learn alefbet</p>
+	 <p>alefbet.html</p>
+  </div>
 
 
 <!-- main body of text -->
-<main class="main-color">
-
-<!-- testing section   --> 
-<!-- 
-<p>Temporary testing section</p>
- <p>TEST</p>
- <p id="mytest">test</p>
---> 
-<!--  END testing section -->
+<main>
 
 
 <!-- INTRO -->
@@ -1721,9 +1713,9 @@ the stressed syllable.</p>
 </main> 
 
 
-<footer>
- <p>&#169; 2023 Susan Donath  </p>
-</footer>
+
+<!-- footer inserted here, created in Javascript on load -->
+
 
 
 
@@ -1739,7 +1731,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })	
 </script> 
 
-<script src="scripts/biblical_hebrew_cr_top_menu.js"></script>
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 <script src="scripts/biblical_hebrew_alefbet_flexbox_list.js"></script>

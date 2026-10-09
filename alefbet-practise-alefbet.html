@@ -38,31 +38,26 @@
 
 
 <body>
-
-<header> 
-  <h1 >Practise alefbet</h1>
-</header>  
-
-<p class="hidden" id="htmlfilename">alefbet-practise-alefbet.html</p>
-
-<!-- top menu added in JS -->
-
-<!-- main body of text -->
-<main class="main-color practise-alefbet">
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Practise alefbet</p>
+	 <p>alefbet.html</p>
+  </div>
 
 
-<!-- testing section  --> 
-<!-- 
-<p>Temporary testing section</p>
- <p>TEST</p>
- <p id="mytest">test</p>
---> 
-<!--  END testing section --> 
+<!-- main body of text, this is wider than standard main -->
+<main class="practise-alefbet">
+
 
  
-<!-- reference lists --> 
-<!--   need to create lists in Word, with left-to-right, then cut and paste into Notepad -->
-<!-- don't need to use:style="unicode-bidi: bidi-override; direction:ltr" -->
+<!-- 
+  reference lists 
+  need to create lists in Word, with left-to-right, then cut and paste into Notepad
+  don't need to use:style="unicode-bidi: bidi-override; direction:ltr" 
+  oct 2026 probably not relevant any more, most hebrew in lists is now separated into paras
+-->
 <div style=" background-color:Ivory;">
 <p>Suggestions for different ways you could use the <span class="start-audio"></span> practice exercises:</p>
 <ul>
@@ -1095,17 +1090,12 @@ w003_lo | w004_bah | w004_bo |w042_im | w007_al | w010_kol
 </main>
 
 
-<footer>
- <p >&#169; 2023 Susan Donath  </p>
-</footer>
+<!-- footer inserted here, created in Javascript on load -->
+
 
 <!-- scripts -->
 
-
-<script>
-</script>
-
-<script src="scripts/biblical_hebrew_cr_top_menu.js"></script>
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 

@@ -20,28 +20,25 @@
 </head>
 
 <body>
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>About this website</p>
+	 <p>index.html</p>
+  </div>
 
-<header> 
-  <h1 >About this website</h1>
-</header>  
-
-
-
-<!-- top menu -->
-<p class="hidden" id="htmlfilename">index.html</p>
-
-<!-- top menu added in JS -->
 
 <!-- main body of text -->
-<main class="main-color ">
+<main>
+
 <p style="text-align:center"><span class="hebrew40 soundclick" >!שָׁלוֹם</span><span hidden>alefbet/shalom</span></p>
 
  <p>This website is about Biblical Hebrew, the language of most of the 
    <span style="background-color:GhostWhite"><strong>Tanakh</strong></span>.
  </p>
  
-<div  style="background-color:GhostWhite"> 
-   <p ><strong>Tanakh</strong> 
+ <p class="no-margin" ><strong>Tanakh</strong> 
    is the Jewish name for the Hebrew Bible. It is an acronym based on the traditional Jewish division of
  the Hebrew Bible into: </p>
  
@@ -60,8 +57,7 @@
  Lamentations, Ecclesiastes, Esther, Daniel, Ezra, Nehemiah, Chronicles </li></ul>
     </li>
    </ul>
- </div>
- 
+
  
 <p>If you've decided to learn (or relearn!) Biblical Hebrew, this website is for you.</p>
  
@@ -160,15 +156,12 @@ By learning these "little" words should be abel to figure out which words are no
 </main>
 
 
-<footer>
- <p >&#169; 2023 Susan Donath  </p>
-</footer>
+<!-- footer inserted here, created in Javascript on load -->
+
 
 <!-- scripts -->
 
-<!--<script>var globalThisAudioSubfolder ="alephbet";</script> -->
-
-<script src="scripts/biblical_hebrew_cr_top_menu.js"></script>
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 

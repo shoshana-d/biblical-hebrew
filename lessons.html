@@ -253,24 +253,18 @@
 </head>
 
 <body>
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Lessons</p>
+	 <p>lessons.html</p>
+  </div>
 
-<header> 
-  <h1>Lessons</h1>
-</header>  
-
-<p class="hidden" id="htmlfilename">lessons.html</p>
-
-<!-- top menu added in JS -->
 
 <!-- main body of text -->
-<main class="main-color">
-<!-- testing section  --> 
-<!--  
-<p>Temporary testing section</p>
- <p>TEST</p>
- <p id="mytest">test</p>
---> 
-<!--  END testing section --> 
+<main>
+
 
 <h2  class="w3-container w3-card-4"  ><span> </span> Before we start</h2>
   <div>
@@ -2054,9 +2048,7 @@ include reference lists of suffixes on l' b' mi' k' el al et (with) lifnei, lear
 </main> 
 
 
-<footer>
- <p>&#169; 2023 Susan Donath  </p>
-</footer>
+<!-- footer inserted here, created in Javascript on load -->
 
 
 
@@ -2064,70 +2056,16 @@ include reference lists of suffixes on l' b' mi' k' el al et (with) lifnei, lear
 <!-- scripts -->
 <!------------->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
 
-"use strict";
-var i;
- 
-  // verb reference tables
-  //----------------------
-  
-      // create  verb reference tables
-	  
-	 // non-generic verb tables with content specified in HTML 
-   var onloadTable = document.getElementsByClassName("onload-verb-table");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crVerbReferenceTablesFromHTML(thisDiv);
-    }
- 
-   // create generic verb reference table
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-persons1and3");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTablePersons1and3(thisDiv);
-    }
-
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-person2");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTablePerson2(thisDiv);
-    }
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-main");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTableMain(thisDiv);
-    }
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-imperative");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTableImperative(thisDiv);
-    }
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-infinitive-construct-and-participle");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTableInfinitiveConstructAndActiveParticiple(thisDiv);
-    }
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-participle");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTableActiveParticiple(thisDiv);
-    }
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-infinitive-construct");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTableInfinitiveConstruct(thisDiv);
-    }
-	
-
-})	
 </script>
 <!--
 <script>var globalThisAudioSubfolder ="alephbet";</script> 
 <script src="scripts/biblical_hebrew_flexbox_list.js"></script>
-
--->
 <script src="scripts/biblical_hebrew_cr_top_menu.js"></script>
+-->
+
+<script src="scripts/biblical_hebrew_on_load.js"></script>
+
 
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 <script src="scripts/biblical_hebrew_lessons_example.js"></script>

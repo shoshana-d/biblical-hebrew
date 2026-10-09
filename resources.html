@@ -8,22 +8,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <link rel="stylesheet" href="styles/biblical_hebrew_main.css">
-  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
+<!--  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'> 
+  now downloaded and included in fonts directory
+-->
   
 </head>
 
 <body>
-
-<header> 
-  <h1>Resources</h1>
-</header>  
-
-<p class="hidden" id="htmlfilename">resources.html</p>
-
-<!-- top menu added in JS -->
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Resources</p>
+	 <p>resources.html</p>
+  </div>
 
 <!-- main body of text -->
-<main class="main-color ">   
+<main>   
+
 
 <!--
     blessing before Torah study 
@@ -105,15 +107,12 @@ and commanded us to occupy ourselves with words of Torah.
 </main>
 
 
-<footer>
- <p >&#169; 2023 Susan Donath  </p>
-</footer>
-
+<!-- footer inserted here, created in Javascript on load -->
 
 
 <!-- scripts -->
 
-<script src="scripts/biblical_hebrew_cr_top_menu.js"></script>
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 

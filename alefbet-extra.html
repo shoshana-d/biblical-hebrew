@@ -20,9 +20,7 @@
 }
 
 .alefbetplus-detail-item{
-	  border-style:solid;
-	  border-color:Gray;
-	  border-width:1px;
+  
 	  padding-left:5px;
 	  padding-right:5px;
 	  padding-bottom:5px;
@@ -76,25 +74,19 @@
 </head>
 
 <body>
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Alefbet extra</p>
+	 <p>alefbet.html</p>
+  </div>
 
-<header> 
-  <h1>Alefbet extra</h1>
-</header>  
-<p class="hidden" id="htmlfilename">alefbet-extra.html</p>
 
-<!-- top menu added in JS -->
 
 <!-- main body of text -->
-<main class="main-color ">
+<main>
 
-
-<!-- testing section    --> 
-<!--
-<p>Temporary testing section</p>
- <p>TEST</p>
- <p id="mytest">test</p>
- --> 
- <!-- END testing section --> 
 
 <p>This page contains extra information, deeper dives and background about Biblical Hebrew pronunciation.</p>
 
@@ -1618,76 +1610,17 @@ list are by no means all the possible translations for every word.</p>
 
 </div>
 
-  
-<!--
-    consonants and vowels pronunciation variations  
--->
- 
-<!--
-    history of vav and yod  
- -->
- 
-<!--
-   more about pronouncung tetragramaton
- -->
-
- 
- <!--
-    vowel names   
--->
-
-
-<!--
-   names of marks
--->
-
-<!--
-   When is secondlast syllable stressed?  
--->
-
-<!--
- u at start of word  
--->
- 
- 
-<!--
-    kametz/schwah words into syllables   
- -->
- 
-   
-<!--
-    kametz a or o
- -->
-
-<!-- kametz a or o -->
-
-   
-<!--
-    kametz a or o
- -->
-<!-- kametz a or o -->
-
-<!--
-  translations of Hebrew example words
--->
-
- <p> </p>
-
-
-
 
 
 </main>
 
-<footer>
- <p>&#169; 2023 Susan Donath  </p>
-</footer>
+
+<!-- footer inserted here, created in Javascript on load -->
+
 
 <!-- scripts -->
 
-<!--<script>var globalThisAudioSubfolder ="alephbet";</script> -->
-
-<script src="scripts/biblical_hebrew_cr_top_menu.js"></script>
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 

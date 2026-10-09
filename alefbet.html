@@ -16,29 +16,23 @@
   <meta name="google-site-verification" content="KKfS8dbt7xn4X0UohkHo2FT6ZGmh4vpkSIx0ReSN4pA" />
   
 <style>  
- .index-indented-text{
-   margin-left:25px;
-   margin-right:25px;
-} 
 </style> 
   
 </head>
 
 <body>
-
-<header> 
-  <h1 >Alefbet</h1>
-</header>  
-
-
-
-<!-- top menu -->
-<p class="hidden" id="htmlfilename">alefbet.html</p>
-
-<!-- top menu added in JS -->
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Alefbet</p>
+	 <p>alefbet.html</p>
+  </div>
 
 <!-- main body of text -->
-<main class="main-color ">
+<main>
+
+
  <h3><a href="alefbet-learn-alefbet.html" > Learn alefbet</a>&emsp;
     <a href="alefbet-practise-alefbet.html" > Practise alefbet</a>&emsp;
 	<a href="alefbet-extra.html" >Alefbet extra</a>
@@ -113,15 +107,12 @@ Many people find it helpful to have a study buddy (a "chaver" in the Jewish trad
 </main>
 
 
-<footer>
- <p >&#169; 2023 Susan Donath  </p>
-</footer>
+
+<!-- footer inserted here, created in Javascript on load -->
 
 <!-- scripts -->
 
-<!--<script>var globalThisAudioSubfolder ="alephbet";</script> -->
-
-<script src="scripts/biblical_hebrew_cr_top_menu.js"></script>
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 

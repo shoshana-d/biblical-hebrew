@@ -33,23 +33,19 @@ p.margin2px {
 </head>
 
 <body>
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Exercises</p>
+	 <p>lessons-exercises.html</p>
+  </div>
 
-
-<header> 
-  <h1>Exercises</h1>
-</header>  
-
-<p class="hidden" id="htmlfilename">lessons-exercises.html</p>
-
-<!-- top menu added in JS -->
 
 <!-- main body of text -->
-<main class="main-color">
-<!-- testing section  --> 
-<!-- <p>Temporary testing section</p>
- <p>TEST</p>
- <p id="mytest">test</p> --> 
-<!--  END testing section --> 
+<main>
+
+
 <p>
 This page has links to all the exercises in the Lessons.
 </p>
@@ -87,18 +83,12 @@ Practise finding ben, ben, banim, bnei in Tanakh  &emsp;
 
 </main> 
 
-
-<footer>
- <p>&#169; 2023 Susan Donath  </p>
-</footer>
-
+<!-- footer inserted here, created in Javascript on load -->
 
 
 <!-- scripts -->
 
-<!--<script>var globalThisAudioSubfolder ="alephbet";</script> -->
-
-<script src="scripts/biblical_hebrew_cr_top_menu.js"></script>
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 
