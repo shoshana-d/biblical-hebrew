@@ -72,8 +72,26 @@ textarea{overflow:auto}
 }
 */
 
-
+/*------ header fonts --------------------*/
 /*---------------------------------------*/
+
+/* comic-neue-regular */
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/comic-neue-v9-latin-regular.woff2') format('woff2');
+}
+
+/* comic-neue-700 (Bold) */
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/comic-neue-v9-latin-700.woff2') format('woff2');
+}
 
 
 /*------ redefinitions of tags-----------------------*/
@@ -88,7 +106,7 @@ h4{font-size:18px}
 h5{font-size:16px}
 h6{font-size:16px}
 h1,h2,h3,h4,h5,h6{
-	font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;
+	font-family:"Comic Sans", "Comic Sans MS", "Comic Neue", cursive, sans-serif;
 	font-weight:400;
 	margin:10px 0
 }
@@ -120,7 +138,9 @@ html{
   /* Forces the shrunken image to repeat horizontally and vertically 
   background-repeat: repeat; 
 */
+/*
   background-color:LightBlue;
+ */ 
 }
 
 body{
@@ -144,8 +164,15 @@ main {
 
 main.practise-alefbet{
 	max-width: 85ch;  
-}	
- 
+}
+
+	
+ .notused-main-color{
+   background-color:#FAF9F6;  /*off-white */
+   background-color: white;
+   
+ }	
+
 p {
   font-size: 1rem;              /* Baseline font size, equivalent to 16px on most browsers */
   line-height: 1.6;             /* Optimal line height for body text */
@@ -506,11 +533,6 @@ table{
 	
 /*--- colours -----------*/
 /*-----------------------*/ 
-.main-color{
-   background-color:#FAF9F6;  /*off-white */
-   background-color: white;
-   
- }	
 
     /*--- only in alefbet pages -----------*/
     /*-------------------------------------*/ 
@@ -1067,10 +1089,10 @@ outline: width style colour
 	padding-top:10px;
 	padding-bottom:10px;
 	
-	box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)/* from w3-card-4 */
+	box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);/* from w3-card-4 */
 
-  /*  margin-inline: -1.5rem;  Pulls the header into the parent's padding area */
-   /*  padding-inline: 1.5rem; Optional: Re-adds internal padding so text doesn't touch the screen edge */
+    margin-inline: -1.5rem;  /*Pulls the header into the parent's padding area */
+    padding-inline: 1.5rem; /*Optional:  Re-adds internal padding so text doesn't touch the screen edge */
 	
 }
 
@@ -1082,9 +1104,11 @@ outline: width style colour
 	border-bottom:solid;
 	border-top:solid;
 	border-width: 2px;
+	border-color:DarkGray;
 	margin-top:20px;
 	margin-bottom:20px;
 	padding:15px;
+	padding:8px;
 	background-color:AliceBlue;
 
     margin-inline: -1.5rem; /* Pulls the header into the parent's padding area */
@@ -1149,12 +1173,8 @@ outline: width style colour
    margin-right:30px;
    
    padding:5px 20px 20px;  /* top left/right bottom */
- /*  
-  background-image: url("../images/uneven-border-inkscape.jpg");
-   background-image: url("../images/uneven-border-inkscape-nofill.jpg");
-   background-repeat: no-repeat;
-  */ 
 /*  background-size: 100% 100%;     Forces width and height to match the div */
+	background-color:#f5f5f5;
 
 
 }
@@ -1163,7 +1183,7 @@ outline: width style colour
    font-size:16px;	
 }
 
-
+  /* probably not using this now Oct 2026 */
 .lesson-section{
 	margin-left:20px;
 	margin-right:20px;
@@ -1176,39 +1196,6 @@ outline: width style colour
 	background-color:#f5f5f5;
 }
 
-
-.lesson-exercise-header{
-	margin-top:20px;
-	margin-bottom:20px;
-	padding:10px;
-	background-color: PaleGreen;
-    background-color: LightGreen;
-    background-color: Aquamarine;
-    background-color: LightCoral;
-    background-color: Orange;
-	
-	cursor:pointer;
-}	
-   /* specified in HTML */
-.lesson-exercise-container{
-	border-style:solid;
-    border-color:Gray;
-	border-width:1px;
-	padding-left:5px;
-	padding-right:5px;
-	padding-bottom:5px;
-	padding-top:5px;
-	margin-bottom:30px;
-
-	background-color:HoneyDew;
-	background-color:Ivory;
-	background-color:LightYellow;
-	background-color:White;
- }
- 
-.lesson-exercise-background{
-   background-color:HoneyDew; 	
-}	
  
    /* used in lessons examples and exercises (not really tables)  */
    /*--------------------------------------------------------------*/
@@ -1290,6 +1277,47 @@ outline: width style colour
 
 
   /* 3 columns exercise */
+
+ /* specified in HTML */
+.lesson-exercise-header{
+	margin-top:20px;
+	margin-bottom:20px;
+	padding:10px;
+	background-color: PaleGreen;
+    background-color: LightGreen;
+    background-color: Aquamarine;
+    background-color: LightCoral;
+    background-color: Orange;
+	
+	cursor:pointer;
+	
+    margin-inline: -1.5rem; /* Pulls the header into the parent's padding area */
+    padding-inline: 1.5rem; /* Optional: Re-adds internal padding so text doesn't touch the screen edge */
+
+}	
+   /* specified in HTML */
+.lesson-exercise-container{
+	border-style:solid;
+    border-color:Gray;
+	border-width:1px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:5px;
+	padding-top:5px;
+	margin-bottom:30px;
+
+	background-color:HoneyDew;
+	background-color:Ivory;
+	background-color:LightYellow;
+	background-color:White;
+	
+ }
+ 
+.lesson-exercise-background{
+   background-color:HoneyDew; 	
+}	
 .lesson-exercise-table{
 	width:100%;
 }
@@ -1298,6 +1326,7 @@ outline: width style colour
 	vertical-align:top;
 	border-bottom:2px solid #ddd;
     padding:8px;
+	
 }
 .lesson-exercise-table td:first-child{
  /*  padding-left:16px;*/
