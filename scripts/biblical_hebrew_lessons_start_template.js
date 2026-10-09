@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
  // main
  //-----
    var main = document.getElementsByTagName("main")[0];
-   main.classList.add("main-color" );
+ //  main.classList.add("main-color" );
    
  // add table of contents created from class="lesson-heading" and class="lesson-exercise-header"
  //--------------------------------------------------------------------------------------------
@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
  
    
-   var lessonTitle = document.getElementsByClassName("lesson-title")[0];
-   lessonTitle.after(tocdiv);
+   var lessonTitle = document.getElementsByClassName("lesson-title");
+   lessonTitle[0].after(tocdiv);
 
  
   // lists of consonants, vowels, cantillation marks
@@ -170,8 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	var footerContent = document.createElement("p");
 	footerContent.innerHTML = "\u00A9 2023 Susan Donath ";
 	footer.appendChild(footerContent);
-    main.parentNode.insertBefore(footer, main.nextSibling);
-
+ //   main.parentNode.insertBefore(footer, main.nextSibling);
+   document.body.appendChild(footer);
    
    // create list of cantillation marks at the top of the page
    crCantillationList();
