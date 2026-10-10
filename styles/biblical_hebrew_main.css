@@ -94,6 +94,24 @@ textarea{overflow:auto}
 }
 
 
+/* Comic Relief Regular Variant (400) */
+@font-face {
+  font-family: 'Comic Relief';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/ComicRelief-Regular.woff2') format('woff2');
+}
+
+/* Comic Relief Bold Variant (700) */
+@font-face {
+  font-family: 'Comic Relief';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/ComicRelief-Bold.woff2') format('woff2');
+}
+
 /*------ redefinitions of tags-----------------------*/
 /*---------------------------------------------------*/
 /* redefinitions of h2 etc */
@@ -106,7 +124,8 @@ h4{font-size:18px}
 h5{font-size:16px}
 h6{font-size:16px}
 h1,h2,h3,h4,h5,h6{
-	font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",  sans-serif;
+	/*font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",  sans-serif;*/
+	font-family:"Comic Relief",  sans-serif;
 	font-weight:400;
 	margin:10px 0
 }
