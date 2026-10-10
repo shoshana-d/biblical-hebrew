@@ -814,7 +814,7 @@ function addVerbReferenceTableRow(thisTable, verbRootHTML,  rowTranslation, mfSy
    var row;
    var group;
   
-//test("hello from addVerbReferenceTableRow, verbPArtsHTML="+verbPartsHTML  ); 
+//console.log("hello from addVerbReferenceTableRow, verbPArtsHTML=",verbPartsHTML  ); 
 
     // check if any audio (audioHTML is array of arrays with audio dir added to soundfilename)
     var anyAudio = audio.length > 0;	 
@@ -839,7 +839,7 @@ function addVerbReferenceTableRow(thisTable, verbRootHTML,  rowTranslation, mfSy
 	   nVariants[group] = verbPartsHTML[group].length;
 	   if (nVariants[group] > maxVariants){maxVariants = nVariants[group];}
 	}	
-//test("hello from addVerbReferenceTableRow, nVariants=" +nVariants ); 
+//console.log("hello from addVerbReferenceTableRow, nVariants=" ,nVariants ); 
     		
    
 
@@ -855,12 +855,14 @@ function addVerbReferenceTableRow(thisTable, verbRootHTML,  rowTranslation, mfSy
         // first row (often, the only row)
           thisTableRow.classList.add("reference-table-border-top");
           var col1 = crRowHeadingCol(rowTranslation, mfSymbol);
-		  //col1.rowspan = maxVariants;
+          col1.classList.add("verb-reference-table-col1");
+		  col1.rowSpan = maxVariants;
+          thisTableRow.appendChild(col1);
       } else {
-		  // nothing in column 1 for subswequent rows
-          var col1 = document.createElement("td");
+		  // nothing in column 1 for subsequent rows
+         // var col1 = document.createElement("td");
  	  }	 
-      thisTableRow.appendChild(col1);
+    //  thisTableRow.appendChild(col1);
 
          // verb columns
 		 //-------------
@@ -873,6 +875,9 @@ function addVerbReferenceTableRow(thisTable, verbRootHTML,  rowTranslation, mfSy
 
          groupCol1.classList.add("hebrew25");
          groupCol2.classList.add("hebrew25");
+
+         groupCol1.classList.add("verb-reference-table-root-suffix");
+         groupCol2.classList.add("verb-reference-table-prefix");
 	
  		// noVerbPerson = this verb doesn't have instances of this person, from Excel
 		// noVerbPart = qatal, weqatal fem plural, from javascript
