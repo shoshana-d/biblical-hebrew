@@ -85,7 +85,7 @@ function lessonsEnglishExerciseAnswerEventListener(ev, tableid, alreadyDoneList,
 	
 	// check whether all correct answers have been identified
 	var thisTable = document.getElementById(tableid);
-	var nUnchecked = thisTable.getElementsByClassName("notchecked").length;
+	var nUnchecked = thisTable.getElementsByClassName("js-notchecked").length;
     if (nUnchecked == 0) {
 	   var tick = thisTable.getElementsByClassName("tick");
 	   tick[0].classList.remove("hidden");
