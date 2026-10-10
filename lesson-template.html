@@ -20,34 +20,31 @@
 </head>
 
 <body>
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Lesson title in page header</p>
+	 <p>lessons.html</p>
+  </div>
+
 
 <!-- main body of text -->
-<main>
-<div id="firstdiv">
-  <!-- set lesson title for heading -->
-<p class="hidden">XX</p>
+<div class="main-copy">
 
 
-<!-- testing section  --> 
-<!--  
-<p>Temporary testing section</p>
- <p>TEST</p>
- <p id="mytest">test</p>
- --> 
-<!--  END testing section --> 
-
-</div>
 
 
 <h2  class="lesson-title">Lesson title</h2>
 
   
 <h2 class="lesson-heading" id="heading1">Section heading</h2>
-<section class="lesson-section">
 <p>section text
 </p>
-</section>
 <hr>
+
+</div> 
+<div class="main-copy-width-85ch">
 
 
 
@@ -66,11 +63,15 @@
 
 
 
-</main> 
+</div> 
+
+
+<!-- footer inserted here, created in Javascript on load -->
 
 
 <!-- scripts -->
-<script src="scripts/biblical_hebrew_lessons_start_template.js"></script>
+
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 <script src="scripts/biblical_hebrew_lessons_example.js"></script>
 <script src="scripts/biblical_hebrew_lessons_exercise.js"></script>

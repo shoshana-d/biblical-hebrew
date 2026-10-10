@@ -9,32 +9,31 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <link rel="stylesheet" href="styles/biblical_hebrew_main.css">
-  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
-  
+<!--  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'> 
+  now downloaded and included in fonts directory
+-->  
   <style>
   </style>
   
   
 </head>
 
+
 <body>
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Lesson title in page header</p>
+	 <p>lessons.html</p>
+  </div>
+
 
 <!-- main body of text -->
-<main>
-<div id="firstdiv">
-  <!-- set lesson title for heading -->
-<p class="hidden">Lesson 3</p>
+<div class="main-copy">
 
 
-<!-- testing section  --> 
-<!--  
-<p>Temporary testing section</p>
- <p>TEST</p>
- <p id="mytest">test</p>
- --> 
-<!--  END testing section --> 
 
-</div>
 
 
 <h2  class="lesson-title">The prefix vav<span class="hebrew30 soundclick"> וּמֹשֶׁה</span><span class="hidden">words/_xx</span> "and Moses" </h2>
@@ -50,14 +49,17 @@ There are 6 Hebrew "words":
  which never occur as separate words 
 but are always attached to the beginning of another word. 
 These "words" occur more than 100,000 times in the Tanakh, so it's really important to learn them.
-</p>
+
+
 <p>In this lesson we learn about the most frequently occurring "word"   
-        <span class="hebrew30 ">ו</span>&ensp;</span>  
+        <span class="hebrew30 ">ו</span>&ensp; 
 	which is often translated as	"and".
 </p>
   
+  
+  
 <h3 class="lesson-heading">Words starting with   <span class="hebrew30 "> ו </span> </h3>
- <div class="lesson-section">
+
  <p>
 Hardly any words in the Tanakh actually have <span class="hebrew30 "> ו </span>
 as their first letter.
@@ -79,13 +81,11 @@ prefix "and" or a verb, about 50/50
 </p> 
  <span class="hebrew30 soundclick javascript-add-highlights">
 	     <span class="js-hebrew hidden">בְּנוֺ    </span><span class="js-highlights hidden">3</span>	
-         </span>
          <span class="hidden">words/w013_bno</span>
   </span>
   his son
  <span class="hebrew30 soundclick javascript-add-highlights">
 	     <span class="js-hebrew hidden">בָּנָיו  </span><span class="js-highlights hidden">3 4</span>	
-         </span>
          <span class="hidden">words/w013_banav</span>
   </span>
   his sons
@@ -99,13 +99,10 @@ four and a half verses in which Rebekah waters Abraham’s servant’s
 camels has 15 “and”s; the Revised English Bible has just five. It is impossible to miss the effect.
 </p>
 
- 
-  </div>
-  
+   
 
 <h3 class="lesson-heading">the prefix vav "and"
  </h3>
- <div class="lesson-section">
 		
 <p> The consonant <span class="hebrew30 soundclick"> וְ </span><span hidden>alefbet_consonants_and_vowels/v</span> 
  is often added to the beginning of a word. 
@@ -195,11 +192,11 @@ also often translated as "and".)
 </tr>
 </table>
 
+
 <h3 class="lesson-heading">Other translations: "but", "now", "since", "meanwhile"</h3>
-<div class="lesson-section">
 
 
-</div>
+
 
 <h3 class="lesson-heading"> 
    Which vowel?
@@ -234,7 +231,7 @@ also often translated as "and".)
             </div>
          </div> <!-- lessons-toc-flex-container-vocab-list-->
 </h3>
-<div class="lesson-section">
+
 
  <p>
  <span class="v-prefix hebrew25 soundclick"></span>&ensp; 
@@ -351,12 +348,16 @@ becomes
 <p>
 Only occurs infrequently
 </p>
-</div>
+
 
 
 
 
 <hr>
+
+
+</div> 
+<div class="main-copy-width-85ch">
 
 
 
@@ -380,11 +381,15 @@ no content yet
 
 
 
-</main> 
+</div> 
+
+
+<!-- footer inserted here, created in Javascript on load -->
 
 
 <!-- scripts -->
-<script src="scripts/biblical_hebrew_lessons_start_template.js"></script>
+
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 

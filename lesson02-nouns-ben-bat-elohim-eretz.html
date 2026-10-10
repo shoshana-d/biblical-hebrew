@@ -9,34 +9,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <link rel="stylesheet" href="styles/biblical_hebrew_main.css">
-  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
-  
+<!--  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'> 
+  now downloaded and included in fonts directory
+-->  
   <style>
-   
   </style>
-  
- <!-- ,
- -->
+ 
 </head>
 
 <body>
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Lesson title in page header</p>
+	 <p>lessons.html</p>
+  </div>
+
 
 <!-- main body of text -->
-<main>
-<div id="firstdiv">
-  <!-- set lesson title for heading -->
-<p class="hidden">Lesson 2</p>
+<div class="main-copy">
 
 
-<!-- testing section  --> 
-<!--   
-<p>Temporary testing section</p>
- <p>TEST</p>
- <p id="mytest">test</p>
---> 
-<!--  END testing section --> 
-
-</div>
 
 
 <h2  class="lesson-title">Lesson title</h2>
@@ -44,7 +38,7 @@
 <p class="lesson-synopsis"> this is the synopsis </p>
   
 <h3 class="lesson-heading" id="section1">What is a noun?</h3>
-<div class="lesson-section">
+<div class="xxlesson-section">
 <p>In first lesson we learned how to recognize names of God, people and places. These are called proper nouns.
 This lesson is also about nouns which are not names, these are called common nouns.
 </p>
@@ -71,7 +65,7 @@ Noah was six hundred <b>years</b> old when the  <b>Flood</b> came, <b>waters</b>
 </span>
 </h3>
 
-<div class="lesson-section">
+<div class="xxlesson-section">
 <p>Singular nouns don't have a particular form in Tanakh Hebrew (unlike German, say, where nouns always begin with a 
 capital letter). In later lessons we will learn some ways to recognize nouns in the text.
 </p>
@@ -166,7 +160,7 @@ a land flowing with milk and honey
 			<span><img src="images/suffixes/plural-ending-ei.jpg" class="soundclick vowel-image-plural-ending"></span>
 
 </h3>
-<div class="lesson-section">
+<div class="xxlesson-section">
 
  
   <table class="nouns-table" >
@@ -525,6 +519,13 @@ in expressions of age
 -->
 
 
+
+</div> 
+<div class="main-copy-width-85ch">
+
+
+
+
 <h2  class="lesson-exercise-header"  onclick="ShowHideNextSibling(event)" id="exercise1" >
 <span class="button-plus"></span>
   Exercise Practise finding ben, ben, banim, bnei in Tanakh 
@@ -698,14 +699,15 @@ May you have a full recompense from |the ETERNAL|,
   </div>
 
 
+</div> 
 
 
-
-</main> 
+<!-- footer inserted here, created in Javascript on load -->
 
 
 <!-- scripts -->
-<script src="scripts/biblical_hebrew_lessons_start_template.js"></script>
+
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
 <script src="scripts/biblical_hebrew_lessons_example.js"></script>
 <script src="scripts/biblical_hebrew_lessons_exercise.js"></script>

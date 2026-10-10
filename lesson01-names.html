@@ -9,30 +9,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <link rel="stylesheet" href="styles/biblical_hebrew_main.css">
-  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
-  
+<!--  <link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'> 
+  now downloaded and included in fonts directory
+-->  
    <style>
    </style>   
 </head>
 
 <body>
 
+<!-- page header with title, top menu, footer, toc (if any) added in JS 
+     top menu inserted here
+-->
+  <div id="js-onload-data" class="hidden">
+     <p>Lesson 1</p>
+	 <p>lessons.html</p>
+  </div>
+
+
 <!-- main body of text -->
-<main>
-<div id="firstdiv">
-  <!-- set lesson title for heading -->
-<p class="hidden">Lesson 1</p>
-
-
-<!-- testing section  --> 
-<!-- 
-<p>Temporary testing section</p>
- <p>TEST</p>
- <p id="mytest">test</p>
- -->  
-<!--  END testing section --> 
-
-</div>
+<div class="main-copy">
 
 
 
@@ -47,7 +43,6 @@ and if so, to find them in the Hebrew.
 
 
 <h3 class="lesson-heading " id="toc1" >Names of God in the Tanakh</h3>
-  <div class="lesson-section">
   
   <table class="lesson-vocab-table">
   <tr >
@@ -130,12 +125,10 @@ and if so, to find them in the Hebrew.
    </tr>
   
 </table>
-</div>
 
 
 
 <h3 class="lesson-heading " id="toc2">Names of people and places in the Tanakh</h3>
-  <div class="lesson-section">
   <p>Mostly can guess by spelling them out, 
   eg <span class="hebrew25 soundclick">דָּוִד</span><span class="hidden">alefbet_people_places/david</span> David,  
   <span class="hebrew25 soundclick">שָׂרָה</span><span class="hidden">alefbet_people_places/sarah</span> Sarah. 
@@ -145,58 +138,22 @@ and if so, to find them in the Hebrew.
   <li>
   Hebrew <span class="hebrew25">י</span> often becomes "j" in the English translation 
   </li>
-  <div class="flex-container-ltr flex-container-examples" >
-     <div>
-	    <span class="hebrew25 soundclick">יַעֲקֹב</span><span class="hidden">alefbet_people_places/yaakov</span>
-		  <p >Jacob</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">יוֺסֵף</span><span class="hidden">alefbet_people_places/yosef</span>
-		  <p >Joseph</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">יְהוּדָה</span><span class="hidden">alefbet_people_places/yhudah</span>
-		  <p >Judah</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">יְרוּשָׁלִַם</span><span class="hidden">alefbet_people_places/yrushalayim</span>
-		  <p >Jerusalem</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">יַרְדֵּן</span><span class="hidden">alefbet_people_places/yarden</span>
-		  <p >Jordan</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">אִיּוֺב</span><span class="hidden">alefbet_people_places/yov</span>
-		  <p >Job</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">יְהוֺשֻׁעַ</span><span class="hidden">alefbet_people_places/yhoshua</span>
-		  <p >Joshua</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">בִּנְיָמִן</span><span class="hidden">alefbet_people_places/binyamin</span>
-		  <p >Benjamin</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">אֵלִיָּהוּ</span><span class="hidden">alefbet_people_places/eliyahu</span>
-		  <p >Elijah</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">יוֺנָה</span><span class="hidden">alefbet_people_places/yonah</span>
-		  <p >Jonah</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">יְרִיחוֺ</span><span class="hidden">alefbet_people_places/yrecho</span>
-		  <p >Jericho</p>
-     </div>	
-     <div>
-	    <span class="hebrew25 soundclick">יְהוֺנָתָן</span><span class="hidden">alefbet_people_places/jonatan</span>
-		  <p >Jonathan </p>
-     </div>	
-	 <div> </div>
-  </div>
-  <p> </p>
+     <div class="javascript-example-ltr javascript-border"> </div>   
+     <div class="hidden">
+       <div class="js-hebrew"> <p>יַעֲקֹב </p>  <p> יוֺסֵף</p> <p>יְהוּדָה </p> <p> יְרוּשָׁלִַם</p> 
+                               <p>יַרְדֵּן </p> <p> אִיּוֺב</p> <p>יְהוֺשֻׁעַ </p> <p>בִּנְיָמִן </p> 
+                               <p> אֵלִיָּהוּ</p> <p>יוֺנָה </p> <p>יְרִיחוֺ </p> <p> יְהוֺנָתָן</p> 							   
+       </div>	
+       <p class="js-translation-individual">Jacob |Joseph |Judah |Jerusalem |
+	               Jordan |Job |Joshua |Benjamin |
+	               Elijah |Jonah |Jericho |Jonathan </p>
+       <p class="js-audio-individual">yaakov |yosef |yhudah |yrushalayim |
+            	   yarden|yov | yhoshua|binyamin |
+	               eliyahu |yonah | yrecho| jonatan</p>
+       <p class="js-audio-individual-dir"> alefbet_people_places </p>
+   </div>
+
+   <p> </p>
   <li> Hebrew <span class="hebrew25">י</span> sometimes becomes "i" in the English translation 
   </li>
   <div class="flex-container-ltr flex-container-examples" >
@@ -217,7 +174,7 @@ and if so, to find them in the Hebrew.
     <p> </p>
   <li> Hebrew <span class="hebrew25">ב</span> in the middle of a name becomes "b" in the English translation 
   </li>
-  <div class="flex-container-ltr flex-container-examples" >
+  <div class="flex-container-ltr flex-container-examples dotted-border" >
      <div>
 	    <span class="hebrew25 soundclick">אַבְרָם</span><span class="hidden">alefbet_people_places/avram</span>
 		  <p >Abram</p>
@@ -313,10 +270,10 @@ and if so, to find them in the Hebrew.
 </p>
 
 
- </div>
-
 <hr>
 
+</div> 
+<div class="main-copy-width-85ch">
 
 <!--  
       revised version of exercise 
@@ -535,12 +492,17 @@ and |God| spoke to him further </p>
 </div>
 
 
-</main> 
+</div> 
+
+
+<!-- footer inserted here, created in Javascript on load -->
 
 
 <!-- scripts -->
-<script src="scripts/biblical_hebrew_lessons_start_template.js"></script>
+
+<script src="scripts/biblical_hebrew_on_load.js"></script>
 <script src="scripts/biblical_hebrew_soundclick_hideshow_utilities.js"></script>
+<script src="scripts/biblical_hebrew_lessons_example.js"></script>
 <script src="scripts/biblical_hebrew_lessons_exercise.js"></script>
 <script src="scripts/biblical_hebrew_modal_popups.js"></script>
 
