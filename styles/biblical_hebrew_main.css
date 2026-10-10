@@ -162,10 +162,29 @@ main {
   padding-top:5px;
 }
 
-main.practise-alefbet{
+  /* use this when want entire page to be wide */
+main.width-85ch{
 	max-width: 85ch;  
 }
 
+  /* use these with div when want different widths on the same page */
+.main-copy,
+.main-copy-width-85ch{
+/* from chatgpt */	
+  width: 100%;            /* Keeps it fully responsive on mobile devices */
+  margin-inline: auto;    /* Centers the entire text block on large screens */
+  padding-inline: 1.5rem; /* Prevents text from touching mobile screen edges */
+  box-sizing: border-box; /* Ensures the padding is included in the width */
+  
+  padding-bottom:5px;
+  padding-top:5px;
+}
+.main-copy{
+  max-width: 65ch;        /* Limits your text layout to ~65 characters */
+}
+.main-copy-width-85ch{
+  max-width: 85ch;  
+}
 	
  .notused-main-color{
    background-color:#FAF9F6;  /*off-white */
@@ -1482,9 +1501,7 @@ outline: width style colour
 	margin-right:auto;
 } 
 */
-.reference-table th,
-.verb-reference-table th,
-.generic-verb-reference-table th{
+.reference-table th{
 	font-weight:normal;
     border-bottom:solid; 
     border-width:1px;
@@ -1495,7 +1512,6 @@ outline: width style colour
 	top:0;
 	z-index:3;
  }
-	
 .reference-table-border-top{
    border-top:solid; 
    border-width:1px;
@@ -1505,11 +1521,16 @@ outline: width style colour
    border-bottom:solid; 
    border-width:1px;
    border-color:LightGray;
-}	
+}
+.reference-table-section-heading   {
+	text-align:left;
+    padding-left:0;
+	padding-top:15px;
+	font-style:italic;
+    background-color:LemonChiffon;
+}
 	
-.reference-table td:nth-child(1),
-.verb-reference-table td:nth-child(1),
-.generic-verb-reference-table td:nth-child(1)   {
+.reference-table td:nth-child(1){
 	/* row heading, in column 1 */
    background-color:LemonChiffon;
    text-align:left;
@@ -1522,35 +1543,21 @@ outline: width style colour
    z-index: 2;
 }
 
-.reference-table td.reference-table-section-heading,
-.verb-reference-table td.reference-table-section-heading,
-.generic-verb-reference-table td.reference-table-section-heading   {
-    padding-left:0;
-	padding-top:15px;
-	font-style:italic;
-    background-color:LemonChiffon;
-}
-.verb-reference-table td.reference-table-translation-heading {
- 	/* heading for "you" part of verb */
-    padding-left:0;
-	padding-top:15px;
-	/*font-style:italic;*/
-    background-color:LemonChiffon;
-}
-
 .reference-table td:nth-child(n+2) {
 	/* all columns after the row heading columns */
 	text-align:right;
 	padding-right:30px;
 }
 
-.reference-table td.reference-table-infrequent,
-.verb-reference-table td.reference-table-infrequent{
+
+td.reference-table-infrequent{
      background-color:Wheat;
 	 background-color:Gainsboro;
 	 background-color:WhiteSmoke;
+	 color:Gray;
 	/* font-style:italic;*/
 }
+
 .reference-table-infrequent2{
      color:Gray;
 }
@@ -1558,6 +1565,31 @@ outline: width style colour
  
   /* verb reference tables */
   /*-----------------------*/
+
+.generic-verb-reference-table th{
+	font-weight:normal;
+    border-bottom:solid; 
+    border-width:1px;
+    background-color:LemonChiffon;
+	padding-left:5px;
+	padding-right:5px;
+	position:sticky;
+	top:0;
+	z-index:3;
+ }
+
+.generic-verb-reference-table td:nth-child(1)   {
+	/* row heading, in column 1 */
+   background-color:LemonChiffon;
+   text-align:left;
+   min-width:110px;
+   min-width:150px;
+   padding-right:10px;
+   padding-left:25px;
+   position: sticky;
+   left: 0;
+   z-index: 2;
+}
 
 .generic-verb-reference-table-hebrew-prefix{
 	padding-right:10px;
@@ -1582,8 +1614,21 @@ outline: width style colour
     padding-top:15px;
 	text-decoration:underline;
 }	
-
-.verb-reference-table td:nth-child(2n) {
+ 
+.verb-reference-table th{
+	font-weight:normal;
+    border-bottom:solid; 
+    border-width:1px;
+    background-color:LemonChiffon;
+	padding-left:5px;
+	padding-right:5px;
+	position:sticky;
+	top:0;
+	z-index:3;
+ }
+	
+     /* styling with pseudoclasses breaks when using rowspan */
+.oldverb-reference-table td:nth-child(2n) {
 	/* root+suffix columns */
 	padding-left:10px;
 	text-align:right;
@@ -1591,7 +1636,7 @@ outline: width style colour
     border-width:1px;
     border-color:LightGray;
 }
-.verb-reference-table td:nth-child(2n+1) {
+.oldverb-reference-table td:nth-child(2n+1) {
 	/* prefix columns */
 	padding-right:10px;
 	text-align:left;
@@ -1599,12 +1644,59 @@ outline: width style colour
     border-width:1px;
     border-color:LightGray;
 }
+    /* doesn't seem to be used */
+.oldverb-reference-table td.reference-table-translation-heading {
+ 	/* heading for "you" part of verb */
+    padding-left:0;
+	padding-top:15px;
+	/*font-style:italic;*/
+    background-color:LemonChiffon;
+}
 
-.verb-reference-table td:nth-child(2n).no-verb-person {
+.verb-reference-table-col1 {
+	/* row heading, in column 1 */
+   background-color:LemonChiffon;
+   min-width:110px;
+   min-width:150px;
+   padding-right:10px;
+   padding-left:25px;
+   position: sticky;
+   left: 0;
+   z-index: 2;
+   text-align:left;
+}
+.verb-reference-table-root-suffix {
+	/* root+suffix columns */
+	padding-left:10px;
+	text-align:right;
+    border-left:solid; 
+    border-width:1px;
+    border-color:LightGray;
+	background-color:white;
+	
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.verb-reference-table-prefix{
+	/* prefix columns */
+	padding-right:10px;
+	text-align:left;
+    border-right:solid; 
+    border-width:1px;
+    border-color:LightGray;
+	background-color:white;
+}
+
+.oldverb-reference-table td:nth-child(2n).no-verb-person {
 	/* root+suffix columns */
 	text-align:center;
 }
-.verb-reference-table td.verb-reference-table-frequent-col1{
+.verb-reference-table-no-verb-person {
+	/* root+suffix columns */
+	text-align:center;
+}
+
+.verb-reference-table-frequent-col1{
     border-top:solid; 
     border-bottom:solid; 
     border-left:solid; 
@@ -1613,7 +1705,7 @@ outline: width style colour
     border-color:red;
     border-color:green;
 }
-.verb-reference-table td.verb-reference-table-frequent-col2{
+.verb-reference-table-frequent-col2{
     border-top:solid; 
     border-bottom:solid; 
     border-right:solid; 
