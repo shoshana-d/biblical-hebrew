@@ -68,7 +68,8 @@ function lessonsExerciseAnswerEventListener(ev, tableid){
 	// check whether all correct answers have been identified
 	var thisTable = document.getElementById(tableid);
 	var nUnchecked = thisTable.getElementsByClassName("js-notchecked").length;
-    if (nUnchecked == 0) {
+//console.log("hello from lessonsExerciseAnswerEventListener, nUnchecked=", nUnchecked);
+   if (nUnchecked == 0) {
 	   var nWrong = thisTable.getElementsByClassName("lesson-exercise-wrong-answer").length;
        rewardModalExerciseTable(nWrong); 
     }	  

@@ -8,8 +8,8 @@ function crRewardModalDiv(thisid){
    modal.classList.add("reward-modal-background");
    modal.setAttribute("id", thisid);
    
-      //document.getElementById("main").appendChild(modal);
-   document.getElementsByTagName("main")[0].appendChild(modal);
+  // document.getElementsByTagName("main")[0].appendChild(modal);
+   document.getElementsByTagName("body")[0].appendChild(modal);
 
 }
 function crModalContentDiv(thisid){
@@ -212,8 +212,8 @@ function syllablesModal(correctAnswer){
    modalContent.appendChild(para1);
 
    modal.appendChild(modalContent);
-   //document.getElementById("main").appendChild(modal);
-   document.getElementsByTagName("main")[0].appendChild(modal);
+ //  document.getElementsByTagName("main")[0].appendChild(modal);
+   document.getElementsByTagName("body")[0].appendChild(modal);
    
    var thisSpec = document.getElementById("syllablesModal");
    thisSpec.style.display = "block";
@@ -257,8 +257,8 @@ function consonantVowelModal(message){
    modalContent.appendChild(para1);
 
    modal.appendChild(modalContent);
-   //document.getElementById("main").appendChild(modal);
-   document.getElementsByTagName("main")[0].appendChild(modal);
+ //   document.getElementsByTagName("main")[0].appendChild(modal);
+    document.getElementsByTagName("body")[0].appendChild(modal);
    
    var thisSpec = document.getElementById("consonantVowelModal");
    thisSpec.style.display = "block";
