@@ -813,6 +813,7 @@ outline: width style colour
 .female-symbol::after{
    content:"\2640"; 
 }
+  /* this is used in javascript reference tables where unicode for symbols used */
 .male-female-symbol-reference-table{ 
    /*font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;*/
    font-family: "Segoe UI Symbol", "Noto Sans Symbols", "DejaVu Sans", "Arial Unicode MS", sans-serif;
@@ -1498,19 +1499,6 @@ outline: width style colour
 	overflow-x:scroll; 
 	overflow-y:scroll; 
 	height:550px;
-}	
-.reference-table-div{
-	font-weight:normal;
-    border:solid; 
-    border-width:1px;
-	margin-left:20px;
-	margin-right:20px;
-	padding:5px;
-	background-color:Ivory;
-	background-color:#f5f5f5;
-	background-color:WhiteSmoke;/*#f5f5f5*/
-    background-color:LemonChiffon;
-	background-color:white;
 }
 
    /* center the table 
@@ -1577,7 +1565,7 @@ td.reference-table-infrequent{
 	/* font-style:italic;*/
 }
 
-.reference-table-infrequent2{
+td.reference-table-infrequent2{
      color:Gray;
 }
 
@@ -1679,10 +1667,12 @@ td.reference-table-infrequent{
    min-width:150px;
    padding-right:10px;
    padding-left:25px;
+   text-align:left;
+   vertical-align:top;
+   
    position: sticky;
    left: 0;
    z-index: 2;
-   text-align:left;
 }
 .verb-reference-table-root-suffix {
 	/* root+suffix columns */
