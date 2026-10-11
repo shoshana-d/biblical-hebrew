@@ -135,6 +135,8 @@ function crGenericVerbReferenceTableRow(thisRowHeader,mfSymbol, thisRowSpecs, la
    return thisRow;
 }
 
+
+ // blank row at the top of the table to set the column widths
 function crGenericVerbReferenceTableColgroup(nGroups){
     var i;
 	var j;
