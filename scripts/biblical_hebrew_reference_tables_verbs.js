@@ -224,10 +224,10 @@ function crGenericVerbReferenceTablePersons1and3(thisDiv){
 	
     thisTable.appendChild(crVerbTableHeaderRow(false,true));
    
-   // First person header row
-    thisTable.appendChild(crReferenceTableSectionHeaderRow("I, we",26));
+   // singular header row
+    thisTable.appendChild(crReferenceTableSectionHeaderRow("singular",26));
 	
-   // first person rows
+   // I
    // -----------------
 	var thisRowSpecs = [[tav+dagesh+chirik+yod,"","","",""],
 	                    [tav+dagesh+chirik+yod,"","","",vav],
@@ -235,18 +235,8 @@ function crGenericVerbReferenceTablePersons1and3(thisDiv){
 	                    ["","","","",vav+kamatz+alef]
 						];
     thisTable.appendChild(crGenericVerbReferenceTableRow("I","",thisRowSpecs));
-	var thisRowSpecs = [[nun+vav+dagesh,"","","",""],
-	                    [nun+vav+dagesh,"","","",vav],
-	                    ["","","","",nun],
-	                    ["","","","",vav+patach+nun]
-						];
-    thisTable.appendChild(crGenericVerbReferenceTableRow("we","",thisRowSpecs));
-
-   // third person rows
-   //------------------
-	
-   // Third person header row
-    thisTable.appendChild(crReferenceTableSectionHeaderRow("he, she, they",26));
+   // he, she
+   // -----------------
 	
 	var thisRowSpecs = [["","","","",""],
 	                    ["","","","",vav],
@@ -261,6 +251,18 @@ function crGenericVerbReferenceTablePersons1and3(thisDiv){
 						];
     thisTable.appendChild(crGenericVerbReferenceTableRow("she","",thisRowSpecs, true));
 	
+   // plural header row
+    thisTable.appendChild(crReferenceTableSectionHeaderRow("plural",26));
+   // we
+   // -----------------
+	var thisRowSpecs = [[nun+vav+dagesh,"","","",""],
+	                    [nun+vav+dagesh,"","","",vav],
+	                    ["","","","",nun],
+	                    ["","","","",vav+patach+nun]
+						];
+    thisTable.appendChild(crGenericVerbReferenceTableRow("we","",thisRowSpecs));
+   // they
+   // -----------------
 	var thisRowSpecs = [[vav+dagesh,"","","",""],
 	                    [vav+dagesh,"","","",vav],
 	                    [vav+dagesh,"","","",yod],
@@ -452,10 +454,10 @@ function crGenericVerbReferenceTableImperative(thisDiv){
 	
 	var thisRowSpecs = [["","","","",""]];
     thisTable.appendChild(crGenericVerbReferenceTableRow("speaking to ",maleSymbol,thisRowSpecs));
-	var thisRowSpecs = [[vav+dagesh,"","","",""]];
-    thisTable.appendChild(crGenericVerbReferenceTableRow("speaking to ",maleSymbol+maleSymbol,thisRowSpecs));
 	var thisRowSpecs = [[yod,"-chirik","","",""]];
     thisTable.appendChild(crGenericVerbReferenceTableRow("speaking to ",femaleSymbol,thisRowSpecs));
+	var thisRowSpecs = [[vav+dagesh,"","","",""]];
+    thisTable.appendChild(crGenericVerbReferenceTableRow("speaking to ",maleSymbol+maleSymbol,thisRowSpecs));
 	var thisRowSpecs = [[nun+kamatz+heh,"","","",""]];
     thisTable.appendChild(crGenericVerbReferenceTableRow("speaking to ",femaleSymbol+femaleSymbol,thisRowSpecs));
 
@@ -510,10 +512,10 @@ function crGenericVerbReferenceTableInfinitiveConstructAndActiveParticiple(thisD
 	
 	var thisRowSpecs = [["","","","",""],["","","","",mem]];
     thisTable.appendChild(crGenericVerbReferenceTableRow("describing ",maleSymbol,thisRowSpecs));
-	var thisRowSpecs = [[yod+finalMem,"-chirik","","",""],[yod+finalMem,"-chirik","","",mem]];
-    thisTable.appendChild(crGenericVerbReferenceTableRow("describing ",maleSymbol+maleSymbol,thisRowSpecs));
 	var thisRowSpecs = [[heh,"-kamatz","","",""],[heh,"-kamatz","","",mem]];
     thisTable.appendChild(crGenericVerbReferenceTableRow("describing ",femaleSymbol,thisRowSpecs));
+	var thisRowSpecs = [[yod+finalMem,"-chirik","","",""],[yod+finalMem,"-chirik","","",mem]];
+    thisTable.appendChild(crGenericVerbReferenceTableRow("describing ",maleSymbol+maleSymbol,thisRowSpecs));
 	var thisRowSpecs = [[tav,"-segol","","",""],[tav,"-segol","","",mem]];
     thisTable.appendChild(crGenericVerbReferenceTableRow(" ","",thisRowSpecs));
 	var thisRowSpecs = [[vav+cholam+tav,"","","",""],[vav+cholam+tav,"","","",mem]];
@@ -542,10 +544,10 @@ function crGenericVerbReferenceTableActiveParticiple(thisDiv){
 	
 	var thisRowSpecs = [["","","","",""],["","","","",mem]];
     thisTable.appendChild(crGenericVerbReferenceTableRow("describing ",maleSymbol,thisRowSpecs));
-	var thisRowSpecs = [[yod+finalMem,"-chirik","","",""],[yod+finalMem,"-chirik","","",mem]];
-    thisTable.appendChild(crGenericVerbReferenceTableRow("describing ",maleSymbol+maleSymbol,thisRowSpecs));
 	var thisRowSpecs = [[heh,"-kamatz","","",""],[heh,"-kamatz","","",mem]];
     thisTable.appendChild(crGenericVerbReferenceTableRow("describing ",femaleSymbol,thisRowSpecs));
+	var thisRowSpecs = [[yod+finalMem,"-chirik","","",""],[yod+finalMem,"-chirik","","",mem]];
+    thisTable.appendChild(crGenericVerbReferenceTableRow("describing ",maleSymbol+maleSymbol,thisRowSpecs));
 	var thisRowSpecs = [[tav,"-segol","","",""],[tav,"-segol","","",mem]];
     thisTable.appendChild(crGenericVerbReferenceTableRow(" ","",thisRowSpecs));
 	var thisRowSpecs = [[vav+cholam+tav,"","","",""],[vav+cholam+tav,"","","",mem]];
@@ -732,6 +734,7 @@ function crToggleInfrequentButton(){
 	
 }
 
+ // blank row at the top of the table to set the column widths
 function crVerbReferenceTableColgroup(nGroups){
     var i;
 	var j;
@@ -1039,7 +1042,7 @@ function crVerbReferenceTablePersons1and3(dataDiv, hideInfrequent ){
 	//----------------------------------------------
  	
 	var translationI = getPersonTranslation(dataDiv, "I");
-	var translationYou = getPersonTranslation(dataDiv, "you");
+//	var translationYou = getPersonTranslation(dataDiv, "you");
 	var translationHe = getPersonTranslation(dataDiv, "he");
 	var translationShe = getPersonTranslation(dataDiv, "she");
 	var translationWe = getPersonTranslation(dataDiv, "we");
@@ -1063,16 +1066,16 @@ function crVerbReferenceTablePersons1and3(dataDiv, hideInfrequent ){
 //	var verbTheyF = [["noVerbPart"],["noVerbPart"],yiktolHTML[9],vavyiktolHTML[9]];	
 	
 	var verbI = crArrayOfArrays(dataDiv, "js-I", hideInfrequent);
-	var verbWe = crArrayOfArrays(dataDiv, "js-we", hideInfrequent);
 	var verbHe = crArrayOfArrays(dataDiv, "js-he", hideInfrequent);
 	var verbShe = crArrayOfArrays(dataDiv, "js-she", hideInfrequent);
+	var verbWe = crArrayOfArrays(dataDiv, "js-we", hideInfrequent);
 	var verbThey = crArrayOfArrays(dataDiv, "js-they", hideInfrequent);
 	var verbTheyF = crArrayOfArrays(dataDiv, "js-they-fp", hideInfrequent);
 
     var IAudio = getAndAssembleAudio(dataDiv,"js-audio-I");
-    var weAudio = getAndAssembleAudio(dataDiv,"js-audio-we");
     var heAudio = getAndAssembleAudio(dataDiv,"js-audio-he");
     var sheAudio = getAndAssembleAudio(dataDiv,"js-audio-she");
+    var weAudio = getAndAssembleAudio(dataDiv,"js-audio-we");
     var theyAudio = getAndAssembleAudio(dataDiv,"js-audio-they");
     var theyFAudio = getAndAssembleAudio(dataDiv,"js-audio-they-fp");
 
@@ -1086,25 +1089,39 @@ function crVerbReferenceTablePersons1and3(dataDiv, hideInfrequent ){
     thisTable.appendChild(crVerbTableHeaderRow(imperative));
 	
 	var lastRow = false;
-
-   // 3rd person rows
+	
+    thisTable.appendChild(crReferenceTableSectionHeaderRow("singular",9));
+   // I
    // ---------------
-    thisTable.appendChild(crReferenceTableSectionHeaderRow("he, she, they",9));
-   
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationI, "", verbI,lastRow, IAudio);
+	
+   // he, she
+   // ---------------
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationHe, "", verbHe,lastRow, heAudio);
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationShe, "", verbShe,lastRow, sheAudio);
-   
+	
+    thisTable.appendChild(crReferenceTableSectionHeaderRow("plural",9));
+   // we
+   // ---------------
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationWe, "", verbWe,lastRow, weAudio);
+
+   // they
+   // ---------------
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationThey, "", verbThey,lastRow, theyAudio);
+	var lastRow = true;
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationThey, femaleSymbol+femaleSymbol, verbTheyF,lastRow, theyFAudio);
+   
+   
+   
+   // 3rd person rows
+   // ---------------
+   
+   
 
 	
    // First person rows
    // ------------------
-    thisTable.appendChild(crReferenceTableSectionHeaderRow("I, we",9));
 	
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationI, "", verbI,lastRow, IAudio);
-	var lastRow = true;
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, translationWe, "", verbWe,lastRow, weAudio);
 	
 
     // create a scrolling div to contain the table
@@ -1147,13 +1164,13 @@ function crVerbReferenceTablePerson2(dataDiv, hideInfrequent ){
 	
 	
 	var verbYouMS = crArrayOfArrays(dataDiv, "js-you-ms", hideInfrequent);
-	var verbYouMP = crArrayOfArrays(dataDiv, "js-you-mp", hideInfrequent);
 	var verbYouFS = crArrayOfArrays(dataDiv, "js-you-fs", hideInfrequent);
+	var verbYouMP = crArrayOfArrays(dataDiv, "js-you-mp", hideInfrequent);
 	var verbYouFP = crArrayOfArrays(dataDiv, "js-you-fp", hideInfrequent);
 	
 	var verbYouMSImp = [verbYouMS[0],verbYouMS[1],verbYouMS[2],imperativeHTML[0],verbYouMS[3]];
-	var verbYouMPImp = [verbYouMP[0],verbYouMP[1],verbYouMP[2],imperativeHTML[1],verbYouMP[3]];
 	var verbYouFSImp = [verbYouFS[0],verbYouFS[1],verbYouFS[2],imperativeHTML[2],verbYouFS[3]];
+	var verbYouMPImp = [verbYouMP[0],verbYouMP[1],verbYouMP[2],imperativeHTML[1],verbYouMP[3]];
 	var verbYouFPImp = [verbYouFP[0],verbYouFP[1],verbYouFP[2],imperativeHTML[3],verbYouFP[3]];
     
 	var imperativeAudio = getAndAssembleAudio(dataDiv,"js-audio-imperative");
@@ -1162,13 +1179,13 @@ function crVerbReferenceTablePerson2(dataDiv, hideInfrequent ){
 //	var imperativeAudioFS = [imperativeAudio[2]];
 //	var imperativeAudioFP = [imperativeAudio[3]];
     var youMSAudio = getAndAssembleAudio(dataDiv,"js-audio-you-ms");
-    var youFSAudio = getAndAssembleAudio(dataDiv,"js-audio-you-fs");
     var youMPAudio = getAndAssembleAudio(dataDiv,"js-audio-you-mp");
+    var youFSAudio = getAndAssembleAudio(dataDiv,"js-audio-you-fs");
     var youFPAudio = getAndAssembleAudio(dataDiv,"js-audio-you-fp");
 	
 	var youMSImpAudio = [youMSAudio[0],youMSAudio[1],youMSAudio[2],imperativeAudio[0],youMSAudio[3]];
-	var youMPImpAudio = [youMPAudio[0],youMPAudio[1],youMPAudio[2],imperativeAudio[1],youMPAudio[3]];
 	var youFSImpAudio = [youFSAudio[0],youFSAudio[1],youFSAudio[2],imperativeAudio[2],youFSAudio[3]];
+	var youMPImpAudio = [youMPAudio[0],youMPAudio[1],youMPAudio[2],imperativeAudio[1],youMPAudio[3]];
 	var youFPImpAudio = [youFPAudio[0],youFPAudio[1],youFPAudio[2],imperativeAudio[3],youFPAudio[3]];
 
     var thisTable = document.createElement("table");
@@ -1195,16 +1212,16 @@ function crVerbReferenceTablePerson2(dataDiv, hideInfrequent ){
 
 	var lastRow = false;
 	
-   // masc rows
+   // singular rows
 
    //--------------
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", maleSymbol, verbYouMSImp, lastRow,youMSImpAudio);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", maleSymbol+maleSymbol, verbYouMPImp, lastRow,youMPImpAudio);
-
-  // fem rows
-  //------------
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", femaleSymbol, verbYouFSImp, lastRow,youFSImpAudio);
-	lastRow = true;
+ 
+  // plural rows
+  //------------
+	thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", maleSymbol+maleSymbol, verbYouMPImp, lastRow,youMPImpAudio);
+    lastRow = true;
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, "addressing", femaleSymbol+femaleSymbol, verbYouFPImp, lastRow,youFPImpAudio);
 
     // create a scrolling div to contain the table
@@ -1363,14 +1380,14 @@ function crVerbReferenceTableImperative(dataDiv, hideInfrequent){
 
 	var imperativeHTML = crArrayOfArrays(dataDiv, "js-imperative" , hideInfrequent);
 	var imperativeMS = [imperativeHTML[0]];
-	var imperativeMP = [imperativeHTML[1]];
 	var imperativeFS = [imperativeHTML[2]];
+	var imperativeMP = [imperativeHTML[1]];
 	var imperativeFP = [imperativeHTML[3]];
 	
 	var audio = getAndAssembleAudio(dataDiv,"js-audio-imperative");
 	var audioMS = [audio[0]];
-	var audioMP = [audio[1]];
 	var audioFS = [audio[2]];
+	var audioMP = [audio[1]];
 	var audioFP = [audio[3]];
 	
 	
@@ -1390,8 +1407,8 @@ function crVerbReferenceTableImperative(dataDiv, hideInfrequent){
  	
 	var lastRow = false;
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol, imperativeMS, lastRow,audioMS);
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol+maleSymbol,imperativeMP, lastRow,audioMP);
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol,imperativeFS, lastRow,audioFS);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol+maleSymbol,imperativeMP, lastRow,audioMP);
     var lastRow = true;
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol+femaleSymbol,imperativeFP, lastRow,audioFP);
 
@@ -1423,15 +1440,15 @@ function crVerbReferenceTableParticiple(dataDiv, hideInfrequent){
 
 	var participleHTML = crArrayOfArrays(dataDiv, "js-participle", hideInfrequent);
 	var participleMS = [participleHTML[0]];
-	var participleMP = [participleHTML[1]];
 	var participleFS = [participleHTML[2]];
+	var participleMP = [participleHTML[1]];
 	var participleFP = [participleHTML[3]];
 	
  	
 	var audio = getAndAssembleAudio(dataDiv,"js-audio-participle");
 	var audioMS = [audio[0]];
-	var audioMP = [audio[1]];
 	var audioFS = [audio[2]];
+	var audioMP = [audio[1]];
 	var audioFP = [audio[3]];
 
   // table with participles
@@ -1449,8 +1466,8 @@ function crVerbReferenceTableParticiple(dataDiv, hideInfrequent){
 	var lastRow = false;
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol, participleMS, lastRow,audioMS);
 //test("hello from crVerbReferenceTableparticiple");	
-    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol+maleSymbol,participleMP, lastRow,audioMP);
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol,participleFS, lastRow,audioFS);
+    thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, maleSymbol+maleSymbol,participleMP, lastRow,audioMP);
     var lastRow = true;
     thisTable = addVerbReferenceTableRow(thisTable, verbRoot, thisTranslation, femaleSymbol+femaleSymbol,participleFP, lastRow,audioFP);
 
