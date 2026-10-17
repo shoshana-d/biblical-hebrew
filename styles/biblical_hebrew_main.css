@@ -181,11 +181,15 @@ main {
   padding-top:5px;
 }
 
-  /* use these when want entire page to be wide */
+  /* use these when want entire page to be wide 
+    - don't seem to work properly on mobile devices according to Chrome dev tools
+  */
 main.width-85ch{
 	max-width: 85ch;  
 }
-
+main.width-80ch{
+	max-width: 80ch;  
+}
   /* use these with div when want different widths on the same page */
 .main-copy,
 .main-copy-width-85ch{
