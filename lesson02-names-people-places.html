@@ -269,14 +269,165 @@ and |God| spoke to him further </p>
 </div>
 
 
+ <h2 id="header-names-and-places" class="w3-container w3-card-4 " ><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>
+ Practise names of people and places in the Tanakh </h2>
+ <div class="hidden">
+  <div class="flex-container-ltr flex-container-menu-items alefbet-exercise-menu-color">
+   <div id="show-people1"><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Names of people in the Torah<span class="start-audio"></span> </div>
+   <div id="show-people2"><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Names of people in later books<span class="start-audio"></span> </div>
+   <div id="show-people3"><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Names of places<span class="start-audio"></span> </div>
+   <div id="show-people4"><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Match names and places</div>
+   <div id="show-people6"><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Match names and places<span class="ear"></span></div>
+   <div id="show-people5"><span class="button-plus" onclick="showHideMenuItem(this, true)"></span> Match names and places<span class="ear"></span></div>
+ </div>
 
 
-</div>
-</div>
+<div id="people1" class="detail-item alefbet-exercise-color hidden">
+
+  <h3>Names of people in the Torah<span class="btn-close"  onclick="menuContentClose(this)"></span></h3>
+  <p>Click on <span class="button-plus"></span> under a word to see the name</p>
+
+  <div id="torah-names-hebrew"  class="hidden"><p>  אָדָם </p><p>    חַוָּה     </p><p> קַיִן      </p><p>  הֶבֶל </p><p>    נֹחַ     </p><p>  שֵׁם </p>
+  <p> חָם     </p><p>  יָףֶת      </p><p>  אַבְרָם </p><p> שָׂרַי      </p><p>      לוֹט </p><p>  הָגָר        </p><p>     יׅשְׁמָעֵאל     </p><p>  אַבְרָהָם </p>
+  <p>    שָׂרָה      </p><p>  יִצְחָק </p><p>   רׅבְקָה      </p><p>  עֵשָׂו </p><p> יַעֲקֹב      </p><p>  רָחֵל </p><p>  לֵאָה    </p> <p>    רְאוּבֵן </p>
+  <p>   שִׁמְעוֺן    </p>   <p>    לֵוִי   </p>  <p> יְהוּדָה  </p> <p>  יוֺסֵף    </p><p>     בִּנְיָמִין  </p>      <p> יִשְׂרָאֵל     </p>   <p> פַּרְעֹה     </p> 
+  <p>     מֺשֶׁה </p>  <p>  אַהֲרֺן    </p>  <p>   מִרְיָם    </p>  <p>   יְהוֺשֻׁעַ   </p>   
+  </div>
+  <p id="torah-names-sounds" class="hidden">adam| chava |kayin|hevel|noach| shem| ham| yafet| avram| sarai| lot | hagar| yishmael|avraham
+  |sarah| yitzchak| rivka| esav| yaakov| rachel| leah|reuven|shimon|levi|  yhudah| yosef| binyamin| yisrael| paroh| moshe
+  |aharon|miryam|yhoshua</p>
+  <p id="torah-names-tooltips" class="hidden">Adam|Eve|Cain|Abel|Noah|Shem|Ham|Japheth|Abram|Sarai|Lot|Hagar|Ishmael|Abraham|Sarah
+  |Isaac|Rebecca|Esau|Jacob|Rachel|Leah|Reuben|Simeon|Levi| Judah | Joseph | Benjamin|Israel |Pharaoh|Moses|Aaron|Miriam|Joshua  </p>
+  <p id="cr-torah1" class="javascript-list  hidden ">sourcehebrew: torah-names-hebrew |hebrewSeparateParas
+  |sourcesound: torah-names-sounds |id: torah1|tooltips:torah-names-tooltips| arrow|colorClass: vocab-color 
+  |audio: alefbet_people_places | containerclass: flex-container-heb-with-tooltips</p>
+ <p>
+ <span class="button-exercise" onclick="shuffleJavascriptList('torah1')">Shuffle</span>&emsp;&emsp;
+ <span class="button-exercise" onclick="reCreateJavascriptList('cr-torah1')">In order of appearance </span>
+ </p>
+
+</div> 
+
+<div id="people2" class="detail-item alefbet-exercise-color hidden">
+
+<h3>Names of people in later books<span class="btn-close"  onclick="menuContentClose(this)"></span></h3>
+<p>Click on <span class="button-plus"></span> under a word to see the name</p>
+  <div id="later-names-hebrew"  class="hidden">
+   <p>  דְּבוֹרָה</p><p>   חַנָּה</p><p>  שְׁמוּאֵל</p><p>  שָׁאוּל</p><p>  יוֹנָתָן</p><p>דָּוִד</p><p>גָּלְיָת  </p><p>   נָתָן</p>
+   <p>  אַבְשָׁלוֹם</p>
+   <p>   בַּת־שֶׁבֶע</p>
+   <p>  שְׁלֹמֹה </p><p>   מַֽלְכַּת־שְׁבָא</p><p>אֵלִיָּהוּ </p><p> אֱלִישָׁע</p>
+   <p> יְשַׁעְיָהוּ </p><p> יוֹנָה</p><p>אִיּוֹב</p><p>נָעֳמִי</p><p>רוּת</p><p>אֶסְתֵּר</p><p> מָרְדֳּכָי </p><p> הָמָן </p>
+  </div>
+  <p id="later-names-sounds" class="hidden">
+    dvorah |chanah | shmuel | shaul | jonatan | david | golyat | natan | avshalom | batsheve | shelomo 
+    | malkatshva | eliyahu | elisha | yshayahu | yonah | yov | noomi | rut | ester | mordochai|haman  </p>
+  <p id="later-names-tooltips" class="hidden">
+    Deborah| Hannah|Samuel|Saul|Jonathan|David|Goliath| Nathan|Absalom|Bathsheba|Solomon|Queen of Sheba|Elijah|Elisha|Isaiah
+    | Jonah|Job |Naomi |Ruth| Esther|Mordecai|Haman  </p>
+  <p  id="cr-later1" class="javascript-list  hidden ">sourcehebrew: later-names-hebrew |hebrewSeparateParas
+  |sourcesound: later-names-sounds |id: later1|tooltips:later-names-tooltips| arrow|colorClass: vocab-color 
+  |audio: alefbet_people_places | containerclass: flex-container-heb-with-tooltips</p>
+ <p>
+ <span class="button-exercise" onclick="shuffleJavascriptList('later1')">Shuffle</span>&emsp;&emsp;
+ <span class="button-exercise" onclick="reCreateJavascriptList('cr-later1')">In order of appearance </span>
+ </p>
+
+</div> 
+
+<div id="people3" class="detail-item alefbet-exercise-color hidden">
+
+  <h3>Names of places<span class="btn-close"  onclick="menuContentClose(this)"></span></h3>
+  <p>Click on <span class="button-plus"></span> under a word to see the name of the place</p>
+  <div id="places-hebrew"  class="hidden">
+  <p> גַן־עֵדֶן </p> <p> בָּבֶל </p> <p> כְּנָעַן </p> <p> הַנֶּגֶב </p> <p> מִצְרַיִם </p><p> סְדֹם </p> <p> עֲמֹרָה </p> <p> בֵּֽית־לֶחֶם </p>
+  <p> יַּרְדֵּן </p> <p> סִינַי </p><p> יְרֵחוֹ  </p><p> לְבָנוֹן </p> <p> יְרוּשָׁלִַם </p> 
+  </div>
+  <p id="places-sounds" class="hidden">
+  ganeden | bavel | knaan | hanegev | mitzrayim | sdom | amorah | betlechem | yarden | sinai 
+  | yrecho | lvanon | yrushalayim   </p>
+  <p id="places-tooltips" class="hidden">
+  Garden of Eden | Babel/Babylon | Canaan | The Negeb | Egypt | Sodom | Gomorrah 
+  | Bethlehem | Jordan | Sinai | Jericho | Lebanon | Jerusalem </p>
+  <p  id="cr-places" class="javascript-list  hidden ">sourcehebrew: places-hebrew |hebrewSeparateParas
+  |sourcesound: places-sounds |id: places|tooltips:places-tooltips| arrow|colorClass: vocab-color 
+  |audio: alefbet_people_places | containerclass: flex-container-heb-with-tooltips</p>
   <p>
-  <span class="button-exercise" onclick="reCreateLessonsExercise('testtable2')">Practise again</span>
+ <span class="button-exercise" onclick="shuffleJavascriptList('places')">Shuffle</span>&emsp;&emsp;
+ <span class="button-exercise" onclick="reCreateJavascriptList('cr-places')">In order of appearance </span>
+ </p>
+
+</div> 
+ 
+<div id="people4" class="detail-item alefbet-exercise-color hidden">
+
+ <h3>Match names and places<span class="btn-close"  onclick="menuContentClose(this)"></span></h3>
+  <p>Drag each Hebrew word in the top row to the correct <span class="query query-box-in-text"></span>  box in the bottom row.
+<br>OR Select a Hebrew word in the top row and then select the corresponding <span class="query query-box-in-text"></span>  box.
+<br>  You can hear the pronunciation by clicking on the selected Hebrew word.</p>
+   <p id="cr-names-and-places" class="onload-flex-drag-drop  hidden ">id:names-and-places
+   |questions:torah-names-tooltips :later-names-tooltips : places-tooltips
+   | answers:torah-names-hebrew : later-names-hebrew :places-hebrew
+   | sounds: torah-names-sounds : later-names-sounds : places-sounds
+   |  answersseparateparas 
+   |answerclass:flex-drag-drop-hebrew |questionclass:flex-drag-drop-english     |selection:7|audio: alefbet_people_places
+   | colorClass: vocab-color</p>
+   <p>
+ <!-- <span class="button-exercise" onclick="shuffleExistingFlexDragDrop('names-and-places')">Shuffle</span>&emsp;&emsp; -->
+  <span class="button-exercise" onclick="reCreateFlexDragDrop('cr-names-and-places')">Practise agsin</span>
   </p>
+
+</div> 
+
+
+<div id="people5" class="detail-item alefbet-exercise-color hidden">
+
+<h3><span class="ear"></span> Match names and places <span class="btn-close" onclick="menuContentClose(this)"></span></h3>
+ <p>Click on <span class="ear"></span>to hear the name or place. <br>
+ Then click on the corresponding name or place in the top row. </p>
+ 
+ <p id="cr-names-and-places2" class="onload-flex-drag-drop  hidden ">id:names-and-places2
+   |answers:torah-names-tooltips :later-names-tooltips : places-tooltips
+    | sounds: torah-names-sounds : later-names-sounds : places-sounds
+   |answerclass:flex-drag-drop-english     |selection:7|audio: alefbet_people_places
+   | colorClass: vocab-color |  matchsounds</p>
+ <p>
+   <p>
+ <!-- <span class="button-exercise" onclick="shuffleExistingFlexDragDrop('names-and-places2')">Shuffle</span>&emsp;&emsp; -->
+  <span class="button-exercise" onclick="reCreateFlexDragDrop('cr-names-and-places2')">Practise agsin</span>
+  </p>
+
+
 </div>
+
+
+<div id="people6" class="detail-item alefbet-exercise-color hidden">
+
+<h3><span class="ear"></span> Match names and places <span class="btn-close"  onclick="menuContentClose(this)"></span></h3>
+ <p>Click on <span class="ear"></span>to hear the name or place. <br>
+ Then click on the corresponding name or place in the top row.</p>
+ 
+ <p id="cr-names-and-places3" class="onload-flex-drag-drop  hidden ">id:names-and-places3
+   |answers:torah-names-hebrew :later-names-hebrew : places-hebrew
+   | answersseparateparas 
+   | sounds: torah-names-sounds : later-names-sounds : places-sounds
+   |answerclass:flex-drag-drop-hebrew     |selection:7|audio: alefbet_people_places
+   | colorClass: vocab-color |  matchsounds</p>
+ <p>
+   <p>
+<!--  <span class="button-exercise" onclick="shuffleExistingFlexDragDrop('names-and-places3')">Shuffle</span>&emsp;&emsp; -->
+  <span class="button-exercise" onclick="reCreateFlexDragDrop('cr-names-and-places3')">Practise again</span>
+  </p>
+
+
+</div>
+
+
+ </div>  
+<!-- end of names and places -->
+
+
+
 
 
 </div> 
@@ -297,6 +448,10 @@ and |God| spoke to him further </p>
 <script src="scripts/biblical_hebrew_exercise_table.js"></script>
 <script src="scripts/biblical_hebrew_exercise_table_revised.js"></script>
 -->
+
+<script src="scripts/biblical_hebrew_alefbet_flexbox_list.js"></script>
+<script src="scripts/biblical_hebrew_drag_drop.js"></script>
+<script src="scripts/biblical_hebrew_alefbet_exercises.js"></script>
 
 
 </body>
