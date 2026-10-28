@@ -7,6 +7,82 @@
 //-----------------------------------------------------------
 
 
+document.addEventListener('DOMContentLoaded', function() {
+   
+   var i;
+  
+  // single row of verb tables
+  //---------------------------
+	
+ // single row of generic verb table 
+   var onloadVerbRow = document.getElementsByClassName("onload-generic-verb-reference-single-row");
+   for (i = 0; i < onloadVerbRow.length; i++) {
+	  var thisDiv = onloadVerbRow[i];
+      crGenericVerbReferenceSingleRow(thisDiv);
+    }
+ 
+	
+ // single row of verb table 
+   var onloadVerbRow = document.getElementsByClassName("onload-verb-reference-single-row");
+   for (i = 0; i < onloadVerbRow.length; i++) {
+	  var thisDiv = onloadVerbRow[i];
+      crVerbReferenceSingleRow(thisDiv);
+    }
+ 
+ 
+  // verb reference tables
+  //----------------------
+  
+      // create  verb reference tables
+	  
+	 // non-generic verb tables with content specified in HTML 
+   var onloadTable = document.getElementsByClassName("onload-verb-table");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crVerbReferenceTablesFromHTML(thisDiv);
+    }
+ 
+   // create generic verb reference table
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-persons1and3");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTablePersons1and3(thisDiv);
+    }
+
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-person2");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTablePerson2(thisDiv);
+    }
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-main");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTableMain(thisDiv);
+    }
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-imperative");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTableImperative(thisDiv);
+    }
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-infinitive-construct-and-participle");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTableInfinitiveConstructAndActiveParticiple(thisDiv);
+    }
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-participle");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTableActiveParticiple(thisDiv);
+    }
+   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-infinitive-construct");
+   for (i = 0; i < onloadTable.length; i++) {
+	  var thisDiv = onloadTable[i];
+      crGenericVerbReferenceTableInfinitiveConstruct(thisDiv);
+    }
+	
+})
+
+
 //-----------------------------------------------------------
 //    used in both generic and specific tables
 //-----------------------------------------------------------

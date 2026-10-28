@@ -113,7 +113,7 @@ function convertHTMLToJavascript(thisHTML){
 
 
 function crRowHeadingCol(rowHeading, mfSymbol ){
-	// the heading for each table row
+	// the heading for each table row (column 1)
 	var i;
 	
 	var thisCol = document.createElement("td");
