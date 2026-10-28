@@ -455,6 +455,29 @@
 </div>
 
 
+
+ <h2  class="w3-container w3-card-4"><span class="button-plus" onclick="ShowHideParentNextSibling(this)"></span>
+ Personal pronouns (I, you, he, she, it, we, they)</h2>
+ <div class="hidden">
+   <div  class="onload-personal-pronouns-table">  </div>
+ </tr>
+ <p>
+ You <span class="female-symbol"></span><span class="female-symbol"></span> 
+    <span class="hebrew25">אַתֵּנָה </span>
+ occurs only once, when Jacob is speaking to Rachel and Leah in Genesis 31, verse 6.
+ <span class="green-outline">As you </span> know, I have served your father with all my might
+ </p>
+   <div class="javascript-example-rtl javascript-border"> </div>   
+  <div class="hidden">
+     <p class="js-hebrew"> וְאַתֵּ֖נָה יְדַעְתֶּ֑ן כִּ֚י בְּכׇל־כֹּחִ֔י עָבַ֖דְתִּי אֶת־אֲבִיכֶֽן׃  </p>	
+     <p class="js-emphasis">1 </p>	
+     <p class="js-audio">tanakh/gen-31-06-db</p>	
+  </div>
+
+ 
+ </div>
+
+
 </main> 
 
 <!-- footer inserted here, created in Javascript on load -->
@@ -469,95 +492,11 @@ document.addEventListener('DOMContentLoaded', function() {
 var i;
 
  // checking that consonants and vowels display properly
+ // this function is in reference_tables_utilities.js
    var check = document.getElementsByClassName("check-vowels-and-consonants");
    for (i = 0; i < check.length; i++) {
 	    checkVowelsAndConsonants(check[i]);
 	}
-	
- // checking that display of single row of generic verb table works
-   var onloadVerbRow = document.getElementsByClassName("onload-generic-verb-reference-single-row");
-   for (i = 0; i < onloadVerbRow.length; i++) {
-	  var thisDiv = onloadVerbRow[i];
-      crGenericVerbReferenceSingleRow(thisDiv);
-    }
- 
-	
- // checking that display of single row of verb table works
-   var onloadVerbRow = document.getElementsByClassName("onload-verb-reference-single-row");
-   for (i = 0; i < onloadVerbRow.length; i++) {
-	  var thisDiv = onloadVerbRow[i];
-      crVerbReferenceSingleRow(thisDiv);
-    }
- 
- 
-  // verb reference tables
-  //----------------------
-  
-      // create  verb reference tables
-	  
-	 // non-generic verb tables with content specified in HTML 
-   var onloadTable = document.getElementsByClassName("onload-verb-table");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crVerbReferenceTablesFromHTML(thisDiv);
-    }
- 
-   // create generic verb reference table
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-persons1and3");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTablePersons1and3(thisDiv);
-    }
-
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-person2");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTablePerson2(thisDiv);
-    }
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-main");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTableMain(thisDiv);
-    }
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-imperative");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTableImperative(thisDiv);
-    }
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-infinitive-construct-and-participle");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTableInfinitiveConstructAndActiveParticiple(thisDiv);
-    }
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-participle");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTableActiveParticiple(thisDiv);
-    }
-   var onloadTable = document.getElementsByClassName("onload-generic-verb-reference-table-infinitive-construct");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crGenericVerbReferenceTableInfinitiveConstruct(thisDiv);
-    }
-	
-  
-   // noun possessive suffixes table
-   //------------------------------
-   var onloadTable = document.getElementsByClassName("onload-possessive-suffix-table");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crPossessiveSuffixTable(thisDiv);
-   }
-	
-    // object pronouns on prepositions table
-   //----------------------
-   
-       // content specified in HTML
-   var onloadTable = document.getElementsByClassName("onload-object-suffix-on-preposition-table");
-   for (i = 0; i < onloadTable.length; i++) {
-	  var thisDiv = onloadTable[i];
-      crObjectSuffixOnPrepositionReferenceTable(thisDiv);
-   }
 	
 })	
 </script>
@@ -572,6 +511,7 @@ var i;
 <script src="scripts/biblical_hebrew_reference_tables_verbs.js"></script>
 <script src="scripts/biblical_hebrew_reference_tables.js"></script>
 
+<script src="scripts/biblical_hebrew_lessons_example.js"></script>
 
 </body>
 </html>
