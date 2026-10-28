@@ -689,7 +689,9 @@ outline: width style colour
 }	
 	
 .highlighted-char{
-    color:red;
+  /*  color:red;
+    color:Blue;*/
+	background-color:yellow;
 	font-weight:500; /* medium, 400=normal*/
 }	
 
@@ -1049,7 +1051,7 @@ outline: width style colour
    vertical-align:text-top;   
 }	
 .vowel-image-plural-ending {
-	/* used in lessons toc */
+	/* used in lessons toc and lesson 3 */
    width:56px; 
    height:28px; 
    width:50px; 
@@ -1058,21 +1060,13 @@ outline: width style colour
    vertical-align:text-top;  
    vertical-align:-7px;
 }
-.vowel-image-plural-ending-narrow {
+         .notusedvowel-image-plural-ending-narrow {
 	/* used in lessons toc */
    width:33px; 
    height:28px; 
    margin-top:-4px;
    vertical-align:text-top;   
-}
-	
-.vowel-image-select-exercise {
-   width:33px; 
-   height:33px; 
-   margin-top:-5px;
-   vertical-align:text-top; 
-
-}	
+          }
 
 /*-- cantillation sign image display  --*/
 /*----------------------------------------------*/
@@ -1526,24 +1520,6 @@ outline: width style colour
 	top:0;
 	z-index:3;
  }
-.reference-table-border-top{
-   border-top:solid; 
-   border-width:1px;
-   border-color:LightGray;
-}
-.reference-table-border-bottom{
-   border-bottom:solid; 
-   border-width:1px;
-   border-color:LightGray;
-}
-.reference-table-section-heading   {
-	text-align:left;
-    padding-left:0;
-	padding-top:15px;
-	font-style:italic;
-    background-color:LemonChiffon;
-}
-	
 .reference-table td:nth-child(1){
 	/* row heading, in column 1 */
    background-color:LemonChiffon;
@@ -1562,6 +1538,25 @@ outline: width style colour
 	text-align:right;
 	padding-right:30px;
 }
+
+.reference-table-border-top{
+   border-top:solid; 
+   border-width:1px;
+   border-color:LightGray;
+}
+.reference-table-border-bottom{
+   border-bottom:solid; 
+   border-width:1px;
+   border-color:LightGray;
+}
+.reference-table-section-heading   {
+	text-align:left;
+    padding-left:0;
+	padding-top:15px;
+	font-style:italic;
+    background-color:LemonChiffon;
+}
+	
 
 
 td.reference-table-infrequent{
@@ -1650,30 +1645,30 @@ td.reference-table-infrequent2{
  }
 	
      /* styling with pseudoclasses breaks when using rowspan */
-.oldverb-reference-table td:nth-child(2n) {
+       .oldverb-reference-table td:nth-child(2n) {
 	/* root+suffix columns */
 	padding-left:10px;
 	text-align:right;
     border-left:solid; 
     border-width:1px;
     border-color:LightGray;
-}
-.oldverb-reference-table td:nth-child(2n+1) {
+     }
+         .oldverb-reference-table td:nth-child(2n+1) {
 	/* prefix columns */
 	padding-right:10px;
 	text-align:left;
     border-right:solid; 
     border-width:1px;
     border-color:LightGray;
-}
+       }
     /* doesn't seem to be used */
-.oldverb-reference-table td.reference-table-translation-heading {
+         .oldverb-reference-table td.reference-table-translation-heading {
  	/* heading for "you" part of verb */
     padding-left:0;
 	padding-top:15px;
 	/*font-style:italic;*/
     background-color:LemonChiffon;
-}
+       }
 
 .verb-reference-table-col1 {
 	/* row heading, in column 1 */
@@ -1779,18 +1774,12 @@ td.reference-table-infrequent2{
 }
 
 
-/*-- consonant placeholder images in generic verb table --*/
+/*-- consonant placeholder images in generic verb table ---*/
 /*---------------------------------------------------------*/
 .generic-consonant-image,
 .generic-consonant-image-kamatz,
 .generic-consonant-image-chirik,
-.generic-consonant-image-segol,
-.generic-consonant-image-kamatz-white,
-.generic-consonant-image-chirik-white,
-.generic-consonant-image-schwah-white,
-.generic-consonant-image-patach-white,
-.generic-consonant-image-segol-white,
-.generic-consonant-image-tsere-white
+.generic-consonant-image-segol
 {
 	width:20px;
 	height:32px;
@@ -1811,6 +1800,26 @@ td.reference-table-infrequent2{
 .generic-consonant-image-segol{
 	content:url("../images/reference_tables/consonant_segol_large_blue_background.jpg");
 }
+
+
+/*-- consonant placeholder images used for possessive suffixes ---*/
+/*-----------------------------------------------------------------*/
+
+.generic-consonant-image-kamatz-white,
+.generic-consonant-image-chirik-white,
+.generic-consonant-image-schwah-white,
+.generic-consonant-image-patach-white,
+.generic-consonant-image-segol-white,
+.generic-consonant-image-tsere-white
+{
+	width:15px;
+	height:24px;
+	width:17px;
+	height:28px;
+    margin-top:-4px;
+    vertical-align:-7px;
+}
+
 .generic-consonant-image-kamatz-white{
 	content:url("../images/reference_tables/consonant_kamatz_large_white_background.jpg");
 }
@@ -2042,6 +2051,15 @@ td.reference-table-infrequent2{
   margin-top: 0;
 }
  
+ 	  /* used in alefbet exercises */
+.vowel-image-select-exercise {
+   width:33px; 
+   height:33px; 
+   margin-top:-5px;
+   vertical-align:text-top; 
+
+}	
+
 /* ------end of alefbet pages --------------*/ 
 
 /* -- drag drop flexboxes - left to right---*/
