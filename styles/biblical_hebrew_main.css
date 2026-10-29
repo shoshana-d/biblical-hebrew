@@ -681,7 +681,9 @@ outline: width style colour
 	white-space:nowrap;
 }
 
-  /* used in javascript lesson exercises and examples */
+  /* used in javascript lesson exercises and examples 
+     (outline, not border, to ensure that all of hebrew letter and vowels included)
+  */
 .green-outline{
 	outline: 2px solid green;
 	outline-offset:1px;
@@ -805,7 +807,7 @@ outline: width style colour
 	padding-right:4px;
 }
 
-/*------ male /female symbols used in lessons ---*/
+/*------ male /female symbols used in lessons, reference tables --------*/
 /*--------------------------------------------------------*/
 .male-symbol,
 .female-symbol{ 
@@ -856,8 +858,31 @@ outline: width style colour
 .k-prefix::after{  content:"\05DB\05BC\05B0";}
 .k-prefix-hyphen::after{ content:"\05DB\05BC\05B0\2010";}
 
+	/* plural suffixes used in lessons toc and lesson 3 */
+	
+	/* use this if formatting the img  .jpg */
+.vowel-image-plural-ending{
+   width:56px; 
+   height:28px; 
+   width:50px; 
+   height:25px; 
+   margin-top:-4px;
+   vertical-align:text-top;  
+   vertical-align:-7px;
+}
 
-
+.im-plural-suffix,
+.ot-plural-suffix,
+.ei-plural-suffix{
+   width:56px; 
+   height:28px; 
+   width:50px; 
+   height:25px; 
+   vertical-align:text-top;
+}
+.im-plural-suffix{ content:url("../images/suffixes/plural-ending-im.jpg");}
+.ot-plural-suffix{ content:url("../images/suffixes/plural-ending-ot.jpg");}
+.ei-plural-suffix{ content:url("../images/suffixes/plural-ending-ei.jpg");}
 
 /*------------------------------------------------------------------- 
    plus and minus signs used optionally with js class showhidenextsiblingclick
@@ -910,6 +935,7 @@ outline: width style colour
    cursor: pointer;
 }
 
+  /* is this used anywhere? */
 .button-plus-minus-tooltip{
 	 padding-top: 5px;
 }
@@ -957,19 +983,13 @@ outline: width style colour
 /*--------------------------------------------------------*/
 
 .button-exercise{
-  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;   border:none;
-   background-color:WhiteSmoke;
-   background-color:LightGreen;
-  background-color:PaleGreen;
-  background-color:#d3f8d3;
-   background-color: white;
+  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;  
+  font-family: 'Comic Relief',sans-serif;
+  background-color: white;
   
   border-style: solid;
   border-width: 1px;
   border-color: gray;
-	/* these are h3 */
-  /*display: block;*/
-  /*font-size: 1.17em;*/
   font-size: 18px;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -978,7 +998,6 @@ outline: width style colour
   padding-left:5px;
   padding-right:5px;
   border-radius:5px;
-  /*font-weight: bold;*/
   white-space: nowrap;
   
   box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
@@ -993,15 +1012,13 @@ outline: width style colour
 /*-----------------------------------------------------------------------*/
 
 .button-reference-table{
-  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif;   border:none;
-   background-color: white;
+  font-family:"Comic Sans", "Comic Sans MS", "Comic Neue",sans-serif; 
+  font-family: 'Comic Relief',sans-serif;
+  background-color: white;
   
   border-style: solid;
   border-width: 1px;
   border-color: gray;
-	/* these are h3 */
-  /*display: block;*/
-  /*font-size: 1.17em;*/
   font-size: 16px;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -1010,7 +1027,6 @@ outline: width style colour
   padding-left:5px;
   padding-right:5px;
   border-radius:5px;
-  /*font-weight: bold;*/
   white-space: nowrap;
   
   cursor:pointer;
@@ -1025,7 +1041,7 @@ outline: width style colour
   content:"\2212 infrequent"; 
 }	
 
-/*-- vowel image display  --*/
+/*-- vowel image display  ----------------------*/
 /*----------------------------------------------*/
 .vowel-image {
 	/* in main alefbet list */
@@ -1050,16 +1066,7 @@ outline: width style colour
    margin-top:-5px;
    vertical-align:text-top;   
 }	
-.vowel-image-plural-ending {
-	/* used in lessons toc and lesson 3 */
-   width:56px; 
-   height:28px; 
-   width:50px; 
-   height:25px; 
-   margin-top:-4px;
-   vertical-align:text-top;  
-   vertical-align:-7px;
-}
+
          .notusedvowel-image-plural-ending-narrow {
 	/* used in lessons toc */
    width:33px; 
@@ -1067,6 +1074,45 @@ outline: width style colour
    margin-top:-4px;
    vertical-align:text-top;   
           }
+
+
+/*-- consonant placeholder images used for possessive suffixes ---*/
+/*-----------------------------------------------------------------*/
+
+.generic-consonant-image-kamatz-white,
+.generic-consonant-image-chirik-white,
+.generic-consonant-image-schwah-white,
+.generic-consonant-image-patach-white,
+.generic-consonant-image-segol-white,
+.generic-consonant-image-tsere-white
+{
+	width:15px;
+	height:24px;
+	width:17px;
+	height:28px;
+    margin-top:-4px;
+    vertical-align:-8px;
+}
+
+.generic-consonant-image-kamatz-white{
+	content:url("../images/reference_tables/consonant_kamatz_large_white_background.jpg");
+}
+.generic-consonant-image-schwah-white{
+	content:url("../images/reference_tables/consonant_schwah_large_white_background.jpg");
+}
+.generic-consonant-image-chirik-white{
+	content:url("../images/reference_tables/consonant_chirik_large_white_background.jpg");
+}
+.generic-consonant-image-patach-white{
+	content:url("../images/reference_tables/consonant_patach_large_white_background.jpg");
+}
+.generic-consonant-image-segol-white{
+	content:url("../images/reference_tables/consonant_segol_large_white_background.jpg");
+}
+.generic-consonant-image-tsere-white{
+	content:url("../images/reference_tables/consonant_tsere_large_white_background.jpg");
+}
+
 
 /*-- cantillation sign image display  --*/
 /*----------------------------------------------*/
@@ -1799,44 +1845,6 @@ td.reference-table-infrequent2{
 }
 .generic-consonant-image-segol{
 	content:url("../images/reference_tables/consonant_segol_large_blue_background.jpg");
-}
-
-
-/*-- consonant placeholder images used for possessive suffixes ---*/
-/*-----------------------------------------------------------------*/
-
-.generic-consonant-image-kamatz-white,
-.generic-consonant-image-chirik-white,
-.generic-consonant-image-schwah-white,
-.generic-consonant-image-patach-white,
-.generic-consonant-image-segol-white,
-.generic-consonant-image-tsere-white
-{
-	width:15px;
-	height:24px;
-	width:17px;
-	height:28px;
-    margin-top:-4px;
-    vertical-align:-7px;
-}
-
-.generic-consonant-image-kamatz-white{
-	content:url("../images/reference_tables/consonant_kamatz_large_white_background.jpg");
-}
-.generic-consonant-image-schwah-white{
-	content:url("../images/reference_tables/consonant_schwah_large_white_background.jpg");
-}
-.generic-consonant-image-chirik-white{
-	content:url("../images/reference_tables/consonant_chirik_large_white_background.jpg");
-}
-.generic-consonant-image-patach-white{
-	content:url("../images/reference_tables/consonant_patach_large_white_background.jpg");
-}
-.generic-consonant-image-segol-white{
-	content:url("../images/reference_tables/consonant_segol_large_white_background.jpg");
-}
-.generic-consonant-image-tsere-white{
-	content:url("../images/reference_tables/consonant_tsere_large_white_background.jpg");
 }
 
 
