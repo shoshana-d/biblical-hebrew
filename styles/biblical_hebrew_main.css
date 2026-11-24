@@ -228,6 +228,7 @@ p.nomargin{margin-bottom:0;}
 
 h3.no-margin{margin:0;} 
 h3.nomargin{margin:0;} 
+h3.no-bottom-margin{margin-bottom:0};
 
 a{
 	background-color:transparent;
@@ -1669,16 +1670,9 @@ td.reference-table-infrequent2{
     border-color:LightGray;
  }
 
-
-
-
-.verb-reference-table-table-heading{
-	/* heading of each section eg main, imperative etc */
-    padding-top:15px;
-	text-decoration:underline;
-}	
  
-.verb-reference-table th{
+     /* styling with pseudoclasses breaks when using rowspan */
+   .oldverb-reference-table th{
 	font-weight:normal;
     border-bottom:solid; 
     border-width:1px;
@@ -1687,10 +1681,9 @@ td.reference-table-infrequent2{
 	padding-right:5px;
 	position:sticky;
 	top:0;
-	z-index:3;
- }
+	z-index:3; /* for scrolling bar */
+   }
 	
-     /* styling with pseudoclasses breaks when using rowspan */
        .oldverb-reference-table td:nth-child(2n) {
 	/* root+suffix columns */
 	padding-left:10px;
@@ -1707,6 +1700,10 @@ td.reference-table-infrequent2{
     border-width:1px;
     border-color:LightGray;
        }
+   .oldverb-reference-table td:nth-child(2n).no-verb-person {
+	/* root+suffix columns */
+	text-align:center;
+   }
     /* doesn't seem to be used */
          .oldverb-reference-table td.reference-table-translation-heading {
  	/* heading for "you" part of verb */
@@ -1716,6 +1713,18 @@ td.reference-table-infrequent2{
     background-color:LemonChiffon;
        }
 
+   /* column headings, qatal etc */
+.verb-reference-table-column-heading{
+	font-weight:normal;
+    border-bottom:solid; 
+    border-width:1px;
+    background-color:LemonChiffon;
+	padding-left:5px;
+	padding-right:5px;
+	position:sticky;
+	top:0;
+	z-index:3; /* for scrolling bar */
+}	
 .verb-reference-table-col1 {
 	/* row heading, in column 1 */
    background-color:LemonChiffon;
@@ -1752,10 +1761,6 @@ td.reference-table-infrequent2{
 	background-color:white;
 }
 
-.oldverb-reference-table td:nth-child(2n).no-verb-person {
-	/* root+suffix columns */
-	text-align:center;
-}
 .verb-reference-table-no-verb-person {
 	/* root+suffix columns */
 	text-align:center;
