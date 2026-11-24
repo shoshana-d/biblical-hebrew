@@ -101,12 +101,14 @@ function crVerbTableHeaderRow(imperative=false, rootSeparateColumns=false){
   
    var thisRow = document.createElement("tr");
 	   
-   var thisCol = document.createElement("th");
- 	  // thisCol.colSpan = "2";
+   //var thisCol = document.createElement("th");
+   var thisCol = document.createElement("td");
+   thisCol.classList.add("verb-reference-table-column-heading");	   
    thisRow.appendChild(thisCol);
 	   
 	for (i = 0; i < headings1.length; i++) {
-	   var thisCol = document.createElement("th");
+	  // var thisCol = document.createElement("th");
+	   var thisCol = document.createElement("td");
 	   if (rootSeparateColumns) {
 		   thisCol.colSpan = "5"; //prefix,root1,root2,root3,suffix (only in generic tables)
 	   }
@@ -119,7 +121,7 @@ function crVerbTableHeaderRow(imperative=false, rootSeparateColumns=false){
 		  thisCol.appendChild(document.createElement("br"));
 		  thisCol.appendChild(document.createTextNode(headings2[i]));
 	   }
-       //thisCol.classList.add("verb-reference-table-column-heading");	   
+       thisCol.classList.add("verb-reference-table-column-heading");	   
  	   thisRow.appendChild(thisCol);
 	}
 	
@@ -713,9 +715,10 @@ function crVerbReferenceTablesFromHTML(thisDiv){
 	   
 	   var containerDiv = document.createElement("div");
 	   
-	   var headingPara = document.createElement("p");
+	  // var headingPara = document.createElement("p");
+	   var headingPara = document.createElement("h3");
        headingPara.appendChild(document.createTextNode(tableHeading));
-       headingPara.classList.add("verb-reference-table-table-heading");
+       headingPara.classList.add("no-bottom-margin");
 	   
 	   containerDiv.appendChild(headingPara);
 	   
@@ -763,26 +766,8 @@ function crVerbReferenceTablesFromHTML(thisDiv){
     if (persons1and3Table.innerHTML.length > 0 ){thisDiv.appendChild(persons1and3Table);}
     if (person2Table.innerHTML.length > 0 ){thisDiv.appendChild(person2Table);}
     if (imperativeTable.innerHTML.length > 0 ){thisDiv.appendChild(imperativeTable);}
-
-	if ((infinitiveConstructTable.innerHTML.length > 0 ) || (participleTable.innerHTML.length > 0 )) {
-		// these are side by side if both required
-	   var flexDiv = document.createElement("div");
-	   flexDiv.classList.add("flex-container-ltr");
-	   var flexDivCell = document.createElement("div");
-	   if (infinitiveConstructTable.innerHTML.length > 0 ) {flexDivCell.appendChild(infinitiveConstructTable);}
-	   flexDiv.appendChild(flexDivCell);
-	   
-	   var flexDivCell = document.createElement("div");
-	   var thisPara = document.createElement("p");
-	   thisPara.appendChild(document.createTextNode(" "));
-       flexDivCell.appendChild(thisPara);
-	   flexDiv.appendChild(flexDivCell);
-	   
-	   var flexDivCell = document.createElement("div");
-	   if (participleTable.innerHTML.length > 0 ) {flexDivCell.appendChild(participleTable);}
-	   flexDiv.appendChild(flexDivCell);
-	   thisDiv.appendChild(flexDiv);
-	}
+	if (participleTable.innerHTML.length > 0 ) {thisDiv.appendChild(participleTable);}
+	if (infinitiveConstructTable.innerHTML.length > 0 ) {thisDiv.appendChild(infinitiveConstructTable);}
 }	
 
 function crToggleInfrequentButton(){

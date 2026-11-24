@@ -779,8 +779,6 @@ function createIntegerArray(first, last){
     return array;
 }
 
-
-
 function shuffleArray(array) {
 	var i;
 	var j;
@@ -798,8 +796,6 @@ function shuffleArray(array) {
       
     return array;
 }
-
-
 
 function removeFirstItem(thisString){
 	// used to remove  first item from item in list specifying source 

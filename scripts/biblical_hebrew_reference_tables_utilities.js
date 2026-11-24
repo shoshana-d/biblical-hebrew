@@ -3,7 +3,10 @@
 	//const noVerbPerson = "-"; 
     const verbDivider = "*";	
 
-
+  // hebrew letter consts are defined in biblical_hebrew_global_consts_utility_funcs_soundclick_hideshow.js
+  // this file must come AFTER biblical_hebrew_global_consts_utility_funcs_soundclick_hideshow.js
+  // and BEFORE biblical_hebrew_reference_tables.js and biblical_hebrew_reference_tables_verbs.js
+  
 function convertHTMLToJavascript(thisHTML){
  // thisHTML is a single word, ie lettername+lettername etc, no spaces	
 //	var i;
@@ -54,7 +57,8 @@ function convertHTMLToJavascript(thisHTML){
 	 "tav",
 	 "-"
      ];
-    var codeLetters = [
+   // hebrew letter consts are defined in biblical_hebrew_global_consts_utility_funcs_soundclick_hideshow.js
+   var codeLetters = [
 	 schwah, 
 	 chatafSegol, 
 	 chatafPatach, 
@@ -114,19 +118,41 @@ function convertHTMLToJavascript(thisHTML){
 
 function crRowHeadingCol(rowHeading, mfSymbol ){
 	// the heading for each table row (column 1)
+	// <br> inserted at each globalDivider1 (|) in non-Hebrew rowHeading
+	// optional mfSymbol added at end 
+	//     if mfSymbol  if any "(" in rowHeading, ")" added at end after mfSymbol
+	// if includes some Hebrew, this needs to be in a separate span with class hebrew25
+	//       rowHeading is "hebrew" hebrew text: English text
+	//         : is globalDivider2
 	var i;
+	var j;
 	
 	var thisCol = document.createElement("td");
-	 
-    var rowHeadingSplit = rowHeading.split(globalDivider1);
 	
-	for (i=0; i < rowHeadingSplit.length; i++){
+	var rowHeadingParts = rowHeading.split(globalDivider2);
+	 
+	for (i=0; i < rowHeadingParts.length; i++){
+	   var thisRowHeadingPart = rowHeadingParts[i];
+
+       if (thisRowHeadingPart.slice(0,6) == "hebrew"){
+		   var hebrew = thisRowHeadingPart.slice(6).trim();
+           var span1 = document.createElement("span");
+           span1.appendChild(document.createTextNode(hebrew));
+	       span1.classList.add("hebrew25");
+           thisCol.appendChild(span1);
+       } else {		   
+          var rowHeadingSplit = thisRowHeadingPart.split(globalDivider1);
+	
+	      for (j=0; j < rowHeadingSplit.length; j++){
 		
-       if (i > 0) { thisCol.appendChild(document.createElement("br"));  }
+             if (j > 0) { thisCol.appendChild(document.createElement("br"));  }
 	   
-       thisCol.appendChild(document.createTextNode(rowHeadingSplit[i]));
-   
-       if (mfSymbol.length > 0){
+             thisCol.appendChild(document.createTextNode(rowHeadingSplit[j]));
+   	      }
+	   }
+	}
+	// add mf symbol at end if required, with optional )
+    if (mfSymbol.length > 0){
          var span1 = document.createElement("span");
          span1.appendChild(document.createTextNode(" " + mfSymbol));
 	     span1.classList.add("male-female-symbol-reference-table");
@@ -137,8 +163,8 @@ function crRowHeadingCol(rowHeading, mfSymbol ){
             span2.appendChild(document.createTextNode(") "));
             thisCol.appendChild(span2);
 		 }	 
-       }
-	}
+    }
+
 
      return thisCol;	 
 
